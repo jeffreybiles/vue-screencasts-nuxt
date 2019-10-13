@@ -6,6 +6,12 @@
 
 <script>
   export default {
+    head() {
+      return {
+        title: '',
+        titleTemplate: `%s ${this.video.name} - Vue Screencasts`
+      }
+    },
     async asyncData({$axios, params}) {
       let response = await $axios.get(`/videos/${params.id}`)
       let video = response.data.data;
