@@ -10,18 +10,12 @@
 
 <script>
   export default {
-    data() {
+    async asyncData({$axios}) {
+      let response = await $axios.get('/videos')
+      let videos = response.data.data.map(v => v.attributes);
+
       return {
-        videos: [{
-          id: '16',
-          name: 'Intro to NuxtJS'
-        }, {
-          id: '1',
-          name: 'Intro to VueJS'
-        }, {
-          id: '71',
-          name: 'Advanced Techniques for Library X'
-        }]
+        videos
       }
     },
   }

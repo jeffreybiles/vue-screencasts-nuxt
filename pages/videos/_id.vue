@@ -6,23 +6,11 @@
 
 <script>
   export default {
-    data() {
+    async asyncData({$axios, params}) {
+      let response = await $axios.get(`/videos/${params.id}`)
+      let video = response.data.data.attributes;
       return {
-        videos: [{
-          id: '16',
-          name: 'Intro to NuxtJS'
-        }, {
-          id: '1',
-          name: 'Intro to VueJS'
-        }, {
-          id: '71',
-          name: 'Advanced Techniques for Library X'
-        }]
-      }
-    },
-    computed: {
-      video() {
-        return this.videos.find(v => v.id == this.$route.params.id)
+        video
       }
     }
   }
