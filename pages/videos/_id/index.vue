@@ -1,6 +1,9 @@
 <template>
   <div>
-    We are in video {{ video.name }}
+    We are in video {{ video.name }}.
+    <nuxt-link :to="`/videos/${video.id}/edit`">
+      <button>Edit</button>
+    </nuxt-link>
   </div>
 </template>
 
