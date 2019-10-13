@@ -10,6 +10,9 @@
 
 <script>
   export default {
+    head: {
+      title: 'Vue Screencasts - Video List'
+    },
     async asyncData({$axios}) {
       let response = await $axios.get('/videos')
       let videos = response.data.data.map(v => v.attributes);
