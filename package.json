@@ -17,6 +17,7 @@
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "miragejs": "^0.1.33"
+    "miragejs": "^0.1.33",
+    "@nuxtjs/vuetify": "^1.9.0"
   }
 }
