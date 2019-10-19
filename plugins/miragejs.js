@@ -1,4 +1,4 @@
-import { Server, Model, JSONAPISerializer } from 'miragejs';
+import { Server, Model, JSONAPISerializer, hasMany } from 'miragejs';
 
 let videos = [
   {
@@ -7,6 +7,7 @@ let videos = [
     description: `<p>ES2015 (aka ES6) has some great ways to make your code easier to write and understand. In this episode, we cover two different ways that you can make your code clearer by removing the 'function' keyword.</p>`,
     thumbnail: "https://vue-screencasts.s3.us-east-2.amazonaws.com/images/video-thumbnails/Thumbnail+-+Arrow+Function.png",
     videoUrl: "https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/38-+es2015-+functions+minus+'function'.mp4",
+    tagIds: [1],
   },
   {
     id: 2,
@@ -15,18 +16,37 @@ let videos = [
                   <p>Here are 3 cool things that template strings enable.</p>`,
     thumbnail: "https://vue-screencasts.s3.us-east-2.amazonaws.com/images/video-thumbnails/Thumbnail+-+Template+Strings.png",
     videoUrl: "https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/42-+ES2015+template+strings.mp4",
+    tagIds: [1],
   }
 ];
 
+let tags = [{
+  id: '1',
+  name: 'Javascript',
+  videoIds: [1, 2]
+}]
+
 new Server({
   fixtures: {
-    videos
+    videos,
+    tags
   },
   models: {
-    video: Model
+    video: Model.extend({
+      tags: hasMany()
+    }),
+    tag: Model.extend({
+      videos: hasMany()
+    })
   },
   serializers: {
-    application: JSONAPISerializer
+    application: JSONAPISerializer,
+    tag: JSONAPISerializer.extend({
+      include: ['videos']
+    }),
+    video: JSONAPISerializer.extend({
+      include: ['tags']
+    })
   },
   routes(){
     this.namespace = 'api';
