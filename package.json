@@ -14,7 +14,8 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-video-player": "^5.0.2"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.9.0"

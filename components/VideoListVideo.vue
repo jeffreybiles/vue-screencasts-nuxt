@@ -2,8 +2,8 @@
   <v-card width="340px" 
           hover 
           class="ma-2"
+          :to="`/watch/${video.id}`"
           >
-          <!-- :to="{ name: 'video-watch', params: { id: video.id }}" -->
     <v-img :src="video.thumbnail" />
     <v-card-title>{{ video.name }}</v-card-title>
     <v-card-text>
@@ -28,13 +28,8 @@
 </template>
 
 <script>
-// import { mapGetters } from 'vuex';
 export default {
   methods: {
-  //   ...mapGetters({
-  //     getTag: 'tags/get',
-  //     isPlayed: 'users/videoIsPlayed'
-  //   })
     getTag(tagId) {
       return this.tags.find(t => t.id == tagId);
     }
