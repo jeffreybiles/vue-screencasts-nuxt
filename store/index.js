@@ -1,5 +1,6 @@
 export const state = () => ({
   videos: [],
+  tags: [],
 })
 
 export const mutations = {
@@ -13,33 +14,16 @@ export const mutations = {
 
 export const actions = {
   async loadAllVideos({commit}){
-    let {data: videos, included: tags} = await getData('/videos', this.$axios)
+    let {data: videos} = await getData('/videos', this.$axios)
 
     deserializeVideos(videos);
     commit('SET_VIDEOS', videos.map(v => v.attributes));
-
-    deserializeTags(tags);
-    commit('SET_TAGS', tags.map(t => t.attributes))
   },
-  async loadVideo({commit}, {videoId}) {
-    let {data: video, included: tags} = await getData(`/videos/${videoId}`, this.$axios)
+  async loadAllTags({commit}) {
+    let {data: tags} = await getData('/tags', this.$axios)
 
-    deserializeVideos([video])
-    commit('SET_VIDEOS', [video.attributes]);
-
-    deserializeTags(tags);
-    commit('SET_TAGS', tags.map(t => t.attributes))
-  },
-  async loadTagAndRelationships({commit}, {tagId}){
-    let {included} = await getData(`/tags/${tagId}`, this.$axios)
-
-    let videos = included.filter(i => i.type === 'video')
-    deserializeVideos(videos)
-    commit('SET_VIDEOS', videos.map(v => v.attributes))
-
-    let tags = included.filter(i => i.type === 'tag')
     deserializeTags(tags)
-    commit('SET_TAGS', tags.map(t => t.attributes))
+    commit('SET_TAGS', tags.map(v => v.attributes));
   }
 }
 

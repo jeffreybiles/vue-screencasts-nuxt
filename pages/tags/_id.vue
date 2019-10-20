@@ -25,8 +25,9 @@ import VideoListVideo from '@/components/VideoListVideo'
         return this.tags.find(t => t.id == this.$route.params.id)
       }
     },
-    async fetch({store, params}) {
-      await store.dispatch('loadTagAndRelationships', {tagId: params.id});
+    async fetch({store}) {
+      await store.dispatch('loadAllVideos');
+      await store.dispatch('loadAllTags');
     },
   }
 </script>

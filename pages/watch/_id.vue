@@ -45,8 +45,9 @@ if (process.browser) {
 }
 
 export default {
-  async fetch({store, params}) {
-    await store.dispatch('loadVideo', {videoId: params.id})
+  async fetch({store}) {
+    await store.dispatch('loadAllVideos');
+    await store.dispatch('loadAllTags');
   },
   methods: {
 
