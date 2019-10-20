@@ -43,32 +43,21 @@ if (process.browser) {
   Vue.use(VueVideoPlayer)
 }
 
+import { mapState } from 'vuex';
+
 export default {
-  async asyncData({$axios, params}) {
-    let response = await $axios.get(`/videos/${params.id}`)
-    let video = response.data.data;
-
-    video.attributes.tag_ids = video.relationships.tags.data.map(t => t.id);
-
-    let tags = response.data.included;
-    tags.forEach(t => {
-      t.attributes.id = t.id;
-    })
-
-    return {
-      video: video.attributes,
-      tags: tags.map(t => t.attributes)
-    }
+  async fetch({store, params}) {
+    await store.dispatch('loadOneVideo', {videoId: params.id})
   },
   computed: {
     // ...mapGetters({
     //   getTag: 'tags/get',
     //   isPlayed: 'users/videoIsPlayed'
     // }),
-    // ...mapState({
-    //   videos: state => state.videos.videos,
-    //   currentUser: state => state.users.currentUser
-    // }),
+    ...mapState(['tags', 'videos']),
+    video(){
+      return this.videos.find(v => v.id == this.$route.params.id)
+    },
     playerOptions(){
       return {
         language: 'en',

@@ -13,29 +13,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import VideoListVideo from '../components/VideoListVideo'
 export default {
   components: {
     VideoListVideo
   },
-  async asyncData({$axios}) {
-    let response = await $axios.get('/videos')
-    let videos = response.data.data;
-
-    videos.forEach(v => {
-      v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
-      v.attributes.id = v.id
-    });
-
-    let tags = response.data.included;
-    tags.forEach(t => {
-      t.attributes.id = t.id;
-    })
-
-    return {
-      videos: videos.map(v => v.attributes),
-      tags: tags.map(t => t.attributes)
-    }
+  computed: {
+    ...mapState(['tags', 'videos'])
+  },
+  async fetch({store}) {
+    await store.dispatch('loadAllVideos');
   },
 }
 </script>
