@@ -23,9 +23,9 @@
         <div v-html="video.description"></div>
         
         <span v-for="tag_id in video.tag_ids" :key="tag_id">
-          <v-btn :to="{ name: 'tag', params: {id: tag_id}}"
-                color="green lighten-2"
-                class="mr-1 mb-2">
+          <v-btn color="green lighten-2"
+                 :to="`/tags/${tag_id}`"
+                 class="mr-1 mb-2">
             {{ getTag(tag_id).name }}
           </v-btn>
         </span>
