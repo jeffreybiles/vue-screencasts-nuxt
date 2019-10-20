@@ -14,48 +14,52 @@ export const mutations = {
 
 export const actions = {
   async loadAllVideos({commit}) {
-    let response = await this.$axios.get('/videos')
-    let videos = response.data.data;
+    let {data: videos, included: tags} = await getData('/videos', this.$axios)
 
-    videos.forEach(v => {
-      v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
-    });
-
-    let tags = response.data.included;
-    tags.forEach(t => {
-      t.attributes.id = t.id;
-    })
+    deserializeVideos(videos)
+    deserializeTags(tags)
 
     commit('SET_VIDEOS', videos.map(v => v.attributes))
     commit('SET_TAGS', tags.map(t => t.attributes))
   },
   async loadOneVideo({commit}, {videoId}) {
-    let response = await this.$axios.get(`/videos/${videoId}`)
-    let video = response.data.data;
+    let {data: video, included: tags} = await getData(`/videos/${videoId}`, this.$axios)
 
-    video.attributes.tag_ids = video.relationships.tags.data.map(t => t.id);
-
-    let tags = response.data.included;
-    tags.forEach(t => {
-      t.attributes.id = t.id;
-    })
+    deserializeVideos([video])
+    deserializeTags(tags)
 
     commit('SET_TAGS', tags.map(t => t.attributes))
     commit('SET_VIDEOS', [video.attributes])
   },
   async loadTagAndRelationships({commit}, {tagId}) {
-    let response = await this.$axios.get(`/tags/${tagId}`)
+    let {included} = await getData(`/tags/${tagId}`, this.$axios)
 
-    let videosOnTag = response.data.included.filter(i => i.type === 'video')
-    videosOnTag.forEach(v => {
-      v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
-    });
-    let tags = response.data.included.filter(i => i.type === 'tag')
-    tags.forEach(t => {
-      t.attributes.id = t.id
-    })
+    let videosOnTag = included.filter(i => i.type === 'video')
+    deserializeVideos(videosOnTag)
+    let tags = included.filter(i => i.type === 'tag')
+    deserializeTags(tags)
 
     commit('SET_VIDEOS', videosOnTag.map(v => v.attributes))
     commit('SET_TAGS', tags.map(t => t.attributes))
+  }
+}
+
+const deserializeTags = function(tags) {
+  tags.forEach(t => {
+    t.attributes.id = t.id;
+  })
+}
+
+const deserializeVideos = function(videos) {
+  videos.forEach(v => {
+    v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
+  });
+}
+
+const getData = async function(url, axios) {
+  let response = await axios.get(url)
+  return {
+    data: response.data.data,
+    included: response.data.included
   }
 }
