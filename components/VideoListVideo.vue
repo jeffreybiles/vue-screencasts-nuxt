@@ -18,8 +18,8 @@
                class="mr-2"
                small
                @mousedown.stop
+               :to="`/tags/${tag_id}`"
                >
-               <!-- :to="{ name: 'tag', params: {id: tag_id}}" -->
           {{ getTag(tag_id).name }}
         </v-btn>
       </span>
