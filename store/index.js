@@ -14,39 +14,21 @@ export const mutations = {
 
 export const actions = {
   async loadAllVideos({commit}) {
-    let {data: videos, included: tags} = await getData('/videos', this.$axios)
-
+    let {data: videos} = await getData('/videos', this.$axios)
     deserializeVideos(videos)
-    deserializeTags(tags)
-
     commit('SET_VIDEOS', videos.map(v => v.attributes))
+  },
+  async loadAllTags({commit}) {
+    let {data: tags} = await getData('/tags', this.$axios)
+    deserializeTags(tags)
     commit('SET_TAGS', tags.map(t => t.attributes))
   },
-  async loadOneVideo({commit}, {videoId}) {
-    let {data: video, included: tags} = await getData(`/videos/${videoId}`, this.$axios)
-
-    deserializeVideos([video])
-    deserializeTags(tags)
-
-    commit('SET_TAGS', tags.map(t => t.attributes))
-    commit('SET_VIDEOS', [video.attributes])
-  },
-  async loadTagAndRelationships({commit}, {tagId}) {
-    let {included} = await getData(`/tags/${tagId}`, this.$axios)
-
-    let videosOnTag = included.filter(i => i.type === 'video')
-    deserializeVideos(videosOnTag)
-    let tags = included.filter(i => i.type === 'tag')
-    deserializeTags(tags)
-
-    commit('SET_VIDEOS', videosOnTag.map(v => v.attributes))
-    commit('SET_TAGS', tags.map(t => t.attributes))
-  }
 }
 
 const deserializeTags = function(tags) {
   tags.forEach(t => {
     t.attributes.id = t.id;
+    t.attributes.video_ids = t.relationships.videos.data.map(v => v.id)
   })
 }
 

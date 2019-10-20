@@ -46,9 +46,6 @@ if (process.browser) {
 import { mapState } from 'vuex';
 
 export default {
-  async fetch({store, params}) {
-    await store.dispatch('loadOneVideo', {videoId: params.id})
-  },
   computed: {
     // ...mapGetters({
     //   getTag: 'tags/get',
