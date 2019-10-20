@@ -21,10 +21,7 @@ export default {
   },
   computed: {
     ...mapState(['tags', 'videos'])
-  },
-  async fetch({store}) {
-    await store.dispatch('loadAllVideos');
-  },
+  }
 }
 </script>
 
