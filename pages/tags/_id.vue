@@ -30,10 +30,6 @@ import VideoListVideo from '@/components/VideoListVideo'
         })
       }
     },
-    async fetch({store}) {
-      await store.dispatch('loadAllVideos');
-      await store.dispatch('loadAllTags');
-    },
   }
 </script>
 

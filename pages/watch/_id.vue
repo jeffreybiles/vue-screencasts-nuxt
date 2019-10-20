@@ -45,13 +45,6 @@ if (process.browser) {
 }
 
 export default {
-  async fetch({store}) {
-    await store.dispatch('loadAllVideos');
-    await store.dispatch('loadAllTags');
-  },
-  methods: {
-
-  },
   computed: {
     ...mapState(['videos', 'tags']),
     ...mapGetters({

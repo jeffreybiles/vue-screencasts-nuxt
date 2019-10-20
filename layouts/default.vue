@@ -10,6 +10,11 @@
   </v-app>
 </template>
 
+<script>
+export default {
+  middleware: 'load-tags-and-videos'
+}
+</script>
 <style>
 
 html {
