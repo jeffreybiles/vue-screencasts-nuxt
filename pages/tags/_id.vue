@@ -5,7 +5,7 @@
     </h1>
 
     <div class="d-flex flex-wrap">
-      <div v-for="video in videos" :key="video.id">
+      <div v-for="video in videosOnTag" :key="video.id">
         <VideoListVideo :video="video" :tags="tags" />
       </div>
     </div>
@@ -23,6 +23,11 @@ import VideoListVideo from '@/components/VideoListVideo'
       ...mapState(['tags', 'videos']),
       tag(){
         return this.tags.find(t => t.id == this.$route.params.id)
+      },
+      videosOnTag(){
+        return this.videos.filter(v => {
+          return this.tag.video_ids.includes(v.id.toString())
+        })
       }
     },
     async fetch({store}) {

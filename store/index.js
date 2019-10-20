@@ -44,6 +44,7 @@ async function getData(route, $axios) {
 function deserializeTags(tags) {
   tags.forEach(t => {
     t.attributes.id = t.id;
+    t.attributes.video_ids = t.relationships.videos.data.map(v => v.id)
   })
 }
 
