@@ -20,7 +20,10 @@ import VideoListVideo from '@/components/VideoListVideo'
       VideoListVideo
     },
     computed: {
-      ...mapState(['tags', 'videos']),
+      ...mapState({
+        tags: state => state.tags.tags,
+        videos: state => state.videos.videos
+      }),
       videosOnTag(){
         return this.videos.filter(v => {
           return this.tag.video_ids.includes(v.id.toString())
