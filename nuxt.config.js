@@ -15,6 +15,14 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
+  },
+  
   /*
   ** Customize the progress-bar color
   */
