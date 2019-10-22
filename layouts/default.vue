@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app color="green">
       <v-btn text to="/">Vue Screencasts</v-btn>
-      <v-btn text to="/admin/videos">Admin</v-btn>
+      <v-btn text to="/admin/videos" v-show="$auth.user && $auth.user.admin">Admin</v-btn>
       <v-spacer></v-spacer>
       <div v-if="$auth.loggedIn">
         {{ $auth.user.name }}
