@@ -22,7 +22,7 @@ export default {
       devtools: true
     }
   },
-  
+
   /*
   ** Customize the progress-bar color
   */
@@ -51,7 +51,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/auth'
   ],
   /*
   ** Axios module configuration
@@ -73,5 +74,19 @@ export default {
 
   server: {
     port: 8000
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/sessions', method: 'post', propertyName: 'token' },
+          logout: { url: '/sessions', method: 'delete' },
+          user: { url: '/sessions/user', method: 'get', propertyName: 'data.attributes' }
+        },
+        // tokenRequired: true,
+        tokenType: ''
+      }
+    }
   }
 }
