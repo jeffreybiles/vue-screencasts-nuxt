@@ -3,6 +3,17 @@
     <v-app-bar app color="green">
       <v-btn text to="/">Vue Screencasts</v-btn>
       <v-btn text to="/admin/videos">Admin</v-btn>
+
+      <v-spacer />
+      
+      <div v-if="$auth.loggedIn">
+        {{ $auth.user.email }}
+        <v-btn text>Logout</v-btn>
+      </div>
+      <div v-else>
+        <v-btn text to="/login">Login</v-btn>
+        <v-btn text to="/register">Register</v-btn>
+      </div>
     </v-app-bar>
     <v-content>
       <nuxt />
