@@ -15,10 +15,17 @@
     },
     methods: {
       async registerUser(registrationInfo){
-        await this.$axios.post('/users', registrationInfo)
-        this.$auth.loginWith('local', {
-          data: registrationInfo
-        })
+        try {
+          await this.$axios.post('/users', registrationInfo)
+
+          await this.$auth.loginWith('local', {
+            data: registrationInfo
+          })
+          this.$store.dispatch('snackbar/setSnackbar', {text: `Thanks for signing up, ${this.$auth.user.name}`})
+          this.$router.push('/')
+        } catch {
+          this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: 'There was an issue signing up.  Please try again.'})
+        }
       }
     }
   }

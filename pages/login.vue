@@ -14,10 +14,16 @@
       UserAuthForm
     },
     methods: {
-      loginUser(loginInfo){
-        this.$auth.loginWith('local', {
-          data: loginInfo
-        })
+      async loginUser(loginInfo){
+        try {
+          await this.$auth.loginWith('local', {
+            data: loginInfo
+          })
+          this.$store.dispatch('snackbar/setSnackbar', {text: `Thanks for signing in, ${this.$auth.user.name}`})
+          this.$router.push('/')
+        } catch {
+          this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: 'There was an issue signing in.  Please try again.'})
+        }
       }
     }
   }
