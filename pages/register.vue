@@ -14,8 +14,11 @@
       UserAuthForm
     },
     methods: {
-      registerUser(registrationinfo){
-        alert('You pressed a button')
+      async registerUser(registrationInfo){
+        await this.$axios.post('/users', registrationInfo)
+        this.$auth.loginWith('local', {
+          data: registrationInfo
+        })
       }
     }
   }
