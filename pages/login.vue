@@ -14,8 +14,10 @@
       UserAuthForm
     },
     methods: {
-      loginUser(logininfo){
-        alert('You pressed a button')
+      loginUser(loginInfo){
+        this.$auth.loginWith('local', {
+          data: loginInfo
+        })
       }
     }
   }

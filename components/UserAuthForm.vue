@@ -30,8 +30,8 @@
       return {
         valid: false,
         showPassword: false,
-        hasName: false,
         userInfo: {
+          name: '',
           email: '',
           password: ''
         },
