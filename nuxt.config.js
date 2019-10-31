@@ -73,7 +73,7 @@ export default {
   },
 
   server: {
-    port: 8000
+    port: process.env.PORT || 8000
   },
 
   auth: {
