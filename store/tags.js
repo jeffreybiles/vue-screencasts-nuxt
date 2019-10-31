@@ -41,7 +41,7 @@ export const actions = {
     });
     commit('CONNECT_TAG_TO_VIDEO', {video, tag});
   },
-  disconnectTagFromVideo({commit}, {video, tag}) {
+  disconnectFromVideo({commit}, {video, tag}) {
     this.$axios.post('video_tags/delete', {
       video_id: video.id,
       tag_id: tag.id
