@@ -45,6 +45,9 @@ export default {
     // '@nuxtjs/eslint-module'
     '@nuxtjs/vuetify'
   ],
+  vuetify: {
+    treeShake: false
+  },
   /*
   ** Nuxt.js modules
   */
