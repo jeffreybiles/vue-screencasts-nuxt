@@ -59,7 +59,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000/api'
+    baseURL: "https://vue-screencasts-server.herokuapp.com/api" || process.env.BASE_URL || 'http://localhost:3000/api'
   },
   /*
   ** Build configuration
@@ -73,7 +73,8 @@ export default {
   },
 
   server: {
-    port: process.env.PORT || 8000
+    port: process.env.PORT || 8000,
+
   },
 
   auth: {
