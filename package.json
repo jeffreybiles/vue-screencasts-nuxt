@@ -12,10 +12,14 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "heroku-postbuild": "nuxt build"
   },
+  "engines": {
+    "node": "10.15.3",
+    "yarn": "1.15.2"
+  },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.0.0",
+    "@nuxtjs/axios": "^5.8.0",
+    "vue-meta": "2.3.0",
+    "nuxt": "^2.10.2",
     "vue-video-player": "^5.0.2"
   },
   "devDependencies": {
