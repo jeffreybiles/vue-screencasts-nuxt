@@ -4,7 +4,7 @@
           class="ma-2"
           >
     <nuxt-link :to="{ path: `/watch/${video.id}`}">
-      <v-img :src="video.thumbnail" />
+      <v-img :src="video.thumbnail || ''" />
       <v-card-title>{{ video.name }}</v-card-title>
       <v-card-text>
         <!-- <div class="green--text" v-if="isPlayed(video.id)">
