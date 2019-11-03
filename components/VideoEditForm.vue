@@ -15,6 +15,9 @@
 
     <v-row>
       <v-col cols="12" sm="9" md="10">
+        <v-file-input v-model="video.thumbnailObject"
+                  label="Thumbnail URL" 
+                  @change="uploadFile()" />   
         <v-text-field v-model="video.videoUrl" 
                       label="Video URL" 
                       :rules="[required('video URL')]"
@@ -69,6 +72,11 @@
       return {
         valid: false,
         ...validations
+      }
+    },
+    methods: {
+      uploadFile(file) {
+        debugger
       }
     },
     props: ['video', 'saveVideo', 'buttonText']
