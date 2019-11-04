@@ -10,6 +10,9 @@
                 :rules="[required('description'), minLength('description', 20)]"/>
     <v-textarea v-model="video.code_summary"
                 label="Code Summary" />
+    <v-text-field v-model="video.duration"
+                  label="Duration (in seconds)" />
+    <DurationDisplay :duration="video.duration" />
     <v-text-field v-model="video.videoUrl" 
                   label="Video URL" 
                   :rules="[required('video URL')]"
@@ -24,7 +27,11 @@
 
 <script>
   import validations from '@/utils/validations';
+  import DurationDisplay from '@/components/DurationDisplay'
   export default {
+    components: {
+      DurationDisplay
+    },
     data() {
       console.log(validations)
       return {

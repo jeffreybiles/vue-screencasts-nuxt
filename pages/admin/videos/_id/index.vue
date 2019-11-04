@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="display-1 pt-3">{{video.name}}</div>
+    <VideoByline :video="video" />
     <div v-html="video.description"></div>
 
     <v-combobox :items="tags" 
@@ -21,8 +22,12 @@
 <script>
   import { mapState, mapGetters } from 'vuex';
   import _ from 'lodash';
+  import VideoByline from '@/components/VideoByline';
 
   export default {
+    components: {
+      VideoByline
+    },
     computed: {
       ...mapState({
         videos: state => state.videos.videos,
