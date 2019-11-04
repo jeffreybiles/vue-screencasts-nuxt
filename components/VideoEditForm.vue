@@ -20,7 +20,7 @@
     <v-text-field v-model="video.thumbnail" 
                   label="Thumbnail URL" 
                   :rules="[required('thumbnail URL')]" />
-   
+    <v-datetime-picker label="Select Datetime" v-model="video.published_at"> </v-datetime-picker>   
     <v-btn @click="saveVideo" :disabled="!valid">{{buttonText}}</v-btn>
   </v-form>
 </template>
