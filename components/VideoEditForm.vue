@@ -4,12 +4,9 @@
                   label="Name" 
                   counter=50
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
-    <v-textarea v-model="video.description" 
-                label="Description" 
-                counter=true
-                :rules="[required('description'), minLength('description', 20)]"/>
-    <v-textarea v-model="video.code_summary"
-                label="Code Summary" />
+    <MarkdownEditor :markdown="video.description" />
+    <MarkdownEditor :markdown="video.code_summary" rows="12" />
+    
     <v-text-field v-model="video.duration"
                   label="Duration (in seconds)" />
     <DurationDisplay :duration="video.duration" />
@@ -28,12 +25,14 @@
 <script>
   import validations from '@/utils/validations';
   import DurationDisplay from '@/components/DurationDisplay'
+  import MarkdownEditor from '@/components/MarkdownEditor'
+
   export default {
     components: {
-      DurationDisplay
+      DurationDisplay,
+      MarkdownEditor
     },
     data() {
-      console.log(validations)
       return {
         valid: false,
         ...validations
