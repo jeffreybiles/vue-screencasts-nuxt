@@ -2,7 +2,12 @@
   <em>
     <DurationDisplay :duration="video.duration" />
     &nbsp; | &nbsp;
-    Published on {{publishedAt.getMonth() + 1}}/{{publishedAt.getDate()}}/{{publishedAt.getFullYear()}}
+    <span v-if="publishedAt">
+      Published on {{publishedAt.getMonth() + 1}}/{{publishedAt.getDate()}}/{{publishedAt.getFullYear()}}
+    </span>
+    <span v-else>
+      This video is not yet published
+    </span>
   </em>
 </template>
 
@@ -15,7 +20,7 @@
     },
     computed: {
       publishedAt(){
-        return new Date();
+        return this.video.published_at
       },
     },
     props: ['video'],
