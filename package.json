@@ -18,7 +18,8 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0",
     "rsvp": "^4.8.5",
-    "vue-video-player": "^5.0.2"
+    "vue-video-player": "^5.0.2",
+    "vuetify-datetime-picker": "^2.1.1"
   },
   "devDependencies": {
     "miragejs": "^0.1.33",
