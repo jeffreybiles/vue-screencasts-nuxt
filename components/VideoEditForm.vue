@@ -4,8 +4,8 @@
                   label="Name" 
                   counter=50
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
-    <MarkdownEditor :markdown="video.description" />
-    <MarkdownEditor :markdown="video.code_summary" rows="12" />
+    <MarkdownEditor v-model="video.description" />
+    <MarkdownEditor v-model="video.code_summary" rows="12" />
     
     <v-text-field v-model="video.duration"
                   label="Duration (in seconds)" />

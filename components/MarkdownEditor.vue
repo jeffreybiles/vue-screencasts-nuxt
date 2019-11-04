@@ -1,14 +1,16 @@
 <template>
   <v-row>
     <v-col cols="12" sm="6">
-      <v-textarea v-model="markdown" 
+      <v-textarea :value="value" 
                   label="Description" 
                   counter=true
                   :rows="rows || 9"
+                  ref="textarea"
+                  @input="updateMarkdown"
                   :rules="[required('description'), minLength('description', 20)]"/>      
     </v-col>
     <v-col cols="12" sm="6">
-      <MarkdownDisplay :markdown="markdown" />
+      <MarkdownDisplay :markdown="value" />
     </v-col>
   </v-row>
 </template>
@@ -24,7 +26,13 @@
     data() {
       return {...validations}
     },
-    props: ['markdown', 'rows']
+    methods: {
+      updateMarkdown(x, y, z){
+        let markdown = this.$refs.textarea.internalValue
+        this.$emit('input', markdown);
+      }
+    },
+    props: ['value', 'rows']
   }
 </script>
 
