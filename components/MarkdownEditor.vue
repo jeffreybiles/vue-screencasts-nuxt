@@ -24,11 +24,6 @@
     data() {
       return {...validations}
     },
-    computed: {
-      mark(){
-        return this.markdown;
-      }
-    },
     props: ['markdown', 'rows']
   }
 </script>
