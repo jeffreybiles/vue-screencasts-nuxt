@@ -12,6 +12,9 @@
                     hide-selected
                     return-object>
     </v-combobox>
+
+    <v-btn :to="`/admin/videos/${video.id}/edit`">Edit</v-btn>
+    <v-btn :to="`/watch/${video.id}`">Watch</v-btn>
   </div>
 </template>
 

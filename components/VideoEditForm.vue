@@ -8,6 +8,8 @@
                 label="Description" 
                 counter=true
                 :rules="[required('description'), minLength('description', 20)]"/>
+    <v-textarea v-model="video.code_summary"
+                label="Code Summary" />
     <v-text-field v-model="video.videoUrl" 
                   label="Video URL" 
                   :rules="[required('video URL')]"
