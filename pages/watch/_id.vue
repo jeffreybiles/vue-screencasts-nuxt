@@ -9,7 +9,7 @@
       </v-col>
       <v-col md="3" cols="12">
         <div class="display-1">{{video.name}}</div>
-
+        <VideoByline :video="video" />
         <!-- <div class="green--text" v-if="isPlayed(video.id)">
           <font-awesome-icon icon="check" /> 
           Played
@@ -37,6 +37,7 @@
 <script>
 import 'video.js/dist/video-js.css'
 import Vue from 'vue';
+import VideoByline from '@/components/VideoByline';
 
 if (process.browser) {
   const VueVideoPlayer = require('vue-video-player/dist/ssr')
@@ -46,6 +47,9 @@ if (process.browser) {
 import { mapState } from 'vuex';
 
 export default {
+  components: {
+    VideoByline
+  },
   computed: {
     // ...mapGetters({
     //   getTag: 'tags/get',

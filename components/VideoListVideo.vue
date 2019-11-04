@@ -7,6 +7,7 @@
       <v-img :src="video.thumbnail || ''" />
       <v-card-title>{{ video.name }}</v-card-title>
       <v-card-text>
+        <VideoByline :video="video" />
         <!-- <div class="green--text" v-if="isPlayed(video.id)">
           <font-awesome-icon icon="check" /> Played
         </div> -->
@@ -28,7 +29,12 @@
 </template>
 
 <script>
+import VideoByline from '@/components/VideoByline';
+
 export default {
+  components: {
+    VideoByline
+  },
   methods: {
     getTag(tagId) {
       return this.tags.find(t => t.id == tagId);
