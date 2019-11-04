@@ -8,7 +8,7 @@
 
 <script>
   import DurationDisplay from '@/components/DurationDisplay'
-
+  
   export default {
     components: {
       DurationDisplay
