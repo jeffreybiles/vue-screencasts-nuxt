@@ -4,9 +4,9 @@
     <VideoByline :video="video" />
     <div v-html="video.description"></div>
 
-    <v-combobox :items="tags" 
-                    item-text="name" 
-                    v-model="videoTags" 
+    <v-combobox :items="tags"
+                    item-text="name"
+                    v-model="videoTags"
                     multiple
                     chips
                     deletable-chips
@@ -49,7 +49,7 @@
           } else {
             let addedTags = _.differenceBy(newTags, this.videoTags, 'id');
             let removedTags = _.differenceBy(this.videoTags, newTags, 'id');
-            
+
             if(addedTags.length > 0) {
               this.$store.dispatch('tags/connectToVideo', {tag: addedTags[0], video: this.video})
             }
