@@ -20,7 +20,11 @@
           </v-btn>
         </div> -->
 
-        <div v-html="video.description"></div>
+        <MarkdownDisplay :markdown="video.description" />
+        <div v-show="video.code_summary">
+          <h3>Code Summary</h3>
+          <MarkdownDisplay :markdown="video.code_summary" />
+        </div>
         
         <span v-for="tag_id in video.tag_ids" :key="tag_id">
           <v-btn color="green lighten-2"
@@ -38,6 +42,7 @@
 import 'video.js/dist/video-js.css'
 import Vue from 'vue';
 import VideoByline from '@/components/VideoByline';
+import MarkdownDisplay from '@/components/MarkdownDisplay';
 
 if (process.browser) {
   const VueVideoPlayer = require('vue-video-player/dist/ssr')
@@ -48,7 +53,8 @@ import { mapState } from 'vuex';
 
 export default {
   components: {
-    VideoByline
+    VideoByline,
+    MarkdownDisplay,
   },
   computed: {
     // ...mapGetters({

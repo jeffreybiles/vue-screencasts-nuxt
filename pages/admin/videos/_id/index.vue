@@ -2,7 +2,6 @@
   <div>
     <div class="display-1 pt-3">{{video.name}}</div>
     <VideoByline :video="video" />
-    <div v-html="video.description"></div>
 
     <v-combobox :items="tags" 
                     item-text="name" 
@@ -16,6 +15,14 @@
 
     <v-btn :to="`/admin/videos/${video.id}/edit`">Edit</v-btn>
     <v-btn :to="`/watch/${video.id}`">Watch</v-btn>
+
+    <br><br><hr>
+    <h3>Description</h3>
+    <MarkdownDisplay :markdown="video.description" />
+    <div v-show="video.code_summary">
+      <h3>Code Summary</h3>
+      <MarkdownDisplay :markdown="video.code_summary" />
+    </div>
   </div>
 </template>
 
@@ -23,10 +30,12 @@
   import { mapState, mapGetters } from 'vuex';
   import _ from 'lodash';
   import VideoByline from '@/components/VideoByline';
+  import MarkdownDisplay from '@/components/MarkdownDisplay';
 
   export default {
     components: {
-      VideoByline
+      VideoByline,
+      MarkdownDisplay
     },
     computed: {
       ...mapState({
