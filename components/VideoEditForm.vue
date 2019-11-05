@@ -33,7 +33,6 @@
       DurationDisplay
     },
     data() {
-      console.log(validations)
       return {
         valid: false,
         ...validations
