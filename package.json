@@ -16,6 +16,7 @@
     "@nuxtjs/auth": "^4.8.4",
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "marked": "^0.7.0",
     "nuxt": "^2.0.0",
     "rsvp": "^4.8.5",
     "vue-video-player": "^5.0.2",

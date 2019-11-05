@@ -2,7 +2,9 @@
   <div>
     <div class="display-1 pt-3">{{video.name}}</div>
     <VideoByline :video="video" />
-    <div v-html="video.description"></div>
+    <div v-html="descriptionMarkdown"></div>
+    <h3>Code Summary</h3>
+    <div v-html="codeSummaryMarkdown"> </div>
 
     <v-combobox :items="tags"
                     item-text="name"
@@ -19,6 +21,7 @@
 <script>
   import { mapState, mapGetters } from 'vuex';
   import _ from 'lodash';
+  import marked from 'marked';
   import VideoByline from '@/components/VideoByline';
 
   export default {
@@ -35,6 +38,12 @@
       }),
       video(){
         return this.videos.find(v => v.id == this.$route.params.id) || {};
+      },
+      descriptionMarkdown(){
+        return marked(this.video.description)
+      },
+      codeSummaryMarkdown(){
+        return marked(this.video.code_summary)
       },
       videoTags: {
         get(){
