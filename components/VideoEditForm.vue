@@ -14,9 +14,16 @@
     </MarkdownEditor>
 
     <MarkdownEditor :markdown="video.code_summary">
-      <v-textarea v-model="video.code_summary"
-                  label="Code Summary" 
-                  rows="12" />
+      <template #default>
+        <v-textarea v-model="video.code_summary"
+                    label="Code Summary" 
+                    rows="12" />
+      </template>
+      <template #footer>
+        <h1>Hey</h1>
+
+        Please put in some <strong>code</strong>
+      </template>
     </MarkdownEditor>
 
     <v-text-field v-model="video.duration"
