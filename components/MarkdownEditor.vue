@@ -7,7 +7,7 @@
       <MarkdownDisplay :markdown="markdown" />
     </v-col>
     <v-col cols="12" class="footer">
-      <slot name="footer">Please input data</slot>
+      <slot name="footer" v-bind:square="number * number" v-bind:double="number * 2"></slot>
     </v-col>
   </v-row>
 </template>
@@ -18,7 +18,7 @@
     components: {
       MarkdownDisplay
     },
-    props: ['markdown']
+    props: ['markdown', 'number']
   }
 </script>
 

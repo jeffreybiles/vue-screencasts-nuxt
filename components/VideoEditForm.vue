@@ -13,14 +13,14 @@
                   :rules="[required('description'), minLength('description', 20)]"/>
     </MarkdownEditor>
 
-    <MarkdownEditor :markdown="video.code_summary">
+    <MarkdownEditor :markdown="video.code_summary" number="5">
       <template #default>
         <v-textarea v-model="video.code_summary"
                     label="Code Summary" 
                     rows="12" />
       </template>
-      <template #footer>
-        <h1>Hey</h1>
+      <template #footer="{double, square}">
+        <h1>Hey {{double}} {{square}}</h1>
 
         Please put in some <strong>code</strong>
       </template>
