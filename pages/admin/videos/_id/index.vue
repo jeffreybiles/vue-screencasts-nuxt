@@ -2,9 +2,18 @@
   <div>
     <div class="display-1 pt-3">{{video.name}}</div>
     <VideoByline :video="video" />
-    <MarkdownDisplay :markdown="video.description" />
-    <h3>Code Summary</h3>
-    <MarkdownDisplay :markdown="video.code_summary" />
+    
+    <v-row>
+      <v-col cols="12" sm="6" md="8">
+        <MarkdownDisplay :markdown="video.description" />
+        <h3>Code Summary</h3>
+        <MarkdownDisplay :markdown="video.code_summary" />
+      </v-col>
+      <v-col cols="12" sm="6" md="4">
+        <VideoWatch :video="video" />
+      </v-col>
+    </v-row>
+   
 
     <v-combobox :items="tags"
                     item-text="name"
@@ -26,11 +35,13 @@
   import _ from 'lodash';
   import VideoByline from '@/components/VideoByline';
   import MarkdownDisplay from '@/components/MarkdownDisplay';
+  import VideoWatch from '@/components/VideoWatch';
 
   export default {
     components: {
       VideoByline,
-      MarkdownDisplay
+      MarkdownDisplay,
+      VideoWatch
     },
     computed: {
       ...mapState({
