@@ -1,17 +1,23 @@
 <template>
   <!-- the basic issue is the difference -->
-  <v-file-input v-model="uploadObject"
-                :label="label" 
-                truncateLength="125"
-                @change="uploadFile()" />
+  <div v-if="isUploading">
+    <p>Uploading, please wait...</p>
+  </div>
+  <div v-else>
+    <v-file-input v-model="uploadObject"
+                  :label="label" 
+                  truncateLength="125"
+                  @change="uploadFile()" />
+  </div>
 </template>
 
 <script>
   import S3 from 'aws-s3';
-  
+
   export default {
     data() {
       return {
+        isUploading: false,
         uploadObject: {name: this.obj[this.fieldName]},
         randomNumber: `${Math.random().toString().slice(2, 10)}`
       }
@@ -46,10 +52,12 @@
     methods: {
       uploadFile() {
         let file = this.uploadObject;
-        this.S3Client.uploadFile(file, this.newFileName)
-
-        let fileExtension = file.type.split('/')[1];
-        this.obj[this.fieldName] = `${this.url}.${fileExtension}`
+        this.isUploading = true;
+        this.S3Client.uploadFile(file, this.newFileName).finally(()=>{
+          this.isUploading = false;
+          let fileExtension = file.type.split('/')[1];
+          this.obj[this.fieldName] = `${this.url}.${fileExtension}`
+        })
       }
     },
     props: ['directory', 'label', "obj", "fieldName"]
