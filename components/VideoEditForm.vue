@@ -15,9 +15,9 @@
 
     <v-row>
       <v-col cols="12" sm="9" md="10">
-        <v-file-input v-model="video.thumbnailObject"
-                  label="Thumbnail URL" 
-                  @change="uploadFile()" />   
+        <S3FileUpload :video="video"
+                      label="Thumbnail URL"
+                      directory="thumbnails" /> 
         <v-text-field v-model="video.videoUrl" 
                       label="Video URL" 
                       :rules="[required('video URL')]"
@@ -61,22 +61,19 @@
   import DurationDisplay from '@/components/DurationDisplay'
   import MarkdownEditor from '@/components/MarkdownEditor';
   import VideoWatch from '@/components/VideoWatch';
+  import S3FileUpload from '@/components/S3FileUpload';
 
   export default {
     components: {
       DurationDisplay,
       MarkdownEditor,
-      VideoWatch
+      VideoWatch,
+      S3FileUpload,
     },
     data() {
       return {
         valid: false,
         ...validations
-      }
-    },
-    methods: {
-      uploadFile(file) {
-        debugger
       }
     },
     props: ['video', 'saveVideo', 'buttonText']
