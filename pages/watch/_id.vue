@@ -17,7 +17,7 @@
           </v-btn>
         </div> -->
 
-        <div v-html="video.description"></div>
+        <MarkdownDisplay :markdown="video.description" />
         
         <span v-for="tag_id in video.tag_ids" :key="tag_id">
           <v-btn color="green lighten-2"
@@ -28,19 +28,27 @@
         </span>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col cols="12">
+        <h1>Code Summary</h1>
+        <MarkdownDisplay :markdown="video.code_summary" />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import VideoByline from '@/components/VideoByline';
 import VideoWatch from '@/components/VideoWatch';
+import MarkdownDisplay from '@/components/MarkdownDisplay';
 
 import { mapState } from 'vuex';
 
 export default {
   components: {
     VideoByline,
-    VideoWatch
+    VideoWatch,
+    MarkdownDisplay
   },
   computed: {
     // ...mapGetters({
