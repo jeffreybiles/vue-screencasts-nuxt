@@ -2,10 +2,7 @@
   <v-container>
     <v-row>
       <v-col md="9" cols="12">
-        <div class="video-player-box"
-             v-video-player:videoPlayer="playerOptions">
-                      <!-- @ended="markPlayed" -->
-        </div>
+        <VideoWatch :video="video" />
       </v-col>
       <v-col md="3" cols="12">
         <div class="display-1">{{video.name}}</div>
@@ -35,20 +32,15 @@
 </template>
 
 <script>
-import 'video.js/dist/video-js.css'
-import Vue from 'vue';
 import VideoByline from '@/components/VideoByline';
-
-if (process.browser) {
-  const VueVideoPlayer = require('vue-video-player/dist/ssr')
-  Vue.use(VueVideoPlayer)
-}
+import VideoWatch from '@/components/VideoWatch';
 
 import { mapState } from 'vuex';
 
 export default {
   components: {
-    VideoByline
+    VideoByline,
+    VideoWatch
   },
   computed: {
     // ...mapGetters({
@@ -62,18 +54,6 @@ export default {
     video(){
       return this.videos.find(v => v.id == this.$route.params.id)
     },
-    playerOptions(){
-      return {
-        language: 'en',
-        playbackRates: [0.7, 1.0, 1.5, 2.0, 2.5, 3.0],
-        sources: [{
-          type: "video/mp4",
-          src: this.video.videoUrl
-        }],
-        poster: this.video.thumbnail,
-        fluid: true
-      }
-    }
   },
   methods: {
     getTag(tagId) {

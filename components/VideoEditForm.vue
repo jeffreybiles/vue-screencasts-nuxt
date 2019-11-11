@@ -12,13 +12,22 @@
         </span>
       </template>
     </v-text-field>
-    <v-text-field v-model="video.videoUrl" 
-                  label="Video URL" 
-                  :rules="[required('video URL')]"
-                  hint="If you want our friends in China to be able to watch this, please use Amazon S3 or similar instead of Youtube and Vimeo." />
-    <v-text-field v-model="video.thumbnail" 
-                  label="Thumbnail URL" 
-                  :rules="[required('thumbnail URL')]" />
+
+    <v-row>
+      <v-col cols="12" sm="9" md="10">
+        <v-text-field v-model="video.videoUrl" 
+                      label="Video URL" 
+                      :rules="[required('video URL')]"
+                      hint="If you want our friends in China to be able to watch this, please use Amazon S3 or similar instead of Youtube and Vimeo." />
+        <v-text-field v-model="video.thumbnail" 
+                      label="Thumbnail URL" 
+                      :rules="[required('thumbnail URL')]" />
+      </v-col>
+      <v-col cols="12" sm="3" md="2">
+        <VideoWatch :video="video" />
+      </v-col>
+    </v-row>
+
     <v-datetime-picker label="Select Datetime" v-model="video.published_at"> </v-datetime-picker>   
 
     <MarkdownEditor :markdown="video.description">
@@ -48,11 +57,13 @@
   import validations from '@/utils/validations';
   import DurationDisplay from '@/components/DurationDisplay'
   import MarkdownEditor from '@/components/MarkdownEditor';
+  import VideoWatch from '@/components/VideoWatch';
 
   export default {
     components: {
       DurationDisplay,
-      MarkdownEditor
+      MarkdownEditor,
+      VideoWatch
     },
     data() {
       return {
