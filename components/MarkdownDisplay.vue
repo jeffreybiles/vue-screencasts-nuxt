@@ -10,11 +10,13 @@
   export default {
     computed: {
       processedMarkdown(){
-        return marked(this.markdown, {
-          highlight(md) {
-            return highlight.highlightAuto(md).value
-          }
-        });
+        if(this.markdown) {
+          return marked(this.markdown, {
+            highlight(md) {
+              return highlight.highlightAuto(md).value
+            }
+          });
+        } 
       }
     },
     props: ['markdown']
