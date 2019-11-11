@@ -7,15 +7,15 @@
       <v-col md="3" cols="12">
         <div class="display-1">{{video.name}}</div>
         <VideoByline :video="video" />
-        <!-- <div class="green--text" v-if="isPlayed(video.id)">
+        <div class="green--text" v-if="isPlayed(video.id)">
           <font-awesome-icon icon="check" /> 
           Played
         </div>
         <div v-else>
-          <v-btn x-small @click="markPlayed" v-if="currentUser.name">
+          <v-btn x-small @click="markPlayed" v-if="$auth.loggedIn">
             Mark Played
           </v-btn>
-        </div> -->
+        </div>
 
         <MarkdownDisplay :markdown="video.description" />
         
@@ -42,7 +42,7 @@ import VideoByline from '@/components/VideoByline';
 import VideoWatch from '@/components/VideoWatch';
 import MarkdownDisplay from '@/components/MarkdownDisplay';
 
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   components: {
@@ -51,10 +51,9 @@ export default {
     MarkdownDisplay
   },
   computed: {
-    // ...mapGetters({
-    //   getTag: 'tags/get',
-    //   isPlayed: 'users/videoIsPlayed'
-    // }),
+    ...mapGetters({
+      isPlayed: 'user/videoIsPlayed'
+    }),
     ...mapState({
       tags: state => state.tags.tags,
       videos: state => state.videos.videos
@@ -66,10 +65,10 @@ export default {
   methods: {
     getTag(tagId) {
       return this.tags.find(t => t.id == tagId);
+    },
+    markPlayed(){
+      this.$store.dispatch('user/markVideoPlayed', this.video.id)
     }
-    // markPlayed(){
-    //   this.$store.dispatch('users/markVideoPlayed', this.video.id)
-    // }
   }
 }
 </script>

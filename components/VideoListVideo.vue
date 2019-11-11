@@ -8,9 +8,9 @@
       <v-card-title>{{ video.name }}</v-card-title>
       <v-card-text>
         <VideoByline :video="video" />
-        <!-- <div class="green--text" v-if="isPlayed(video.id)">
+        <div class="green--text" v-if="isPlayed(video.id)">
           <font-awesome-icon icon="check" /> Played
-        </div> -->
+        </div>
       </v-card-text>
     </nuxt-link>
 
@@ -30,10 +30,16 @@
 
 <script>
 import VideoByline from '@/components/VideoByline';
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
     VideoByline
+  },
+  computed: {
+    ...mapGetters({
+      'isPlayed': 'user/videoIsPlayed'
+    })
   },
   methods: {
     getTag(tagId) {
