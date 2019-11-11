@@ -4,6 +4,22 @@
                   label="Name" 
                   counter=50
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
+    <v-text-field v-model="video.duration"
+                  label="Duration (in seconds)" >
+      <template #prepend>
+        <span class="duration-display">
+          <DurationDisplay :duration="video.duration" />
+        </span>
+      </template>
+    </v-text-field>
+    <v-text-field v-model="video.videoUrl" 
+                  label="Video URL" 
+                  :rules="[required('video URL')]"
+                  hint="If you want our friends in China to be able to watch this, please use Amazon S3 or similar instead of Youtube and Vimeo." />
+    <v-text-field v-model="video.thumbnail" 
+                  label="Thumbnail URL" 
+                  :rules="[required('thumbnail URL')]" />
+    <v-datetime-picker label="Select Datetime" v-model="video.published_at"> </v-datetime-picker>   
 
     <MarkdownEditor :markdown="video.description">
       <v-textarea v-model="video.description" 
@@ -20,23 +36,10 @@
                     rows="12" />
       </template>
       <template #footer>
-        <h1>Hey</h1>
-
-        Please put in some <strong>code</strong>
+        This code will be displayed below the video.
       </template>
     </MarkdownEditor>
 
-    <v-text-field v-model="video.duration"
-                  label="Duration (in seconds)" />
-    <DurationDisplay :duration="video.duration" />
-    <v-text-field v-model="video.videoUrl" 
-                  label="Video URL" 
-                  :rules="[required('video URL')]"
-                  hint="If you want our friends in China to be able to watch this, please use Amazon S3 or similar instead of Youtube and Vimeo." />
-    <v-text-field v-model="video.thumbnail" 
-                  label="Thumbnail URL" 
-                  :rules="[required('thumbnail URL')]" />
-    <v-datetime-picker label="Select Datetime" v-model="video.published_at"> </v-datetime-picker>   
     <v-btn @click="saveVideo" :disabled="!valid">{{buttonText}}</v-btn>
   </v-form>
 </template>
@@ -62,5 +65,10 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .duration-display {
+    background-color: grey; 
+    color: white; 
+    border-radius: 5px; 
+    padding: 7px;
+  }
 </style>
