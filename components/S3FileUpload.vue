@@ -2,6 +2,7 @@
   <!-- the basic issue is the difference -->
   <v-file-input v-model="uploadObject"
                 :label="label" 
+                truncateLength="125"
                 @change="uploadFile()" />
 </template>
 
@@ -11,8 +12,8 @@
   export default {
     data() {
       return {
-        uploadObject: {name: 'hey'},
-        newFileName: `${this.video.id}${Math.random().toString().slice(2)}`
+        uploadObject: {name: this.obj[this.fieldName]},
+        randomNumber: `${Math.random().toString().slice(2, 10)}`
       }
     },
     computed: {
@@ -32,6 +33,9 @@
       baseUrl(){
         return `https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com`
       },
+      newFileName(){
+        return `${this.randomNumber}-${this.uploadObject.name}`
+      },
       url(){
         return `${this.baseUrl}/${this.directory}/${this.newFileName}`
       },
@@ -43,17 +47,12 @@
       uploadFile() {
         let file = this.uploadObject;
         this.S3Client.uploadFile(file, this.newFileName)
-                     .then(data => {
-                       debugger
-                       console.log(data)
-                     })
-                     .catch(err => {
-                       debugger
-                       console.error(err)
-                     })
+
+        let fileExtension = file.type.split('/')[1];
+        this.obj[this.fieldName] = `${this.url}.${fileExtension}`
       }
     },
-    props: ['directory', 'label', "field", "video"]
+    props: ['directory', 'label', "obj", "fieldName"]
   }
 </script>
 

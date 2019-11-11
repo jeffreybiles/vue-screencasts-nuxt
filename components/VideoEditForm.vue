@@ -15,16 +15,14 @@
 
     <v-row>
       <v-col cols="12" sm="9" md="10">
-        <S3FileUpload :video="video"
-                      label="Thumbnail URL"
+        <S3FileUpload :obj="video"
+                      fieldName="videoUrl"
+                      label="Video Upload"
+                      directory="videos" />
+        <S3FileUpload :obj="video"
+                      fieldName="thumbnail"
+                      label="Thumbnail Upload"
                       directory="thumbnails" /> 
-        <v-text-field v-model="video.videoUrl" 
-                      label="Video URL" 
-                      :rules="[required('video URL')]"
-                      hint="If you want our friends in China to be able to watch this, please use Amazon S3 or similar instead of Youtube and Vimeo." />
-        <v-text-field v-model="video.thumbnail" 
-                      label="Thumbnail URL" 
-                      :rules="[required('thumbnail URL')]" />
       </v-col>
       <v-col cols="12" sm="3" md="2">
         <VideoWatch :video="video" />
