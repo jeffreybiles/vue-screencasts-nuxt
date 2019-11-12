@@ -31,25 +31,6 @@
 
     <v-datetime-picker label="Select Datetime" v-model="video.published_at"> </v-datetime-picker>   
 
-    <v-text-field v-model="video.duration"
-                  label="Duration (in seconds)" >
-      <template #prepend>
-        <span class="duration-display">
-          <DurationDisplay :duration="video.duration" style="" />
-        </span>
-      </template>
-    </v-text-field>
-    <S3FileUpload :obj="video"
-                  fieldName="videoUrl"
-                  label="Video Upload"
-                  directory="videos" />
-    <S3FileUpload :obj="video"
-                  fieldName="thumbnail"
-                  label="Thumbnail Upload"
-                  directory="thumbnails" /> 
-    <v-datetime-picker label="Select Time to Publish" v-model="video.published_at"> </v-datetime-picker>
-
-
     <MarkdownEditor :markdown="video.description">
       <v-textarea v-model="video.description" 
                   label="Description" 
