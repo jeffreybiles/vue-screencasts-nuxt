@@ -19,7 +19,7 @@
                       label="Video URL" 
                       :rules="[required('video URL')]"
                       hint="If you want our friends in China to be able to watch this, please use Amazon S3 or similar instead of Youtube and Vimeo." />
-        <S3FileUpload :obj="video" fieldName="thumbnail" />
+        <S3FileUpload :obj="video" fieldName="thumbnail" directory="thumbnails" />
         <v-text-field v-model="video.thumbnail" 
                       label="Thumbnail URL" 
                       :rules="[required('thumbnail URL')]" />
