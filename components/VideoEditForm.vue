@@ -19,6 +19,7 @@
                       label="Video URL" 
                       :rules="[required('video URL')]"
                       hint="If you want our friends in China to be able to watch this, please use Amazon S3 or similar instead of Youtube and Vimeo." />
+        <S3FileUpload :obj="video" fieldName="thumbnail" />
         <v-text-field v-model="video.thumbnail" 
                       label="Thumbnail URL" 
                       :rules="[required('thumbnail URL')]" />
@@ -58,12 +59,14 @@
   import DurationDisplay from '@/components/DurationDisplay'
   import MarkdownEditor from '@/components/MarkdownEditor';
   import VideoWatch from '@/components/VideoWatch';
+  import S3FileUpload from '@/components/S3FileUpload';
 
   export default {
     components: {
       DurationDisplay,
       MarkdownEditor,
-      VideoWatch
+      VideoWatch,
+      S3FileUpload
     },
     data() {
       return {
