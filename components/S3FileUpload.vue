@@ -1,11 +1,27 @@
 <template>
-  <input type="file" @change="uploadFile(fieldName, $event.target.files)"/>
+  <div>
+    <div v-if="isLoading">
+      <p>Uploading your file, please wait...</p>
+    </div>
+    <div v-else>
+      <v-file-input v-model="uploadObject" 
+                    @change="uploadFile"
+                    :label="label"
+                    truncate-length="125" />
+    </div>
+  </div>
 </template>
 
 <script>
   import S3 from 'aws-s3';
 
   export default {
+    data(){
+      return {
+        isLoading: false,
+        uploadObject: {name: this.obj[this.fieldName]}
+      }
+    },
     computed: {
       s3Keys(){
         return this.$auth.user.s3_keys;
@@ -27,15 +43,15 @@
         return new S3(this.config);
       },
       newFileName(){
-        return Math.random().toString().slice(2)
+        return `${Math.random().toString().slice(2, 5)}-${this.uploadObject.name}`
       },
       url(){
         return `${this.baseURL}/${this.directory}/${this.newFileName}`;
       }
     },
     methods: {
-      uploadFile(fieldName, files) {
-        let file = files[0]
+      uploadFile() {
+        let file = this.uploadObject
 
         this.isLoading = true
         this.S3Client
@@ -46,7 +62,7 @@
             })
       }
     },
-    props: ['fieldName', 'obj', 'directory']
+    props: ['fieldName', 'obj', 'directory', 'label']
   }
 </script>
 
