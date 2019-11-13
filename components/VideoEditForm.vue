@@ -15,8 +15,14 @@
 
     <v-row>
       <v-col cols="12" sm="9" md="10">
-        <S3FileUpload :obj="video" fieldName="videoUrl" directory="videos" label="Video File"/>
-        <S3FileUpload :obj="video" fieldName="thumbnail" directory="thumbnails" label="Thumbnail Image" />
+        <S3FileUpload :obj="video" 
+                      fieldName="videoUrl" 
+                      directory="videos" 
+                      label="Video File"/>
+        <S3FileUpload :obj="video" 
+                      fieldName="thumbnail" 
+                      directory="thumbnails" 
+                      label="Thumbnail Image" />
       </v-col>
       <v-col cols="12" sm="3" md="2">
         <VideoWatch :video="video" />
