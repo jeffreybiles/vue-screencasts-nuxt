@@ -1,7 +1,7 @@
 <template>
   <v-data-table :headers="headers"
                 sort-by="sortable_publish_date"
-                sort-desc="true"
+                :sort-desc="true"
                 :items="mungedVideos">
     <template #item.duration="{item}">
       <DurationDisplay :duration="item.duration" />
