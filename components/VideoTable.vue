@@ -2,6 +2,7 @@
   <v-data-table :headers="headers"
                 sort-by="sortable_publish_date"
                 :sort-desc="true"
+                show-expand
                 :items="mungedVideos">
     <template #item.duration="{item}">
       <DurationDisplay :duration="item.duration" />
@@ -19,18 +20,36 @@
         </v-btn>
       </span>
     </template>
+    <template v-slot:expanded-item="{ headers, item }">
+      <td :colspan="headers.length">
+        <v-row>
+          <v-col cols="4">
+            <VideoWatch :video="item" />
+          </v-col>
+          <v-col cols="8">
+            <h1>{{item.name}}</h1>
+            <MarkdownDisplay :markdown="item.description" />
+          </v-col>
+        </v-row>
+      </td>
+    </template>
   </v-data-table>
 </template>
 
 <script>
   import DurationDisplay from '@/components/DurationDisplay'
   import DateDisplay from '@/components/DateDisplay'
+  import VideoWatch from '@/components/VideoWatch'
+  import MarkdownDisplay from '@/components/MarkdownDisplay'
+
   import { mapGetters } from 'vuex'
 
   export default {
     components: {
       DurationDisplay,
-      DateDisplay
+      DateDisplay,
+      VideoWatch,
+      MarkdownDisplay
     },    
     computed: {
       mungedVideos(){
