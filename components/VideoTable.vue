@@ -20,7 +20,7 @@
         </v-btn>
       </span>
     </template>
-    <template v-slot:expanded-item="{ headers, item }">
+    <template #expanded-item="{ headers, item }">
       <td :colspan="headers.length">
         <v-row>
           <v-col cols="4">
@@ -32,6 +32,11 @@
           </v-col>
         </v-row>
       </td>
+    </template>
+    <template #item.played="{item}">
+      <div class="green--text" v-if="isPlayed()(item.id)">
+        <font-awesome-icon icon="check" />
+      </div>
     </template>
   </v-data-table>
 </template>
@@ -62,16 +67,18 @@
       },
       headers() {
         return [
+          {text: "Played", value: "played", width: "70px", sortable: false},
           {text: 'Name', value: 'name'},
           {text: 'Length', value: 'duration'},
           {text: "Release Date", value: 'sortable_publish_date'},
-          {text: "Tags", value: "tags", sortable: false}
+          {text: "Tags", value: "tags", sortable: false},
         ]
       },
     },
     methods: {
       ...mapGetters({
-        getTag: 'tags/get'
+        getTag: 'tags/get',
+        isPlayed: 'user/videoIsPlayed'
       })
     },
     props: ['videos']
