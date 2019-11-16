@@ -3,7 +3,8 @@
                 sort-by="sortable_publish_date"
                 :sort-desc="true"
                 show-expand
-                :items="mungedVideos">
+                :items="mungedVideos"
+                @click:row="visitVideo">
     <template #item.duration="{item}">
       <DurationDisplay :duration="item.duration" />
     </template>
@@ -79,12 +80,17 @@
       ...mapGetters({
         getTag: 'tags/get',
         isPlayed: 'user/videoIsPlayed'
-      })
+      }),
+      visitVideo(video){
+        this.$router.push(`/watch/${video.id}`)
+      }
     },
     props: ['videos']
   }
 </script>
 
 <style lang="scss" scoped>
-
+  ::v-deep tbody tr {
+    cursor: pointer
+  }
 </style>
