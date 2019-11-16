@@ -5,29 +5,25 @@
     </div>
 
     <v-data-table :headers="headers"
-                  :items="videos"
-                  :items-per-page="20">
+                  :items="videos">
       <template #item.duration="{item}">
         <DurationDisplay :duration="item.duration" />
       </template>
+      <template #item.published_at="{item}">
+        <DateDisplay :date="item.published_at" />
+      </template>
     </v-data-table>
-    <div class="d-flex flex-wrap">
-
-      <div v-for="video in videos" :key="video.name">
-        <VideoListVideo :video="video" :tags="tags"></VideoListVideo>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import VideoListVideo from '../components/VideoListVideo'
 import DurationDisplay from '@/components/DurationDisplay'
+import DateDisplay from '@/components/DateDisplay'
 export default {
   components: {
-    VideoListVideo,
-    DurationDisplay
+    DurationDisplay,
+    DateDisplay
   },
   computed: {
     ...mapState({
@@ -36,9 +32,10 @@ export default {
       headers() {
         return [
           {text: 'Name', value: 'name'},
-          {text: 'Length', value: 'duration'}
+          {text: 'Length', value: 'duration'},
+          {text: "Release Date", value: 'published_at'}
         ]
-      }
+      },
     }),
   }
 }

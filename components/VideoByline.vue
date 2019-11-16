@@ -3,7 +3,7 @@
     <DurationDisplay :duration="video.duration" />
     &nbsp; | &nbsp;
     <span v-if="publishedAt">
-      Published on {{publishedAt.getMonth() + 1}}/{{publishedAt.getDate()}}/{{publishedAt.getFullYear()}}
+      Published on <DateDisplay :date="publishedAt" />
     </span>
     <span v-else>
       This video is not yet published
@@ -13,10 +13,12 @@
 
 <script>
   import DurationDisplay from '@/components/DurationDisplay'
+  import DateDisplay from '@/components/DateDisplay'
   
   export default {
     components: {
-      DurationDisplay
+      DurationDisplay,
+      DateDisplay,
     },
     computed: {
       publishedAt(){
