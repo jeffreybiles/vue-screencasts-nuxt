@@ -19,7 +19,7 @@
     data(){
       return {
         isLoading: false,
-        uploadObject: {name: this.obj[this.fieldName]}
+        uploadObject: {name: this.obj[this.fieldName] || ""}
       }
     },
     computed: {
