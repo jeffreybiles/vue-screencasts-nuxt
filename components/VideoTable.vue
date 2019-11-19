@@ -4,7 +4,7 @@
                 :sort-desc="true"
                 show-expand
                 :items="mungedVideos"
-                @click:row="visitVideo">
+                @click:row="clickAction">
     <template #item.duration="{item}">
       <DurationDisplay :duration="item.duration" />
     </template>
@@ -39,6 +39,13 @@
         <font-awesome-icon icon="check" />
       </div>
     </template>
+    <template #item.admin_actions="{item}">
+      <div class="actions">
+        <v-btn small :to="`/watch/${item.id}`">Watch</v-btn> 
+        <v-btn small :to="`/admin/videos/${item.id}/edit`">Edit</v-btn>
+        <v-btn small @click.stop="deleteVideo(item)">Delete</v-btn>
+      </div>
+    </template>
   </v-data-table>
 </template>
 
@@ -66,31 +73,30 @@
           }
         })
       },
-      headers() {
-        return [
-          {text: "Played", value: "played", width: "70px", sortable: false},
-          {text: 'Name', value: 'name'},
-          {text: 'Length', value: 'duration'},
-          {text: "Release Date", value: 'sortable_publish_date'},
-          {text: "Tags", value: "tags", sortable: false},
-        ]
-      },
     },
     methods: {
       ...mapGetters({
         getTag: 'tags/get',
         isPlayed: 'user/videoIsPlayed'
       }),
-      visitVideo(video){
-        this.$router.push(`/watch/${video.id}`)
+      deleteVideo(video) {
+        let response = confirm(`Are you sure you want to delete ${video.name}`)
+        if(response){
+          this.$store.dispatch('videos/delete', video);
+          this.$store.dispatch('snackbar/setSnackbar', {text: `You have successfully deleted your video, ${video.name}.`});
+        }
       }
     },
-    props: ['videos']
+    props: ['videos', 'headers', 'clickAction']
   }
 </script>
 
 <style lang="scss" scoped>
   ::v-deep tbody tr {
     cursor: pointer
+  }
+
+  ::v-deep .actions * {
+    // padding: 5px
   }
 </style>

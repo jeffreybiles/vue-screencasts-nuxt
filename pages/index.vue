@@ -4,7 +4,7 @@
       All Videos
     </div>
 
-    <VideoTable :videos="videos" />
+    <VideoTable :videos="videos" :headers="headers" :clickAction="visitVideo" />
   </div>
 </template>
 
@@ -21,6 +21,20 @@ export default {
       tags: state => state.tags.tags,
       videos: state => state.videos.videos,
     }),
+    headers() {
+      return [
+        {text: "Played", value: "played", width: "70px", sortable: false},
+        {text: 'Name', value: 'name'},
+        {text: 'Length', value: 'duration'},
+        {text: "Release Date", value: 'sortable_publish_date'},
+        {text: "Tags", value: "tags", sortable: false},
+      ]
+    },
+  },
+  methods: {
+    visitVideo(video) {
+      this.$router.push(`/watch/${video.id}`)
+    }
   }
 }
 </script>
