@@ -4,20 +4,16 @@
       Videos with Tag "{{ tag.name }}"
     </h1>
 
-    <div class="d-flex flex-wrap">
-      <div v-for="video in videosOnTag" :key="video.id">
-        <VideoListVideo :video="video" :tags="tags" />
-      </div>
-    </div>
+    <VideoTable :videos="videosOnTag" :headers="headers" />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import VideoListVideo from '@/components/VideoListVideo'
+import VideoTable from '@/components/VideoTable'
   export default {
     components: {
-      VideoListVideo
+      VideoTable
     },
     computed: {
       ...mapState({
@@ -31,7 +27,16 @@ import VideoListVideo from '@/components/VideoListVideo'
       },
       tag(){
         return this.tags.find(t => t.id == this.$route.params.id)
-      }
+      },
+      headers() {
+        return [
+          {text: "Played", value: "played", width: "70px", sortable: false},
+          {text: 'Name', value: 'name'},
+          {text: 'Length', value: 'duration'},
+          {text: "Release Date", value: 'sortable_publish_date'},
+          {text: "Tags", value: "tags", sortable: false},
+        ]
+      },
     }
   }
 </script>
