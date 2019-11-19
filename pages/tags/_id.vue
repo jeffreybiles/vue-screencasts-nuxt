@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <v-container>
     <h1 class="display-3 ma-4 d-flex justify-center">
       Videos with Tag "{{ tag.name }}"
     </h1>
 
     <VideoTable :videos="videosOnTag" :headers="headers" />
-  </div>
+  </v-container>
 </template>
 
 <script>

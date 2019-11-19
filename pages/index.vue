@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
+  <v-container>
     <div class="display-4 ma-4 d-flex justify-center">
       All Videos
     </div>
 
     <VideoTable :videos="videos" :headers="headers" :clickAction="visitVideo" />
-  </div>
+  </v-container>
 </template>
 
 <script>
