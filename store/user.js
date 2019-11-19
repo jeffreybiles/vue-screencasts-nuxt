@@ -18,7 +18,8 @@ export const actions = {
 
 export const getters = {
   playedVideos: (state, getters, rootState, rootGetters) => {
-    return rootState.auth.user.played_video_ids || [];
+    let user = rootState.auth.user
+    return user ? user.played_video_ids : [];
   },
   videoIsPlayed: (state, getters) => videoId => {
     return getters.playedVideos.includes(videoId)
