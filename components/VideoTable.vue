@@ -14,6 +14,8 @@
                   show-expand
                   :items="mungedVideos"
                   :search="search"
+                  :dense="dense"
+                  :items-per-page="itemsPerPage || 10"
                   @click:row="clickAction"
                   :custom-filter="filter">
       <template #item.duration="{item}">
@@ -25,7 +27,7 @@
       <template #item.tags="{item}">
         <span v-for="tag_id in item.tag_ids" :key="tag_id">
           <v-btn color="green lighten-2" 
-                class="mr-1"
+                class="mr-1 pt-4 pb-4"
                 x-small
                 :to="`/tags/${tag_id}`">
             {{ getTag()(tag_id).name }}
@@ -113,16 +115,12 @@
         return matchesName || matchesTag
       }
     },
-    props: ['videos', 'headers', 'clickAction']
+    props: ['videos', 'headers', 'clickAction', 'itemsPerPage', 'dense']
   }
 </script>
 
 <style lang="scss" scoped>
   ::v-deep tbody tr {
     cursor: pointer
-  }
-
-  ::v-deep .actions * {
-    // padding: 5px
   }
 </style>

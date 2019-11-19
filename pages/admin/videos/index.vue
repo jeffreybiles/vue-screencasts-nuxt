@@ -3,7 +3,11 @@
     <h1>Video List</h1>
     <v-btn text to="/admin/videos/new">Add Video</v-btn>
 
-    <VideoTable :videos="videos" :headers="headers" :clickAction="showVideo" />
+    <VideoTable :videos="videos" 
+                :headers="headers" 
+                :clickAction="showVideo" 
+                :itemsPerPage="20" 
+                :dense="true"/>
   </v-container>
 </template>
 
