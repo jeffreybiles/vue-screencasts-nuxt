@@ -89,9 +89,10 @@
     computed: {
       mungedVideos(){
         return this.videos.map(v => {
+          let isoString = v.published_at && v.published_at.toISOString && v.published_at.toISOString()
           return {
             ...v,
-            sortable_publish_date: v.published_at && v.published_at.toISOString()
+            sortable_publish_date: isoString
           }
         })
       },
