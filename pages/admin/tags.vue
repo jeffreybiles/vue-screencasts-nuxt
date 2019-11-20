@@ -41,6 +41,7 @@
 
 <script>
 import { mapState } from 'vuex';
+
   export default {
     data() {
       return {
@@ -58,9 +59,9 @@ import { mapState } from 'vuex';
       setToEditing(tag) {
         this.tagEditingId = tag.id;
 
-        setTimeout(()=> {
+        this.$nextTick(()=> {
           document.getElementById(`tag-edit-${tag.id}`).focus()
-        }, 1)
+        })
       },
       updateTagName(tag) {
         this.$store.dispatch('tags/updateName', {tag})
