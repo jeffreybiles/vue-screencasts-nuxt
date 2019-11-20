@@ -29,7 +29,7 @@
           {text: 'Length', value: 'duration'},
           {text: "Release Date", value: 'sortable_publish_date'},
           {text: "Tags", value: "tags", sortable: false},
-          {text: "Actions", value: "admin_actions", sortable: false}
+          {text: "Actions", value: "admin_actions", sortable: false, width: "250px"}
         ]
       }
     },

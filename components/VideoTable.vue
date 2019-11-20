@@ -25,14 +25,16 @@
         <DateDisplay :date="item.published_at" />
       </template>
       <template #item.tags="{item}">
-        <span v-for="tag_id in item.tag_ids" :key="tag_id">
-          <v-btn color="green lighten-2" 
-                class="mr-1 pt-4 pb-4"
-                x-small
-                :to="`/tags/${tag_id}`">
-            {{ getTag()(tag_id).name }}
-          </v-btn>
-        </span>
+        <td @click.stop>
+          <span v-for="tag_id in item.tag_ids" :key="tag_id">
+            <v-btn color="green lighten-2" 
+                  class="mr-1"
+                  x-small
+                  :to="`/tags/${tag_id}`">
+              {{ getTag()(tag_id).name }}
+            </v-btn>
+          </span>
+        </td>
       </template>
       <template #expanded-item="{ headers, item }">
         <td :colspan="headers.length">
@@ -53,11 +55,11 @@
         </div>
       </template>
       <template #item.admin_actions="{item}">
-        <div class="actions">
-          <v-btn small :to="`/watch/${item.id}`">Watch</v-btn> 
-          <v-btn small :to="`/admin/videos/${item.id}/edit`">Edit</v-btn>
-          <v-btn small @click.stop="deleteVideo(item)">Delete</v-btn>
-        </div>
+        <td class="actions" @click.stop>
+          <v-btn x-small :to="`/watch/${item.id}`">Watch</v-btn> 
+          <v-btn x-small :to="`/admin/videos/${item.id}/edit`">Edit</v-btn>
+          <v-btn x-small @click.stop="deleteVideo(item)">Delete</v-btn>
+        </td>
       </template>
     </v-data-table>
   </div>
