@@ -4,20 +4,16 @@
       Videos with Tag "{{ tag.name }}"
     </h1>
 
-    <div class="d-flex flex-wrap">
-      <div v-for="video in videosOnTag" :key="video.id">
-        <VideoListVideo :video="video" :tags="tags" />
-      </div>
-    </div>
+    <VideoTable :videos="videosOnTag" />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import VideoListVideo from '@/components/VideoListVideo'
+import VideoTable from '@/components/VideoTable'
   export default {
     components: {
-      VideoListVideo
+      VideoTable
     },
     computed: {
       ...mapState({
