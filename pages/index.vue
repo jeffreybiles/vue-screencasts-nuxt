@@ -3,7 +3,10 @@
     <div class="display-4 ma-4 d-flex justify-center">
       All Videos
     </div>
-
+    
+    <v-data-table :items="videos"
+                  :headers="headers">
+    </v-data-table>
     <div class="d-flex flex-wrap">
       <div v-for="video in videos" :key="video.name">
         <VideoListVideo :video="video" :tags="tags"></VideoListVideo>
@@ -20,6 +23,11 @@ export default {
     VideoListVideo
   },
   computed: {
+    headers(){
+      return [
+        {text: 'Name', value: 'name'},
+      ]
+    },
     ...mapState({
       tags: state => state.tags.tags,
       videos: state => state.videos.videos
