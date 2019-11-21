@@ -6,11 +6,11 @@
     
     <v-data-table :items="videos"
                   :headers="headers">
-      <template #item.duration="{item}">
-        <DurationDisplay :duration="item.duration" />
+      <template #item.duration="{value}">
+        <DurationDisplay :duration="value" />
       </template>
-      <template #item.published_at="{item}">
-        <DateDisplay :date="item.published_at" />
+      <template #item.published_at="{value}">
+        <DateDisplay :date="value" />
       </template>
     </v-data-table>
     <div class="d-flex flex-wrap">
