@@ -3,8 +3,9 @@
                 :headers="headers"
                 show-expand
                 sort-by="sortable_published_at"
+                @click:row="goToVideo"
                 :sort-desc="true">
-    <template #item.duration="{value}">
+    <template #item.duration="{value, item}">
       <DurationDisplay :duration="value" />
     </template>
     <template #item.sortable_published_at="{item}">
@@ -16,14 +17,16 @@
       </div>
     </template>
     <template #item.tags="{item}">
-      <span v-for="tag_id in item.tag_ids" :key="tag_id">
-        <v-btn color="green lighten-2"
-                :to="`/tags/${tag_id}`"
-                x-small
-                class="mr-1">
-          {{ getTag(tag_id).name }}
-        </v-btn>
-      </span>
+      <td @click.stop class="non-clickable">
+        <span v-for="tag_id in item.tag_ids" :key="tag_id">
+          <v-btn color="green lighten-2"
+                  :to="`/tags/${tag_id}`"
+                  x-small
+                  class="mr-1">
+            {{ getTag(tag_id).name }}
+          </v-btn>
+        </span>
+      </td>
     </template>
     <template #expanded-item="{headers,item}">
       <td :colspan="headers.length">
@@ -78,10 +81,20 @@ import MarkdownDisplay from '@/components/MarkdownDisplay'
         })
       }
     },
+    methods: {
+      goToVideo(item){
+        this.$router.push(`/watch/${item.id}`)
+      }
+    },
     props: ['videos']
   }
 </script>
 
 <style lang="scss" scoped>
-
+  ::v-deep tbody tr {
+    cursor: pointer;
+  }
+  ::v-deep tbody tr td.non-clickable{
+    cursor: auto;
+  }
 </style>
