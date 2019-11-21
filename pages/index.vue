@@ -4,13 +4,15 @@
       All Videos
     </div>
     
-    <v-data-table :items="videos"
-                  :headers="headers">
+    <v-data-table :items="mungedVideos"
+                  :headers="headers"
+                  sort-by="sortable_published_at"
+                  :sort-desc="true">
       <template #item.duration="{value}">
         <DurationDisplay :duration="value" />
       </template>
-      <template #item.published_at="{value}">
-        <DateDisplay :date="value" />
+      <template #item.sortable_published_at="{item}">
+        <DateDisplay :date="item.published_at" />
       </template>
     </v-data-table>
     <div class="d-flex flex-wrap">
@@ -37,7 +39,7 @@ export default {
     headers(){
       return [
         {text: 'Name', value: 'name'},
-        {text: 'Date', value: 'published_at'},
+        {text: 'Date', value: 'sortable_published_at'},
         {text: 'Duration', value: 'duration'}
       ]
     },
@@ -45,6 +47,14 @@ export default {
       tags: state => state.tags.tags,
       videos: state => state.videos.videos
     }),
+    mungedVideos(){
+      return this.videos.map((v)=>{
+        return {
+          ...v,
+          sortable_published_at: v.published_at && v.published_at.toISOString()
+        }
+      })
+    }
   }
 }
 </script>
