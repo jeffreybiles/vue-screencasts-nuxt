@@ -13,11 +13,6 @@
       <div class="green--text" v-if="isPlayed(item.id)">
         <font-awesome-icon icon="check" /> 
       </div>
-      <div v-else>
-        <v-btn x-small @click="markPlayed(item.id)" v-if="$auth.loggedIn">
-          Mark Played
-        </v-btn>
-      </div>
     </template>
     <template #item.tags="{item}">
       <span v-for="tag_id in item.tag_ids" :key="tag_id">
@@ -63,11 +58,6 @@ import { mapGetters } from 'vuex';
             sortable_published_at: v.published_at && v.published_at.toISOString()
           }
         })
-      }
-    },
-    methods: {
-      markPlayed(videoId){
-        this.$store.dispatch('user/markVideoPlayed', videoId)
       }
     },
     props: ['videos']
