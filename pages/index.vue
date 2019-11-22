@@ -4,7 +4,7 @@
       All Videos
     </div>
     
-    <VideoTable :videos="videos" />
+    <VideoTable :videos="videos" :headers="headers" />
   </div>
 </template>
 
@@ -20,6 +20,15 @@ export default {
     ...mapState({
       videos: state => state.videos.videos
     }),
+    headers(){
+      return [
+        {text: 'Played', value: 'played', sortable: false, width: "70px"},
+        {text: 'Name', value: 'name'},
+        {text: 'Date', value: 'sortable_published_at'},
+        {text: 'Duration', value: 'duration'},
+        {text: 'Tags', value: 'tags', sortable: false},
+      ]
+    },
   }
 }
 </script>

@@ -12,6 +12,8 @@
                   sort-by="sortable_published_at"
                   :search="search"
                   :custom-filter="filter"
+                  :dense="dense"
+                  :items-per-page="itemsPerPage || 10"
                   @click:row="goToVideo"
                   :sort-desc="true">
       <template #item.duration="{value, item}">
@@ -35,6 +37,13 @@
               {{ getTag(tag_id).name }}
             </v-btn>
           </span>
+        </td>
+      </template>
+      <template #item.actions="{item}">
+        <td @click.stop class="non-clickable">
+          <v-btn small :to="`/watch/${item.id}`">Watch</v-btn>
+          <v-btn small :to="`/admin/videos/${item.id}/edit`">Edit</v-btn>
+          <v-btn small @click="deleteVideo(item)">Delete</v-btn>
         </td>
       </template>
       <template #expanded-item="{headers,item}">
@@ -79,15 +88,6 @@ import _ from 'lodash'
         isPlayed: 'user/videoIsPlayed',
         getTag: 'tags/get',
       }),
-      headers(){
-        return [
-          {text: 'Name', value: 'name'},
-          {text: 'Date', value: 'sortable_published_at'},
-          {text: 'Duration', value: 'duration'},
-          {text: 'Played', value: 'played', sortable: false},
-          {text: 'Tags', value: 'tags', sortable: false},
-        ]
-      },
       mungedVideos(){
         return this.videos.map((v)=>{
           return {
@@ -99,12 +99,15 @@ import _ from 'lodash'
     },
     methods: {
       goToVideo(item){
-        this.$router.push(`/watch/${item.id}`)
+        if(this.customClickAction){
+          this.customClickAction(item)
+        } else {
+          this.$router.push(`/watch/${item.id}`)
+        }
       },
       filter(value, search, item) {
         let inName = RegExp(search, 'i').test(item.name)
-
-        
+ 
         let tagMatches = item.tag_ids.map(id => {
           let tag = this.getTag(id)
           return RegExp(search, 'i').test(tag.name)
@@ -112,9 +115,16 @@ import _ from 'lodash'
         let inTags = _.some(tagMatches)
  
         return inName || inTags
+      },
+      deleteVideo(video) {
+        let response = confirm(`Are you sure you want to delete ${video.name}`)
+        if(response){
+          this.$store.dispatch('videos/delete', video);
+          this.$store.dispatch('snackbar/setSnackbar', {text: `You have successfully deleted your video, ${video.name}.`});
+        }
       }
     },
-    props: ['videos']
+    props: ['videos', 'headers', 'customClickAction', 'dense', 'itemsPerPage']
   }
 </script>
 
