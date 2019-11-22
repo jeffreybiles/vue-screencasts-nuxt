@@ -4,7 +4,7 @@
       Videos with Tag "{{ tag.name }}"
     </h1>
 
-    <VideoTable :videos="videosOnTag" />
+    <VideoTable :videos="videosOnTag" :headers="headers" />
   </div>
 </template>
 
@@ -27,8 +27,17 @@ import VideoTable from '@/components/VideoTable'
       },
       tag(){
         return this.tags.find(t => t.id == this.$route.params.id)
-      }
-    }
+      },
+      headers(){
+        return [
+          {text: 'Played', value: 'played', sortable: false, width: "70px"},
+          {text: 'Name', value: 'name'},
+          {text: 'Date', value: 'sortable_published_at'},
+          {text: 'Duration', value: 'duration'},
+          {text: 'Tags', value: 'tags', sortable: false},
+        ]
+      },
+    },
   }
 </script>
 

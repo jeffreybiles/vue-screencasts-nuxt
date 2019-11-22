@@ -3,67 +3,43 @@
     <h1>Video List</h1>
     <v-btn text to="/admin/videos/new">Add Video</v-btn>
 
-    <div class="flex-table">
-      <div>Name</div>
-      <div>Description</div>
-      <div>Actions</div>
-    </div>
-    <div v-for="video in videos" :key="video.id" class="flex-table">
-      <div>{{ video.name }}</div>
-      <div>{{ video.description | abbreviate }}</div>
-      <div class="actions">
-        <router-link :to="`/watch/${video.id}`">Watch</router-link> 
-        <router-link :to="`/admin/videos/${video.id}`">Show</router-link>
-        <router-link :to="`/admin/videos/${video.id}/edit`">Edit</router-link>
-        <v-btn x-small @click="deleteVideo(video)">Delete</v-btn>
-      </div>
-    </div>
+    <VideoTable :videos="videos" 
+                :headers="headers" 
+                :customClickAction="goToVideoShow"
+                dense="true"
+                itemsPerPage="20" />
   </v-container>
 </template>
 
 <script>
+  import VideoTable from '@/components/VideoTable'
   import { mapState } from 'vuex';
   export default {
+    components: {
+      VideoTable
+    },
     computed: {
       ...mapState({
         videos: state => state.videos.videos
-      })
-    },
-    filters: {
-      abbreviate(text) {
-        if(text){
-          text = text.replace('<p>', '');
-          return text.slice(0, 50);
-        }
-      }
+      }),
+      headers(){
+        return [
+          {text: 'Name', value: 'name'},
+          {text: 'Date', value: 'sortable_published_at'},
+          {text: 'Duration', value: 'duration'},
+          {text: 'Tags', value: 'tags', sortable: false},
+          {text: 'Actions', value: 'actions', sortable: false, width: "300px"},
+        ]
+      },
     },
     methods: {
-      deleteVideo(video) {
-        let response = confirm(`Are you sure you want to delete ${video.name}`)
-        if(response){
-          this.$store.dispatch('videos/delete', video);
-          this.$store.dispatch('snackbar/setSnackbar', {text: `You have successfully deleted your video, ${video.name}.`});
-        }
+      goToVideoShow(video) {
+        this.$router.push(`/admin/videos/${video.id}`)
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .flex-table {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 33%);
-    padding: 10px;
-    border-bottom: 1px black solid;
 
-    &:nth-of-type(2n) {
-      background-color: #dedede;
-    }
-
-    .actions {
-      * {
-        padding-right: 15px
-      }
-    }
-  }
 </style>
