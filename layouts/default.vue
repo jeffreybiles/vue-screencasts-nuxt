@@ -2,6 +2,7 @@
   <v-app>
     <v-app-bar app color="green">
       <v-btn text to="/">Vue Screencasts</v-btn>
+      <v-btn text to="/tags">Tags</v-btn>
       <v-btn text to="/admin/videos" v-if="$auth.user && $auth.user.admin">
         Admin
       </v-btn>
