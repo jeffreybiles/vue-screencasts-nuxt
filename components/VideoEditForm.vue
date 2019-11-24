@@ -2,7 +2,7 @@
   <v-form v-model="valid">
     <v-text-field v-model="video.name" 
                   label="Name" 
-                  counter=50
+                  counter=100
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
     <v-text-field v-model="video.duration"
                   label="Duration (in seconds)" >
