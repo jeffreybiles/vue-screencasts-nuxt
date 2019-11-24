@@ -6,7 +6,11 @@
 
 <script>
   export default {
-    props: ['date']
+    props: {
+      date: {
+        type: Date
+      }
+    }
   }
 </script>
 

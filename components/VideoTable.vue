@@ -28,6 +28,7 @@
         </div>
       </template>
       <template #item.tags="{item}">
+        <!-- Note: this is causing rehydration issues -->
         <td @click.stop class="non-clickable">
           <span v-for="tag_id in item.tag_ids" :key="tag_id">
             <v-btn color="green lighten-2"
@@ -124,7 +125,19 @@ import _ from 'lodash'
         }
       }
     },
-    props: ['videos', 'headers', 'customClickAction', 'dense', 'itemsPerPage']
+    props: {
+      videos: {
+        type: Array,
+        required: true
+      },
+      headers: {
+        type: Array,
+        required: true
+      },
+      customClickAction: Function,
+      dense: Boolean,
+      itemsPerPage: Number
+    }
   }
 </script>
 

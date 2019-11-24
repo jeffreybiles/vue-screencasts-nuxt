@@ -38,7 +38,17 @@
         ...validations
       }
     },
-    props: ["submitForm", "buttonText", "hasName"]
+    props: {
+      submitForm: {
+        type: Function,
+        required: true,
+      },
+      buttonText: {
+        type: String,
+        required: true,
+      },
+      hasName: Boolean,
+    }
   }
 </script>
 
