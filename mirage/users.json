@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Toshinori Yagi",
+    "email": "allmight@ua.edu",
+    "admin": true,
+    "playedVideos": ["1", "3"]
+  }, {
+    "id": 2,
+    "name": "Izuku Midoriya",
+    "email": "deku@ua.edu",
+    "playedVideos": ["4", "6"]
+  },  {
+    "id": 3,
+    "name": "Jeffrey Biles",
+    "email": "bilesjeffrey@gmail.com",
+    "admin": true,
+    "playedVideos": ["1", "2", "7"]
+  }, {
+    "id": 4,
+    "name": "Evan You",
+    "email": "notminetogiveaway@secret.com",
+    "playedVideos": []
+  }, {
+    "id": 5,
+    "name": "Spike Spiegel",
+    "email": "spike@bebop.bounty",
+    "playedVideos": []
+  }, {
+    "id": 6,
+    "name": "Gon Freecs",
+    "email": "gon@hunter.gov",
+    "playedVideos": []
+  }
+]
