@@ -15,6 +15,8 @@
                   :dense="dense"
                   :items-per-page="itemsPerPage || 10"
                   @click:row="goToVideo"
+                  :page="Number($route.query.pageNumber) || 1"
+                  @update:page="changePageNumber"
                   :sort-desc="true">
       <template #item.duration="{value, item}">
         <DurationDisplay :duration="value" />
@@ -127,6 +129,9 @@ import _ from 'lodash'
           this.$store.dispatch('videos/delete', video);
           this.$store.dispatch('snackbar/setSnackbar', {text: `You have successfully deleted your video, ${video.name}.`});
         }
+      },
+      changePageNumber(newPageNumber) {
+        this.$router.push({path: this.$route.path, query: { pageNumber: newPageNumber}})
       }
     },
     props: {

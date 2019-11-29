@@ -36,7 +36,7 @@
     methods: {
       goToVideoShow(video) {
         this.$router.push(`/admin/videos/${video.id}`)
-      }
+      },
     }
   }
 </script>
