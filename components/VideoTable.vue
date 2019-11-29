@@ -124,7 +124,22 @@ import _ from 'lodash'
         }
       }
     },
-    props: ['videos', 'headers', 'customClickAction', 'dense', 'itemsPerPage']
+    props: {
+      videos: {
+        type: Array,
+        required: true
+      },
+      headers: {
+        type: Array,
+        required: true
+      },
+      customClickAction: {
+        type: Function,
+        required: false
+      },
+      dense: Boolean,
+      itemsPerPage: Number
+    }
   }
 </script>
 

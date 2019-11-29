@@ -19,7 +19,9 @@
         } 
       }
     },
-    props: ['markdown']
+    props: {
+      markdown: String
+    }
   }
 </script>
 

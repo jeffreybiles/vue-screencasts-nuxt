@@ -62,7 +62,24 @@
             })
       }
     },
-    props: ['fieldName', 'obj', 'directory', 'label']
+    props: {
+      fieldName: {
+        type: String,
+        required: true
+      },
+      obj: {
+        type: Object,
+        required: true
+      },
+      directory: {
+        type: String,
+        required: true
+      },
+      label: {
+        type: String,
+        required: true
+      }
+    }
   }
 </script>
 

@@ -18,7 +18,9 @@
     components: {
       MarkdownDisplay
     },
-    props: ['markdown']
+    props: {
+      markdown: String
+    }
   }
 </script>
 
