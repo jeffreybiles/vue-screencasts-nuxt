@@ -15,7 +15,7 @@
     </v-row>
    
 
-    <v-combobox :items="tags"
+    <v-autocomplete :items="tags"
                     item-text="name"
                     v-model="videoTags"
                     multiple
@@ -23,7 +23,7 @@
                     deletable-chips
                     hide-selected
                     return-object>
-    </v-combobox>
+    </v-autocomplete>
 
     <v-btn :to="`/admin/videos/${video.id}/edit`">Edit</v-btn>
     <v-btn :to="`/watch/${video.id}`">Watch</v-btn>
@@ -60,20 +60,18 @@
           return tagIds && tagIds.map(id => this.getTag(id));
         },
         async set(newTags) {
-          let createdTag = newTags.find(t => typeof t == 'string')
-          if(createdTag){
-            createdTag = await this.$store.dispatch('tags/create', {name: createdTag});
-            this.$store.dispatch('tags/connectToVideo', {tag: createdTag, video: this.video})
-          } else {
-            let addedTags = _.differenceBy(newTags, this.videoTags, 'id');
-            let removedTags = _.differenceBy(this.videoTags, newTags, 'id');
+          // We changed back from v-combobox to v-autocomplete because v-combobox is broken
+          // https://github.com/vuetifyjs/vuetify/issues/8841
+          // When it's fixed, we can go to v-combobox again.  Look in git history for the code we deleted
 
-            if(addedTags.length > 0) {
-              this.$store.dispatch('tags/connectToVideo', {tag: addedTags[0], video: this.video})
-            }
-            if(removedTags.length > 0) {
-              this.$store.dispatch('tags/disconnectFromVideo', {tag: removedTags[0], video: this.video})
-            }
+          let addedTags = _.differenceBy(newTags, this.videoTags, 'id');
+          let removedTags = _.differenceBy(this.videoTags, newTags, 'id');
+
+          if(addedTags.length > 0) {
+            this.$store.dispatch('tags/connectToVideo', {tag: addedTags[0], video: this.video})
+          }
+          if(removedTags.length > 0) {
+            this.$store.dispatch('tags/disconnectFromVideo', {tag: removedTags[0], video: this.video})
           }
         }
       }
