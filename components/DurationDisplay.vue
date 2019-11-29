@@ -19,7 +19,9 @@
         return seconds
       }
     },
-    props: ['duration']
+    props: {
+      duration: [String, Number]
+    }
   }
 </script>
 
