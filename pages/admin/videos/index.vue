@@ -7,7 +7,8 @@
                 :headers="headers" 
                 :customClickAction="goToVideoShow"
                 :dense="true"
-                :itemsPerPage="20" />
+                :itemsPerPage="20"
+                :showEditFields="true" />
   </v-container>
 </template>
 

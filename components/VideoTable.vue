@@ -56,6 +56,8 @@
             <v-col cols="12" md="8">
               <h1>{{item.name}}</h1>
               <MarkdownDisplay :markdown="item.description" />
+
+              <TagAutocomplete :video="item" v-if="showEditFields" />
             </v-col>
           </v-row>
         </td>
@@ -70,6 +72,7 @@ import DateDisplay from '@/components/DateDisplay'
 import { mapGetters } from 'vuex';
 import VideoWatch from '@/components/VideoWatch'
 import MarkdownDisplay from '@/components/MarkdownDisplay'
+import TagAutocomplete from '@/components/TagAutocomplete'
 import _ from 'lodash'
 
   export default {
@@ -77,7 +80,8 @@ import _ from 'lodash'
       DurationDisplay,
       DateDisplay,
       VideoWatch,
-      MarkdownDisplay
+      MarkdownDisplay,
+      TagAutocomplete,
     },
     data(){
       return {
@@ -136,7 +140,8 @@ import _ from 'lodash'
       },
       customClickAction: Function,
       dense: Boolean,
-      itemsPerPage: Number
+      itemsPerPage: Number,
+      showEditFields: Boolean,
     }
   }
 </script>

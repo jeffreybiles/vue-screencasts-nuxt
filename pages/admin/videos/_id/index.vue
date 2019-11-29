@@ -14,16 +14,7 @@
       </v-col>
     </v-row>
    
-
-    <v-autocomplete :items="tags"
-                    item-text="name"
-                    v-model="videoTags"
-                    multiple
-                    chips
-                    deletable-chips
-                    hide-selected
-                    return-object>
-    </v-autocomplete>
+    <TagAutocomplete :video="video" />
 
     <v-btn :to="`/admin/videos/${video.id}/edit`">Edit</v-btn>
     <v-btn :to="`/watch/${video.id}`">Watch</v-btn>
@@ -31,50 +22,27 @@
 </template>
 
 <script>
-  import { mapState, mapGetters } from 'vuex';
+  import { mapState } from 'vuex';
   import _ from 'lodash';
   import VideoByline from '@/components/VideoByline';
   import MarkdownDisplay from '@/components/MarkdownDisplay';
   import VideoWatch from '@/components/VideoWatch';
+  import TagAutocomplete from '@/components/TagAutocomplete';
 
   export default {
     components: {
       VideoByline,
       MarkdownDisplay,
-      VideoWatch
+      VideoWatch,
+      TagAutocomplete
     },
     computed: {
       ...mapState({
         videos: state => state.videos.videos,
-        tags: state => state.tags.tags
-      }),
-      ...mapGetters({
-        getTag: 'tags/get'
       }),
       video(){
         return this.videos.find(v => v.id == this.$route.params.id) || {};
       },
-      videoTags: {
-        get(){
-          let tagIds = this.video.tag_ids;
-          return tagIds && tagIds.map(id => this.getTag(id));
-        },
-        async set(newTags) {
-          // We changed back from v-combobox to v-autocomplete because v-combobox is broken
-          // https://github.com/vuetifyjs/vuetify/issues/8841
-          // When it's fixed, we can go to v-combobox again.  Look in git history for the code we deleted
-
-          let addedTags = _.differenceBy(newTags, this.videoTags, 'id');
-          let removedTags = _.differenceBy(this.videoTags, newTags, 'id');
-
-          if(addedTags.length > 0) {
-            this.$store.dispatch('tags/connectToVideo', {tag: addedTags[0], video: this.video})
-          }
-          if(removedTags.length > 0) {
-            this.$store.dispatch('tags/disconnectFromVideo', {tag: removedTags[0], video: this.video})
-          }
-        }
-      }
     }
   }
 </script>
