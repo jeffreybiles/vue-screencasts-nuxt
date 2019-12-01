@@ -1,18 +1,19 @@
 <template>
-  <div>
+  <v-container class="d-flex flex-wrap">
     <div v-for="course in courses" :key="course.id">
-      {{ course.name }}
+      <CourseCard :course="course" />
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>
   import axios from 'axios';
   import { mapState } from 'vuex';
+  import CourseCard from '@/components/CourseCard';
 
   export default {
-    async fetch(context){
-      await context.store.dispatch('courses/loadAll')
+    components: {
+      CourseCard
     },
     computed: {
       ...mapState({

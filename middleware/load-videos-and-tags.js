@@ -5,7 +5,8 @@ export default async function({store, from}){
   if(isInitialPageLoad){
     await RSVP.all([
       store.dispatch('videos/loadAll'),
-      store.dispatch('tags/loadAll')
+      store.dispatch('tags/loadAll'),
+      store.dispatch('courses/loadAll')
     ])
   }
 }
