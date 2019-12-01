@@ -17,3 +17,9 @@ export const actions = {
     commit('SET_COURSES', courses.map(c => c.attributes))
   }
 }
+
+export const getters = {
+  get: state => id => {
+    return state.courses.find(c => c.id == id)
+  }
+}

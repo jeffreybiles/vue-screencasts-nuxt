@@ -25,7 +25,7 @@ export const deserializeTags = function(tags) {
 export const deserializeCourses = function(courses) {
   courses.forEach(c => {
     c.attributes.id = c.id
-    c.attributes.chapter_ids = c.relationships.chapters.data.map(c => c.id)
-    c.attributes.video_ids = c.relationships.videos.data.map(v => v.id)
+    c.attributes.chapter_ids = c.relationships.chapters.data.map(c => c.id) || []
+    c.attributes.video_ids = c.relationships.videos.data.map(v => v.id) || []
   })
 }

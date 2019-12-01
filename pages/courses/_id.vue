@@ -1,21 +1,31 @@
 <template>
   <v-container>
-    <h1>{{ course.name }}</h1>
-    <v-img :src="course.image_url || ''" class="thumbnail-image" />
-    
+    <CourseInfo :course="course" v-slot="{duration, numVideos}">
+      <h1>{{ course.name }}</h1>
+      <v-img :src="course.image_url || ''" class="thumbnail-image" />
+      <br>
+      <div>{{numVideos}} videos</div>
+      <div>Total length: <DurationDisplay :duration="duration" /></div>
+    </CourseInfo>
   </v-container>
 </template>
 
 <script>
-  import { mapState } from 'vuex';
+  import { mapGetters } from 'vuex';
+  import CourseInfo from '@/components/CourseInfo'
+  import DurationDisplay from '@/components/DurationDisplay'
 
   export default {
+    components: {
+      CourseInfo,
+      DurationDisplay
+    },
     computed: {
-      ...mapState({
-        courses: state => state.courses.courses
+      ...mapGetters({
+        getCourse: 'courses/get'
       }),
       course(){
-        return this.courses.find(c => c.id == this.$route.params.id)
+        return this.getCourse(this.$route.params.id)
       }
     }
   }
