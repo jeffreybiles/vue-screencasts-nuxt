@@ -8,7 +8,7 @@
 
 <script>
   import axios from 'axios';
-  import { mapState } from 'vuex';
+  import { mapGetters } from 'vuex';
   import CourseCard from '@/components/CourseCard';
 
   export default {
@@ -16,9 +16,9 @@
       CourseCard
     },
     computed: {
-      ...mapState({
-        courses: state => state.courses.courses
-      })
+      ...mapGetters({
+        courses: 'courses/topLevel'
+      }),
     }
   }
 </script>

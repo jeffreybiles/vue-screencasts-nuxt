@@ -21,5 +21,8 @@ export const actions = {
 export const getters = {
   get: state => id => {
     return state.courses.find(c => c.id == id)
+  },
+  topLevel: state => {
+    return state.courses.filter(c => ['course', 'standalone_chapter'].includes(c.series_type))
   }
 }
