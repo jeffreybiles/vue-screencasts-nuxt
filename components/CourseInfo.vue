@@ -1,7 +1,8 @@
 <template>
   <div>
     <slot :numVideos="numVideos"
-          :duration="duration" />
+          :duration="duration"
+          :videos="videos" />
   </div>
 </template>
 
