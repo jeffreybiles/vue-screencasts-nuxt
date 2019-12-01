@@ -21,3 +21,10 @@ export const deserializeTags = function(tags) {
     t.attributes.video_ids = t.relationships.videos.data.map(v => v.id)
   })
 }
+
+export const deserializeCourses = function(courses) {
+  courses.forEach(c => {
+    c.attributes.id = c.id
+    c.attributes.chapter_ids = c.relationships.chapters.data.map(c => c.id)
+  })
+}
