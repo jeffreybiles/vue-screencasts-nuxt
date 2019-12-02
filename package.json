@@ -24,7 +24,8 @@
     "nuxt-fontawesome": "^0.4.0",
     "rsvp": "^4.8.5",
     "vue-video-player": "^5.0.2",
-    "vuetify-datetime-picker": "^2.1.1"
+    "vuetify-datetime-picker": "^2.1.1",
+    "vuetify": "^2.1.12"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^2.0.0-alpha.0"

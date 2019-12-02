@@ -1,7 +1,11 @@
 <template>
   <div>
-    <div v-for="courseItem in courseItems" :key="courseItem.name">
-      <CourseContentTableRow :courseItem="courseItem" />
+    <div class="course-content-table">
+      <v-expansion-panels accordion multiple>
+        <v-expansion-panel v-for="courseItem in courseItems" :key="courseItem.name">
+          <CourseContentTableRow :courseItem="courseItem" />
+        </v-expansion-panel>
+      </v-expansion-panels>
     </div>
   </div>
 </template>
@@ -35,5 +39,8 @@
 </script>
 
 <style lang="scss" scoped>
-
+  ::v-deep .course-content-chapter {
+    border: solid 1px black;
+    padding: 20px;
+  }
 </style>
