@@ -4,18 +4,19 @@
       <div class="course-content-chapter">
         <v-expansion-panel-header>
           <v-row>
-            <v-col cols="8"><h1>{{decoratedCourse.name}}</h1></v-col>
+            <v-col cols="8"><h2>{{decoratedCourse.name}}</h2></v-col>
             <v-col cols="1">
               {{ finishedVideos.length }} / {{decoratedCourse.numVideos}}
             </v-col>
             <v-col cols="1"><DurationDisplay :duration="decoratedCourse.duration" /></v-col>
             <v-col cols="2">
-              <DateDisplay :date="decoratedCourse.videos[0] && decoratedCourse.videos[0].published_at" />
+              <!-- TODO: actually get the most recently published video -->
+              <DateDisplay :date="sortedVideos[0] && sortedVideos[0].published_at" />
             </v-col>
           </v-row>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
-          <div v-for="video in decoratedCourse.videos" :key="video.id">
+          <div v-for="video in sortedVideos" :key="video.id">
             <course-content-table-row :courseItem="video" :isAdminScreen="isAdminScreen" />
           </div>
         </v-expansion-panel-content>
@@ -27,7 +28,7 @@
         <v-col cols="1">
           <div v-if="isAdminScreen">
             <!-- IF in admin mode, have up or down arrows -->
-            Up and down arrows            
+            {{courseItem.order}}
           </div>
           <div v-else>
             <div v-if="isPlayed(courseItem.id)">
@@ -49,6 +50,7 @@
   import DurationDisplay from '@/components/DurationDisplay.vue';
   import DateDisplay from '@/components/DateDisplay.vue';
   import { mapGetters } from 'vuex';
+  import _ from 'lodash';
 
   export default {
     name: 'course-content-table-row',
@@ -65,6 +67,9 @@
       }),
       finishedVideos() {
         return this.decoratedCourse.videos.filter(v => this.isPlayed(v.id))
+      },
+      sortedVideos(){
+        return _.sortBy(this.decoratedCourse.videos, 'order')
       }
     },
     props: {

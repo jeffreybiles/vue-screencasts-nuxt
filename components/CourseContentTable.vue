@@ -13,6 +13,7 @@
 <script>
   import CourseContentTableRow from '@/components/CourseContentTableRow.vue';
   import { mapGetters } from 'vuex';
+  import _ from 'lodash'
   
   export default {
     components: {
@@ -26,7 +27,8 @@
       courseItems(){
         let videos = this.course.video_ids.map(v => this.getVideo(v))
         let courses = this.course.chapter_ids.map(c => this.getCourse(c)).map(c => { return {...c, type: 'course'}})
-        return videos.concat(courses) //TODO: sort once ordering is in
+        let allItems = videos.concat(courses)
+        return _.sortBy(allItems, 'order')
       }
     },
     props: {
@@ -45,6 +47,6 @@
 <style lang="scss" scoped>
   ::v-deep .course-content-chapter {
     border: solid 1px black;
-    padding: 20px;
+    padding: 10px;
   }
 </style>
