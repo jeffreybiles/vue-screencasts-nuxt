@@ -4,7 +4,7 @@
       <h1>{{courseItem.name}}</h1>
 
       <div v-for="video in decoratedCourse.videos" :key="video.id">
-        <course-item-row :courseItem="video" :indent="true" />
+        <course-content-table-row :courseItem="video" :indent="true" />
       </div>
     </span>
     <span v-else>
@@ -17,13 +17,13 @@
 </template>
 
 <script>
-  import CourseItemRow from '@/components/CourseItemRow';
+  import CourseContentTableRow from '@/components/CourseContentTableRow';
   import courseDecorator from '@/utils/course-decorator';
 
   export default {
-    name: 'course-item-row',
+    name: 'course-content-table-row',
     components: {
-      CourseItemRow
+      CourseContentTableRow
     },
     computed: {
       isCourse() { return !!this.courseItem.chapter_ids },

@@ -16,7 +16,7 @@
       </v-col>
     </v-row>
 
-    <!-- TODO: Display chapters and videos here -->
+    <CourseContentTable :course="course" />
   </div>
 </template>
 
@@ -25,11 +25,13 @@
   import MarkdownDisplay from '@/components/MarkdownDisplay.vue';
   import DurationDisplay from '@/components/DurationDisplay.vue';
   import decorateCourse from '@/utils/course-decorator';
+  import CourseContentTable from '@/components/CourseContentTable.vue';
 
   export default {
     components: {
       MarkdownDisplay,
-      DurationDisplay
+      DurationDisplay,
+      CourseContentTable
     },
     computed: {
       ...mapGetters({
