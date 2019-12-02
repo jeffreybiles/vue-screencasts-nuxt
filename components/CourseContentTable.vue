@@ -3,7 +3,12 @@
     <div class="course-content-table">
       <v-expansion-panels accordion multiple>
         <v-expansion-panel v-for="courseItem in courseItems" :key="courseItem.name">
-          <CourseContentTableRow :courseItem="courseItem" :isAdminScreen="isAdminScreen" />
+          <span v-if="courseItem && courseItem.chapter_ids">
+            <CourseContentChapterRow :chapter="courseItem" :isAdminScreen="isAdminScreen" />
+          </span>
+          <span v-else>
+            <CourseContentVideoRow :video="courseItem" :isAdminScreen="isAdminScreen" />
+          </span>
         </v-expansion-panel>
       </v-expansion-panels>
     </div>
@@ -11,13 +16,15 @@
 </template>
 
 <script>
-  import CourseContentTableRow from '@/components/CourseContentTableRow.vue';
+  import CourseContentChapterRow from '@/components/CourseContentChapterRow.vue';
+  import CourseContentVideoRow from '@/components/CourseContentVideoRow.vue';
   import { mapGetters } from 'vuex';
   import _ from 'lodash'
   
   export default {
     components: {
-      CourseContentTableRow
+      CourseContentChapterRow,
+      CourseContentVideoRow
     },
     computed: {
       ...mapGetters({

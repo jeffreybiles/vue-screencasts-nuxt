@@ -1,9 +1,6 @@
 <template>
-  <!-- TODO: Consider where this component is being split -->
-  <!-- It may be better to split it into a CourseContentChapterRow and CourseContentVideoRow -->
   <div>
-    <span v-if="isCourse">
-      <div class="course-content-chapter">
+    <div class="course-content-chapter">
         <v-expansion-panel-header>
           <v-row>
             <v-col cols="8"><h2>{{decoratedCourse.name}}</h2></v-col>
@@ -18,66 +15,46 @@
         </v-expansion-panel-header>
         <v-expansion-panel-content>
           <div v-for="video in sortedVideos" :key="video.id">
-            <course-content-table-row :courseItem="video" :isAdminScreen="isAdminScreen" />
+            <CourseContentVideoRow :video="video" :isAdminScreen="isAdminScreen" />
           </div>
         </v-expansion-panel-content>
       </div>
-    </span>
-    <span v-else>
-      <v-row class="course-content-video">
-        <v-col cols="8">&nbsp; {{courseItem.name}}</v-col>
-        <v-col cols="1">
-          <div v-if="isAdminScreen">
-            <!-- IF in admin mode, have up or down arrows -->
-            {{courseItem.order}}
-          </div>
-          <div v-else>
-            <div v-if="isPlayed(courseItem.id)">
-              <!-- ELSE have played checkmark -->
-              Played
-            </div>
-          </div>
-        </v-col>
-        <v-col cols="1"><DurationDisplay :duration="courseItem.duration" /></v-col>
-        <v-col cols="2"><DateDisplay :date="courseItem.published_at" /></v-col>
-      </v-row>
-    </span>
   </div>
 </template>
 
 <script>
-  import CourseContentTableRow from '@/components/CourseContentTableRow';
   import courseDecorator from '@/utils/course-decorator';
+  import CourseContentVideoRow from '@/components/CourseContentVideoRow';
   import DurationDisplay from '@/components/DurationDisplay.vue';
   import DateDisplay from '@/components/DateDisplay.vue';
   import { mapGetters } from 'vuex';
   import _ from 'lodash';
 
   export default {
-    name: 'course-content-table-row',
     components: {
-      CourseContentTableRow,
+      CourseContentVideoRow,
       DurationDisplay,
       DateDisplay
     },
+
     computed: {
-      isCourse() { return !!this.courseItem.chapter_ids },
-      decoratedCourse() { return courseDecorator(this.courseItem, this.$store)},
       ...mapGetters({
         isPlayed: 'user/videoIsPlayed'
       }),
-      finishedVideos() {
-        return this.decoratedCourse.videos.filter(v => this.isPlayed(v.id))
-      },
+      decoratedCourse() { return courseDecorator(this.chapter, this.$store)},
       sortedVideos(){
         return _.sortBy(this.decoratedCourse.videos, 'order')
       },
+      finishedVideos() {
+        return this.decoratedCourse.videos.filter(v => this.isPlayed(v.id))
+      },
+
       mostRecentVideo(){
         return _.sortBy(this.decoratedCourse.videos, 'published_at').reverse()[0]
       }
     },
     props: {
-      courseItem: {
+      chapter: {
         type: Object,
         required: true
       },
@@ -85,7 +62,7 @@
         type: Boolean,
         default: false
       }
-    },
+    }
   }
 </script>
 
