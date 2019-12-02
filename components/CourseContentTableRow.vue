@@ -1,4 +1,6 @@
 <template>
+  <!-- TODO: Consider where this component is being split -->
+  <!-- It may be better to split it into a CourseContentChapterRow and CourseContentVideoRow -->
   <div>
     <span v-if="isCourse">
       <div class="course-content-chapter">
@@ -10,8 +12,7 @@
             </v-col>
             <v-col cols="1"><DurationDisplay :duration="decoratedCourse.duration" /></v-col>
             <v-col cols="2">
-              <!-- TODO: actually get the most recently published video -->
-              <DateDisplay :date="sortedVideos[0] && sortedVideos[0].published_at" />
+              <DateDisplay :date="mostRecentVideo && mostRecentVideo.published_at" />
             </v-col>
           </v-row>
         </v-expansion-panel-header>
@@ -70,6 +71,9 @@
       },
       sortedVideos(){
         return _.sortBy(this.decoratedCourse.videos, 'order')
+      },
+      mostRecentVideo(){
+        return _.sortBy(this.decoratedCourse.videos, 'published_at').reverse()[0]
       }
     },
     props: {
