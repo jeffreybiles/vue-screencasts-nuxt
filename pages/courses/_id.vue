@@ -1,11 +1,18 @@
 <template>
   <v-container>
-    <h1>{{ course.name }}</h1>
-    <v-img :src="course.image_url || ''" class="thumbnail-image" />
-    <br>
-    <div>{{course.numVideos}} videos</div>
-    <div>Total length: <DurationDisplay :duration="course.duration" /></div>
-
+    <v-row>
+      <v-col cols="0" sm="4">
+        <v-img :src="course.image_url || ''" class="thumbnail-image" />
+      </v-col>
+      <v-col cols="12" sm="8">
+        <h1>{{ course.name }}</h1>
+        {{ course.numChapters}} chapters,
+        {{ course.numVideos }} videos,
+        <duration-display :duration="course.duration" /> total runtime<br>
+        <hr>
+        <MarkdownDisplay :markdown="course.description" />
+      </v-col>
+    </v-row>
     <CourseContentTable :course="course" />
   </v-container>
 </template>
@@ -15,11 +22,13 @@
   import DurationDisplay from '@/components/DurationDisplay'
   import CourseContentTable from '@/components/CourseContentTable'
   import courseDecorator from '../../utils/course-decorator';
+  import MarkdownDisplay from '@/components/MarkdownDisplay.vue';
 
   export default {
     components: {
       DurationDisplay,
-      CourseContentTable
+      CourseContentTable,
+      MarkdownDisplay
     },
     computed: {
       ...mapGetters({

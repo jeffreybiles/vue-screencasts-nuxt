@@ -12,6 +12,7 @@
         {{ course.numChapters}} chapters,
         {{ course.numVideos }} videos,
         <duration-display :duration="course.duration" /> total runtime<br>
+        <hr>
         <markdown-display :markdown="course.description" />
       </v-col>
     </v-row>
