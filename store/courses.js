@@ -16,6 +16,10 @@ export const mutations = {
   CREATE(state, course) {
     let courses = state.courses.concat(course);
     state.courses = courses
+  },
+  DELETE(state, courseId) {
+    let courses = state.courses.filter(c => c.id != courseId)
+    state.courses = courses;
   }
 }
 
@@ -36,6 +40,12 @@ export const actions = {
     deserializeCourses([newCourse])
     commit('CREATE', newCourse.attributes)
     return newCourse.attributes
+  },
+  async delete({commit}, course) {
+    let response = await this.$axios.delete(`/courses/${course.id}`);
+    if(response.status == 200 || response.status == 204){
+      commit('DELETE', course.id);
+    }
   }
 }
 

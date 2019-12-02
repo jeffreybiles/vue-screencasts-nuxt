@@ -11,7 +11,7 @@
         <td @click.stop class="non-clickable">
           <v-btn small :to="`/courses/${item.id}`">View</v-btn>
           <v-btn small :to="`/admin/courses/${item.id}/edit`">Edit</v-btn>
-          <!-- <v-btn small @click="deleteCourse(item)">Delete</v-btn> -->
+          <v-btn small @click="deleteCourse(item)">Delete</v-btn>
         </td>
       </template>
     </v-data-table>
@@ -50,6 +50,12 @@
     methods: {
       goToCourse(course) {
         this.$router.push(`/admin/courses/${course.id}`)
+      },
+      deleteCourse(course) {
+        let isConfirmed = confirm(`Are you sure you want to delete ${course.name}?  This cannot be undone.`)
+        if(isConfirmed){
+          this.$store.dispatch('courses/delete', course)
+        }
       }
     }
   }
