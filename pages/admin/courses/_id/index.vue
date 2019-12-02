@@ -16,7 +16,7 @@
       </v-col>
     </v-row>
 
-    <CourseContentTable :course="course" />
+    <CourseContentTable :course="course" :isAdminScreen="true" />
   </div>
 </template>
 

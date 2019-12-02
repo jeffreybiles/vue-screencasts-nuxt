@@ -3,7 +3,7 @@
     <div class="course-content-table">
       <v-expansion-panels accordion multiple>
         <v-expansion-panel v-for="courseItem in courseItems" :key="courseItem.name">
-          <CourseContentTableRow :courseItem="courseItem" />
+          <CourseContentTableRow :courseItem="courseItem" :isAdminScreen="isAdminScreen" />
         </v-expansion-panel>
       </v-expansion-panels>
     </div>
@@ -33,6 +33,10 @@
       course: {
         type: Object,
         required: true
+      },
+      isAdminScreen: {
+        type: Boolean,
+        default: false
       }
     }
   }
