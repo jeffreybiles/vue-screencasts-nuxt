@@ -1,13 +1,11 @@
 <template>
   <div>
-    <span v-if="courseItem.type == 'course'">
+    <span v-if="isCourse">
       <h1>{{courseItem.name}}</h1>
 
-      <CourseInfo :course="courseItem" v-slot="{videos, duration}">
-        <div v-for="video in videos" :key="video.id">
-          <course-item-row :courseItem="video" :indent="true" />
-        </div>
-      </CourseInfo>
+      <div v-for="video in decoratedCourse.videos" :key="video.id">
+        <course-item-row :courseItem="video" :indent="true" />
+      </div>
     </span>
     <span v-else>
       <h2>
@@ -19,14 +17,17 @@
 </template>
 
 <script>
-  import CourseInfo from '@/components/CourseInfo';
   import CourseItemRow from '@/components/CourseItemRow';
+  import courseDecorator from '@/utils/course-decorator';
 
   export default {
     name: 'course-item-row',
     components: {
-      CourseInfo,
       CourseItemRow
+    },
+    computed: {
+      isCourse() { return !!this.courseItem.chapter_ids },
+      decoratedCourse() { return courseDecorator(this.courseItem, this.$store)}
     },
     props: {
       courseItem: {
@@ -34,7 +35,7 @@
         required: true
       },
       indent: Boolean
-    }  
+    },
   }
 </script>
 

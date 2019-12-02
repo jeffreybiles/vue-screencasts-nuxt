@@ -1,28 +1,25 @@
 <template>
   <v-container>
-    <CourseInfo :course="course" v-slot="{duration, numVideos}">
-      <h1>{{ course.name }}</h1>
-      <v-img :src="course.image_url || ''" class="thumbnail-image" />
-      <br>
-      <div>{{numVideos}} videos</div>
-      <div>Total length: <DurationDisplay :duration="duration" /></div>
+    <h1>{{ course.name }}</h1>
+    <v-img :src="course.image_url || ''" class="thumbnail-image" />
+    <br>
+    <div>{{course.numVideos}} videos</div>
+    <div>Total length: <DurationDisplay :duration="course.duration" /></div>
 
-      <div v-for="courseItem in courseItems" :key="courseItem.name">
-        <CourseItemRow :courseItem="courseItem" />
-      </div>
-    </CourseInfo>
+    <div v-for="courseItem in courseItems" :key="courseItem.name">
+      <CourseItemRow :courseItem="courseItem" />
+    </div>
   </v-container>
 </template>
 
 <script>
   import { mapGetters } from 'vuex';
-  import CourseInfo from '@/components/CourseInfo'
   import DurationDisplay from '@/components/DurationDisplay'
   import CourseItemRow from '@/components/CourseItemRow'
+  import courseDecorator from '../../utils/course-decorator';
 
   export default {
     components: {
-      CourseInfo,
       DurationDisplay,
       CourseItemRow
     },
@@ -32,7 +29,8 @@
         getVideo: 'videos/get'
       }),
       course(){
-        return this.getCourse(this.$route.params.id)
+        let course = this.getCourse(this.$route.params.id)
+        return courseDecorator(course, this.$store);
       },
       courseItems(){
         let videos = this.course.video_ids.map(v => this.getVideo(v))
