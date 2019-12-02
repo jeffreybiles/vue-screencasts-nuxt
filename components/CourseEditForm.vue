@@ -1,7 +1,9 @@
 <template>
   <v-form v-model="valid">
     <v-text-field v-model="course.name" />
-    <!-- TODO: Select series_type from selectbox -->
+    <v-select :items="['course', 'chapter', 'standalone_chapter']"
+              v-model="course.series_type"
+              label="Series Type" />
     <S3FileUpload :obj="course"
                   fieldName="image_url"
                   directory="thumbnails"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn :to="`/admin/courses/new`">Create Course</v-btn>
+    <v-btn :to="`/admin/courses/new`" class="mt-2">Create Course</v-btn>
     <v-data-table :items="processedCourses"
                   :headers="headers"
                   @click:row="goToCourse">
