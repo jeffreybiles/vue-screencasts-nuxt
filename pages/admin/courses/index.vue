@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-btn :to="`/admin/courses/new`">Create Course</v-btn>
     <v-data-table :items="processedCourses"
                   :headers="headers"
                   @click:row="goToCourse">
@@ -21,7 +22,6 @@
   import { mapState } from 'vuex';
   import DurationDisplay from '@/components/DurationDisplay';
   import courseDecorator from '@/utils/course-decorator';
-
 
   export default {
     components: {

@@ -32,10 +32,10 @@ export const actions = {
   },
   async create({commit}, course) {
     let response = await this.$axios.post(`/courses`, course)
-    let courseObject = response.data.data
-    let newCourse = {...courseObject.attributes, id: course.id}
-    commit('CREATE', newCourse)
-    return newCourse
+    let newCourse = response.data.data
+    deserializeCourses([newCourse])
+    commit('CREATE', newCourse.attributes)
+    return newCourse.attributes
   }
 }
 

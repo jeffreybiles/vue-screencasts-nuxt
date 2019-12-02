@@ -6,12 +6,12 @@
         <v-img :src="course.image_url || ''" class="thumbnail-image" />
       </v-col>
       <v-col cols="12" sm="8">
+        <v-btn :to="`/admin/courses/${course.id}/edit`">Edit</v-btn><br>
         type: {{ course.series_type }}<br>
 
         {{ course.numChapters}} chapters,
         {{ course.numVideos }} videos,
         <duration-display :duration="course.duration" /> total runtime<br>
-
         <markdown-display :markdown="course.description" />
       </v-col>
     </v-row>
