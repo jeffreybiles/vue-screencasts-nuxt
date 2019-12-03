@@ -2,10 +2,9 @@
   <v-container>
     <h1>Roadmap</h1>
 
-    <h2>Mid to late December: Open Beta</h2>
+    <h2>Late December to early January: Open Beta</h2>
     <p>This open beta should be feature-complete for finding and watching videos.</p>
     <p>Things could be a little rocky at first as I adjust based on user feedback.</p>
-    <p>As such, there will be a MAJOR discount for those who believe in the project this early.</p>
 
     TODO
     <ul>
@@ -20,7 +19,9 @@
 
     <h2>Early to mid January: Launch</h2>
 
-    <p>At this point we'll be ready for prime time. Prices raise, and I'll start releasing a new video most workdays.</p>
+    <p>At this point we'll be ready for prime time</p>
+    <p>I'll start releasing a new video most workdays.</p>
+    <p>There will be a MAJOR discount for those who believe in the project this early.</p>
     
     TODO
     <ul>
