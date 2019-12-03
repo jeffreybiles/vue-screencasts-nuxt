@@ -58,7 +58,9 @@
         let videos = this.course.video_ids.map(v => this.getVideo(v))
         let courses = this.course.chapter_ids.map(c => this.getCourse(c)).map(c => { return {...c, type: 'course'}})
         let allItems = videos.concat(courses)
-        return _.sortBy(allItems, 'order')
+        return allItems.sort((i, j) => {
+          return (Number(i.order) > Number(j.order)) ? 1 : -1
+        })
       },
       addableVideos(){
         return _.filter(this.videos, v => !v.course_id)

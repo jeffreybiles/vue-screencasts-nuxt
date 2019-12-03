@@ -43,7 +43,9 @@
       }),
       decoratedCourse() { return courseDecorator(this.chapter, this.$store)},
       sortedVideos(){
-        return _.sortBy(this.decoratedCourse.videos, 'order')
+        return this.decoratedCourse.videos.sort((i, j) => {
+          return (Number(i.order) > Number(j.order)) ? 1 : -1
+        })
       },
       finishedVideos() {
         return this.decoratedCourse.videos.filter(v => this.isPlayed(v.id))
