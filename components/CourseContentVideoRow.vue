@@ -10,6 +10,8 @@
       <v-col cols="1">
         <div v-if="isAdminScreen">
           <!--TODO have up or down arrows -->
+          <font-awesome-icon icon="arrow-up" @click="moveEarlier" />
+          <font-awesome-icon icon="arrow-down" @click="moveLater" />
           {{video.order}}
         </div>
         <div v-else>
@@ -44,6 +46,24 @@
     methods: {
       async detachVideo(){
         this.$store.dispatch('courses/detachVideo', {video: this.video, course: this.course})
+      },
+      moveEarlier(){
+        let currentIndex = this.course.allItems.indexOf(this.video)
+        if(currentIndex == 0) { return null}
+
+        let oneBefore = this.course.allItems[currentIndex - 1]
+        if(currentIndex == 1) { 
+          this.video.order = Number(oneBefore.order) - 1
+          this.$store.dispatch('courses/updateVideoOrder', {video: this.video, course: this.course})
+          return null
+        }
+
+        let twoBefore = this.course.allItems[currentIndex - 2]
+        this.video.order = (Number(oneBefore.order) + Number(twoBefore.order)) / 2
+        this.$store.dispatch('courses/updateVideoOrder', {video: this.video, course: this.course})
+      },
+      moveLater(){
+
       }
     },
     props: {

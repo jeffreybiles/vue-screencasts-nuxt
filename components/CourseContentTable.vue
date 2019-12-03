@@ -2,12 +2,12 @@
   <div>
     <div class="course-content-table">
       <v-expansion-panels accordion multiple>
-        <v-expansion-panel v-for="courseItem in courseItems" :key="courseItem.name">
+        <v-expansion-panel v-for="courseItem in mungedCourse.sortedItems" :key="courseItem.name">
           <span v-if="courseItem && courseItem.chapter_ids">
-            <CourseContentChapterRow :chapter="courseItem" :isAdminScreen="isAdminScreen" :course="course" />
+            <CourseContentChapterRow :chapter="courseItem" :isAdminScreen="isAdminScreen" :course="mungedCourse" />
           </span>
           <span v-else>
-            <CourseContentVideoRow :video="courseItem" :isAdminScreen="isAdminScreen" :course="course" />
+            <CourseContentVideoRow :video="courseItem" :isAdminScreen="isAdminScreen" :course="mungedCourse" />
           </span>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -69,13 +69,14 @@
         videos: state => state.videos.videos,
         courses: state => state.courses.courses
       }),
-      courseItems(){
+      mungedCourse() {
         let videos = this.course.video_ids.map(v => this.getVideo(v))
         let courses = this.course.chapter_ids.map(c => this.getCourse(c)).map(c => { return {...c, type: 'course'}})
         let allItems = videos.concat(courses)
-        return allItems.sort((i, j) => {
+        let sortedItems = allItems.sort((i, j) => {
           return (Number(i.order) > Number(j.order)) ? 1 : -1
         })
+        return {...this.course, sortedItems}
       },
       addableVideos(){
         return _.filter(this.videos, v => !v.course_id)
