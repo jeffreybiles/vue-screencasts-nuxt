@@ -6,9 +6,19 @@ export const getData = async function(url, axios) {
   }
 }
 
+export const postData = async function(url, axios) {
+  let response = await axios.post(url)
+  return {
+    data: response.data.data,
+    included: response.data.included
+  }
+}
+
 export const deserializeVideos = function(videos) {
   videos.forEach(v => {
     v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
+    let courseData = v.relationships.course.data
+    v.attributes.course_id = courseData && courseData.id;
     if(v.attributes.published_at) {
       v.attributes.published_at = new Date(v.attributes.published_at)
     }
@@ -25,6 +35,7 @@ export const deserializeTags = function(tags) {
 export const deserializeCourses = function(courses) {
   courses.forEach(c => {
     c.attributes.id = c.id
+    c.attributes.parent = c.relationships.parent.data
     c.attributes.chapter_ids = c.relationships.chapters.data.map(c => c.id) || []
     c.attributes.video_ids = c.relationships.videos.data.map(v => v.id) || []
   })

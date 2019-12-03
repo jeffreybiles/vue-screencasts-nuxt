@@ -1,5 +1,5 @@
-import {getData, deserializeCourses} from '@/utils/store-utils';
-import { create } from 'domain';
+import {getData, postData, deserializeCourses, deserializeVideos} from '@/utils/store-utils';
+import Vue from 'vue'
 
 export const state = () => ({
   courses: []
@@ -20,6 +20,10 @@ export const mutations = {
   DELETE(state, courseId) {
     let courses = state.courses.filter(c => c.id != courseId)
     state.courses = courses;
+  },
+  EDIT(state, course) {
+    let c = state.courses.find(c => c.id == course.id)
+    Vue.set(c, 'video_ids', course.video_ids)
   }
 }
 
@@ -46,6 +50,25 @@ export const actions = {
     if(response.status == 200 || response.status == 204){
       commit('DELETE', course.id);
     }
+  },
+  async attachVideo({commit}, {video, course}) {
+    let {data: updatedVideo, included: [updatedCourse]} = await postData(`/courses/${course.id}/attach-video/${video.id}`, this.$axios)
+    deserializeVideos([updatedVideo])
+    deserializeCourses([updatedCourse])
+    
+    commit('videos/EDIT_VIDEO', updatedVideo.attributes, {root: true})
+    commit('EDIT', updatedCourse.attributes)
+    return {video: updatedVideo.attributes, course: updatedCourse.attributes}
+  },
+  async detachVideo({commit}, {video, course}) {
+    let {data: updatedCourse} = await postData(`/courses/${course.id}/detach-video/${video.id}`, this.$axios)
+    deserializeCourses([updatedCourse])
+    commit('EDIT', updatedCourse.attributes)
+    
+    video.course_id = null;
+    commit('videos/EDIT_VIDEO', video, {root: true})
+
+    return {course: updatedCourse}
   }
 }
 

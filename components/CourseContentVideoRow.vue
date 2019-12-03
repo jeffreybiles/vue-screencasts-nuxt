@@ -1,7 +1,12 @@
 <template>
   <div>
     <v-row class="course-content-video">
-      <v-col cols="8">&nbsp; {{video.name}}</v-col>
+      <v-col cols="7">&nbsp; {{video.name}}</v-col>
+      <v-col cols="1">
+        <v-btn small v-if="isAdminScreen" @click="detachVideo">
+          Detach
+        </v-btn>
+      </v-col>
       <v-col cols="1">
         <div v-if="isAdminScreen">
           <!--TODO have up or down arrows -->
@@ -36,6 +41,11 @@
         isPlayed: 'user/videoIsPlayed'
       }),
     },
+    methods: {
+      async detachVideo(){
+        this.$store.dispatch('courses/detachVideo', {video: this.video, course: this.course})
+      }
+    },
     props: {
       video: {
         type: Object,
@@ -44,6 +54,10 @@
       isAdminScreen: {
         type: Boolean,
         default: false
+      },
+      course: {
+        type: Object,
+        required: false
       }
     }
   }
