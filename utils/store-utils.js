@@ -14,6 +14,15 @@ export const postData = async function(url, axios) {
   }
 }
 
+export const editMutation = function(storeData, item) {
+  // This works, but doesn't seem the optimal way.
+  // Putting it into a utility so I can fix them all at once when I discover a better way
+  let storeItem = storeData.find(i => i.id == item.id)
+  let index = storeData.indexOf(storeItem)
+  storeData.splice(index, 1, item)
+}
+
+
 export const deserializeVideos = function(videos) {
   videos.forEach(v => {
     v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
@@ -35,7 +44,7 @@ export const deserializeTags = function(tags) {
 export const deserializeCourses = function(courses) {
   courses.forEach(c => {
     c.attributes.id = c.id
-    c.attributes.parent = c.relationships.parent.data
+    c.attributes.parent_id = c.relationships.parent.data && c.relationships.parent.data.id
     c.attributes.chapter_ids = c.relationships.chapters.data.map(c => c.id) || []
     c.attributes.video_ids = c.relationships.videos.data.map(v => v.id) || []
   })

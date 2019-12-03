@@ -1,5 +1,4 @@
-import {getData, postData, deserializeCourses, deserializeVideos} from '@/utils/store-utils';
-import Vue from 'vue'
+import {getData, postData, deserializeCourses, deserializeVideos, editMutation} from '@/utils/store-utils';
 
 export const state = () => ({
   courses: []
@@ -22,8 +21,7 @@ export const mutations = {
     state.courses = courses;
   },
   EDIT(state, course) {
-    let c = state.courses.find(c => c.id == course.id)
-    Vue.set(c, 'video_ids', course.video_ids)
+    editMutation(state.courses, course)
   }
 }
 
@@ -60,6 +58,14 @@ export const actions = {
     commit('EDIT', updatedCourse.attributes)
     return {video: updatedVideo.attributes, course: updatedCourse.attributes}
   },
+  async attachChapter({commit}, {chapter, course}) {
+    let {data: updatedChapter, included: [updatedCourse]} = await postData(`/courses/${course.id}/attach-chapter/${chapter.id}`, this.$axios)
+    deserializeCourses([updatedCourse, updatedChapter])
+
+    commit('EDIT', updatedChapter.attributes)
+    commit('EDIT', updatedCourse.attributes)
+    return {course: updatedCourse.attributes, chapter: updatedChapter.attributes}
+  },
   async detachVideo({commit}, {video, course}) {
     let {data: updatedCourse} = await postData(`/courses/${course.id}/detach-video/${video.id}`, this.$axios)
     deserializeCourses([updatedCourse])
@@ -67,6 +73,16 @@ export const actions = {
     
     video.course_id = null;
     commit('videos/EDIT_VIDEO', video, {root: true})
+
+    return {course: updatedCourse}
+  },
+  async detachChapter({commit}, {chapter, course}) {
+    let {data: updatedCourse} = await postData(`/courses/${course.id}/detach-chapter/${chapter.id}`, this.$axios)
+    deserializeCourses([updatedCourse])
+    commit('EDIT', updatedCourse.attributes)
+    
+    chapter.parent_id = null;
+    commit('EDIT', chapter)
 
     return {course: updatedCourse}
   }

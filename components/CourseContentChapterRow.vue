@@ -3,9 +3,20 @@
     <div class="course-content-chapter">
         <v-expansion-panel-header>
           <v-row>
-            <v-col cols="8"><h2>{{decoratedCourse.name}}</h2></v-col>
+            <v-col cols="7"><h2>{{decoratedCourse.name}}</h2></v-col>
             <v-col cols="1">
-              {{ finishedVideos.length }} / {{decoratedCourse.numVideos}}
+              <v-btn small v-if="isAdminScreen" @click="detachChapter">
+                Detach
+              </v-btn>
+            </v-col>
+            <v-col cols="1">
+              <div v-if="isAdminScreen">
+                <!--TODO have up or down arrows -->
+                {{decoratedCourse.order}}
+              </div>
+              <div v-else>            
+                {{ finishedVideos.length }} / {{decoratedCourse.numVideos}}
+              </div>
             </v-col>
             <v-col cols="1"><DurationDisplay :duration="decoratedCourse.duration" /></v-col>
             <v-col cols="2">
@@ -50,9 +61,13 @@
       finishedVideos() {
         return this.decoratedCourse.videos.filter(v => this.isPlayed(v.id))
       },
-
       mostRecentVideo(){
         return _.sortBy(this.decoratedCourse.videos, 'published_at').reverse()[0]
+      },
+    },
+    methods: {
+      async detachChapter(){
+        this.$store.dispatch('courses/detachChapter', {chapter: this.chapter, course: this.course})
       }
     },
     props: {
@@ -63,6 +78,9 @@
       isAdminScreen: {
         type: Boolean,
         default: false
+      },
+      course: {
+        type: Object
       }
     }
   }

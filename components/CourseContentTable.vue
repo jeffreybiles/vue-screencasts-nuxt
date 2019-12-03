@@ -4,7 +4,7 @@
       <v-expansion-panels accordion multiple>
         <v-expansion-panel v-for="courseItem in courseItems" :key="courseItem.name">
           <span v-if="courseItem && courseItem.chapter_ids">
-            <CourseContentChapterRow :chapter="courseItem" :isAdminScreen="isAdminScreen" />
+            <CourseContentChapterRow :chapter="courseItem" :isAdminScreen="isAdminScreen" :course="course" />
           </span>
           <span v-else>
             <CourseContentVideoRow :video="courseItem" :isAdminScreen="isAdminScreen" :course="course" />
@@ -21,8 +21,20 @@
                           @change="attachVideo"
                           label="Video to Add" />
         </div>
+        <div v-else-if="isAddingChapter">
+          <v-autocomplete :items="addableChapters"
+                          v-model="chapterToAdd"
+                          item-text="name"
+                          return-object
+                          @change="attachChapter"
+                          label="Chapter to Add" />
+          <v-btn :disabled="!chapterToAdd" @click="attachChapter">Attach to course</v-btn>
+        </div>
         <div v-else>
           <v-btn @click="isAddingVideo = true">+ Video</v-btn>
+          <span v-if="course.series_type == 'course'">
+            <v-btn @click="isAddingChapter = true">+ Chapter</v-btn>
+          </span>
         </div>
       </div>
     </div>
@@ -39,6 +51,8 @@
     data(){
       return {
         isAddingVideo: false,
+        isAddingChapter: false,
+        chapterToAdd: null,
         videoToAdd: null,
       }
     },
@@ -53,6 +67,7 @@
       }),
       ...mapState({
         videos: state => state.videos.videos,
+        courses: state => state.courses.courses
       }),
       courseItems(){
         let videos = this.course.video_ids.map(v => this.getVideo(v))
@@ -65,6 +80,8 @@
       addableVideos(){
         return _.filter(this.videos, v => !v.course_id)
       },
+      addableChapters(){
+        return _.filter(this.courses, c => (c.series_type !== 'course' && !c.parent_id))
       }
     },
     methods: {
@@ -72,6 +89,11 @@
         let {video, course} = await this.$store.dispatch('courses/attachVideo', {video: this.videoToAdd, course: this.course})
         this.isAddingVideo = false
         this.videoToAdd = null
+      },
+      async attachChapter(){
+        await this.$store.dispatch('courses/attachChapter', {chapter: this.chapterToAdd, course: this.course})
+        this.isAddingChapter = false
+        this.chapterToAdd = null
       },
     },
     props: {

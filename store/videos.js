@@ -1,4 +1,4 @@
-import {getData, deserializeVideos} from '@/utils/store-utils';
+import {getData, deserializeVideos, editMutation} from '@/utils/store-utils';
 import Vue from 'vue'
 
 export const state = () => ({
@@ -18,10 +18,7 @@ export const mutations = {
     state.videos = videos;
   },
   EDIT_VIDEO(state, video) {
-    // This works, but doesn't seem the optimal way.
-    let v = state.videos.find(v => v.id == video.id)
-    let index = state.videos.indexOf(v)
-    state.videos.splice(index, 1, video)
+    editMutation(state.videos, video)
   }
 }
 
