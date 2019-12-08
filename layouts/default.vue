@@ -6,38 +6,20 @@
     </v-content>
 
     <TheFooter />
-
-    <v-snackbar
-      v-for="(snackbar, index) in snackbars.filter(s => s.showing)"
-      :key="snackbar.text + Math.random()"
-      v-model="snackbar.showing"
-      :timeout="snackbar.timeout"
-      :color="snackbar.color"
-      :style="`bottom: ${(index * 60) + 8}px`"
-    >
-      {{snackbar.text}}
-
-      <v-btn text @click="snackbar.showing = false">
-        Close
-      </v-btn>
-    </v-snackbar>
+    <TheSnackbar />
   </v-app>
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import TheNavbar from '@/components/TheNavbar.vue';
 import TheFooter from '@/components/TheFooter.vue';
+import TheSnackbar from '@/components/TheSnackbar.vue';
 export default {
   middleware: 'load-videos-and-tags',
   components: {
     TheNavbar,
-    TheFooter
-  },
-  computed: {
-    ...mapState({
-      snackbars: state => state.snackbar.snackbars
-    })
+    TheFooter,
+    TheSnackbar
   },
 }
 </script>
