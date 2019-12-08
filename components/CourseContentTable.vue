@@ -2,12 +2,12 @@
   <div>
     <div class="course-content-table">
       <v-expansion-panels accordion multiple>
-        <v-expansion-panel v-for="courseItem in mungedCourse.sortedItems" :key="courseItem.name">
+        <v-expansion-panel v-for="courseItem in sortedCourse.sortedItems" :key="courseItem.name">
           <span v-if="courseItem && courseItem.chapter_ids">
-            <CourseContentChapterRow :chapter="courseItem" :isAdminScreen="isAdminScreen" :course="mungedCourse" />
+            <CourseContentChapterRow :chapter="courseItem" :isAdminScreen="isAdminScreen" :course="sortedCourse" />
           </span>
           <span v-else>
-            <CourseContentVideoRow :video="courseItem" :isAdminScreen="isAdminScreen" :course="mungedCourse" />
+            <CourseContentVideoRow :video="courseItem" :isAdminScreen="isAdminScreen" :course="sortedCourse" />
           </span>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -45,7 +45,8 @@
   import CourseContentChapterRow from '@/components/CourseContentChapterRow.vue';
   import CourseContentVideoRow from '@/components/CourseContentVideoRow.vue';
   import { mapGetters, mapState } from 'vuex';
-  import _ from 'lodash'
+  import _ from 'lodash';
+  import { sortCourse } from '@/utils/course-decorator.js';
   
   export default {
     data(){
@@ -69,14 +70,8 @@
         videos: state => state.videos.videos,
         courses: state => state.courses.courses
       }),
-      mungedCourse() {
-        let videos = this.course.video_ids.map(v => this.getVideo(v))
-        let courses = this.course.chapter_ids.map(c => this.getCourse(c))
-        let allItems = videos.concat(courses)
-        let sortedItems = allItems.sort((i, j) => {
-          return (Number(i.order) > Number(j.order)) ? 1 : -1
-        })
-        return {...this.course, sortedItems}
+      sortedCourse() {
+        return sortCourse(this.course, this.$store)
       },
       addableVideos(){
         return _.filter(this.videos, v => !v.course_id)
