@@ -1,46 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar app color="green">
-      <v-btn text to="/">Vue Screencasts</v-btn>
-      <v-btn text to="/tags">Tags</v-btn>
-      <v-btn text to="/courses">Courses</v-btn>
-      <v-btn text to="/admin/videos" v-if="$auth.user && $auth.user.admin">
-        Admin
-      </v-btn>
-
-      <v-spacer />
-      
-      <div v-if="$auth.loggedIn">
-        {{ $auth.user.email }}
-        <v-btn text @click="$auth.logout()">Logout</v-btn>
-      </div>
-      <div v-else>
-        <v-btn text to="/login">Login</v-btn>
-        <v-btn text to="/register">Register</v-btn>
-      </div>
-    </v-app-bar>
+    <TheNavbar />
     <v-content>
       <nuxt />
     </v-content>
 
-    <v-footer padless>
-      <v-card
-        flat
-        tile
-        width="100%"
-        class="text-center"
-      >
-        <v-card-text>
-          <a href="https://www.websitepolicies.com/policies/view/Yz6Uu8KI" target="_blank" rel="nofollow">
-            Terms and Conditions
-          </a>
-          <a href="https://www.websitepolicies.com/policies/view/ExoXOmAv" target="_blank" rel="nofollow">
-            Privacy Policy
-          </a>
-          Policies last updated December 7, 2019
-        </v-card-text>
-      </v-card>
-    </v-footer>
+    <TheFooter />
 
     <v-snackbar
       v-for="(snackbar, index) in snackbars.filter(s => s.showing)"
@@ -61,8 +26,14 @@
 
 <script>
 import { mapState } from 'vuex';
+import TheNavbar from '@/components/TheNavbar.vue';
+import TheFooter from '@/components/TheFooter.vue';
 export default {
   middleware: 'load-videos-and-tags',
+  components: {
+    TheNavbar,
+    TheFooter
+  },
   computed: {
     ...mapState({
       snackbars: state => state.snackbar.snackbars
