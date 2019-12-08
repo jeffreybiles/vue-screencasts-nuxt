@@ -85,6 +85,9 @@ export const actions = {
     commit('EDIT', chapter)
 
     return {course: updatedCourse}
+  },
+  async updateOrder({commit}, {course}) {
+    commit('EDIT', course)
   }
 }
 
