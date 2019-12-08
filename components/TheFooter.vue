@@ -4,14 +4,15 @@
       flat
       tile
       width="100%"
-      class="text-center"
     >
-      <v-card-text>
+      <v-card-title>
+        <div>Copyright 2019 Happy Programmer LLC</div>
+        <v-spacer />
         <nuxt-link to="policies/terms-and-conditions">Terms and Conditions</nuxt-link>
         <nuxt-link to="policies/privacy-policy">Privacy Policy</nuxt-link>
+        <a href="mailto:jeffrey@vuescreencasts.com">Contact Me</a>
         <!-- <nuxt-link to="policies">View All Policies</nuxt-link> -->
-        Policies last updated December 7, 2019
-      </v-card-text>
+      </v-card-title>
     </v-card>
   </v-footer>
 </template>
@@ -23,10 +24,10 @@
 </script>
 
 <style lang="scss" scoped>
-  .v-card__text {
-    font-size: 10px;
+  .v-card__title {
+    font-size: 100%;
     a {
-      margin-right: 10px;
+      margin-right: 9px;
     }
   }
 </style>
