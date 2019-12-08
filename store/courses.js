@@ -86,7 +86,25 @@ export const actions = {
 
     return {course: updatedCourse}
   },
-  async updateOrder({commit}, {course}) {
+  async updateOrder({commit}, {course, item, intDirection, edge}) {
+    let allItems = course.sortedItems
+    let currentIndex = allItems.indexOf(item)
+    let nextIndex = currentIndex + intDirection
+    let nextNextIndex = nextIndex + intDirection
+
+    let isOnEdge = currentIndex == edge
+    if(isOnEdge) { return null}
+
+    let next = allItems[nextIndex]
+    let movingToEdge = nextIndex == edge
+    if(movingToEdge) { 
+      item.order = Number(next.order) + intDirection
+      commit('EDIT', course)
+      return null
+    }
+
+    let nextNext = allItems[nextNextIndex]
+    item.order = (Number(next.order) + Number(nextNext.order)) / 2
     commit('EDIT', course)
   }
 }
