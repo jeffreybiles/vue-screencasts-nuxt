@@ -64,7 +64,23 @@
         this.$store.dispatch('courses/updateOrder', {course: this.course})
       },
       moveLater(){
+        let allItems = this.course.sortedItems
+        let currentIndex = allItems.indexOf(this.video)
 
+        let isLast = (currentIndex + 1) == allItems.length
+        if(isLast) { return null}
+
+        let oneAfter = allItems[currentIndex + 1]
+        let isPenultimate = (currentIndex + 2) == allItems.length
+        if(isPenultimate) { 
+          this.video.order = Number(oneAfter.order) + 1
+          this.$store.dispatch('courses/updateOrder', {course: this.course})
+          return null
+        }
+
+        let twoAfter = allItems[currentIndex + 2]
+        this.video.order = (Number(oneAfter.order) + Number(twoAfter.order)) / 2
+        this.$store.dispatch('courses/updateOrder', {course: this.course})
       }
     },
     props: {
