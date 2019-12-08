@@ -9,7 +9,7 @@
       <v-card-text>
         <nuxt-link to="policies/terms-and-conditions">Terms and Conditions</nuxt-link>
         <nuxt-link to="policies/privacy-policy">Privacy Policy</nuxt-link>
-        <nuxt-link to="policies">View All Policies</nuxt-link>
+        <!-- <nuxt-link to="policies">View All Policies</nuxt-link> -->
         Policies last updated December 7, 2019
       </v-card-text>
     </v-card>
