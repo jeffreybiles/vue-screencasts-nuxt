@@ -7,8 +7,9 @@
       class="text-center"
     >
       <v-card-text>
-        <a href="https://www.websitepolicies.com/policies/view/Yz6Uu8KI" target="_blank" rel="nofollow">Terms and Conditions</a>
-        <a href="https://www.websitepolicies.com/policies/view/ExoXOmAv" target="_blank" rel="nofollow">Privacy Policy</a>
+        <nuxt-link to="policies/terms-and-conditions">Terms and Conditions</nuxt-link>
+        <nuxt-link to="policies/privacy-policy">Privacy Policy</nuxt-link>
+        <nuxt-link to="policies">View All Policies</nuxt-link>
         Policies last updated December 7, 2019
       </v-card-text>
     </v-card>
@@ -23,6 +24,7 @@
 
 <style lang="scss" scoped>
   .v-card__text {
+    font-size: 10px;
     a {
       margin-right: 10px;
     }
