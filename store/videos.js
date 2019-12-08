@@ -43,9 +43,10 @@ export const actions = {
   },
   async edit({commit}, video) {
     let response = await this.$axios.put(`/videos/${video.id}`, video);
-    let newVideo = response.data.data.attributes;
-    commit('EDIT_VIDEO', newVideo);
-    return newVideo;
+    let newVideo = response.data.data;
+    deserializeVideos([newVideo])
+    commit('EDIT_VIDEO', newVideo.attributes);
+    return newVideo.attributes;
   },
 }
 
