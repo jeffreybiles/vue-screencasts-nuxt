@@ -19,19 +19,22 @@
                   />
 
     <div v-if="registrationCheckboxes">
-      I have read and agree to the 
-      <a href="/policies/terms-and-conditions" target="_blank">Terms and Conditions</a>
-      and
-      <a href="/policies/privacy-policy" target="_blank">Privacy Policy</a>
-      <!-- :input-value connects it with the userInfo hash, value makes the :rules work -->
-      <v-checkbox value="userInfo.agreeToTerms"
-                  :input-value="userInfo.agreeToTerms"
-                  label="Yes, I agree"
-                  :rules="[required('agreeToTerms', 'You must agree to the terms and conditions and privacy policy')]" />
+      <!-- v-model connects it with the userInfo hash, value makes the :rules work -->
+      <v-checkbox v-model="userInfo.agreeToTerms"
+                  value="userInfo.agreeToTerms"
+                  class="mr-0"
+                  :rules="[required('agreeToTerms', 'You must agree to the terms and conditions and privacy policy')]">
+        <template #label @click.stop>
+          I have read and agree to the 
+          <a href="/policies/terms-and-conditions" target="_blank" @click.stop>Terms and Conditions</a>
+          and 
+          <a href="/policies/privacy-policy" target="_blank" @click.stop>Privacy Policy</a>
+        </template>
+      </v-checkbox>
       Email preferences
-      <v-checkbox :input-value="userInfo.emailDaily"
+      <v-checkbox v-model="userInfo.emailDaily"
                   label="I would like an email every time a new video is released" />
-      <v-checkbox :input-value="userInfo.emailWeekly"
+      <v-checkbox v-model="userInfo.emailWeekly"
                   label="I would like a weekly email newsletter with a summary of the week's videos and fun VueJS news" />
     </div>
 
@@ -80,6 +83,10 @@
     ::v-deep .v-input__control {
       .v-input__slot {
         margin-bottom: 0 !important;
+      }
+
+      a {
+        margin: 0 5px;
       }
     }
     
