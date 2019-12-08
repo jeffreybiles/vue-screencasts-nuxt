@@ -48,38 +48,30 @@
         this.$store.dispatch('courses/detachVideo', {video: this.video, course: this.course})
       },
       moveEarlier(){
-        let allItems = this.course.sortedItems
-        let currentIndex = allItems.indexOf(this.video)
-        if(currentIndex == 0) { return null}
-
-        let oneBefore = allItems[currentIndex - 1]
-        if(currentIndex == 1) { 
-          this.video.order = Number(oneBefore.order) - 1
-          this.$store.dispatch('courses/updateOrder', {course: this.course})
-          return null
-        }
-
-        let twoBefore = allItems[currentIndex - 2]
-        this.video.order = (Number(oneBefore.order) + Number(twoBefore.order)) / 2
-        this.$store.dispatch('courses/updateOrder', {course: this.course})
+        this.moveVideo(-1)
       },
       moveLater(){
+        this.moveVideo(1);
+      },
+      moveVideo(intDirection){
         let allItems = this.course.sortedItems
         let currentIndex = allItems.indexOf(this.video)
+        let nextIndex = currentIndex + intDirection
+        let nextNextIndex = nextIndex + intDirection
 
-        let isLast = (currentIndex + 1) == allItems.length
-        if(isLast) { return null}
+        let isOnEdge = nextIndex == allItems.length
+        if(isOnEdge) { return null}
 
-        let oneAfter = allItems[currentIndex + 1]
-        let isPenultimate = (currentIndex + 2) == allItems.length
-        if(isPenultimate) { 
-          this.video.order = Number(oneAfter.order) + 1
+        let next = allItems[nextIndex]
+        let movingToEdge = nextNextIndex == allItems.length
+        if(movingToEdge) { 
+          this.video.order = Number(next.order) + intDirection
           this.$store.dispatch('courses/updateOrder', {course: this.course})
           return null
         }
 
-        let twoAfter = allItems[currentIndex + 2]
-        this.video.order = (Number(oneAfter.order) + Number(twoAfter.order)) / 2
+        let nextNext = allItems[nextNextIndex]
+        this.video.order = (Number(next.order) + Number(nextNext.order)) / 2
         this.$store.dispatch('courses/updateOrder', {course: this.course})
       }
     },
