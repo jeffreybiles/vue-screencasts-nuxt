@@ -11,6 +11,8 @@
             </v-col>
             <v-col cols="1">
               <div v-if="isAdminScreen">
+                <font-awesome-icon icon="arrow-up" @click.stop="moveEarlier" />
+                <font-awesome-icon icon="arrow-down" @click.stop="moveLater" />
                 <!--TODO have up or down arrows -->
                 {{decoratedCourse.order}}
               </div>
@@ -68,6 +70,16 @@
     methods: {
       async detachChapter(){
         this.$store.dispatch('courses/detachChapter', {chapter: this.chapter, course: this.course})
+      },
+      moveEarlier(){
+        this.updateOrder(this.chapter, -1, 0)
+      },
+      moveLater(){
+        this.updateOrder(this.chapter, 1, this.course.sortedItems.length - 1)
+      },
+      // intDirection must be 1 or -1
+      updateOrder(item, intDirection, edge){
+        this.$store.dispatch('courses/updateOrder', {item, intDirection, edge, course: this.course})
       }
     },
     props: {

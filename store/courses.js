@@ -96,8 +96,8 @@ export const actions = {
     if(isOnEdge) { return null}
 
     let next = allItems[nextIndex]
-    let movingToEdge = nextIndex == edge
-    if(movingToEdge) { 
+    let isMovingToEdge = nextIndex == edge
+    if(isMovingToEdge) { 
       item.order = Number(next.order) + intDirection
       commit('EDIT', course)
       return null
