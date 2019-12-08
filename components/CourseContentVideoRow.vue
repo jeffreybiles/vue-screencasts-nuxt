@@ -48,22 +48,23 @@
         this.$store.dispatch('courses/detachVideo', {video: this.video, course: this.course})
       },
       moveEarlier(){
-        this.moveVideo(-1)
+        this.moveVideo(-1, 0)
       },
       moveLater(){
-        this.moveVideo(1);
+        this.moveVideo(1, this.course.sortedItems.length - 1)
       },
-      moveVideo(intDirection){
+      // intDirection must be 1 or -1
+      moveVideo(intDirection, edge){
         let allItems = this.course.sortedItems
         let currentIndex = allItems.indexOf(this.video)
         let nextIndex = currentIndex + intDirection
         let nextNextIndex = nextIndex + intDirection
 
-        let isOnEdge = nextIndex == allItems.length
+        let isOnEdge = currentIndex == edge
         if(isOnEdge) { return null}
 
         let next = allItems[nextIndex]
-        let movingToEdge = nextNextIndex == allItems.length
+        let movingToEdge = nextIndex == edge
         if(movingToEdge) { 
           this.video.order = Number(next.order) + intDirection
           this.$store.dispatch('courses/updateOrder', {course: this.course})
