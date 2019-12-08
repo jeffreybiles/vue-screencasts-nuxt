@@ -36,7 +36,7 @@
   import MarkdownDisplay from '@/components/MarkdownDisplay';
   import VideoWatch from '@/components/VideoWatch';
   import TagAutocomplete from '@/components/TagAutocomplete';
-  import { sortCourse } from '@/utils/course-decorator';
+  import { orderValueOfLastItem } from '@/utils/course-decorator';
 
   export default {
     components: {
@@ -62,9 +62,7 @@
         },
         async set(newCourse) {
           this.video.course_id = newCourse.id
-          let sortedItems = sortCourse(newCourse, this.$store).sortedItems
-          let lastItem = sortedItems[sortedItems.length - 1]
-          this.video.order = lastItem && lastItem.order + 1 || 1
+          this.video.order = orderValueOfLastItem(newCourse, this.$store) + 1
           this.$store.dispatch('videos/edit', this.video)
         }
       }

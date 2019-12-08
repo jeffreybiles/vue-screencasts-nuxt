@@ -33,3 +33,9 @@ export const sortCourse = (course, store) => {
   })
   return {...course, sortedItems}
 }
+
+export const orderValueOfLastItem = (course, store) => {
+  let sortedItems = sortCourse(course, store).sortedItems
+  let lastItem = sortedItems[sortedItems.length - 1]
+  return Number(lastItem && lastItem.order || 0)
+}
