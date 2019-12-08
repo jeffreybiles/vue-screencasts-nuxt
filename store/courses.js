@@ -86,7 +86,7 @@ export const actions = {
 
     return {course: updatedCourse}
   },
-  async updateOrder({commit}, {course, item, intDirection, edge}) {
+  async updateOrder({commit}, {course, item, intDirection, edge, itemPath}) {
     let allItems = course.sortedItems
     let currentIndex = allItems.indexOf(item)
     let nextIndex = currentIndex + intDirection
@@ -99,13 +99,13 @@ export const actions = {
     let isMovingToEdge = nextIndex == edge
     if(isMovingToEdge) { 
       item.order = Number(next.order) + intDirection
-      commit('EDIT', course)
-      return null
+    } else {
+      let nextNext = allItems[nextNextIndex]
+      item.order = (Number(next.order) + Number(nextNext.order)) / 2      
     }
 
-    let nextNext = allItems[nextNextIndex]
-    item.order = (Number(next.order) + Number(nextNext.order)) / 2
     commit('EDIT', course)
+    this.$axios.put(`/${itemPath}/${item.id}`, item)
   }
 }
 

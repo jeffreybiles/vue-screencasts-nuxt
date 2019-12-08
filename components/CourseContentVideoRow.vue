@@ -48,14 +48,14 @@
         this.$store.dispatch('courses/detachVideo', {video: this.video, course: this.course})
       },
       moveEarlier(){
-        this.updateOrder(this.video, -1, 0)
+        this.updateOrder(-1, 0)
       },
       moveLater(){
-        this.updateOrder(this.video, 1, this.course.sortedItems.length - 1)
+        this.updateOrder(1, this.course.sortedItems.length - 1)
       },
       // intDirection must be 1 or -1
-      updateOrder(item, intDirection, edge){
-        this.$store.dispatch('courses/updateOrder', {item, intDirection, edge, course: this.course})
+      updateOrder(intDirection, edge){
+        this.$store.dispatch('courses/updateOrder', {item: this.video, intDirection, edge, course: this.course, itemPath: 'videos'})
       }
     },
     props: {
