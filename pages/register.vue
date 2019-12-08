@@ -2,7 +2,10 @@
   <v-container>
     <h1>Register</h1>
 
-    <UserAuthForm buttonText="Register" :submitForm="registerUser" :hasName="true" />
+    <UserAuthForm buttonText="Register" 
+                  :submitForm="registerUser" 
+                  :hasName="true" 
+                  :registrationCheckboxes="true" />
   </v-container>
 </template>
 
