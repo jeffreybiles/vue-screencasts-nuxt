@@ -60,7 +60,7 @@
       </v-col>
     </v-row> -->
     <v-row>
-      <div v-if="previousChapter.id" @click="goToChapter(previousChapter, 'first')">
+      <div v-if="previousChapter.id" @click="goToChapter(previousChapter, 'first')" class="clickable">
         << Previous Chapter
       </div>
 
@@ -68,7 +68,7 @@
       <h3>More in this course</h3>
       <v-spacer />
 
-      <div v-if="nextChapter.id" @click="goToChapter(nextChapter, 'first')">
+      <div v-if="nextChapter.id" @click="goToChapter(nextChapter, 'first')" class="clickable">
         Next Chapter >>
       </div>
 
