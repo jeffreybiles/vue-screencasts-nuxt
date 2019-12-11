@@ -13,6 +13,19 @@
         <div>{{ decoratedCourse.numVideos }} Videos</div>
         <div><DurationDisplay :duration="decoratedCourse.duration" :verbose="true" /></div>
       </v-card-text>
+
+      <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
+        <div v-if="percentVideosComplete == 0">
+          Ready to Learn!
+        </div>
+        <div v-else-if="percentVideosComplete == 100">
+          Great work!
+        </div>
+        <div v-else>
+          {{percentVideosComplete}}% complete
+        </div>
+      </v-progress-linear>
+
     </nuxt-link>
     <!-- <v-card-actions></v-card-actions> -->
   </v-card>
@@ -20,7 +33,7 @@
 
 <script>
   import DurationDisplay from '@/components/DurationDisplay';
-  import courseDecorator from '@/utils/course-decorator';
+  import {courseDecorator, percentVideosComplete} from '@/utils/course-decorator';
 
   export default {
     components: {
@@ -29,6 +42,9 @@
     computed: {
       decoratedCourse(){
         return courseDecorator(this.course, this.$store)
+      },
+      percentVideosComplete(){
+        return percentVideosComplete(this.decoratedCourse.videos, this.$store)
       }
     },
     props: {

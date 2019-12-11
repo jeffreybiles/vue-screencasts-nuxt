@@ -42,4 +42,13 @@ export const orderValueOfLastItem = (course, store) => {
   return Number(lastItem && lastItem.order || 0)
 }
 
+export const percentVideosComplete = (videos, store) => {
+  let isPlayed = store.getters['user/videoIsPlayed']
+
+  let numVideos = videos.length;
+  let numCompletedVideos = videos.filter(v => isPlayed(v.id)).length
+
+  return Math.floor(numCompletedVideos / numVideos * 100)
+}
+
 export default courseDecorator;
