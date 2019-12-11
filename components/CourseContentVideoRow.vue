@@ -45,7 +45,7 @@
         isPlayed: 'user/videoIsPlayed'
       }),
       isHighlighted(){
-        return this.video.id == this.highlightedVideo.id;
+        return this.highlightedVideo && this.video.id == this.highlightedVideo.id;
       }
     },
     methods: {

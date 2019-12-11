@@ -3,14 +3,24 @@
     <v-row>
       <v-col md="9" cols="12">
         <VideoWatch :video="video" />
-        <v-row class="ma-2">
-          <v-btn text @click="goToPreviousVideo">
+        <v-row class="">
+
+          <v-btn text @click="goToPreviousVideo" v-if="previousVideo">
             < Previous
           </v-btn>
+          <v-btn text :to="`/courses/${course.id}`" v-else>
+            Go Back to Course Page
+          </v-btn>
+
           <v-spacer />
-          <v-btn text @click="goToNextVideo">
+          
+          <v-btn text @click="goToNextVideo" v-if="nextVideo">
             Next >
           </v-btn>
+          <v-btn text :to="`/courses`" v-else>
+            Explore More Courses
+          </v-btn>
+
         </v-row>
       </v-col>
       <v-col md="3" cols="12">
@@ -83,17 +93,10 @@ export default {
       let course = this.getCourse(this.video.course_id)
       return courseDecorator(course, this.$store)
     },
-    nearbyVideos(){
-      let videos = _.sortBy(this.course.videos, 'order')
-      let currentIndex = videos.indexOf(this.video);
-      let previousVideo = videos[currentIndex - 1];
-      let nextVideo = videos[currentIndex + 1];
-      
-      return {
-        nextVideo,
-        previousVideo
-      }
-    }
+    sortedVideos() { return _.sortBy(this.course.videos, 'order') },
+    currentIndex(){ return this.sortedVideos.indexOf(this.video); },
+    nextVideo(){ return this.sortedVideos[this.currentIndex + 1]; },
+    previousVideo(){ return this.sortedVideos[this.currentIndex - 1]; },
   },
   methods: {
     getTag(tagId) {
@@ -103,10 +106,10 @@ export default {
       this.$store.dispatch('user/markVideoPlayed', this.video.id)
     },
     goToNextVideo(){
-      this.$router.push(`/watch/${this.nearbyVideos.nextVideo.id}`)
+      this.$router.push(`/watch/${this.nextVideo.id}`)
     },
     goToPreviousVideo(){
-      this.$router.push(`/watch/${this.nearbyVideos.previousVideo.id}`)
+      this.$router.push(`/watch/${this.previousVideo.id}`)
     }
   }
 }
