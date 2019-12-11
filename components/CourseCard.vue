@@ -11,7 +11,7 @@
         </div> 
         <div v-else><br></div>
         <div>{{ decoratedCourse.numVideos }} Videos</div>
-        <div><DurationDisplay :duration="decoratedCourse.duration" /></div>
+        <div><DurationDisplay :duration="decoratedCourse.duration" :verbose="true" /></div>
       </v-card-text>
     </nuxt-link>
     <!-- <v-card-actions></v-card-actions> -->

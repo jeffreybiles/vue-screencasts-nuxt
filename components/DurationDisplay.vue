@@ -1,6 +1,12 @@
 <template>
   <span>
-    <span v-if="hours">{{hours}}:</span>{{ minutes }}:{{ seconds }}
+    <span v-if="verbose">
+      <span v-if="hours">{{hours}} hours,</span>
+      {{minutes}} minutes
+    </span>
+    <span v-else>
+      <span v-if="hours">{{hours}}:</span>{{ minutes }}:{{ seconds }}
+    </span>
   </span>
 </template>
 
@@ -12,18 +18,22 @@
       },
       minutes(){
         let minutes = Math.floor((this.duration % 3600) / 60);
+        
         let isSingleDigit = minutes.toString().length == 1
-        if(isSingleDigit && this.useHours){
+        if(isSingleDigit && this.useHours  && !this.verbose){
           minutes = `0${minutes}`
         }
+        
         return minutes
       },
       seconds(){
         let seconds = this.duration % 60
+
         let isSingleDigit = seconds.toString().length == 1
-        if(isSingleDigit){
+        if(isSingleDigit && !this.verbose){
           seconds = `0${seconds}`
         }
+        
         return seconds
       },
       useHours(){
@@ -34,6 +44,10 @@
       duration: {
         type: Number
       },
+      verbose: {
+        type: Boolean,
+        default: false
+      }
     }
   }
 </script>
