@@ -91,12 +91,18 @@ export default {
     },
     course(){
       let course = this.getCourse(this.video.course_id)
+      
+      if(this.seriesType == 'course' && course.parent_id) {
+        course = this.getCourse(course.parent_id) 
+      }
+
       return courseDecorator(course, this.$store)
     },
-    sortedVideos() { return _.sortBy(this.course.videos, 'order') },
-    currentIndex(){ return this.sortedVideos.indexOf(this.video); },
+    sortedVideos() { return _.sortBy(this.course.videos, v => Number(v.order)) },
+    currentIndex(){ return this.sortedVideos.findIndex(v => v.id == this.video.id); },
     nextVideo(){ return this.sortedVideos[this.currentIndex + 1]; },
     previousVideo(){ return this.sortedVideos[this.currentIndex - 1]; },
+    seriesType(){ return this.$route.query.seriesType}
   },
   methods: {
     getTag(tagId) {
@@ -106,10 +112,10 @@ export default {
       this.$store.dispatch('user/markVideoPlayed', this.video.id)
     },
     goToNextVideo(){
-      this.$router.push(`/watch/${this.nextVideo.id}`)
+      this.$router.push(`/watch/${this.nextVideo.id}?seriesType=${this.seriesType}`)
     },
     goToPreviousVideo(){
-      this.$router.push(`/watch/${this.previousVideo.id}`)
+      this.$router.push(`/watch/${this.previousVideo.id}?seriesType=${this.seriesType}`)
     }
   }
 }

@@ -99,7 +99,7 @@
         required: true
       },
       highlightedVideo: {
-        type: Function
+        type: Object
       }
     }
   }

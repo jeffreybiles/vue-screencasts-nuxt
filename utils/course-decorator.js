@@ -16,8 +16,14 @@ const videosFor = (course, store) => {
   let getCourse = store.getters['courses/get']
   let getVideo = store.getters['videos/get']
   let chapters = course.chapter_ids.map(c_id => getCourse(c_id))
-  let video_ids = course.video_ids.concat(chapters.flatMap(c => c.video_ids))
-  return video_ids.map(v_id => getVideo(v_id))
+  let videos = course.video_ids.map(v_id => getVideo(v_id))
+  let chapterVideos = chapters.flatMap(chapter => {
+    return chapter.video_ids.map(v_id => {
+      let video = getVideo(v_id);
+      return {...video, order: Number(video.order) + Number(chapter.order) * 1000}
+    })
+  })
+  return videos.concat(chapterVideos)
 }
 
 export const sortCourse = (course, store) => {
