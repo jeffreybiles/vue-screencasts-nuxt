@@ -14,8 +14,22 @@
     Vue.use(VueVideoPlayer)
   }
 
+  import {mapGetters} from 'vuex';
+
   export default {
+
     computed: {
+      ...mapGetters({
+        getCourse: 'courses/get'
+      }),
+      thumbnail(){
+        if(this.video.thumbnail) {
+          return this.video.thumbnail
+        } else {
+          let course = this.getCourse(this.video.course_id)
+          return course.image_url
+        }
+      },
       playerOptions(){
         return {
           language: 'en',
@@ -24,7 +38,7 @@
             type: "video/mp4",
             src: this.video.videoUrl
           }],
-          poster: this.video.thumbnail,
+          poster: this.thumbnail,
           fluid: true
         }
       }
