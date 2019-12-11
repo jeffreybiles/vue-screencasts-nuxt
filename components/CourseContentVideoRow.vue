@@ -17,9 +17,8 @@
           {{video.order}}
         </div>
         <div v-else>
-          <div v-if="isPlayed(video.id)">
-            <!-- TODO have played checkmark -->
-            Played
+          <div class="green--text" v-if="isPlayed(video.id)">
+            <font-awesome-icon icon="check" /> 
           </div>
         </div>
       </v-col>
