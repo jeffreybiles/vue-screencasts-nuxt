@@ -5,14 +5,14 @@
           <v-row>
             <v-col cols="7"><h2>{{decoratedCourse.name}}</h2></v-col>
             <v-col cols="1">
-              <v-btn small v-if="isAdminScreen" @click="detachChapter">
+              <v-btn small v-if="isAdminScreen" @click="detachChapter" class="clickable" >
                 Detach
               </v-btn>
             </v-col>
             <v-col cols="1">
               <div v-if="isAdminScreen">
-                <font-awesome-icon icon="arrow-up" @click.stop="moveEarlier" />
-                <font-awesome-icon icon="arrow-down" @click.stop="moveLater" />
+                <font-awesome-icon icon="arrow-up" @click.stop="moveEarlier" class="clickable" />
+                <font-awesome-icon icon="arrow-down" @click.stop="moveLater" class="clickable" />
                 <!--TODO have up or down arrows -->
                 {{decoratedCourse.order}}
               </div>
@@ -28,7 +28,7 @@
         </v-expansion-panel-header>
         <v-expansion-panel-content>
           <div v-for="video in sortedVideos" :key="video.id">
-            <CourseContentVideoRow :video="video" :isAdminScreen="isAdminScreen" />
+            <CourseContentVideoRow :video="video" :isAdminScreen="isAdminScreen" :clickAction="videoClickAction" />
           </div>
         </v-expansion-panel-content>
       </div>
@@ -93,6 +93,10 @@
       },
       course: {
         type: Object
+      },
+      videoClickAction: {
+        type: Function,
+        required: true
       }
     }
   }

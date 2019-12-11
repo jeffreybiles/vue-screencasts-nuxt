@@ -24,7 +24,7 @@
       </v-col>
     </v-row>
 
-    <CourseContentTable :course="course" :isAdminScreen="true" />
+    <CourseContentTable :course="course" :isAdminScreen="true" :clickAction="showVideo" />
   </div>
 </template>
 
@@ -66,6 +66,11 @@
       },
       topLevelCourses(){
         return this.courses.filter(c => c.series_type == 'course')
+      }
+    },
+    methods: {
+      showVideo(video){
+        this.$router.push(`/admin/videos/${video.id}`)
       }
     }
   }

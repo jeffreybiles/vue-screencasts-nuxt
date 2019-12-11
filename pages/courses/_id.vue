@@ -38,7 +38,7 @@
         let course = this.getCourse(this.$route.params.id)
         return courseDecorator(course, this.$store);
       },
-    }
+    },
   }
 </script>
 

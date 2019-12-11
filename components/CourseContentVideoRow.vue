@@ -1,17 +1,19 @@
 <template>
   <div>
     <v-row class="course-content-video">
-      <v-col cols="7">&nbsp; {{video.name}}</v-col>
+      <v-col cols="7" @click="clickAction(video)" class="clickable">
+        &nbsp; {{video.name}}
+      </v-col>
       <v-col cols="1">
-        <v-btn small v-if="isAdminScreen" @click="detachVideo">
+        <v-btn small v-if="isAdminScreen" @click="detachVideo" class="clickable">
           Detach
         </v-btn>
       </v-col>
       <v-col cols="1">
         <div v-if="isAdminScreen">
           <!--TODO have up or down arrows -->
-          <font-awesome-icon icon="arrow-up" @click="moveEarlier" />
-          <font-awesome-icon icon="arrow-down" @click="moveLater" />
+          <font-awesome-icon icon="arrow-up" @click="moveEarlier" class="clickable" />
+          <font-awesome-icon icon="arrow-down" @click="moveLater" class="clickable" />
           {{video.order}}
         </div>
         <div v-else>
@@ -70,6 +72,10 @@
       course: {
         type: Object,
         required: false
+      },
+      clickAction: {
+        type: Function,
+        required: true
       }
     }
   }
