@@ -13,11 +13,10 @@
             <div v-if="isAdminScreen">
               <font-awesome-icon icon="arrow-up" @click.stop="moveEarlier" class="clickable" />
               <font-awesome-icon icon="arrow-down" @click.stop="moveLater" class="clickable" />
-              <!--TODO have up or down arrows -->
               {{decoratedCourse.order}}
             </div>
             <div v-else>            
-              {{ finishedVideos.length }} / {{decoratedCourse.numVideos}}, {{percentVideoComplete}}%
+              {{ finishedVideos.length }} / {{decoratedCourse.numVideos}}
             </div>
           </v-col>
           <v-col cols="1"><DurationDisplay :duration="decoratedCourse.duration" /></v-col>
