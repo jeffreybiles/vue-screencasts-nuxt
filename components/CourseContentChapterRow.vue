@@ -1,47 +1,48 @@
 <template>
   <div>
-    <div class="course-content-chapter">
-        <v-expansion-panel-header>
-          <v-row>
-            <v-col cols="7"><h2>{{decoratedCourse.name}}</h2></v-col>
-            <v-col cols="1">
-              <v-btn small v-if="isAdminScreen" @click="detachChapter" class="clickable" >
-                Detach
-              </v-btn>
-            </v-col>
-            <v-col cols="1">
-              <div v-if="isAdminScreen">
-                <font-awesome-icon icon="arrow-up" @click.stop="moveEarlier" class="clickable" />
-                <font-awesome-icon icon="arrow-down" @click.stop="moveLater" class="clickable" />
-                <!--TODO have up or down arrows -->
-                {{decoratedCourse.order}}
-              </div>
-              <div v-else>            
-                {{ finishedVideos.length }} / {{decoratedCourse.numVideos}}
-              </div>
-            </v-col>
-            <v-col cols="1"><DurationDisplay :duration="decoratedCourse.duration" /></v-col>
-            <v-col cols="2">
-              <DateDisplay :date="mostRecentVideo && mostRecentVideo.published_at" />
-            </v-col>
-          </v-row>
-        </v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <div v-for="video in sortedVideos" :key="video.id">
-            <CourseContentVideoRow :video="video" :isAdminScreen="isAdminScreen" :clickAction="videoClickAction" :highlightedVideo="highlightedVideo"/>
-          </div>
-        </v-expansion-panel-content>
-      </div>
+    <div class="course-content-chapter" :style="{height: '100%', 'background': `linear-gradient(90deg, #99CC99 ${percentVideoComplete}%, transparent ${percentVideoComplete}%)`}">
+      <v-expansion-panel-header>
+        <v-row>
+          <v-col cols="7"><h2>{{decoratedCourse.name}}</h2></v-col>
+          <v-col cols="1">
+            <v-btn small v-if="isAdminScreen" @click="detachChapter" class="clickable" >
+              Detach
+            </v-btn>
+          </v-col>
+          <v-col cols="1">
+            <div v-if="isAdminScreen">
+              <font-awesome-icon icon="arrow-up" @click.stop="moveEarlier" class="clickable" />
+              <font-awesome-icon icon="arrow-down" @click.stop="moveLater" class="clickable" />
+              <!--TODO have up or down arrows -->
+              {{decoratedCourse.order}}
+            </div>
+            <div v-else>            
+              {{ finishedVideos.length }} / {{decoratedCourse.numVideos}}, {{percentVideoComplete}}%
+            </div>
+          </v-col>
+          <v-col cols="1"><DurationDisplay :duration="decoratedCourse.duration" /></v-col>
+          <v-col cols="2">
+            <DateDisplay :date="mostRecentVideo && mostRecentVideo.published_at" />
+          </v-col>
+        </v-row>
+      </v-expansion-panel-header>
+      <v-expansion-panel-content>
+        <div v-for="video in sortedVideos" :key="video.id">
+          <CourseContentVideoRow :video="video" :isAdminScreen="isAdminScreen" :clickAction="videoClickAction" :highlightedVideo="highlightedVideo"/>
+        </div>
+      </v-expansion-panel-content>
+    </div>
   </div>
 </template>
 
 <script>
-  import courseDecorator from '@/utils/course-decorator';
+  import courseDecorator, { percentVideosComplete } from '@/utils/course-decorator';
   import CourseContentVideoRow from '@/components/CourseContentVideoRow';
   import DurationDisplay from '@/components/DurationDisplay.vue';
   import DateDisplay from '@/components/DateDisplay.vue';
   import { mapGetters } from 'vuex';
   import _ from 'lodash';
+  import { percentVideoComplete } from '@/utils/course-decorator';
 
   export default {
     components: {
@@ -65,6 +66,9 @@
       },
       mostRecentVideo(){
         return _.sortBy(this.decoratedCourse.videos, 'published_at').reverse()[0]
+      },
+      percentVideoComplete(){
+        return percentVideosComplete(this.decoratedCourse.videos, this.$store)
       },
     },
     methods: {
@@ -106,5 +110,4 @@
 </script>
 
 <style lang="scss" scoped>
-
 </style>
