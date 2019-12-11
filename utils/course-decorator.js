@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-export default function(course, store) {
+export const courseDecorator = function(course, store) {
   let videos = videosFor(course, store);
 
   return {
@@ -39,3 +39,5 @@ export const orderValueOfLastItem = (course, store) => {
   let lastItem = sortedItems[sortedItems.length - 1]
   return Number(lastItem && lastItem.order || 0)
 }
+
+export default courseDecorator;

@@ -3,6 +3,15 @@
     <v-row>
       <v-col md="9" cols="12">
         <VideoWatch :video="video" />
+        <v-row class="ma-2">
+          <v-btn text @click="goToPreviousVideo">
+            < Previous
+          </v-btn>
+          <v-spacer />
+          <v-btn text @click="goToNextVideo">
+            Next >
+          </v-btn>
+        </v-row>
       </v-col>
       <v-col md="3" cols="12">
         <div class="display-1">{{video.name}}</div>
@@ -46,9 +55,10 @@ import VideoByline from '@/components/VideoByline';
 import VideoWatch from '@/components/VideoWatch';
 import MarkdownDisplay from '@/components/MarkdownDisplay';
 import CourseContentTable from '@/components/CourseContentTable.vue';
-import courseDecorator from '../../utils/course-decorator';
+import courseDecorator, {sortCourse} from '../../utils/course-decorator';
 
 import { mapState, mapGetters } from 'vuex';
+import _ from 'lodash';
 
 export default {
   components: {
@@ -72,6 +82,17 @@ export default {
     course(){
       let course = this.getCourse(this.video.course_id)
       return courseDecorator(course, this.$store)
+    },
+    nearbyVideos(){
+      let videos = _.sortBy(this.course.videos, 'order')
+      let currentIndex = videos.indexOf(this.video);
+      let previousVideo = videos[currentIndex - 1];
+      let nextVideo = videos[currentIndex + 1];
+      
+      return {
+        nextVideo,
+        previousVideo
+      }
     }
   },
   methods: {
@@ -80,6 +101,12 @@ export default {
     },
     markPlayed(){
       this.$store.dispatch('user/markVideoPlayed', this.video.id)
+    },
+    goToNextVideo(){
+      this.$router.push(`/watch/${this.nearbyVideos.nextVideo.id}`)
+    },
+    goToPreviousVideo(){
+      this.$router.push(`/watch/${this.nearbyVideos.previousVideo.id}`)
     }
   }
 }
