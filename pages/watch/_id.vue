@@ -28,11 +28,15 @@
         </span>
       </v-col>
     </v-row>
-    <v-row>
+    <!-- <v-row>
       <v-col cols="12">
         <h1>Code Summary</h1>
         <MarkdownDisplay :markdown="video.code_summary" />
       </v-col>
+    </v-row> -->
+    <v-row>
+      <h3>More in this course</h3>
+      <CourseContentTable :course="course" :highlightedVideo="video" />
     </v-row>
   </v-container>
 </template>
@@ -41,6 +45,8 @@
 import VideoByline from '@/components/VideoByline';
 import VideoWatch from '@/components/VideoWatch';
 import MarkdownDisplay from '@/components/MarkdownDisplay';
+import CourseContentTable from '@/components/CourseContentTable.vue';
+import courseDecorator from '../../utils/course-decorator';
 
 import { mapState, mapGetters } from 'vuex';
 
@@ -48,19 +54,25 @@ export default {
   components: {
     VideoByline,
     VideoWatch,
-    MarkdownDisplay
+    MarkdownDisplay,
+    CourseContentTable,
   },
   computed: {
     ...mapGetters({
-      isPlayed: 'user/videoIsPlayed'
+      isPlayed: 'user/videoIsPlayed',
+      getCourse: 'courses/get',
     }),
     ...mapState({
       tags: state => state.tags.tags,
-      videos: state => state.videos.videos
+      videos: state => state.videos.videos,
     }),
     video(){
       return this.videos.find(v => v.id == this.$route.params.id)
     },
+    course(){
+      let course = this.getCourse(this.video.course_id)
+      return courseDecorator(course, this.$store)
+    }
   },
   methods: {
     getTag(tagId) {

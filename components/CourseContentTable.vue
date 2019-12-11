@@ -4,10 +4,18 @@
       <v-expansion-panels accordion multiple>
         <v-expansion-panel v-for="courseItem in sortedCourse.sortedItems" :key="courseItem.name">
           <span v-if="courseItem && courseItem.chapter_ids">
-            <CourseContentChapterRow :chapter="courseItem" :isAdminScreen="isAdminScreen" :course="sortedCourse" :videoClickAction="clickAction" />
+            <CourseContentChapterRow :chapter="courseItem" 
+                                     :isAdminScreen="isAdminScreen" 
+                                     :course="sortedCourse" 
+                                     :videoClickAction="clickAction" 
+                                     :highlightedVideo="highlightedVideo" />
           </span>
           <span v-else>
-            <CourseContentVideoRow :video="courseItem" :isAdminScreen="isAdminScreen" :course="sortedCourse" :clickAction="clickAction" />
+            <CourseContentVideoRow :video="courseItem" 
+                                   :isAdminScreen="isAdminScreen" 
+                                   :course="sortedCourse" 
+                                   :clickAction="clickAction" 
+                                   :highlightedVideo="highlightedVideo" />
           </span>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -106,6 +114,9 @@
         default: function(video) {
           this.$router.push(`/watch/${video.id}`);
         }
+      },
+      highlightedVideo: {
+        type: Object
       }
     }
   }

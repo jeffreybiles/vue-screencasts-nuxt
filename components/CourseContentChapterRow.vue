@@ -28,7 +28,7 @@
         </v-expansion-panel-header>
         <v-expansion-panel-content>
           <div v-for="video in sortedVideos" :key="video.id">
-            <CourseContentVideoRow :video="video" :isAdminScreen="isAdminScreen" :clickAction="videoClickAction" />
+            <CourseContentVideoRow :video="video" :isAdminScreen="isAdminScreen" :clickAction="videoClickAction" :highlightedVideo="highlightedVideo"/>
           </div>
         </v-expansion-panel-content>
       </div>
@@ -97,6 +97,9 @@
       videoClickAction: {
         type: Function,
         required: true
+      },
+      highlightedVideo: {
+        type: Function
       }
     }
   }

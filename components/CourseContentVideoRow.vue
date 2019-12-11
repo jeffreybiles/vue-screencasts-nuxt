@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="course-content-video">
+    <v-row :class="['course-content-video', isHighlighted ? 'highlight': '']">
       <v-col cols="7" @click="clickAction(video)" class="clickable">
         &nbsp; {{video.name}}
       </v-col>
@@ -44,6 +44,9 @@
       ...mapGetters({
         isPlayed: 'user/videoIsPlayed'
       }),
+      isHighlighted(){
+        return this.video.id == this.highlightedVideo.id;
+      }
     },
     methods: {
       async detachVideo(){
@@ -76,11 +79,17 @@
       clickAction: {
         type: Function,
         required: true
-      }
+      },
+      highlightedVideo: {
+        type: Object
+      },
     }
   }
 </script>
 
 <style lang="scss" scoped>
-
+  .highlight {
+    // TODO: get better highlight color
+    background-color: lightgreen;
+  }
 </style>
