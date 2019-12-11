@@ -4,8 +4,8 @@
           width="340px">
     <nuxt-link :to="`/courses/${course.id}`">
       <v-img :src="course.image_url || ''" />
-      <v-card-title>{{ course.name }}</v-card-title>
       <v-card-text>
+        <h3>{{ course.name }}</h3>
         <div v-if="course.chapter_ids.length > 0">
           {{ course.chapter_ids.length }} Chapters
         </div> 
