@@ -5,8 +5,11 @@
         <VideoWatch :video="video" />
         <v-row class="">
 
-          <v-btn text @click="goToPreviousVideo" v-if="previousVideo">
+          <v-btn text @click="goToVideo(previousVideo)" v-if="previousVideo">
             < Previous
+          </v-btn>
+          <v-btn text @click="goToChapter(previousChapter)" v-else-if="previousChapter.id">
+            << Previous (part of previous chapter)
           </v-btn>
           <v-btn text :to="`/courses/${course.id}`" v-else>
             Go Back to Course Page
@@ -14,8 +17,11 @@
 
           <v-spacer />
           
-          <v-btn text @click="goToNextVideo" v-if="nextVideo">
+          <v-btn text @click="goToVideo(nextVideo)" v-if="nextVideo">
             Next >
+          </v-btn>
+          <v-btn text @click="goToChapter(nextChapter, 'first')" v-else-if="nextChapter.id">
+            Next (part of next chapter) >>
           </v-btn>
           <v-btn text :to="`/courses`" v-else>
             Explore More Courses
@@ -54,7 +60,20 @@
       </v-col>
     </v-row> -->
     <v-row>
+      <div v-if="previousChapter.id" @click="goToChapter(previousChapter, 'first')">
+        << Previous Chapter
+      </div>
+
+      <v-spacer />
       <h3>More in this course</h3>
+      <v-spacer />
+
+      <div v-if="nextChapter.id" @click="goToChapter(nextChapter, 'first')">
+        Next Chapter >>
+      </div>
+
+    </v-row>
+    <v-row>
       <CourseContentTable :course="course" :highlightedVideo="video" />
     </v-row>
   </v-container>
@@ -91,13 +110,18 @@ export default {
     },
     course(){
       let course = this.getCourse(this.video.course_id)
-      
-      if(this.seriesType == 'course' && course.parent_id) {
-        course = this.getCourse(course.parent_id) 
-      }
-
       return courseDecorator(course, this.$store)
     },
+
+    parentCourse() { return this.getCourse(this.course.parent_id) },
+    sortedChapters() { 
+      let chapters = this.parentCourse.chapter_ids.map(c_id => this.getCourse(c_id));
+      return _.sortBy(chapters, c => Number(c.order))
+    },
+    currentChapterIndex(){ return this.sortedChapters.findIndex(c => c.id == this.course.id) },
+    previousChapter(){ return sortCourse(this.sortedChapters[this.currentChapterIndex - 1], this.$store) },
+    nextChapter(){ return this.sortedChapters[this.currentChapterIndex + 1] },
+
     sortedVideos() { return _.sortBy(this.course.videos, v => Number(v.order)) },
     currentIndex(){ return this.sortedVideos.findIndex(v => v.id == this.video.id); },
     nextVideo(){ return this.sortedVideos[this.currentIndex + 1]; },
@@ -111,11 +135,18 @@ export default {
     markPlayed(){
       this.$store.dispatch('user/markVideoPlayed', this.video.id)
     },
-    goToNextVideo(){
-      this.$router.push(`/watch/${this.nextVideo.id}?seriesType=${this.seriesType}`)
+    goToVideo(video){
+      this.$router.push(`/watch/${video.id}`)
     },
-    goToPreviousVideo(){
-      this.$router.push(`/watch/${this.previousVideo.id}?seriesType=${this.seriesType}`)
+    goToChapter(chapter, firstOrLastVideo){
+      let { sortedItems } = sortCourse(chapter, this.$store)
+      let video;
+      if(firstOrLastVideo == 'first') {
+        video = sortedItems[0]
+      } else {
+        video = sortedItems[sortedItems.length - 1]
+      }
+      this.$router.push(`/watch/${video.id}`)
     }
   }
 }
