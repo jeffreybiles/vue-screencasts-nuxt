@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col md="9" cols="12">
+      <v-col>
         <VideoWatch :video="video" />
         <v-row class="">
 
@@ -9,19 +9,31 @@
             < Previous
           </v-btn>
           <v-btn text @click="goToChapter(previousChapter)" v-else-if="previousChapter.id">
-            << Previous (part of previous chapter)
+            << Previous <br>(part of previous chapter)
           </v-btn>
           <v-btn text :to="`/courses/${course.id}`" v-else>
             Go Back to Course Page
           </v-btn>
 
           <v-spacer />
+
+          <VideoByline :video="video" class="mt-2">
+              <span class="green--text big-check" v-if="isPlayed(video.id)">
+                <font-awesome-icon icon="check" /> 
+              </span>
+              <span v-else>
+                <v-btn x-small @click="markPlayed" v-if="$auth.loggedIn">
+                  Mark Played
+                </v-btn>
+              </span>
+          </VideoByline>
+          <v-spacer />
           
           <v-btn text @click="goToVideo(nextVideo)" v-if="nextVideo">
             Next >
           </v-btn>
           <v-btn text @click="goToChapter(nextChapter, 'first')" v-else-if="nextChapter.id">
-            Next (part of next chapter) >>
+            Next <br>(part of next chapter) >>
           </v-btn>
           <v-btn text :to="`/courses`" v-else>
             Explore More Courses
@@ -29,18 +41,12 @@
 
         </v-row>
       </v-col>
-      <v-col md="3" cols="12">
+    </v-row>
+    <hr class="ma-2">
+
+    <v-row>
+      <v-col cols="12" md="6">
         <div class="display-1">{{video.name}}</div>
-        <VideoByline :video="video" />
-        <div class="green--text" v-if="isPlayed(video.id)">
-          <font-awesome-icon icon="check" /> 
-          Played
-        </div>
-        <div v-else>
-          <v-btn x-small @click="markPlayed" v-if="$auth.loggedIn">
-            Mark Played
-          </v-btn>
-        </div>
 
         <MarkdownDisplay :markdown="video.description" />
         
@@ -52,26 +58,29 @@
           </v-btn>
         </span>
       </v-col>
-    </v-row>
-    <hr class="ma-2">
-    <div class="text-center"><strong>{{ course.name }}</strong></div>
-    <div v-if="course.parent_id" class="text-center">
-      Chapter {{currentChapterIndex + 1}} of {{parentCourse.chapter_ids.length}} in <strong>{{parentCourse.name}}</strong>
-    </div>
-    <v-row>
-      <v-btn v-if="previousChapter.id" text @click="goToChapter(previousChapter, 'first')">
-        << Previous Chapter
-      </v-btn>
-      <v-spacer />
-      <v-btn v-if="nextChapter.id" text @click="goToChapter(nextChapter, 'first')">
-        Next Chapter >>
-      </v-btn>
-    </v-row>
-    <v-row>
-      <CourseContentTable :course="course" :highlightedVideo="video" />
+      <v-col cols="12" md="6">
+        <div v-if="course.parent_id" class="text-center">
+          Chapter {{currentChapterIndex + 1}} of {{parentCourse.chapter_ids.length}} in <strong>{{parentCourse.name}}</strong>
+        </div>
+        <div class="text-center"><strong>{{ course.name }}</strong></div>
+        
+        <v-row>
+          <v-btn v-if="previousChapter.id" text @click="goToChapter(previousChapter, 'first')">
+            << Previous Chapter
+          </v-btn>
+          <v-spacer />
+          <v-btn v-if="nextChapter.id" text @click="goToChapter(nextChapter, 'first')">
+            Next Chapter >>
+          </v-btn>
+        </v-row>
+        <v-row>
+          <CourseContentTable :course="course" :highlightedVideo="video" />
+        </v-row>
+      </v-col>
     </v-row>
 
     <!-- Probably put this in a tab -->
+    <!-- tabs: general, code, and transcript... but only show a tab if it has something available for it -->
     <!-- <v-row>
       <v-col cols="12">
         <h1>Code Summary</h1>
@@ -155,5 +164,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .big-check {
+    font-size: 16px;
+  }
 </style>

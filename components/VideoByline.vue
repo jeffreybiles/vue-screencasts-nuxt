@@ -8,8 +8,9 @@
     <span v-else>
       This video is not yet published
     </span>
+    &nbsp;<slot />
     <span v-if="video.course_id">
-      &nbsp; | &nbsp;
+      <br>
       Part {{ partNumber }} of {{ course.name }}
     </span>
   </em>

@@ -27,7 +27,7 @@
           return this.video.thumbnail
         } else {
           let course = this.getCourse(this.video.course_id)
-          return course.image_url
+          return course && course.image_url
         }
       },
       playerOptions(){
