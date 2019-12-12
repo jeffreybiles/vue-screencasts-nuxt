@@ -1,9 +1,15 @@
 <template>
-  <v-container class="d-flex flex-wrap">
-    <div v-for="course in courses" :key="course.id">
-      <CourseCard :course="course" />
-    </div>
-  </v-container>
+  <div class="course-index">
+    <v-container>
+      <v-row>
+        <v-col v-for="course in courses" 
+              :key="course.id"
+              cols="12" sm="6" lg="4">
+          <CourseCard :course="course" />
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>
