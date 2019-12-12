@@ -19,7 +19,7 @@
 
           <VideoByline :video="video" class="mt-2">
               <span class="green--text big-check" v-if="isPlayed(video.id)">
-                <font-awesome-icon icon="check" /> 
+                <font-awesome-icon icon="check" /> Watched
               </span>
               <span v-else>
                 <v-btn x-small @click="markPlayed" v-if="$auth.loggedIn">
