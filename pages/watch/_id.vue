@@ -53,29 +53,32 @@
         </span>
       </v-col>
     </v-row>
+    <hr class="ma-2">
+    <div class="text-center"><strong>{{ course.name }}</strong></div>
+    <div v-if="course.parent_id" class="text-center">
+      Chapter {{currentChapterIndex + 1}} of {{parentCourse.chapter_ids.length}} in <strong>{{parentCourse.name}}</strong>
+    </div>
+    <v-row>
+      <v-btn v-if="previousChapter.id" text @click="goToChapter(previousChapter, 'first')">
+        << Previous Chapter
+      </v-btn>
+      <v-spacer />
+      <v-btn v-if="nextChapter.id" text @click="goToChapter(nextChapter, 'first')">
+        Next Chapter >>
+      </v-btn>
+    </v-row>
+    <v-row>
+      <CourseContentTable :course="course" :highlightedVideo="video" />
+    </v-row>
+
+    <!-- Probably put this in a tab -->
     <!-- <v-row>
       <v-col cols="12">
         <h1>Code Summary</h1>
         <MarkdownDisplay :markdown="video.code_summary" />
       </v-col>
     </v-row> -->
-    <v-row>
-      <div v-if="previousChapter.id" @click="goToChapter(previousChapter, 'first')" class="clickable">
-        << Previous Chapter
-      </div>
 
-      <v-spacer />
-      <h3>More in this course</h3>
-      <v-spacer />
-
-      <div v-if="nextChapter.id" @click="goToChapter(nextChapter, 'first')" class="clickable">
-        Next Chapter >>
-      </div>
-
-    </v-row>
-    <v-row>
-      <CourseContentTable :course="course" :highlightedVideo="video" />
-    </v-row>
   </v-container>
 </template>
 
