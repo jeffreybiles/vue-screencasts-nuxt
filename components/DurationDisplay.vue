@@ -42,7 +42,7 @@
     },
     props: {
       duration: {
-        type: Number
+        type: [Number, String]
       },
       verbose: {
         type: Boolean,
