@@ -31,9 +31,10 @@ export const actions = {
   },
   async create({commit}, video) {
     let response = await this.$axios.post('/videos', video);
-    let savedVideo = response.data.data.attributes;
-    commit('ADD_VIDEO', savedVideo);
-    return savedVideo;
+    let savedVideo = response.data.data;
+    deserializeVideos([savedVideo]);
+    commit('ADD_VIDEO', savedVideo.attributes);
+    return savedVideo.attributes;
   },
   async delete({commit}, video) {
     let response = await this.$axios.delete(`/videos/${video.id}`);
