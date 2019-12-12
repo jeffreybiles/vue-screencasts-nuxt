@@ -135,7 +135,7 @@ export default {
     },
     currentChapterIndex(){ return this.sortedChapters.findIndex(c => c.id == this.course.id) },
     previousChapter(){ return sortCourse(this.sortedChapters[this.currentChapterIndex - 1], this.$store) },
-    nextChapter(){ return this.sortedChapters[this.currentChapterIndex + 1] },
+    nextChapter(){ return sortCourse(this.sortedChapters[this.currentChapterIndex + 1], this.$store) },
 
     sortedVideos() { return _.sortBy(this.course.videos, v => Number(v.order)) },
     currentIndex(){ return this.sortedVideos.findIndex(v => v.id == this.video.id); },
