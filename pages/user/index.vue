@@ -8,6 +8,7 @@
     The ability to edit name, email, and password are coming soon.  Thanks for your patience!
     <hr>
 
+    <h3>Email Settings</h3>
     <UserEmailOptionsUpdate :user="user" />
   </v-container>
 </template>

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h3>Email Settings</h3>
     <v-checkbox v-model="user.email_daily"
                 label="Receive emails when new videos are released (several times per week)"
                 @change="saveUser" />

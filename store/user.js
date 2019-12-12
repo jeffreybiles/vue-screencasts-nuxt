@@ -16,6 +16,10 @@ export const actions = {
   },
   async update({commit}, user) {
     return this.$axios.put(`/users/${user.id}`, user)
+  },
+  async loadByIdAndToken({commit}, {id, token}) {
+    let response = await this.$axios.get(`/users/${id}/${token}`)
+    return response.data.data.attributes
   }
 }
 
@@ -26,5 +30,5 @@ export const getters = {
   },
   videoIsPlayed: (state, getters) => (videoId) => {
     return getters.playedVideos.includes(videoId)
-  }
+  },
 }
