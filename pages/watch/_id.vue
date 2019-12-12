@@ -3,6 +3,10 @@
     <v-row>
       <v-col>
         <VideoWatch :video="video" />
+        <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
+          {{percentVideosComplete}}% done with {{course.name}}
+        </v-progress-linear>
+        
         <v-row class="">
 
           <v-btn text @click="goToVideo(previousVideo)" v-if="previousVideo">
@@ -42,7 +46,6 @@
         </v-row>
       </v-col>
     </v-row>
-    <hr class="ma-2">
 
     <v-row>
       <v-col cols="12" md="6">
@@ -96,7 +99,7 @@ import VideoByline from '@/components/VideoByline';
 import VideoWatch from '@/components/VideoWatch';
 import MarkdownDisplay from '@/components/MarkdownDisplay';
 import CourseContentTable from '@/components/CourseContentTable.vue';
-import courseDecorator, {sortCourse} from '../../utils/course-decorator';
+import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/course-decorator';
 
 import { mapState, mapGetters } from 'vuex';
 import _ from 'lodash';
@@ -138,7 +141,9 @@ export default {
     currentIndex(){ return this.sortedVideos.findIndex(v => v.id == this.video.id); },
     nextVideo(){ return this.sortedVideos[this.currentIndex + 1]; },
     previousVideo(){ return this.sortedVideos[this.currentIndex - 1]; },
-    seriesType(){ return this.$route.query.seriesType}
+    seriesType(){ return this.$route.query.seriesType},
+
+    percentVideosComplete(){ return percentVideosComplete(this.course.videos, this.$store) }
   },
   methods: {
     getTag(tagId) {

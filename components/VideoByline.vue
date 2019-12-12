@@ -8,10 +8,8 @@
     <span v-else>
       This video is not yet published
     </span>
-    &nbsp;<slot />
-    <span v-if="video.course_id">
-      <br>
-      Part {{ partNumber }} of {{ course.name }}
+    <span v-if="$slots.default">
+      &nbsp; |  &nbsp; <slot />
     </span>
   </em>
 </template>
@@ -33,14 +31,6 @@
       }),
       publishedAt(){
         return this.video.published_at
-      },
-      course(){
-        return this.getCourse(this.video.course_id)
-      },
-      partNumber(){
-        let sortedCourse = sortCourse(this.course, this.$store);
-        let index = sortedCourse.sortedItems.indexOf(this.video)
-        return index + 1
       }
     },
     props: {
