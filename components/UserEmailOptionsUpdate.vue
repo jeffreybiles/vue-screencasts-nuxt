@@ -14,7 +14,7 @@
     methods: {
       async saveUser() {
         try {
-          await this.$store.dispatch('user/update', this.user)
+          await this.updateMethod(this.user)
           this.$store.dispatch('snackbar/setSnackbar', {text: `Your preferences have been saved.`})
         } catch {
           this.$store.dispatch('snackbar/setSnackbar', {
@@ -28,6 +28,10 @@
     props: {
       user: {
         type: Object,
+        required: true
+      },
+      updateMethod: {
+        type: Function,
         required: true
       }
     }

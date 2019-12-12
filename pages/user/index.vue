@@ -9,7 +9,7 @@
     <hr>
 
     <h3>Email Settings</h3>
-    <UserEmailOptionsUpdate :user="user" />
+    <UserEmailOptionsUpdate :user="user" :updateMethod="(user) => $store.dispatch('user/update', user)" />
   </v-container>
 </template>
 

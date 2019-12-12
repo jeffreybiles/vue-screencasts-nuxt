@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h2>Editing email options for {{ user.email }}</h2>
-    <UserEmailOptionsUpdate :user="user" />
+    <UserEmailOptionsUpdate :user="user" :updateMethod="(user) => this.$store.dispatch('user/updateEmail', {user, token})" />
   </v-container>
 </template>
 
@@ -15,7 +15,8 @@
       let user = await store.dispatch('user/loadByIdAndToken', {id, token});
 
       return {
-        user
+        user,
+        token
       }
     },
     components: {

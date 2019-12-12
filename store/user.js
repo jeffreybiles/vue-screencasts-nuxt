@@ -20,6 +20,10 @@ export const actions = {
   async loadByIdAndToken({commit}, {id, token}) {
     let response = await this.$axios.get(`/users/${id}/${token}`)
     return response.data.data.attributes
+  },
+  async updateEmail({}, {user, token}) {
+    let response = await this.$axios.post(`/users/${user.id}/${token}`, user)
+    return response.data.data.attributes
   }
 }
 
