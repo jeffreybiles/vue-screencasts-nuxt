@@ -32,9 +32,9 @@
         </template>
       </v-checkbox>
       Email preferences
-      <v-checkbox v-model="userInfo.emailDaily"
+      <v-checkbox v-model="userInfo.email_daily"
                   label="I would like an email every time a new video is released" />
-      <v-checkbox v-model="userInfo.emailWeekly"
+      <v-checkbox v-model="userInfo.email_weekly"
                   label="I would like a weekly email newsletter with a summary of the week's videos and fun VueJS news" />
     </div>
 
@@ -51,12 +51,12 @@
         valid: false,
         showPassword: false,
         userInfo: {
-          name: 'Hey',
+          name: '',
           email: '',
           password: '',
           agreeToTerms: false,
-          emailDaily: true,
-          emailWeekly: true
+          email_daily: true,
+          email_weekly: true
         },
         ...validations
       }

@@ -11,7 +11,7 @@
     <v-spacer />
     
     <div v-if="$auth.loggedIn">
-      {{ $auth.user.email }}
+      <v-btn text to="/user">{{ $auth.user.email }}</v-btn>
       <v-btn text @click="$auth.logout()">Logout</v-btn>
     </div>
     <div v-else>

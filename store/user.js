@@ -14,6 +14,9 @@ export const actions = {
       });
     }
   },
+  async update({commit}, user) {
+    return this.$axios.put(`/users/${user.id}`, user)
+  }
 }
 
 export const getters = {
