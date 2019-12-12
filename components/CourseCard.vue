@@ -1,18 +1,24 @@
 <template>
-  <v-card hover>
+  <v-card hover style="border: 3px solid #806780; border-radius: 3px;">
     <nuxt-link :to="`/courses/${course.id}`">
-      <div class="pa-1">
+      <div class="pa-1" style="background-color: #eee;">
         <h3>{{ course.name }}</h3>
       </div>
-      <div class="pl-1">
+      <div class="pl-1" style="background-color: #806780; color: white;">
         <v-row>
-          <v-col cols="12" sm="6">
-            <div v-if="course.chapter_ids.length > 0">
-              {{ course.chapter_ids.length }} Chapters
-            </div> 
-            <div v-else><br></div>
-            <div>{{ decoratedCourse.numVideos }} Videos</div>
-            <div><DurationDisplay :duration="decoratedCourse.duration" :verbose="true" /></div>
+          <v-col cols="12" sm="3" class="text-center">
+            <div class="big">{{ decoratedCourse.numVideos }}</div>
+            Videos
+          </v-col>
+          <v-col cols="12" sm="3" class="text-center">
+            <DurationDisplay :duration="decoratedCourse.duration" v-slot="{hours, minutes}">
+              <span v-if="hours >= 2">
+                <div class="big">{{hours}}</div> HOURS
+              </span>
+              <span v-else>
+                <div class="big">{{minutes + (hours * 60)}}</div>Minutes
+              </span>
+            </DurationDisplay>
           </v-col>
           <v-col cols="12" sm="6" class="pb-0 pt-0 pl-0">
             <v-img :src="course.image_url || ''" />
@@ -53,5 +59,9 @@
   .v-application a {
     text-decoration: none;
     color:black;
+  }
+
+  .big {
+    font-size: 36px;
   }
 </style>

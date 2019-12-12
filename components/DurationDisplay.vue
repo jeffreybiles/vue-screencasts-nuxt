@@ -1,12 +1,14 @@
 <template>
   <span>
-    <span v-if="verbose">
-      <span v-if="hours">{{hours}} hour{{hours > 1 ? 's' : ''}},</span>
-      {{minutes}} minute{{minutes > 1 ? 's': ''}}
-    </span>
-    <span v-else>
-      <span v-if="hours">{{hours}}:</span>{{ minutes }}:{{ seconds }}
-    </span>
+    <slot :minutes="minutes" :hours="hours">
+      <span v-if="verbose">
+        <span v-if="hours">{{hours}} hour{{hours > 1 ? 's' : ''}},</span>
+        {{minutes}} minute{{minutes > 1 ? 's': ''}}
+      </span>
+      <span v-else>
+        <span v-if="hours">{{hours}}:</span>{{ minutes }}:{{ seconds }}
+      </span>
+    </slot>
   </span>
 </template>
 
