@@ -8,6 +8,7 @@
       "real_face": true,
       "real_name": true,
       "message_priority": 10,
+      "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=lv-KHdoeSoI&lc=Ugzy9pMqVu-FaThBBYd4AaABAg"
     }, {
       "id": 2,
@@ -15,6 +16,7 @@
       "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/exception360.jpg",
       "message": "Thank you, this video helped me a LOT",
       "message_priority": 5,
+      "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=lv-KHdoeSoI&lc=Ugxc4SDs4tD2n_e-_fh4AaABAg"
     }, {
       "id": 3,
@@ -23,6 +25,7 @@
       "message": "Amazing !!!!! Need this so much !!!!!!",
       "real_name": true,
       "message_priority": 6,
+      "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=shCCP4PFXeU&lc=UgzdpOe4M_-9otfWBEd4AaABAg"
     }, {
       "id": 4,
@@ -32,6 +35,7 @@
       "real_face": true,
       "real_name": true,
       "message_priority": 4,
+      "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=shCCP4PFXeU&lc=Ugwu6Voc4q78L6_Y7Yd4AaABAg"
     }, {
       "id": 5,
@@ -39,12 +43,14 @@
       "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/Happyoe.jpg",
       "message": "Great tips great video thanks",
       "message_priority": 3,
+      "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=THT5FefYZCo&lc=UgypQIfdPpOzMss0cxJ4AaABAg"
     }, {
       "id": 6,
       "name": "shaun lora",
       "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/shaun+lora.jpg",
       "message_priority": 6,
+      "source": "youtube-comment",
       "real_name": true,
       "real_face": true,
       "message": "very nice tips man, appreciate it 💯👏",
@@ -57,11 +63,13 @@
       "real_face": true,
       "real_name": true,
       "message_priority": 6,
+      "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=nngsKhTb2BA&lc=UgyoJsliNuunEBeUcoV4AaABAg"
     }, {
       "id": 8,
       "name": "BillyBobBonnet",
       "message_priority": 10,
+      "source": "youtube-comment",
       "message": "Dude, it's an excellent video. Soothing voice, extensive and crystal clear explanations, troubleshooting common issues... You do it and you do it well. Keep up the good work & congratulations :-) Subscribed without the slightest hesitation",
       "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/BillyBobBonnet.jpg",
       "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=Ugy5Iyessoo15pI2Ozl4AaABAg"
@@ -70,6 +78,7 @@
       "name": "Anders Wilhelm",
       "message": "great tutorial, thanks.",
       "message_priority": 4,
+      "source": "youtube-comment",
       "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/Anders Wilhelm.jpg",
       "real_name": true,
       "real_face": true,
@@ -78,11 +87,88 @@
       "id": 10,
       "name": "Abdur Rahman",
       "message_priority": 7,
+      "source": "youtube-comment",
       "message": "Wonderful! Super helpful. Thank you.",
       "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/Abdur+Rahman.jpg",
       "real_face": true,
       "real_name": true,
       "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgzdpMev4D0oLZ4wOil4AaABAg"
+    }, {
+      "id": 11,
+      "name": "@awa_it_",
+      "message_priority": 10,
+      "message": "I like the way you explain and teach, also your enunciation is incredible for us 'non native' english persons, everything is so enjoyable...  Thank you for putting so much effort and time into making this video knowledge.",
+      "real_face": true,
+      "img_url": ,
+      "source": "twitter-message"
+    }, {
+      "id": 12,
+      "name": "Alexandros Markovic",
+      "message": "Excellent video! Great work.  Subscribed.",
+      "real_face": true,
+      "real_name": true,
+      "message_priority": 6,
+      "source": "youtube-comment",
+      "img_url": ,
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=Ugz-VYT69WDgqlG4lMR4AaABAg"
+    }, {
+      "id": 13,
+      "name": "Sanjay Gyawali",
+      "message": "Great video.",
+      "real_name": true,
+      "real_face": true,
+      "message_priority": 3,
+      "img_url": ,
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgyX4dDhAHzitg7J7qF4AaABAg"
+    }, {
+      "id": 14,
+      "name": "Leon van Rijswijk",
+      "message": "Very well explained.",
+      "real_face": true,
+      "real_name": true,
+      "message_priority": 3,
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgyUmFMdoBy13CxdPKB4AaABAg",
+      "img_url": 
+    }, {
+      "id": 15,
+      "name": "Станислав Скуратов",
+      "message": "Please, keep doing the videos",
+      "real_name": true,
+      "message_priority": 6,
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=AZpQQ4T2Nz4&lc=UgyFXorDgd6K8_cxJzZ4AaABAg",
+      "img_url": 
+    }, {
+      "id": 16,
+      "message": "thank you very much!!!!!!!",
+      "name": "idriss jouid",
+      "real_name": true,
+      "real_face": true,
+      "message_priority": 3,
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=AZpQQ4T2Nz4&lc=UgziFWaQ0I8at7YTexF4AaABAg"
+    }, {
+      "id": 17,
+      "message": "Great vídeo and an interesting approach",
+      "name": "joão Petinga",
+      "real_name": true,
+      "img_url": ,
+      "message_priority": 4,
+      "link": "https://www.youtube.com/watch?v=sSbahlvDfS4&lc=UgxOinQa-j-AOHDNk8h4AaABAg.90TGLMZtlk890TeO0JuSep",
+      "source": "youtube-comment"
+    }, {
+      "id": 18,
+      "name": "มะ ม๋า",
+      "message_priority": 3,
+      "message": "Thank you",
+      "source": "youtube-comment",
+      "img_url": ,
+      "link": "https://www.youtube.com/watch?v=sSbahlvDfS4&lc=UgxirELLX754_g6l17p4AaABAg"
+    }, {
+      
     }
+
   ]
 }

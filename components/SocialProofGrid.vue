@@ -36,6 +36,7 @@
       }
     },
     computed: {
+      // possible algorithm: sort based on (message_priority + 1 each for real_name and real_face + (3 * Math.random)).
     }
   }
 </script>
