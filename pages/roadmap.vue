@@ -8,12 +8,11 @@
 
     TODO
     <ul>
-      <li>Finish Courses feature</li>
       <li>Finish Email-related features</li>
-      <li>Upload all update introductions and conclusions</li>
+      <li>Upload all updated introductions and conclusions</li>
       <li>Intersperse MirageJS videos where appropriate</li>
-      <li>Assign videos to courses</li>
-      <li>Attach domain, connect analytics, add privacy policy, basic SEO stuff, etc.</li>
+      <li>Connect analytics, basic SEO check, etc.</li>
+      <li>Create front page that's not terrible</li>
     </ul>
 
     <h2>Early to mid January: Launch</h2>
