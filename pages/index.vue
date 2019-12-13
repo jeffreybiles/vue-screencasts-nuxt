@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <h1>Testimonials</h1>
+    <SocialProofGrid />
+
     <div class="display-4 ma-4 d-flex justify-center">
       All Videos
     </div>
@@ -11,10 +14,12 @@
 <script>
 import { mapState } from 'vuex';
 import VideoTable from '@/components/VideoTable'
+import SocialProofGrid from '@/components/SocialProofGrid.vue';
 
 export default {
   components: {
-    VideoTable
+    VideoTable,
+    SocialProofGrid
   },
   computed: {
     ...mapState({
