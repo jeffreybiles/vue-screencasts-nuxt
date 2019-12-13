@@ -52,14 +52,7 @@
         <div class="display-1">{{video.name}}</div>
 
         <MarkdownDisplay :markdown="video.description" />
-        
-        <span v-for="tag_id in video.tag_ids" :key="tag_id">
-          <v-btn color="green lighten-2"
-                 :to="`/tags/${tag_id}`"
-                 class="mr-1 mb-2">
-            {{ getTag(tag_id).name }}
-          </v-btn>
-        </span>
+
       </v-col>
       <v-col cols="12" md="6">
         <div v-if="course.parent_id" class="text-center">
@@ -117,7 +110,6 @@ export default {
       getCourse: 'courses/get',
     }),
     ...mapState({
-      tags: state => state.tags.tags,
       videos: state => state.videos.videos,
     }),
     video(){
@@ -146,9 +138,6 @@ export default {
     percentVideosComplete(){ return percentVideosComplete(this.course.videos, this.$store) }
   },
   methods: {
-    getTag(tagId) {
-      return this.tags.find(t => t.id == tagId);
-    },
     markPlayed(){
       this.$store.dispatch('user/markVideoPlayed', this.video.id)
     },

@@ -15,7 +15,7 @@ import TheNavbar from '@/components/TheNavbar.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import TheSnackbar from '@/components/TheSnackbar.vue';
 export default {
-  middleware: 'load-videos-and-tags',
+  middleware: 'load-videos-and-courses',
   components: {
     TheNavbar,
     TheFooter,

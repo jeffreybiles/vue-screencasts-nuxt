@@ -29,19 +29,6 @@
           <font-awesome-icon icon="check" /> 
         </div>
       </template>
-      <template #item.tags="{item}">
-        <!-- Note: this is causing rehydration issues -->
-        <td @click.stop class="non-clickable">
-          <span v-for="tag_id in item.tag_ids" :key="tag_id">
-            <v-btn color="green lighten-2"
-                    :to="`/tags/${tag_id}`"
-                    x-small
-                    class="mr-1">
-              {{ getTag(tag_id).name }}
-            </v-btn>
-          </span>
-        </td>
-      </template>
       <template #item.actions="{item}">
         <td @click.stop class="non-clickable">
           <v-btn small :to="`/watch/${item.id}`">Watch</v-btn>
@@ -58,8 +45,6 @@
             <v-col cols="12" md="8">
               <h1>{{item.name}}</h1>
               <MarkdownDisplay :markdown="item.description" />
-
-              <TagAutocomplete :video="item" v-if="showEditFields" />
             </v-col>
           </v-row>
         </td>
@@ -74,7 +59,6 @@ import DateDisplay from '@/components/DateDisplay'
 import { mapGetters } from 'vuex';
 import VideoWatch from '@/components/VideoWatch'
 import MarkdownDisplay from '@/components/MarkdownDisplay'
-import TagAutocomplete from '@/components/TagAutocomplete'
 import _ from 'lodash'
 
   export default {
@@ -83,7 +67,6 @@ import _ from 'lodash'
       DateDisplay,
       VideoWatch,
       MarkdownDisplay,
-      TagAutocomplete,
     },
     data(){
       return {
@@ -93,7 +76,6 @@ import _ from 'lodash'
     computed: {
       ...mapGetters({
         isPlayed: 'user/videoIsPlayed',
-        getTag: 'tags/get',
       }),
       mungedVideos(){
         return this.videos.map((v)=>{
@@ -114,14 +96,8 @@ import _ from 'lodash'
       },
       filter(value, search, item) {
         let inName = RegExp(search, 'i').test(item.name)
- 
-        let tagMatches = item.tag_ids.map(id => {
-          let tag = this.getTag(id)
-          return RegExp(search, 'i').test(tag.name)
-        })
-        let inTags = _.some(tagMatches)
- 
-        return inName || inTags
+  
+        return inName;
       },
       deleteVideo(video) {
         let response = confirm(`Are you sure you want to delete ${video.name}`)

@@ -17,8 +17,6 @@
       </v-col>
     </v-row>
    
-    <TagAutocomplete :video="video" />
-
     <v-btn :to="`/admin/videos/${video.id}/edit`">Edit</v-btn>
     <v-btn :to="`/watch/${video.id}`">Watch</v-btn>
 
@@ -35,7 +33,6 @@
   import VideoByline from '@/components/VideoByline';
   import MarkdownDisplay from '@/components/MarkdownDisplay';
   import VideoWatch from '@/components/VideoWatch';
-  import TagAutocomplete from '@/components/TagAutocomplete';
   import { orderValueOfLastItem } from '@/utils/course-decorator';
 
   export default {
@@ -43,7 +40,6 @@
       VideoByline,
       MarkdownDisplay,
       VideoWatch,
-      TagAutocomplete
     },
     computed: {
       ...mapState({

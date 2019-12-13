@@ -25,20 +25,12 @@ export const editMutation = function(storeData, item) {
 
 export const deserializeVideos = function(videos) {
   videos.forEach(v => {
-    v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
     let courseData = v.relationships.course.data
     v.attributes.course_id = courseData && courseData.id;
     if(v.attributes.published_at) {
       v.attributes.published_at = new Date(v.attributes.published_at)
     }
   });
-}
-
-export const deserializeTags = function(tags) {
-  tags.forEach(t => {
-    t.attributes.id = t.id;
-    t.attributes.video_ids = t.relationships.videos.data.map(v => v.id)
-  })
 }
 
 export const deserializeCourses = function(courses) {

@@ -13,7 +13,6 @@
       <li>Upload all update introductions and conclusions</li>
       <li>Intersperse MirageJS videos where appropriate</li>
       <li>Assign videos to courses</li>
-      <li>Assign tags where appropriate</li>
       <li>Attach domain, connect analytics, add privacy policy, basic SEO stuff, etc.</li>
     </ul>
 

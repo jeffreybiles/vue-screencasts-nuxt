@@ -26,7 +26,7 @@ export default {
         {text: 'Name', value: 'name'},
         {text: 'Date', value: 'sortable_published_at'},
         {text: 'Duration', value: 'duration'},
-        {text: 'Tags', value: 'tags', sortable: false},
+        {text: 'Course', value: 'course'},
       ]
     },
   }
