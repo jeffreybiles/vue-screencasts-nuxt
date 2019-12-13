@@ -76,12 +76,17 @@ import _ from 'lodash'
     computed: {
       ...mapGetters({
         isPlayed: 'user/videoIsPlayed',
+        getCourse: 'courses/get',
       }),
       mungedVideos(){
         return this.videos.map((v)=>{
+          let course = this.getCourse(v.course_id)
+          let courseName = course && course.name
+          courseName = courseName && courseName.length > 33  ? `${courseName.slice(0, 30)}...` : courseName
           return {
             ...v,
-            sortable_published_at: v.published_at && v.published_at.toISOString()
+            sortable_published_at: v.published_at && v.published_at.toISOString(),
+            courseName
           }
         })
       }

@@ -28,7 +28,7 @@
           {text: 'Name', value: 'name'},
           {text: 'Date', value: 'sortable_published_at'},
           {text: 'Duration', value: 'duration'},
-          {text: 'Course', value: 'course'},
+          {text: 'Course', value: 'courseName'},
           {text: 'Actions', value: 'actions', sortable: false, width: "300px"},
         ]
       },
