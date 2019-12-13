@@ -99,7 +99,7 @@
       "message_priority": 10,
       "message": "I like the way you explain and teach, also your enunciation is incredible for us 'non native' english persons, everything is so enjoyable...  Thank you for putting so much effort and time into making this video knowledge.",
       "real_face": true,
-      "img_url": ,
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/awa_it_.jpg",
       "source": "twitter-message"
     }, {
       "id": 12,
@@ -109,7 +109,7 @@
       "real_name": true,
       "message_priority": 6,
       "source": "youtube-comment",
-      "img_url": ,
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/Alexandros Markovic.jpg",
       "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=Ugz-VYT69WDgqlG4lMR4AaABAg"
     }, {
       "id": 13,
@@ -118,7 +118,7 @@
       "real_name": true,
       "real_face": true,
       "message_priority": 3,
-      "img_url": ,
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/Sanjay+Gyawali.jpg",
       "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgyX4dDhAHzitg7J7qF4AaABAg"
     }, {
@@ -130,7 +130,7 @@
       "message_priority": 3,
       "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgyUmFMdoBy13CxdPKB4AaABAg",
-      "img_url": 
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/Leon+van+Rijswijk.jpg"
     }, {
       "id": 15,
       "name": "Станислав Скуратов",
@@ -139,7 +139,7 @@
       "message_priority": 6,
       "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=AZpQQ4T2Nz4&lc=UgyFXorDgd6K8_cxJzZ4AaABAg",
-      "img_url": 
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/Станислав+Скуратов.jpg"
     }, {
       "id": 16,
       "message": "thank you very much!!!!!!!",
@@ -148,13 +148,14 @@
       "real_face": true,
       "message_priority": 3,
       "source": "youtube-comment",
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/idriss+jouid.jpg",
       "link": "https://www.youtube.com/watch?v=AZpQQ4T2Nz4&lc=UgziFWaQ0I8at7YTexF4AaABAg"
     }, {
       "id": 17,
       "message": "Great vídeo and an interesting approach",
       "name": "joão Petinga",
       "real_name": true,
-      "img_url": ,
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/joão+Petinga.jpg",
       "message_priority": 4,
       "link": "https://www.youtube.com/watch?v=sSbahlvDfS4&lc=UgxOinQa-j-AOHDNk8h4AaABAg.90TGLMZtlk890TeO0JuSep",
       "source": "youtube-comment"
@@ -164,10 +165,27 @@
       "message_priority": 3,
       "message": "Thank you",
       "source": "youtube-comment",
-      "img_url": ,
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/มะ+ม๋า.jpg",
       "link": "https://www.youtube.com/watch?v=sSbahlvDfS4&lc=UgxirELLX754_g6l17p4AaABAg"
     }, {
-      
+      "id": 19,
+      "name": "אלכסיי לוינזון",
+      "message": "Great as always, thanks Jeffrey",
+      "message_priority": 6,
+      "source": "youtube-comment",
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/אלכסיי+לוינזון.jpg",
+      "real_name": true,
+      "real_face": true,
+      "link": "https://www.youtube.com/watch?v=rh_sEwe_tCE&lc=UgyNiFsm0Smh9_uUPKJ4AaABAg"
+    }, {
+      "id": 20,
+      "name": "justLbee",
+      "message_priority": 6,
+      "message": "Thanks, just looked for something good about how Nuxt work with its pages, layout, store, and your videos are really good!",
+      "source": "youtube-comment",
+      "real_face": true,
+      "img_url":"https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/justLbee.jpg",
+      "link": "https://www.youtube.com/watch?v=rh_sEwe_tCE&lc=UgyxfgF_OhSPNAs7YM14AaABAg"
     }
 
   ]
