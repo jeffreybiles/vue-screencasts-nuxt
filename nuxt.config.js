@@ -97,8 +97,12 @@ export default {
           user: { url: '/sessions/user', method: 'get', propertyName: 'data.attributes' }
         },
         // tokenRequired: true,
-        tokenType: ''
-      }
+        tokenType: '',
+      },
+    },
+    redirect: {
+      home: false,
+      callback: false 
     }
   },
 }

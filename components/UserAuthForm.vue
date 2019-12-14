@@ -25,10 +25,12 @@
                   class="mr-0"
                   :rules="[required('agreeToTerms', 'You must agree to the terms and conditions and privacy policy')]">
         <template #label @click.stop>
-          I have read and agree to the 
-          <a href="/policies/terms-and-conditions" target="_blank" @click.stop>Terms and Conditions</a>
-          and 
-          <a href="/policies/privacy-policy" target="_blank" @click.stop>Privacy Policy</a>
+          <span>
+            I have read and agree to the 
+            <a href="/policies/terms-and-conditions" target="_blank" @click.stop>Terms and Conditions</a>
+            and 
+            <a href="/policies/privacy-policy" target="_blank" @click.stop>Privacy Policy</a>
+          </span>
         </template>
       </v-checkbox>
       Email preferences
