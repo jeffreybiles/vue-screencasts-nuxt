@@ -25,10 +25,17 @@
               <span class="green--text big-check" v-if="isPlayed(video.id)">
                 <font-awesome-icon icon="check" /> Watched
               </span>
-              <span v-else>
-                <v-btn x-small @click="markPlayed" v-if="$auth.loggedIn">
+              <span v-else-if="$auth.loggedIn">
+                <v-btn x-small @click="markPlayed">
                   Mark Played
                 </v-btn>
+              </span>
+              <span v-else>
+                <UserAuthModal v-slot="{openModal}">
+                  <v-btn @click="openModal" x-small>
+                    Log In to start tracking your learning
+                  </v-btn>
+                </UserAuthModal>
               </span>
           </VideoByline>
           <v-spacer />
@@ -92,6 +99,7 @@ import VideoByline from '@/components/VideoByline';
 import VideoWatch from '@/components/VideoWatch';
 import MarkdownDisplay from '@/components/MarkdownDisplay';
 import CourseContentTable from '@/components/CourseContentTable.vue';
+import UserAuthModal from '@/components/UserAuthModal.vue';
 import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/course-decorator';
 
 import { mapState, mapGetters } from 'vuex';
@@ -103,6 +111,7 @@ export default {
     VideoWatch,
     MarkdownDisplay,
     CourseContentTable,
+    UserAuthModal
   },
   computed: {
     ...mapGetters({
@@ -153,6 +162,9 @@ export default {
         video = sortedItems[sortedItems.length - 1]
       }
       this.$router.push(`/watch/${video.id}`)
+    },
+    openAuthModal(){
+
     }
   }
 }
