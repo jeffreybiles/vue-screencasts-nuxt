@@ -16,7 +16,7 @@
     <h2>Here's what you get with your subscription</h2>
     <ul>
       <li>Instant access to <strong>all Pro courses and videos</strong>.</li>
-      <li><strong>New videos most workdays.</strong></li>
+      <li>(coming soon) <strong>New videos most workdays.</strong></li>
       <li>(coming soon) Ability to <strong>download videos for offline viewing</strong>.</li>
       <li>(coming soon) More votes on <strong>user-selected topics</strong>.</li>
       <li>25% of your subscription goes to help <strong>support the VueJS community</strong>.</li>
