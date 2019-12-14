@@ -27,7 +27,10 @@
       </v-card>
 
       <div class="pt-1">
-        <h3>{{ course.name }}</h3>
+        <h3>
+          <DifficultyBars :difficulty="course.difficulty" />
+          {{ course.name }}  
+        </h3>
       </div>
     </nuxt-link>
   </div>
@@ -38,11 +41,13 @@
   import DurationDisplay from '@/components/DurationDisplay';
   import { courseDecorator } from '@/utils/course-decorator';
   import ProgressBar from '@/components/ProgressBar.vue';
+  import DifficultyBars from '@/components/DifficultyBars.vue';
 
   export default {
     components: {
       DurationDisplay,
-      ProgressBar
+      ProgressBar,
+      DifficultyBars
     },
     computed: {
       decoratedCourse(){

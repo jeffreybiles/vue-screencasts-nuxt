@@ -3,6 +3,7 @@
     <v-row>
       <v-col cols="0" sm="4">
         <v-img :src="course.image_url || ''" class="thumbnail-image" />
+        <DifficultyBars :difficulty="course.difficulty" :verbose="true" />
       </v-col>
       <v-col cols="12" sm="8">
         <h1>{{ course.name }}</h1>
@@ -23,12 +24,14 @@
   import CourseContentTable from '@/components/CourseContentTable'
   import courseDecorator from '../../utils/course-decorator';
   import MarkdownDisplay from '@/components/MarkdownDisplay.vue';
+  import DifficultyBars from '@/components/DifficultyBars.vue';
 
   export default {
     components: {
       DurationDisplay,
       CourseContentTable,
-      MarkdownDisplay
+      MarkdownDisplay,
+      DifficultyBars
     },
     computed: {
       ...mapGetters({
