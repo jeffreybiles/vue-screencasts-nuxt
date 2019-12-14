@@ -22,8 +22,12 @@
           </div>
         </div>
       </v-col>
-      <v-col cols="1"><DurationDisplay :duration="video.duration" /></v-col>
-      <v-col cols="2"><DateDisplay :date="video.published_at" /></v-col>
+      <v-col v-if="!compact" cols="1"><DurationDisplay :duration="video.duration" /></v-col>
+      <v-col v-if="!compact" cols="2"><DateDisplay :date="video.published_at" /></v-col>
+      <v-col v-if="compact" cols="3" class="text-center pt-1 pb-1">
+        <DurationDisplay :duration="video.duration" class="medium" /><br>
+        <DateDisplay :date="video.published_at" class="small" />
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -82,6 +86,10 @@
       highlightedVideo: {
         type: Object
       },
+      compact: {
+        type: Boolean,
+        default: false
+      }
     }
   }
 </script>
@@ -90,5 +98,11 @@
   .highlight {
     // TODO: get better highlight color
     background-color: lightgreen;
+  }
+  .medium {
+    font-size: 14px;
+  }
+  .small {
+    font-size: 12px;
   }
 </style>

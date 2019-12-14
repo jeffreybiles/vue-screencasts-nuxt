@@ -15,7 +15,8 @@
                                    :isAdminScreen="isAdminScreen" 
                                    :course="sortedCourse" 
                                    :clickAction="clickAction" 
-                                   :highlightedVideo="highlightedVideo" />
+                                   :highlightedVideo="highlightedVideo"
+                                   :compact="compact" />
           </span>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -117,6 +118,10 @@
       },
       highlightedVideo: {
         type: Object
+      },
+      compact: {
+        type: Boolean,
+        default: false
       }
     }
   }
