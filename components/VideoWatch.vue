@@ -1,7 +1,11 @@
 <template>
-  <div class="video-player-box"
-       v-video-player:videoPlayer="playerOptions">
-                <!-- @ended="markPlayed" -->
+  <div style="width:100%; padding-top:56.25%; position: relative; ">
+    <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+      <div class="video-player-box"
+          v-video-player:videoPlayer="playerOptions">
+                    <!-- @ended="markPlayed" -->
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,7 +21,6 @@
   import {mapGetters} from 'vuex';
 
   export default {
-
     computed: {
       ...mapGetters({
         getCourse: 'courses/get'
@@ -39,7 +42,8 @@
             src: this.video.videoUrl
           }],
           poster: this.thumbnail,
-          fluid: true
+          fluid: true,
+          autoplay: this.autoplay
         }
       }
     },
@@ -47,11 +51,14 @@
       video: {
         type: Object,
         required: true
+      },
+      autoplay: {
+        type: Boolean,
+        default: false
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-
 </style>
