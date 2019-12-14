@@ -1,66 +1,63 @@
 <template>
   <v-container>
+    <VideoWatch :video="video" :autoplay="true" />
+
+    <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
+      {{percentVideosComplete}}% done with {{course.name}}
+    </v-progress-linear>
+    
     <v-row>
-      <v-col>
-        <VideoWatch :video="video" />
-        <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
-          {{percentVideosComplete}}% done with {{course.name}}
-        </v-progress-linear>
-        
-        <v-row class="">
 
-          <v-btn text @click="goToVideo(previousVideo)" v-if="previousVideo">
-            < Previous
-          </v-btn>
-          <v-btn text @click="goToChapter(previousChapter)" v-else-if="previousChapter.id">
-            << Previous <br>(part of previous chapter)
-          </v-btn>
-          <v-btn text :to="`/courses/${course.id}`" v-else>
-            Go Back to Course Page
-          </v-btn>
+      <v-btn text @click="goToVideo(previousVideo)" v-if="previousVideo">
+        < Previous
+      </v-btn>
+      <v-btn text @click="goToChapter(previousChapter)" v-else-if="previousChapter.id">
+        << Previous <br>(part of previous chapter)
+      </v-btn>
+      <v-btn text :to="`/courses/${course.id}`" v-else>
+        Go Back to Course Page
+      </v-btn>
 
-          <v-spacer />
+      <v-spacer />
 
-          <VideoByline :video="video" class="mt-2">
-              <span class="green--text big-check" v-if="isPlayed(video.id)">
-                <font-awesome-icon icon="check" /> Watched
-              </span>
-              <span v-else-if="$auth.loggedIn">
-                <v-btn x-small @click="markPlayed">
-                  Mark Played
-                </v-btn>
-              </span>
-              <span v-else>
-                <UserAuthModal v-slot="{openModal}">
-                  <v-btn @click="openModal" x-small>
-                    Log In to start tracking your learning
-                  </v-btn>
-                </UserAuthModal>
-              </span>
-          </VideoByline>
-          <v-spacer />
-          
-          <v-btn text @click="goToVideo(nextVideo)" v-if="nextVideo">
-            Next >
-          </v-btn>
-          <v-btn text @click="goToChapter(nextChapter, 'first')" v-else-if="nextChapter.id">
-            Next <br>(part of next chapter) >>
-          </v-btn>
-          <v-btn text :to="`/courses`" v-else>
-            Explore More Courses
-          </v-btn>
+      <VideoByline :video="video" class="mt-2">
+          <span class="green--text big-check" v-if="isPlayed(video.id)">
+            <font-awesome-icon icon="check" /> Watched
+          </span>
+          <span v-else-if="$auth.loggedIn">
+            <v-btn x-small @click="markPlayed">
+              Mark Played
+            </v-btn>
+          </span>
+          <span v-else>
+            <UserAuthModal v-slot="{openModal}">
+              <v-btn @click="openModal" x-small>
+                Log In to start tracking your learning
+              </v-btn>
+            </UserAuthModal>
+          </span>
+      </VideoByline>
+      <v-spacer />
+      
+      <v-btn text @click="goToVideo(nextVideo)" v-if="nextVideo">
+        Next >
+      </v-btn>
+      <v-btn text @click="goToChapter(nextChapter, 'first')" v-else-if="nextChapter.id">
+        Next <br>(part of next chapter) >>
+      </v-btn>
+      <v-btn text :to="`/courses`" v-else>
+        Explore More Courses
+      </v-btn>
 
-        </v-row>
-      </v-col>
     </v-row>
 
     <v-row>
+      
       <v-col cols="12" md="6">
         <div class="display-1">{{video.name}}</div>
-
         <MarkdownDisplay :markdown="video.description" />
-
       </v-col>
+
       <v-col cols="12" md="6">
         <div v-if="course.parent_id" class="text-center">
           Chapter {{currentChapterIndex + 1}} of {{parentCourse.chapter_ids.length}} in <strong>{{parentCourse.name}}</strong>
@@ -80,6 +77,7 @@
           <CourseContentTable :course="course" :highlightedVideo="video" />
         </v-row>
       </v-col>
+
     </v-row>
 
     <!-- Probably put this in a tab -->
