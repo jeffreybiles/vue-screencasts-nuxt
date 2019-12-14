@@ -1,6 +1,7 @@
 <template>
   <span>
     <!-- TODO: Make these look nicer -->
+    <!-- Maybe do the vertical bars, and then for "beginner to advanced", make the first green, the second blue, and the third purple-->
     <span v-if="difficulty == 'beginner'">
       <font-awesome-icon icon="minus" color="green" />
     </span>

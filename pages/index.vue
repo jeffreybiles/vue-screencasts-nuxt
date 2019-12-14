@@ -2,13 +2,13 @@
   <v-container class="home">
     <!-- TODO: style these better so they take up less room -->
 
-    <h1>Don't Be Basic</h1>
+    <h1>Beyond the Basics</h1>
     <p>There are dozens of great resources for getting started with VueJS...</p>
     <p>But what comes next?</p>
-    <p>There are only so many times you can go over the basics before you're just wasting your time.</p>
+    <p>There are only so many times you can go over intro-level concepts before you're just wasting your time.</p>
 
     <h1>Advanced Vue for Pro Developers</h1>
-    <p>Don't get the wrong idea... I'll still make some entry-level videos.</p>
+    <p>Don't get the wrong idea... I'll still make some intro-level videos.</p>
     <p>But my goal isn't to compete with all the other educators out there on who can explain v-bind the best.</p>
     <p>Instead, I want to tackle meaty problems that Vue developers will encounter in the real world.</p>
 
