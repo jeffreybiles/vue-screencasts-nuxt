@@ -8,6 +8,13 @@
           <v-checkbox v-model="difficulties.intermediate" label="Intermediate" hide-details />
           <v-checkbox v-model="difficulties.advanced" label="Advanced" hide-details />
         </v-col>
+        <v-col cols="3">
+          <!-- Consider changing these to links... "hide completed courses" and "view in-progress courses" -->
+          <h3>Progress</h3>
+          <v-checkbox v-model="progress.fresh" label="Fresh" hide-details />
+          <v-checkbox v-model="progress.started" label="In Progress" hide-details />
+          <v-checkbox v-model="progress.completed" label="Completed" hide-details />
+        </v-col>
       </v-row>
       <v-row>
         <v-col v-for="course in sortedCourses" 
@@ -25,7 +32,7 @@
   import { mapGetters } from 'vuex';
   import CourseCard from '@/components/CourseCard';
   import _ from 'lodash';
-  import { courseDecorator } from '@/utils/course-decorator';
+  import { courseDecorator, percentVideosComplete } from '@/utils/course-decorator';
 
   export default {
     data(){
@@ -35,6 +42,11 @@
           intermediate: true,
           advanced: true,
           'beginner to advanced': true
+        },
+        progress: {
+          fresh: true,
+          started: true,
+          completed: true
         }
       }
     },
@@ -46,12 +58,13 @@
         courses: 'courses/topLevel'
       }),
       sortedCourses(){
-        let courses = this.filteredCourses.map(c => courseDecorator(c, this.$store))
-        return _.sortBy(courses, 'mostRecentVideo.published_at').reverse()
+        return _.sortBy(this.filteredCourses, 'mostRecentVideo.published_at').reverse()
       },
       filteredCourses(){
-        return this.courses.filter(course => {
-          return this.difficulties[course.difficulty]
+        return this.courses.map(c => courseDecorator(c, this.$store)).filter(course => {
+          let percentComplete = percentVideosComplete(course.videos, this.$store)
+          let progress = percentComplete == 0 ? 'fresh' : percentComplete == 100 ? 'completed' : 'started'
+          return this.difficulties[course.difficulty] && this.progress[progress]
         })
       }
     }

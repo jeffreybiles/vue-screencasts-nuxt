@@ -9,7 +9,7 @@ export const courseDecorator = function(course, store) {
     numChapters: course.chapter_ids.length,
     numVideos: videos.length,
     duration: _.sum(videos.map(v => v.duration)),
-    mostRecentVideo: _.sortBy(videos, 'published_at').reverse()[0]
+    mostRecentVideo: _.sortBy(videos, 'published_at').reverse()[0],
   }
 }
 
