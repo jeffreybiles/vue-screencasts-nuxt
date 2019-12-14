@@ -39,17 +39,5 @@
 </script>
 
 <style lang="scss" scoped>
-  .v-input--checkbox {
-    margin: 0;
 
-    ::v-deep .v-input__control {
-      .v-input__slot {
-        margin-bottom: 0 !important;
-      }
-
-      a {
-        margin: 0 5px;
-      }
-    }
-  }
 </style>

@@ -23,7 +23,7 @@ export default {
   },
 }
 </script>
-<style>
+<style lang="scss">
 
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -75,5 +75,23 @@ html {
 
 .clickable {
   cursor: pointer;
+}
+
+.v-input--checkbox {
+  margin: 0 !important;
+
+  .v-input__control {
+    label {
+      color: black !important;
+    }
+    
+    .v-input__slot {
+      margin-bottom: 0 !important;
+    }
+
+    a {
+      margin: 0 5px;
+    }
+  } 
 }
 </style>
