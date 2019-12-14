@@ -64,7 +64,7 @@
         return this.decoratedCourse.videos.filter(v => this.isPlayed(v.id))
       },
       mostRecentVideo(){
-        return _.sortBy(this.decoratedCourse.videos, 'published_at').reverse()[0]
+        return this.decoratedCourse.mostRecentVideo;
       },
       percentVideoComplete(){
         return percentVideosComplete(this.decoratedCourse.videos, this.$store)
