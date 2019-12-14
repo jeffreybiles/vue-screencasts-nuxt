@@ -40,6 +40,7 @@
         return [
           {text: 'Name', value: 'name'},
           {text: "Type", value: 'series_type'},
+          {text: "Difficulty", value: 'difficulty'},
           {text: "# chapters", value: 'numChapters'},
           {text: "# videos", value: 'numVideos'},
           {text: "Duration", value: 'duration'},

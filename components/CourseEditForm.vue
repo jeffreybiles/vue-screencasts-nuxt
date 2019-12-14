@@ -4,6 +4,9 @@
     <v-select :items="['course', 'chapter', 'standalone_chapter']"
               v-model="course.series_type"
               label="Series Type" />
+    <v-select :items="['beginner', 'intermediate', 'advanced', 'beginner to advanced']"
+              v-model="course.difficulty"
+              label="Difficulty" />
     <S3FileUpload :obj="course"
                   fieldName="image_url"
                   directory="thumbnails"
