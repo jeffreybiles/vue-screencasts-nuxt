@@ -18,6 +18,7 @@
 
 
     <h1>Thousands have already learned from VueScreencasts</h1>
+  
     <SocialProofGrid />
 
     <h1>Check out some of our courses</h1>
@@ -29,9 +30,7 @@
       </v-col>
     </v-row>
 
-
     <hr>
-
 
     <h1>Check out our newest videos</h1>
     <VideoTable :videos="videos" :headers="headers" />

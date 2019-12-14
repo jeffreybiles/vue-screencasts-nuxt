@@ -50,7 +50,7 @@
 
   .testimonial-selector {
     margin: 5px;
-    max-width: 60px;
+    width: 60px;
 
     .v-image, img {
       border-radius: 50% !important;
