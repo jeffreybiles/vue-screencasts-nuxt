@@ -1,20 +1,24 @@
 <template>
   <v-container class="home">
-    <!-- TODO: style this better so it takes up less room -->
+    <!-- TODO: style these better so they take up less room -->
+
     <h1>Don't Be Basic</h1>
     <p>There are dozens of great resources for getting started with VueJS...</p>
     <p>But what comes next?</p>
     <p>There are only so many times you can go over the basics before you're just wasting your time.</p>
+
     <h1>Advanced Vue for Pro Developers</h1>
     <p>Don't get the wrong idea... I'll still make some entry-level videos.</p>
     <p>But my goal isn't to compete with all the other educators out there on who can explain v-bind the best.</p>
     <p>Instead, I want to tackle meaty problems that Vue developers will encounter in the real world.</p>
+
     <h1>Starting in late January 2020: new videos (almost) every workday</h1>
     <p>Start your day off right by watching that morning's video, steadily improving your skills every day.</p>
     <p>Or you could binge through the <em>more than sixteen hours</em> of tutorials I've already released.</p>
+
+
     <h1>Thousands have already learned from VueScreencasts</h1>
     <SocialProofGrid />
-    <hr>
 
     <h1>Check out some of our courses</h1>
     <v-row>

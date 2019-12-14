@@ -3,6 +3,7 @@
     <v-btn text to="/">Vue Screencasts</v-btn>
     <v-btn text to="/videos">Videos</v-btn>
     <v-btn text to="/courses">Courses</v-btn>
+    <v-btn text to="/pro">Pro</v-btn>
     <v-btn text to="/admin/videos" v-if="$auth.user && $auth.user.admin">
       Admin
     </v-btn>
