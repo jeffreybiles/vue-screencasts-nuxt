@@ -80,6 +80,8 @@
 
     </v-row>
 
+    <VideoWatchCompleteModal :isOpen="endingScreenOpen" :close="function(){endingScreenOpen = false}" />
+
     <!-- Probably put this in a tab -->
     <!-- tabs: general, code, and transcript... but only show a tab if it has something available for it -->
     <!-- <v-row>
@@ -98,18 +100,25 @@ import VideoWatch from '@/components/VideoWatch';
 import MarkdownDisplay from '@/components/MarkdownDisplay';
 import CourseContentTable from '@/components/CourseContentTable.vue';
 import UserAuthModal from '@/components/UserAuthModal.vue';
+import VideoWatchCompleteModal from '@/components/VideoWatchCompleteModal.vue';
 import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/course-decorator';
 
 import { mapState, mapGetters } from 'vuex';
 import _ from 'lodash';
 
 export default {
+  data(){
+    return {
+      endingScreenOpen: true
+    }
+  },
   components: {
     VideoByline,
     VideoWatch,
     MarkdownDisplay,
     CourseContentTable,
-    UserAuthModal
+    UserAuthModal,
+    VideoWatchCompleteModal
   },
   computed: {
     ...mapGetters({
@@ -148,7 +157,7 @@ export default {
     ended(){
       if(this.$auth.loggedIn){
         this.markPlayed();
-        // TODO: pop up modal for countdown
+        this.endingScreenOpen = true
       } else {
         // TODO: pop up modal for logging in
       }
