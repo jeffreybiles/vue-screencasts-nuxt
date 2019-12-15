@@ -93,7 +93,7 @@ export default {
       local: {
         endpoints: {
           login: { url: '/sessions', method: 'post', propertyName: 'token' },
-          logout: { url: '/sessions', method: 'delete' },
+          logout: false,
           user: { url: '/sessions/user', method: 'get', propertyName: 'data.attributes' }
         },
         // tokenRequired: true,
