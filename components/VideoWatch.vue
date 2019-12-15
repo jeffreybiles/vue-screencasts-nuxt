@@ -2,8 +2,8 @@
   <div style="width:100%; padding-top:56.25%; position: relative; ">
     <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
       <div class="video-player-box"
-          v-video-player:videoPlayer="playerOptions">
-                    <!-- @ended="markPlayed" -->
+           v-video-player:videoPlayer="playerOptions"
+           @ended="ended">
       </div>
     </div>
   </div>
@@ -55,6 +55,10 @@
       autoplay: {
         type: Boolean,
         default: false
+      },
+      ended: {
+        type: Function,
+        default: () => {}
       }
     }
   }

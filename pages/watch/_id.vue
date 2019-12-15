@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <VideoWatch :video="video" />
+    <VideoWatch :video="video" :ended="ended" />
 
     <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
       {{percentVideosComplete}}% done with {{course.name}}
@@ -145,6 +145,14 @@ export default {
     percentVideosComplete(){ return percentVideosComplete(this.course.videos, this.$store) }
   },
   methods: {
+    ended(){
+      if(this.$auth.loggedIn){
+        this.markPlayed();
+        // TODO: pop up modal for countdown
+      } else {
+        // TODO: pop up modal for logging in
+      }
+    },
     markPlayed(){
       this.$store.dispatch('user/markVideoPlayed', this.video.id)
     },
