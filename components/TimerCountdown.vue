@@ -12,7 +12,7 @@
       }
     },
     mounted(){
-      // this.$timer.start('countdown');
+      this.$timer.start('countdown');
     },
     timers: {
       countdown: {

@@ -4,28 +4,29 @@
     @click:outside="close"
     width="650"
   >
-    <v-card>
-      <div class="pa-4">
-        <div v-if="$auth.loggedIn">
-          <v-card-title>
-            <h3>Next video starting in</h3> 
-            &nbsp;
-            <h1><TimerCountdown :endCallback="doCallback" /></h1>
-          </v-card-title>
-          <v-card-actions>
-            <v-btn @click="close">Stay in this video</v-btn>
-            <v-spacer />
-            <v-btn color="primary" @click="goToNextVideo">Go now</v-btn>
-          </v-card-actions>
-        </div>
-        <div v-else>
-          <UserAuthTogglableForm registerPhrase="Keep track of the videos you've watched"
-                                 :postRegisterAction="postAuthAction"
-                                 :postLoginAction="postAuthAction"/>
-          <a @click="skip">Skip for now</a>
-        </div>
+    <v-card class="pa-4">
+      <div v-if="$auth.loggedIn">
+        <v-card-title>
+          <h2>Up next: {{nextVideo.name}}</h2>
+        </v-card-title>
+        <v-card-text>
+          <span class="display-1">Starting in</span>
+          &nbsp;
+          <span class="display-2"><TimerCountdown :endCallback="doCallback" /></span>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn color="secondary" @click="close">Stay in this video</v-btn>
+          <v-btn color="primary" @click="goToNextVideo">Go now</v-btn>
+        </v-card-actions>
       </div>
-    </v-card>
+      <div v-else>
+        <UserAuthTogglableForm registerPhrase="Keep track of the videos you've watched"
+                                :postRegisterAction="postAuthAction"
+                                :postLoginAction="postAuthAction"/>
+        <a @click="skip">Skip for now</a>
+      </div>
+  </v-card>
   </v-dialog>
 </template>
 
