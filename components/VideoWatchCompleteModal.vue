@@ -4,10 +4,19 @@
     @click:outside="close"
     width="650"
   >
-    <v-card min-height="200px">
+    <v-card>
       <div class="pa-4">
         <div v-if="$auth.loggedIn">
-          Next video starting in <TimerCountdown :endCallback="goToNextVideo" />
+          <v-card-title>
+            <h3>Next video starting in</h3> 
+            &nbsp;
+            <h1><TimerCountdown :endCallback="doCallback" /></h1>
+          </v-card-title>
+          <v-card-actions>
+            <v-btn @click="close">Stay in this video</v-btn>
+            <v-spacer />
+            <v-btn color="primary" @click="goToNextVideo">Go now</v-btn>
+          </v-card-actions>
         </div>
         <div v-else>
           <UserAuthTogglableForm registerPhrase="Keep track of the videos you've watched"
@@ -34,6 +43,11 @@
       }
     },
     methods: {
+      doCallback(){
+        if(this.isOpen) {
+          this.goToNextVideo()
+        }
+      },
       goToNextVideo(){
         this.$router.push(`/watch/${this.nextVideo.id}`);
         this.close()

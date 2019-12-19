@@ -12,7 +12,7 @@
       }
     },
     mounted(){
-      this.$timer.start('countdown');
+      // this.$timer.start('countdown');
     },
     timers: {
       countdown: {
@@ -26,7 +26,7 @@
           this.$timer.stop('countdown');
           this.endCallback()
         }
-      }
+      },
     },
     props: {
       countLength: {
