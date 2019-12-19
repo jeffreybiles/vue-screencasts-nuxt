@@ -138,8 +138,12 @@ export default {
 
     parentCourse() { return this.getCourse(this.course.parent_id) },
     sortedChapters() { 
-      let chapters = this.parentCourse.chapter_ids.map(c_id => this.getCourse(c_id));
-      return _.sortBy(chapters, c => Number(c.order))
+      if(this.parentCourse){
+        let chapters = this.parentCourse.chapter_ids.map(c_id => this.getCourse(c_id));
+        return _.sortBy(chapters, c => Number(c.order))
+      } else {
+        return [this.course]
+      }
     },
     currentChapterIndex(){ return this.sortedChapters.findIndex(c => c.id == this.course.id) },
     previousChapter(){ return sortCourse(this.sortedChapters[this.currentChapterIndex - 1], this.$store) },
