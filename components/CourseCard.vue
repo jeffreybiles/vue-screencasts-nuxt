@@ -14,7 +14,7 @@
                   <div class="big">{{hours}}</div> HOURS
                 </span>
                 <span v-else>
-                  <div class="big">{{minutes + (hours * 60)}}</div>Minutes
+                  <div class="big">{{Number(minutes) + (hours * 60)}}</div>Minutes
                 </span>
               </DurationDisplay>
             </v-col>
