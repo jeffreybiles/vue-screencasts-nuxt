@@ -36,7 +36,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/vuetify-datetime-picker'
+    '~/plugins/vuetify-datetime-picker',
+    { src: "~/plugins/vue-timer", mode: 'client'}
   ],
   /*
   ** Nuxt.js dev-modules

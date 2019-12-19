@@ -112,7 +112,7 @@ import _ from 'lodash';
 export default {
   data(){
     return {
-      endingScreenOpen: false
+      endingScreenOpen: false,
     }
   },
   components: {
@@ -187,7 +187,7 @@ export default {
     },
     openAuthModal(){
 
-    }
+    },
   }
 }
 </script>

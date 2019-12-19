@@ -7,6 +7,7 @@
     <v-card min-height="200px">
       <div class="pa-4">
         <div v-if="$auth.loggedIn">
+          Next video starting in {{ count }}
         </div>
         <div v-else>
           <UserAuthTogglableForm registerPhrase="Keep track of the videos you've watched"
@@ -25,26 +26,43 @@
     components: {
       UserAuthTogglableForm
     },
+    created () {
+      this.$timer.start('countdown');
+    },
+    data(){
+      return {
+        count: 9
+      }
+    },
     computed: {
       open(){
         return this.isOpen;
       }
     },
+    timers: {
+      countdown: {
+        time: 1000, repeat: true
+      }
+    },
     methods: {
-      async goToNextVideo(){
-        await this.$router.push(`/watch/${this.nextVideo.id}`);
+      goToNextVideo(){
+        this.$timer.stop('countdown');
+        this.$router.push(`/watch/${this.nextVideo.id}`);
+        this.close()
       },
-      async skip(){
+      skip(){
         // Maybe add feature where after clicking skip it doesn't 
-        await this.goToNextVideo();
-        this.close();
-      },
-      startCountdown(){
-        
+        this.goToNextVideo();
       },
       postAuthAction(){
         this.markPlayed();
         this.goToNextVideo();
+      },
+      countdown(){
+        this.count = this.count - 1
+        if(this.count <= 0) {
+          this.goToNextVideo()
+        }
       }
     },
     props: {
