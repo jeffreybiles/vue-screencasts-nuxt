@@ -7,7 +7,7 @@
     <v-card min-height="200px">
       <div class="pa-4">
         <div v-if="$auth.loggedIn">
-          Next video starting in {{ count }}
+          Next video starting in <TimerCountdown :endCallback="goToNextVideo" />
         </div>
         <div v-else>
           <UserAuthTogglableForm registerPhrase="Keep track of the videos you've watched"
@@ -22,31 +22,19 @@
 
 <script>
   import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
+  import TimerCountdown from '@/components/TimerCountdown.vue';
   export default {
     components: {
-      UserAuthTogglableForm
-    },
-    created () {
-      this.$timer.start('countdown');
-    },
-    data(){
-      return {
-        count: 9
-      }
+      UserAuthTogglableForm,
+      TimerCountdown
     },
     computed: {
       open(){
         return this.isOpen;
       }
     },
-    timers: {
-      countdown: {
-        time: 1000, repeat: true
-      }
-    },
     methods: {
       goToNextVideo(){
-        this.$timer.stop('countdown');
         this.$router.push(`/watch/${this.nextVideo.id}`);
         this.close()
       },
@@ -58,12 +46,6 @@
         this.markPlayed();
         this.goToNextVideo();
       },
-      countdown(){
-        this.count = this.count - 1
-        if(this.count <= 0) {
-          this.goToNextVideo()
-        }
-      }
     },
     props: {
       isOpen: {
