@@ -80,7 +80,10 @@
 
     </v-row>
 
-    <VideoWatchCompleteModal :isOpen="endingScreenOpen" :close="function(){endingScreenOpen = false}" />
+    <VideoWatchCompleteModal :isOpen="endingScreenOpen" 
+                             :close="function(){endingScreenOpen = false}"
+                             :nextVideo="nextVideo"
+                             :markPlayed="markPlayed" />
 
     <!-- Probably put this in a tab -->
     <!-- tabs: general, code, and transcript... but only show a tab if it has something available for it -->
@@ -109,7 +112,7 @@ import _ from 'lodash';
 export default {
   data(){
     return {
-      endingScreenOpen: true
+      endingScreenOpen: false
     }
   },
   components: {
@@ -161,9 +164,9 @@ export default {
     ended(){
       if(this.$auth.loggedIn){
         this.markPlayed();
-        this.endingScreenOpen = true
+        this.endingScreenOpen = true;
       } else {
-        // TODO: pop up modal for logging in
+        this.endingScreenOpen = true;
       }
     },
     markPlayed(){

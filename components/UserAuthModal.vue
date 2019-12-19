@@ -8,7 +8,7 @@
       width="500"
     >
       <v-card min-height="200px" min-width="300px">
-        <div class="pa-3">
+        <div class="pa-4">
           <UserAuthTogglableForm />
         </div>
       </v-card>
