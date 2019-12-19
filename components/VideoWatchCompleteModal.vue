@@ -7,13 +7,29 @@
     <v-card class="pa-4">
       <div v-if="$auth.loggedIn">
         <div v-if="!nextVideo">
-          <v-card-text>
-            <span class="display-3">
-              You're done.  Congrats!
+          <div v-if="nextChapter && nextChapter.name">
+            <v-card-text>
+              <div class="display-2">
+                You're done with this chapter.  Congrats!
+              </div>
+              <br>
+              <div class="headline">The next chapter is <strong>{{nextChapter.name}}</strong>.</div>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="secondary" @click="goToNextChapter(nextChapter, 'first')">Watch Now</v-btn>
+            </v-card-actions>
+          </div>
+          <div v-else>
+            <v-card-text>
+              <span class="display-2">
+                You're done with this course.  Congrats!
+              </span>
+            </v-card-text>
+            <v-card-actions>
               <v-btn color="secondary" :to="`/courses/`">Find More Courses</v-btn>
               <!-- TODO: "Tell my friends" button -->
-            </span>
-          </v-card-text>
+            </v-card-actions>
+          </div>
         </div>
         <div v-else>
           <v-card-title>
@@ -84,11 +100,17 @@
       },
       nextVideo: {
         type: Object,
-        required: true
       },
       markPlayed: {
         type: Function,
         required: true
+      },
+      nextChapter: {
+        type: Object,
+        required: false
+      },
+      goToNextChapter: {
+        type: Function
       }
     }
   }
