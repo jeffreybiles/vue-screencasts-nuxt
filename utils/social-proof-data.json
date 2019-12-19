@@ -186,7 +186,35 @@
       "real_face": true,
       "img_url":"https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/justLbee.jpg",
       "link": "https://www.youtube.com/watch?v=rh_sEwe_tCE&lc=UgyxfgF_OhSPNAs7YM14AaABAg"
+    }, {
+      "id": 21,
+      "name": "Erika Kim",
+      "message_priority": 7,
+      "source": "youtube-comment",
+      "real_face": true,
+      "real_name": true,
+      "message": "Amazing!",
+      "link": "https://www.youtube.com/watch?v=9xF89Q2052g&lc=UgwUMK3ryaCBPfHvzsJ4AaABAg",
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/erika+kim.jpg"
+    }, {
+      "id": 22,
+      "name": "Jay Pick",
+      "message_priority": 5,
+      "real_face": true,
+      "real_name": true,
+      "source": "youtube-comment",
+      "message": "Quality tutorial, thanks a lot!",
+      "link": "https://www.youtube.com/watch?v=nngsKhTb2BA&lc=UgzeLAtUwjmTiCojNR94AaABAg",
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/Jay+Pick.jpg"
+    }, {
+      "id": 23,
+      "name": "Ritika Singh",
+      "message": "Thank you for putting in the effort to make these videos and share with all!",
+      "message_priority": 7,
+      "source": "youtube-comment",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=cjRst4qduzM&lc=Ugw4h9XVLI3RLVWvIht4AaABAg",
+      "img_url": "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/Ritika+Singh.jpg"
     }
-
   ]
 }
