@@ -8,11 +8,8 @@
 
     TODO
     <ul>
-      <li>Finish Email-related features</li>
-      <li>Upload all updated introductions and conclusions</li>
-      <li>Intersperse MirageJS videos where appropriate</li>
       <li>Connect analytics, basic SEO check, etc.</li>
-      <li>Create front page that's not terrible</li>
+      <li>Improve styling of front page</li>
     </ul>
 
     <h2>Early to mid January: Launch</h2>
@@ -24,9 +21,14 @@
     TODO
     <ul>
       <li>Payment features</li>
-      <li>Update current videos based on user feedback</li>
-      <li>Update UI based on user feedback</li>
-      <li>Fix bugs found by users</li>
+      <li>Backend email features</li>
+      <li> Update based on feedback
+        <ul>
+          <li>Update UI</li>
+          <li>Fix bugs</li>
+          <li>Fix errors in videos</li>
+        </ul>
+      </li>
       <li>Plan first few weeks of videos</li>
     </ul>
 

@@ -35,9 +35,9 @@
       </v-checkbox>
       Email preferences
       <v-checkbox v-model="userInfo.email_daily"
-                  label="I would like an email every time a new video is released" />
+                  label="I would like an email every time a new video is released (starting mid-January)" />
       <v-checkbox v-model="userInfo.email_weekly"
-                  label="I would like a weekly email newsletter with a summary of the week's videos and fun VueJS news" />
+                  label="I would like a weekly email newsletter with a summary of the week's videos and fun VueJS news (starting early January)" />
     </div>
 
     <v-btn @click="submitForm(userInfo)" :disabled="!valid">{{ buttonText }}</v-btn>
