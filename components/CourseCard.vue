@@ -2,7 +2,7 @@
   <div>
     <nuxt-link :to="`/courses/${course.id}`">
       <v-card hover>
-        <div class="pl-1" style="background-color: #806780; color: white;">
+        <div class="pl-1 course-card">
           <v-row>
             <v-col cols="3" class="text-center">
               <div class="big">{{ decoratedCourse.numVideos }}</div>
@@ -71,5 +71,20 @@
 
   .big {
     font-size: 36px;
+  }
+
+  .course-card {
+     background-color: #806780; 
+     color: white;
+  }
+
+  @media (min-width: 960px) and (max-width: 1264px) {
+    .course-card {
+      font-size: 13px;
+    }
+
+    .big {
+      font-size: 28px;
+    }
   }
 </style>
