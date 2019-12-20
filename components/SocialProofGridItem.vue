@@ -1,14 +1,7 @@
 <template>
   <v-tooltip bottom content-class="full-testimonial">
     <template #activator="{on}">
-      <span v-if="testimonial.link">
-        <a :href="testimonial.link" target="_blank" class="v-responsive">
-          <v-img v-on="on" :src="img_src" />
-        </a>
-      </span>
-      <span v-else>
-        <v-img v-on="on" :src="img_src" />
-      </span>
+      <v-img v-on="on" :src="img_src" />
     </template>
 
     <div>
