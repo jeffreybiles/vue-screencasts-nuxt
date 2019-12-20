@@ -29,6 +29,7 @@
     "vuetify-datetime-picker": "^2.1.1"
   },
   "devDependencies": {
+    "@nuxtjs/google-analytics": "^2.2.2",
     "@nuxtjs/vuetify": "^2.0.0-alpha.0"
   }
 }
