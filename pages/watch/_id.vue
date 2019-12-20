@@ -83,7 +83,9 @@
     <VideoWatchCompleteModal :isOpen="endingScreenOpen" 
                              :close="function(){endingScreenOpen = false}"
                              :nextVideo="nextVideo"
-                             :markPlayed="markPlayed" />
+                             :markPlayed="markPlayed"
+                             :nextChapter="nextChapter"
+                             :goToNextChapter="goToChapter" />
 
     <!-- Probably put this in a tab -->
     <!-- tabs: general, code, and transcript... but only show a tab if it has something available for it -->

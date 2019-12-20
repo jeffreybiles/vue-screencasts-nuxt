@@ -29,23 +29,16 @@
         <CourseCard :course="course" />
       </v-col>
     </v-row>
-
-    <hr>
-
-    <h1>Check out our newest videos</h1>
-    <VideoTable :videos="videos" :headers="headers" />
   </v-container>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import VideoTable from '@/components/VideoTable'
 import SocialProofGrid from '@/components/SocialProofGrid.vue';
 import CourseCard from '@/components/CourseCard.vue';
 
 export default {
   components: {
-    VideoTable,
     SocialProofGrid,
     CourseCard
   },
@@ -62,9 +55,6 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      videos: state => state.videos.videos
-    }),
     ...mapGetters({
       getCourse: 'courses/get'
     }),
