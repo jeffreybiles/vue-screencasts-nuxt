@@ -47,11 +47,7 @@ export default {
     // '@nuxtjs/eslint-module'
     '@nuxtjs/vuetify',
     ['@nuxtjs/google-analytics', {
-      id: 'UA-154843930-1',
-      debug: {
-        enabled: true,
-        sendHitTask: true
-      }
+      id: 'UA-154843930-1'
     }]
   ],
   /*
