@@ -304,6 +304,113 @@
       "source": "youtube-comment",
       "link": "https://www.youtube.com/watch?v=NS0io3Z75GI&lc=Ugz1oaNbnaXBS_V8qFR4AaABAg",
       "img_url": "Emerson+smith+Huallpa+Zanabria.jpg"
+    }, {
+      "id": 34,
+      "message": "Have looked so many Vue.js tutorials, your videos are the best ones!",
+      "message_priority": 8,
+      "real_name": true,
+      "name": "Nathan Yang",
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=I0ghczi0IZ8&lc=Ugyo5vr3h5urxhoFQkh4AaABAg",
+      "img_url": "Nathan+Yang.jpg"
+    }, {
+      "id": 35,
+      "message": "Great help, helped me solved the Vuex modules mapstate problem I had. Thanks so much again!!",
+      "message_priority": 8,
+      "name": "kidgr33n",
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=I0ghczi0IZ8&lc=UgyPU1P5sK6VVJ81Sdh4AaABAg",
+      "img_url": "kidgr33n.jpg"
+    }, {
+      "id": 36,
+      "message": "Another good one, really enjoying the series thus far",
+      "name": "sdguy 1",
+      "source": "youtube-comment",
+      "message_priority": 5,
+      "link": "https://www.youtube.com/watch?v=I0ghczi0IZ8&lc=Ugzv_PZ8aAzye2-GVgh4AaABAg",
+      "img_url": "sdguy+1.jpg"
+    }, {
+      "id": 37,
+      "message": "Awesome video!",
+      "message_priority": 3,
+      "name": "Doïc de Maleprade",
+      "real_name": true,
+      "real_face": true,
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=I0ghczi0IZ8&lc=UgytvwGKw6s_aZUgDOJ4AaABAg",
+      "img_url": "Doïc+de+Maleprade.jpg"
+    }, {
+      "id": 38,
+      "message": "Great series!",
+      "name": "Milan Zigmond",
+      "real_face": true,
+      "real_name": true,
+      "img_url": "Milan+Zigmond.jpg",
+      "source": "youtube-comment",
+      "message_priority": 4,
+      "link": "https://www.youtube.com/watch?v=aV3B3n6YRPg&lc=UgynBxN0uf9cJTenyqN4AaABAg"
+    }, {
+      "id": 39,
+      "message": "Thank you, it is very interesting.",
+      "message_priority": 3,
+      "real_name": true,
+      "name": "Chris LR",
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=E_IDcJkAw_k&lc=UgxxPaV5rXEOFNdBX8t4AaABAg",
+      "img_url": "Chris+LR.jpg"
+    }, {
+      "id": 40,
+      "message": "Hi! Your videos are very useful, please go on make it!",
+      "name": "Сергей Миртов",
+      "message_priority": 5,
+      "real_name": true,
+      "real_face": true,
+      "img_url": "Сергей+Миртов.jpg",
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=E_IDcJkAw_k&lc=UgxSpagO4mXHjm2nuKR4AaABAg"
+    }, {
+      "id": 41,
+      "message": "Woohoo... keep it up!",
+      "name": "fazzy akamello",
+      "img_url": "fazzy+akamello.jpg",
+      "message_priority": 6,
+      "source": "youtube-comment",
+      "link": "https://www.youtube.com/watch?v=b9y6_sfmIKs&lc=UgxZZlVkML0OY8yJr0t4AaABAg"
+    }, {
+      "id": 42,
+      "message": "Really enjoying these, thank you!",
+      "message_priority": 6,
+      "name": "Lars Sørensen",
+      "img_url": "Lars+Sørensen.jpg",
+      "source": "youtube-comment",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=SGGW8qbsXTg&lc=Ugyl6w3rzOqtOsFZyk54AaABAg"
+    }, {
+      "id": 43,
+      "message": "Bro,  very appreciate your videos! Keep doing videos please",
+      "message_priority": 6,
+      "name": "Nathan Yang",
+      "img_url": "Nathan+Yang.jpg",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=SGGW8qbsXTg&lc=Ugz7K_9OY-2v5bv-vbx4AaABAg"
+    }, {
+      "id": 44,
+      "message": "Very nice thanks",
+      "name": "Henryque",
+      "img_url": "Henryque.jpg",
+      "real_name": true,
+      "real_face": true,
+      "message_priority": 5,
+      "link": "https://www.youtube.com/watch?v=SGGW8qbsXTg&lc=Ugx89CiKe9l48wxf7m94AaABAg"
+    }, {
+      "id": 45,
+      "message": "I like your videos they are very good.",
+      "name": "Kreshnik Palushi",
+      "img_url": "Kreshnik+Palushi.jpg",
+      "real_face": true,
+      "real_name": true,
+      "message_priority": 6,
+      "link": "https://www.youtube.com/watch?v=-uyz77h2nV8&lc=UgyHB_lcIutNAdf74eB4AaABAg"
     }
   ]
 }
