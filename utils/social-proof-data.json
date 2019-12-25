@@ -443,6 +443,161 @@
       "name": "sdguy 1",
       "img_url": "sdguy+1.jpg",
       "link": "https://www.youtube.com/watch?v=0BHPs2kNnVA&lc=Ugz_vPsBxGNq3M5DgaR4AaABAg"
+    }, {
+      "id": 50,
+      "message": "Thank you for putting in the effort to make these videos and share with all!",
+      "link": "https://www.youtube.com/watch?v=cjRst4qduzM&lc=Ugw4h9XVLI3RLVWvIht4AaABAg",
+      "name": "Ritika Singh",
+      "img_url": "Ritika+Singh.jpg",
+      "real_name": true,
+      "message_priority": 7
+    }, {
+      "id": 51,
+      "message": "Great video && Project Jeffrey!! Thank you a lot :)",
+      "name": "אלכסיי לוינזון",
+      "img_url": "אלכסיי לוינזון.jpg",
+      "message_priority": "7",
+      "real_name": true,
+      "real_face": true,
+      "link": "https://www.youtube.com/watch?v=cjRst4qduzM&lc=Ugyu5ymtoIbC2dijjM14AaABAg"
+    }, {
+      "id": 52,
+      "message": "Thank you! Really digging your videos!",
+      "message_priority": 5,
+      "name": "Lars Sørensen",
+      "img_url": "Lars+Sørensen.jpg",
+      "real_name": true
+    }, {
+      "id": 53,
+      "name": "Duane Creates",
+      "img_url": "Duane+Creates.jpg",
+      "real_name": true,
+      "real_face": true,
+      "message": "I like your way of teaching. I just started a a web dev YT channel too and this is inspiring.",
+      "message_priority": 8,
+      "link": "https://www.youtube.com/watch?v=WOv3w2tSp-Y&lc=UgwrfiQWI0vZq9Niu_14AaABAg"
+    }, {
+      "id": 54,
+      "name": "Paurakh Sharma Humagain",
+      "img_url": "Paurakh+Sharma+Humagain.jpg",
+      "real_face": true,
+      "real_name": true,
+      "message_priority": 9,
+      "message": "Great video as always, I really like the idea of basing the video in terms of features, as someone only looking to learn particular feature can get benefits from the video. Also, I really like you going through what we have done in the video at the end, it really helps in better understanding.",
+      "link": "https://www.youtube.com/watch?v=WOv3w2tSp-Y&lc=UgxdnmoKjq0BCHsRjxV4AaABAg"
+    }, {
+      "id": 55,
+      "message": "Excellent series! Will definitively follow!",
+      "message_priority": 5,
+      "name": "Lars Sørensen",
+      "img_url": "Lars+Sørensen.jpg",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=WOv3w2tSp-Y&lc=UgwCOqzwemzTFDwzuel4AaABAg"
+    }, {
+      "id": 56,
+      "name": "Bairre G",
+      "img_url": "Bairre+G.jpg",
+      "message_priority": 8,
+      "message": "Thanks Jeffrey, great lessons with so much content and new concepts! Can't wait for the next ones.",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=sKrBNGw94eQ&lc=UgwysBGWiQ39EPW3TS54AaABAg"
+    }, {
+      "id": 57,
+      "name": "Paurakh Sharma Humagain",
+      "img_url": "Paurakh+Sharma+Humagain.jpg",
+      "message": "As always thanks for the great content.",
+      "message_priority": 4,
+      "link": "https://www.youtube.com/watch?v=sKrBNGw94eQ&lc=Ugx-3csXQBcMGZ78j0R4AaABAg",
+      "real_name": true,
+      "real_face": true
+    }, {
+      "id": 58,
+      "message_priority": 6,
+      "message": "EXCELLENT video series so far!",
+      "img_url": "D+Durham.jpg",
+      "name": "D Durham",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=9xF89Q2052g&lc=Ugwi01S7XznDCAHXFPN4AaABAg"  
+    }, {
+      "id": 59,
+      "message": "Thanks @Vue Screencasts!! This video helped me a lot in understanding Vuex, and in answering questions that I have, which I can't find answers for on StackOverflow. Keep up the good work!!",
+      "message_priority": 9,
+      "name": "kidgr33n",
+      "img_url": "kidgr33n.jpg",
+      "link": "https://www.youtube.com/watch?v=9xF89Q2052g&lc=UgxtohufsfsSC_EgnOt4AaABAg"
+    }, {
+      "id": 60,
+      "message_priority": 4,
+      "message": "thank you man, great videos",
+      "name": "BaWaR",
+      "img_url": "BaWaR.jpg",
+      "link": "https://www.youtube.com/watch?v=9xF89Q2052g&lc=UgzxLqxScVo4MMry-vp4AaABAg"
+    }, {
+      "id": 61,
+      "message": "I’m enjoying your style, keep it up!",
+      "message_priority": 6,
+      "real_name": true,
+      "real_face": true,
+      "name": "Sean B",
+      "img_url": "Sean+B.jpg",
+      "link": "https://www.youtube.com/watch?v=9xF89Q2052g&lc=UgyTXB0ZvWmCo2IxgbB4AaABAg"
+    }, {
+      "id": 62,
+      "message_priority": 7,
+      "message": "great explanation! thank you!!!",
+      "real_face": true,
+      "real_name": true,
+      "name": "Elizaveta Voloskova",
+      "img_url": "Elizaveta+Voloskova.jpg",
+      "link": "https://www.youtube.com/watch?v=9xF89Q2052g&lc=UgwoE-CBE58X6f1MkU94AaABAg"
+    }, {
+      "id": 63,
+      "message": "a GREAT Vue code-along... Thank you for listening and being willing to put effort into helping us viewers better understand Vue!",
+      "link": "https://www.youtube.com/watch?v=9xF89Q2052g&lc=UgzfrqLhnzHZ1sZkNIl4AaABAg",
+      "message_priority": 8,
+      "real_name": true,
+      "real_face": true,
+      "name": "Kyle Collie",
+      "img_url": "Kyle+Collie.jpg"
+    }, {
+      "id": 64,
+      "message": "Awesome video! Easy to follow along with a lot of explanation into whats happening! Thanks a ton!",
+      "message_priority": 8,
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgyGM-9p3IfidOmeySp4AaABAg",
+      "name": "Ritika Singh",
+      "img_url": "Ritika+Singh.jpg",
+    }, {
+      "id": 65,
+      "message": "Damm It's good content. I am happy that I find this channel. 👌",
+      "message_priority": 8,
+      "real_name": true,
+      "real_face": true,
+      "name": "Shamim Hossain",
+      "img_url": "Shamim+Hossain.jpg",
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=Ugze-Gj1PV-6iJTOwG94AaABAg"
+    }, {
+      "id": 66,
+      "message_priority": 3,
+      "message": "Thank You :)",
+      "name": "xof",
+      "img_url": "xof.jpg",
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgxGgqDmnt0mrewXh-h4AaABAg"
+    }, {
+      "id": 67,
+      "message": "Excellent video. Thanks so much. Looking forward to the rest of the series.",
+      "message_priority": 6,
+      "name": "SilenceKillsDesign",
+      "img_url": "SilenceKillsDesign.jpg",
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgwrRWEOZ65HmolHnap4AaABAg"
+    }, {
+      "id": 68,
+      "message": "Wow Im gonna follow your video tutorial journey :D",
+      "message_priority": 4,
+      "name": "Mathias Jacobsen",
+      "img_url": "Mathias+Jacobsen.jpg",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgzWSBDEmFr-Y4IlxSd4AaABAg"
     }
   ]
 }
