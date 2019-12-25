@@ -411,6 +411,38 @@
       "real_name": true,
       "message_priority": 6,
       "link": "https://www.youtube.com/watch?v=-uyz77h2nV8&lc=UgyHB_lcIutNAdf74eB4AaABAg"
+    }, {
+      "id": 46,
+      "message": "great video as ALWAYS :) thanks and keep going with that great project!",
+      "real_name": true,
+      "real_face": true,
+      "message_priority": 7,
+      "name": "אלכסיי לוינזון",
+      "img_url": "אלכסיי לוינזון.jpg",
+      "link": "https://www.youtube.com/watch?v=4phclwjuPMg&lc=Ugw4nXwDSWJY2LRytY94AaABAg"
+    }, {
+      "id": 47,
+      "message": "It's very helpful. Thank you for a great tutorial.",
+      "message_priority": 6,
+      "name": "Abdulaziz Al Ghafli",
+      "img_url": "Abdulaziz+Al+Ghafli.jpg",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=0BHPs2kNnVA&lc=UgyeEBYRpS0DTkiqk4h4AaABAg"
+    }, {
+      "id": 48,
+      "message": "Thank you. Even after having seen many tutorials, I keep learning a lot from you. You teach well!",
+      "message_priority": 9,
+      "name": "Lars Sørensen",
+      "img_url": "Lars+Sørensen.jpg",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=0BHPs2kNnVA&lc=Ugx--2PcQ2cEmlZZeOJ4AaABAg"
+    }, {
+      "id": 49,
+      "message": "I didn't even think about passing functions down through props to use dynamically until you got there. Another great video, Jeff.",
+      "message_priority": 5,
+      "name": "sdguy 1",
+      "img_url": "sdguy+1.jpg",
+      "link": "https://www.youtube.com/watch?v=0BHPs2kNnVA&lc=Ugz_vPsBxGNq3M5DgaR4AaABAg"
     }
   ]
 }
