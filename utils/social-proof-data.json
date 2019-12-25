@@ -566,7 +566,7 @@
       "real_name": true,
       "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgyGM-9p3IfidOmeySp4AaABAg",
       "name": "Ritika Singh",
-      "img_url": "Ritika+Singh.jpg",
+      "img_url": "Ritika+Singh.jpg"
     }, {
       "id": 65,
       "message": "Damm It's good content. I am happy that I find this channel. 👌",
@@ -598,6 +598,56 @@
       "img_url": "Mathias+Jacobsen.jpg",
       "real_name": true,
       "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgzWSBDEmFr-Y4IlxSd4AaABAg"
+    }, {
+      "id": 69,
+      "message": "I am happy to find your video, really amazing. I am excited to hear from you the next one. Thanks a lot.",
+      "message_priority": 7,
+      "real_name": true,
+      "real_face": true,
+      "name": "Azri Ridha",
+      "img_url": "azri+ridha.jpg",
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgzjjMk2F4D4dZkjW154AaABAg"
+    }, {
+      "id": 70,
+      "message": "Thanks for this series! Very helpful and good to follow.",
+      "name": "Raúl Wallaart",
+      "img_url": "Raúl+Wallaart.jpg",
+      "message_priority": 6,
+      "real_face": true,
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgzvCuwae7q9YcKqS1R4AaABAg"
+    }, {
+      "id": 71,
+      "message": "Great idea man, look forward to follow along.",
+      "message_priority": 4,
+      "name": "Manuel Diera",
+      "img_url": "Manuel+Diera.jpg",
+      "real_name": true,
+      "real_face": true,
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgwGKEW7Prs-lx7_fJd4AaABAg"
+    }, {
+      "id": 72,
+      "message": "just started following along on your journey, great start... keep up the good work",
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgzZkAShzEGJ58uV-ad4AaABAg",
+      "real_face": true,
+      "real_name": true,
+      "name": "Alison Smith",
+      "img_url": "alison+smith.jpg",
+      "message_priority": 6
+    }, {
+      "id": 73,
+      "name": "note",
+      "img_url": "note.jpg",
+      "message": "thank you so much",
+      "message_priority": 3,
+      "link": "https://www.youtube.com/watch?v=j7l5e2ID0aw&lc=UgwzHnmPcR_UwCUpEnJ4AaABAg"
+    }, {
+      "id": 74,
+      "name": "ivan89pln",
+      "img_url": "ivan89pln.jpg",
+      "message": "Very good tutorial, thanks.",
+      "message_priority": 4,
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgxgNJmFMsBrs-dUPrV4AaABAg"
     }
   ]
 }
