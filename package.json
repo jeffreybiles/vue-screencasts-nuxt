@@ -1,7 +1,7 @@
 {
-  "name": "vue-screencasts-nuxt",
+  "name": "VueScreencasts.com",
   "version": "1.0.0",
-  "description": "A site to view screencasts about Vue",
+  "description": "VueJS Screencasts for intermediate and advanced developers",
   "author": "jeffreybiles",
   "private": true,
   "scripts": {

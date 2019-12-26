@@ -110,6 +110,7 @@ import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/c
 
 import { mapState, mapGetters } from 'vuex';
 import _ from 'lodash';
+import {getThumbnail} from '@/utils/video-decorator';
 
 export default {
   data(){
@@ -124,6 +125,20 @@ export default {
     CourseContentTable,
     UserAuthModal,
     VideoWatchCompleteModal
+  },
+  head(){
+    let title = `${this.video.name} - VueScreencasts`
+    let thumbnail = getThumbnail(this.video, this.$store)
+    return {
+      title: title,
+      meta: [
+        {hid: 'og:title', name: 'og:title', content: title},
+        {hid: 'og:description', name: 'og:description', content: this.video.description},
+        {hid: 'og:site_name', name: 'og:site_name', content: "VueScreencasts.com"},
+        {hid: 'og:image', name: 'og:image', content: thumbnail},
+        {hid: 'twitter:image:src', name: 'twitter:image:src', content: thumbnail}
+      ]
+    }
   },
   computed: {
     ...mapGetters({

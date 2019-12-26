@@ -18,20 +18,12 @@
     Vue.use(VueVideoPlayer)
   }
 
-  import {mapGetters} from 'vuex';
+  import {getThumbnail} from '@/utils/video-decorator';
 
   export default {
     computed: {
-      ...mapGetters({
-        getCourse: 'courses/get'
-      }),
       thumbnail(){
-        if(this.video.thumbnail) {
-          return this.video.thumbnail
-        } else {
-          let course = this.getCourse(this.video.course_id)
-          return course && course.image_url
-        }
+        return getThumbnail(this.video, this.$store)
       },
       playerOptions(){
         return {
