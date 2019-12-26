@@ -128,8 +128,13 @@ export default {
   },
   head(){
     let title = `${this.video.name} - VueScreencasts`
-    let thumbnail = 'https://i.ytimg.com/vi/cGruQnOLB9Y/maxresdefault.jpg' //getThumbnail(this.video, this.$store)
-    let video = 'https://www.youtube.com/embed/cGruQnOLB9Y' //this.video.videoUrl
+    let thumbnail = getThumbnail(this.video, this.$store).split(' ').join('+')
+    //'https://i.ytimg.com/vi/cGruQnOLB9Y/maxresdefault.jpg' //
+    let video = this.video.videoUrl.split(' ').join('+')
+    //'https://www.youtube.com/embed/cGruQnOLB9Y' //this.video.videoUrl
+
+    console.log(thumbnail, video)
+
     return {
       title: title,
       meta: [
