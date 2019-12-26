@@ -1,15 +1,21 @@
 <template>
   <em>
     <DurationDisplay :duration="video.duration" />
-    &nbsp; | &nbsp;
+    
+    <br v-if="$vuetify.breakpoint.xsOnly"><span v-else> &nbsp; | &nbsp; </span>
+    
     <span v-if="publishedAt">
       Published on <DateDisplay :date="publishedAt" />
     </span>
     <span v-else>
       This video is not yet published
     </span>
+    
     <span v-if="$slots.default">
-      &nbsp; |  &nbsp; <slot />
+    
+      <br v-if="$vuetify.breakpoint.xsOnly"><span v-else> &nbsp; | &nbsp; </span>
+    
+      <slot />
     </span>
   </em>
 </template>
