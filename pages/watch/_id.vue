@@ -133,9 +133,9 @@ export default {
       title: title,
       meta: [
         {hid: 'og:title', name: 'og:title', property: 'og:title', content: title},
+        {hid: 'og:url', name: 'og:url', property: 'og:url', content: `https://www.vuescreencasts.com/watch/${this.video.id}`},
         {hid: 'og:description', name: 'og:description', property: 'og:description', content: this.video.description},
         {hid: 'og:site_name', name: 'og:site_name', property: 'og:site_name', content: "VueScreencasts.com"},
-        {hid: 'og:image:secure_url', name: 'og:image:secure_url', property: 'og:image:secure_url', content: thumbnail},
         {hid: 'og:image', name: 'og:image', property: 'og:image', content: thumbnail},
         {hid: 'og:image:width', name: 'og:image:width', property: 'og:image:width', content: 640},
         {hid: 'og:image:height', name: 'og:image:height', property: 'og:image:height', content: 360},
