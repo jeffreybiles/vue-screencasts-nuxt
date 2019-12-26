@@ -1,23 +1,18 @@
 <template>
   <v-container class="home">
     <v-row>
+      <v-col cols="12">
+        <h1 class="display-2 text-center">VueJS for the Real World</h1>
+        <h3 class="display-1 text-center">Advanced skills. Big projects.</h3>
+        <div class="text-center">
+          <v-btn color="primary" text x-large class="mt-2 mb-2" to="/courses">Start Learning Now</v-btn>
+        </div>
+      </v-col>
       <v-col cols="12" md="8">
-        <h1 class="display-2">Beyond the Basics</h1>
-        <p>There are dozens of great resources for getting started with VueJS...</p>
-        <p>But what comes next?</p>
-        <p>There are only so many times you can go over intro-level concepts before you're just wasting your time.</p>
-
-        <h1 class="display-2">Advanced Vue for Pro Developers</h1>
-        <p>I'll still cover the basics, but my goal isn't to compete with all the other educators out there on who can explain v-bind the best.</p>
-        <p>Instead, I want to tackle meaty problems that Vue developers will encounter in the real world.</p>
-
-        <h1 class="display-2">New Videos Most Workdays</h1>
-        <h3 class="display-1">(starting late January 2020)</h3>
-        <p>Start your day off right by watching that morning's video, steadily improving your skills every day.</p>
-        <p>Or you could binge through the <em>more than sixteen hours</em> of tutorials I've already released.</p>
-
-        <h1 class="display-2">Start Learning Now</h1>
-        <p>Here's a sampling of the many courses already available:</p>
+        <h1 class="display-2">SO MANY COURSES</h1>
+        <p>16 courses. 169 videos. Almost 17 hours of content.</p>
+        <p>And <em>much</em> more on the way.</p>
+        <p>Here's a sample.</p>
         <v-row>
           <v-col v-for="course in featuredCourses" 
                 :key="course.id"
