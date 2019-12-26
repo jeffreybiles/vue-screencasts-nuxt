@@ -132,11 +132,12 @@ export default {
     return {
       title: title,
       meta: [
-        {hid: 'og:title', name: 'og:title', content: title},
-        {hid: 'og:description', name: 'og:description', content: this.video.description},
-        {hid: 'og:site_name', name: 'og:site_name', content: "VueScreencasts.com"},
+        {hid: 'og:title', name: 'og:title', property: 'og:title', content: title},
+        {hid: 'og:description', name: 'og:description', property: 'og:description', content: this.video.description},
+        {hid: 'og:site_name', name: 'og:site_name', property: 'og:site_name', content: "VueScreencasts.com"},
         {hid: 'og:image:secure_url', name: 'og:image:secure_url', property: 'og:image:secure_url', content: thumbnail},
-        {hid: 'twitter:image:src', name: 'twitter:image:src', content: thumbnail}
+        {hid: 'og:image', name: 'og:image', property: 'og:image', content: thumbnail},
+        {hid: 'twitter:image:src', name: 'twitter:image:src', property: 'twitter:image:src', content: thumbnail}
       ]
     }
   },
