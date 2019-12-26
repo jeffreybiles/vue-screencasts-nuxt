@@ -1,14 +1,14 @@
 <template>
   <v-app-bar app color="green">
     <!-- Home Page -->
-    <v-btn to="/" text class="subtitle-1 font-weight-medium">VueScreencasts</v-btn>
+    <v-btn to="/" text>VueScreencasts</v-btn>
 
     <!-- Desktop menu -->
     <v-btn v-for="link in navLinks"
           :key="link.name"
           text 
           :to="link.to"
-          class="hidden-sm-and-down subtitle-1 font-weight-medium">
+          class="hidden-sm-and-down">
       {{link.text}}
     </v-btn>
     <v-spacer />
@@ -17,7 +17,7 @@
           text
           right
           :to="link.to"
-          class="hidden-sm-and-down subtitle-1 font-weight-medium"
+          class="hidden-sm-and-down"
           @click="link.click ? link.click() : null">
       {{link.text}}
     </v-btn>
