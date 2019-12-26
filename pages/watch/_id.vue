@@ -129,19 +129,25 @@ export default {
   head(){
     let title = `${this.video.name} - VueScreencasts`
     let thumbnail = getThumbnail(this.video, this.$store)
+    let video = this.video.videoUrl
     return {
       title: title,
       meta: [
-        {hid: 'og:title', name: 'og:title', property: 'og:title', content: title},
-        {hid: 'og:type', name: 'og:type', property: 'og:type', content: 'article'},
-        {hid: 'og:url', name: 'og:url', property: 'og:url', content: `https://www.vuescreencasts.com/watch/${this.video.id}`},
-        {hid: 'og:description', name: 'og:description', property: 'og:description', content: this.video.description},
-        {hid: 'og:site_name', name: 'og:site_name', property: 'og:site_name', content: "VueScreencasts.com"},
-        {hid: 'og:image', name: 'og:image', property: 'og:image', content: thumbnail},
-        {hid: 'og:image:url', name: 'og:image:url', property: 'og:image:url', content: thumbnail},
-        {hid: 'og:image:width', name: 'og:image:width', property: 'og:image:width', content: 640},
-        {hid: 'og:image:height', name: 'og:image:height', property: 'og:image:height', content: 360},
-        {hid: 'og:image:type', name: 'og:image:type', property: 'og:image:type', content: "image/jpeg"},
+        {hid: 'og:title', property: 'og:title', content: title},
+        {hid: 'og:type', property: 'og:type', content: 'video.other'},
+        {hid: 'og:url', property: 'og:url', content: `https://www.vuescreencasts.com/watch/${this.video.id}`},
+        {hid: 'og:description', property: 'og:description', content: this.video.description},
+        {hid: 'og:site_name', property: 'og:site_name', content: "VueScreencasts.com"},
+        {hid: 'og:video:url',  property: 'og:video:url', content: video},
+        {hid: 'og:video:secure_url',  property: 'og:video:secure_url', content: video},
+        {hid: 'og:video:type', property: 'og:video:type', content: 'text/html'},
+        {hid: 'og:video:width', property: 'og:video:width', content: 1280},
+        {hid: 'og:video:height', property: 'og:video:height', content: 720},
+        {hid: 'og:image',  property: 'og:image', content: thumbnail},
+        {hid: 'og:image:url', property: 'og:image:url', content: thumbnail},
+        {hid: 'og:image:width', property: 'og:image:width', content: 1280},
+        {hid: 'og:image:height', property: 'og:image:height', content: 720},
+        {hid: 'og:image:type', property: 'og:image:type', content: "image/jpeg"},
         {hid: 'twitter:image:src', name: 'twitter:image:src', property: 'twitter:image:src', content: thumbnail}
       ]
     }
