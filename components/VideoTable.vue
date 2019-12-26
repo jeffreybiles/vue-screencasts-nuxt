@@ -8,13 +8,14 @@
     />
     <v-data-table :items="mungedVideos"
                   :headers="headers"
-                  show-expand
+                  :show-expand="showExpand"
                   sort-by="sortable_published_at"
                   :search="search"
                   :custom-filter="filter"
                   :dense="dense"
                   :items-per-page="itemsPerPage || 10"
                   @click:row="goToVideo"
+                  :mobile-breakpoint="0"
                   :page="Number($route.query.pageNumber) || 1"
                   @update:page="changePageNumber"
                   :sort-desc="true">
@@ -128,6 +129,10 @@ import _ from 'lodash'
       dense: Boolean,
       itemsPerPage: Number,
       showEditFields: Boolean,
+      showExpand: {
+        type: Boolean,
+        default: true
+      }
     }
   }
 </script>
