@@ -9,7 +9,7 @@
         </div>
       </v-col>
       <v-col cols="12" md="8">
-        <h1 class="display-2">SO MANY COURSES</h1>
+        <h1 class="display-2">SO MUCH TO LEARN</h1>
         <p>16 courses. 169 videos. Almost 17 hours of content.</p>
         <p>And <em>much</em> more on the way.</p>
         <p>Here's a sample.</p>
