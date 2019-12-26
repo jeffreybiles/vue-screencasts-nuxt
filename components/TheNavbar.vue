@@ -1,29 +1,54 @@
 <template>
   <v-app-bar app color="green">
-    <v-btn text to="/">Vue Screencasts</v-btn>
-    <v-btn text to="/videos">Videos</v-btn>
-    <v-btn text to="/courses">Courses</v-btn>
-    <v-btn text to="/pro">Pro</v-btn>
-    <v-btn text to="/admin/videos" v-if="$auth.user && $auth.user.admin">
-      Admin
+    <v-btn v-for="link in navLinks"
+           :key="link.name"
+           text 
+           :to="link.to">
+      {{link.text}}
     </v-btn>
-
+    
     <v-spacer />
     
-    <div v-if="$auth.loggedIn">
-      <v-btn text to="/user">{{ $auth.user.email }}</v-btn>
-      <v-btn text @click="$auth.logout()">Logout</v-btn>
-    </div>
-    <div v-else>
-      <v-btn text to="/login">Login</v-btn>
-      <v-btn text to="/register">Register</v-btn>
-    </div>
+    <v-btn v-for="link in authLinks"
+           :key="link.name"
+           text
+           :to="link.to"
+           @click="link.click ? link.click() : null">
+      {{link.text}}
+    </v-btn>
   </v-app-bar>
 </template>
 
 <script>
   export default {
-    
+    computed: {
+      navLinks(){
+        let links = [
+          {text: "Vue Screencasts", to: "/"},
+          {text: "Videos", to: "/videos"},
+          {text: "Courses", to: "/courses"},
+          {text: "Pro", to: "/pro"}
+        ]
+        if(this.$auth.user && this.$auth.user.admin) {
+          links.push({text: "Admin", to: "/admin/videos"})
+        }
+        return links;
+      },
+
+      authLinks(){
+        if(this.$auth.loggedIn){
+          return [
+            {text: this.$auth.user.email, to: "/user"},
+            {text: "Logout", click: () => {this.$auth.logout()}}
+          ]
+        } else {
+          return [
+            {text: "Login", to: "/login"},
+            {text: "Register", to: "/register"}
+          ]
+        }
+      }
+    }
   }
 </script>
 
