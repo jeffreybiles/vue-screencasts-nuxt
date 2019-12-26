@@ -137,6 +137,9 @@ export default {
         {hid: 'og:site_name', name: 'og:site_name', property: 'og:site_name', content: "VueScreencasts.com"},
         {hid: 'og:image:secure_url', name: 'og:image:secure_url', property: 'og:image:secure_url', content: thumbnail},
         {hid: 'og:image', name: 'og:image', property: 'og:image', content: thumbnail},
+        {hid: 'og:image:width', name: 'og:image:width', property: 'og:image:width', content: 640},
+        {hid: 'og:image:height', name: 'og:image:height', property: 'og:image:height', content: 360},
+        {hid: 'og:image:type', name: 'og:image:type', property: 'og:image:type', content: "image/jpeg"},
         {hid: 'twitter:image:src', name: 'twitter:image:src', property: 'twitter:image:src', content: thumbnail}
       ]
     }
