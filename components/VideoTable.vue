@@ -2,10 +2,12 @@
   <div>
     <v-text-field
       v-model="search"
-      label="Search"
       single-line
-      hide-details
-    />
+      hide-details>
+      <template #label>
+        &nbsp; Search titles of all {{videos.length}} videos
+      </template>
+    </v-text-field>
     <v-data-table :items="mungedVideos"
                   :headers="headers"
                   :show-expand="showExpand"
