@@ -27,7 +27,7 @@
       </v-card>
 
       <div class="pt-1">
-        <h3>
+        <h3 class="title">
           <DifficultyBars :difficulty="course.difficulty" />
           {{ course.name }}  
         </h3>

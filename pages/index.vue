@@ -2,21 +2,22 @@
   <v-container class="home">
     <v-row>
       <v-col cols="12" md="8">
-        <h1>Beyond the Basics</h1>
+        <h1 class="display-2">Beyond the Basics</h1>
         <p>There are dozens of great resources for getting started with VueJS...</p>
         <p>But what comes next?</p>
         <p>There are only so many times you can go over intro-level concepts before you're just wasting your time.</p>
 
-        <h1>Advanced Vue for Pro Developers</h1>
+        <h1 class="display-2">Advanced Vue for Pro Developers</h1>
         <p>I'll still cover the basics, but my goal isn't to compete with all the other educators out there on who can explain v-bind the best.</p>
         <p>Instead, I want to tackle meaty problems that Vue developers will encounter in the real world.</p>
 
-        <h1>Starting in late January 2020: new videos (almost) every workday</h1>
+        <h1 class="display-2">New Videos Most Workdays</h1>
+        <h3 class="display-1">(starting late January 2020)</h3>
         <p>Start your day off right by watching that morning's video, steadily improving your skills every day.</p>
         <p>Or you could binge through the <em>more than sixteen hours</em> of tutorials I've already released.</p>
 
-        <h1>Start Learning Now</h1>
-        <p>Here's a sampling of the courses available:</p>
+        <h1 class="display-2">Start Learning Now</h1>
+        <p>Here's a sampling of the many courses already available:</p>
         <v-row>
           <v-col v-for="course in featuredCourses" 
                 :key="course.id"
