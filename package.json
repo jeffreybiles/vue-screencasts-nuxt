@@ -13,6 +13,7 @@
     "heroku-postbuild": "nuxt build"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@nuxtjs/auth": "^4.8.4",
     "@nuxtjs/axios": "^5.8.0",
