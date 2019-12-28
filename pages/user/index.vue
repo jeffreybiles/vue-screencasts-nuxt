@@ -9,21 +9,27 @@
     <hr>
 
     <h3>Email Settings</h3>
-    <UserEmailOptionsUpdate :user="user" :updateMethod="(user) => $store.dispatch('user/update', user)" />
+
+    <p>Subscriptions are tracked on the email provider.  If you haven’t been getting weekly newsletters, but you want to, then click this button to resubscribe.</p>
+    <v-btn color="primary" @click="resubscribe">Resubscribe</v-btn>
   </v-container>
 </template>
 
 <script>
   import DateDisplay from '@/components/DateDisplay.vue';
-  import UserEmailOptionsUpdate from '@/components/UserEmailOptionsUpdate.vue';
   export default {
     components: {
       DateDisplay,
-      UserEmailOptionsUpdate
     },
     computed: {
       user(){
         return this.$auth.user;
+      }
+    },
+    methods: {
+      async resubscribe(){
+        await this.$axios.post('/users/newsletter_subscribe')
+        this.$store.dispatch('snackbar/setSnackbar', {text: "You should be subscribed now.  Check your email!"})
       }
     }
   }
