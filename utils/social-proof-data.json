@@ -648,6 +648,22 @@
       "message": "Very good tutorial, thanks.",
       "message_priority": 4,
       "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgxgNJmFMsBrs-dUPrV4AaABAg"
+    }, {
+      "id": 75,
+      "message": "Thank you, work for beginner like me. Big thumb for you!!!",
+      "message_priority": 5,
+      "real_name": true,
+      "name": "Rivera Daniel",
+      "img_url": "Rivera+Daniel.jpg",
+      "link": "https://www.youtube.com/watch?v=shCCP4PFXeU&lc=UgzGLqPC5bmRcFZLtzp4AaABAg"
+    }, {
+      "id": 76,
+      "message": "Here I found answers to questions that I couldn't formulate before. Even russian videos haven't given it to me.",
+      "message_priority": 8,
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgzaHzUUJoQu9eVP_bF4AaABAg",
+      "name": "Almas Kamitov",
+      "img_url": "Almas+Kamitov.jpg"
     }
   ]
 }
