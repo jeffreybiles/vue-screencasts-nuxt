@@ -1069,16 +1069,16 @@
     jimp-compact "^0.8.0"
     workbox-cdn "^4.3.1"
 
-"@nuxtjs/vuetify@^2.0.0-alpha.0":
-  version "2.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/vuetify/-/vuetify-2.0.0-alpha.0.tgz#81cddd6e2139eb31229964733ee42844a446ef17"
-  integrity sha512-6ydXVioNfPcC1YXisWjvGSYrkHm5hW/VeewAS6mWzqDvjG74h7AAkD0XxT5JNR0/uiLyEPsSqGmDJHl/4uQhUQ==
+"@nuxtjs/vuetify@^2.0.0-alpha.1":
+  version "2.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/vuetify/-/vuetify-2.0.0-alpha.1.tgz#e2cb9bad276c365d930641e90178f9977fe086af"
+  integrity sha512-P8yD+T4vYpemEpe0pbIR+QQnbZ6aZKkgiiWwl8e7V0N/CmEGLtPswqvVhjfCXmySZWFBvZ0xFxrSATgT54b+JA==
   dependencies:
     deepmerge "^4.2.2"
-    sass "^1.23.3"
+    sass "^1.23.7"
     sass-loader "^8.0.0"
-    vuetify "^2.1.9"
-    vuetify-loader "^1.3.0"
+    vuetify "^2.1.13"
+    vuetify-loader "^1.4.3"
   optionalDependencies:
     fibers "^4.0.1"
 
@@ -6603,10 +6603,10 @@ sass-loader@^8.0.0:
     schema-utils "^2.1.0"
     semver "^6.3.0"
 
-sass@^1.23.3:
-  version "1.23.6"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.23.6.tgz#7cce6dbeac1b8caeb33301a817642ee2708f7d7e"
-  integrity sha512-awBvj9xrAuiS2TOCcYSUGCmaBV3UW6fVSK4oJ2LHS8IRfnRLc5EJihw90C7ZJ/skcEwFGSf9/XO5NlMiKupBCg==
+sass@^1.23.7:
+  version "1.24.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.24.0.tgz#e8b9931bc5d18a37d271749311ef2edc83102a77"
+  integrity sha512-1TsPyMhLTx+9DLlmwg02iBW2p4poGA7LlkWJLpUY/XticFKNhPcx+l4FsIJLKl6oSUfXmAKpVljHEez1hwjqiw==
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
@@ -7788,15 +7788,10 @@ vue-video-player@^5.0.2:
     videojs-flash "^2.1.0"
     videojs-hotkeys "^0.2.20"
 
-vue@2.6.11, vue@^2.6.11:
+vue@^2.6.10, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
-
-vue@^2.6.10:
-  version "2.6.10"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
-  integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
 
 vuetify-datetime-picker@^2.1.1:
   version "2.1.1"
@@ -7807,14 +7802,14 @@ vuetify-datetime-picker@^2.1.1:
     vue "^2.6.10"
     vuetify "^2.1.3"
 
-vuetify-loader@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/vuetify-loader/-/vuetify-loader-1.3.0.tgz#759f1d16f3f211eddbeeffc5c0b24105f2582b07"
-  integrity sha512-emKS3GWpx+0kWRHfoxpDpLR4HaXvhDn9bYNQf+IaaD5iU5S3xktDyS0egG7dp/oHLQr1U/Ui9g2ElhZUkdgRqw==
+vuetify-loader@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/vuetify-loader/-/vuetify-loader-1.4.3.tgz#df1323c558be09890877e5fbe817b3a71a6c538d"
+  integrity sha512-fS0wRil682Ebsj2as+eruBoMPKaQYDhu/fDAndnTItzSY4RK4LOEIsssVL4vD6QY8dvUgoGL84SUQ6vGr777CA==
   dependencies:
     loader-utils "^1.2.0"
 
-vuetify@^2.1.15:
+vuetify@^2.1.13, vuetify@^2.1.15:
   version "2.1.15"
   resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.1.15.tgz#26386557c63ad700e6e8d8a330f8d2831fbef6ef"
   integrity sha512-M35NJvlzkbCpFfsK08xraNvCpiNCIbYUXI/hkzjWHQV1MFIZnjrDTVtYoiudCyJ52zlrhWezAr4pzFOCLAr6RA==
@@ -7823,11 +7818,6 @@ vuetify@^2.1.3:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.1.9.tgz#2c91163090675cde2cd1b6208829ac434d7d8877"
   integrity sha512-52CgEyPoGYHba5yocYKBB/LXcikoWzj9jCDTH8LlzH/hvjzkgsuEtFwUustGHyV9GstRaNZOrk4nuUWbPZc3kQ==
-
-vuetify@^2.1.9:
-  version "2.1.10"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.1.10.tgz#ff2107bf1a5f227b18dbe31e08d92753ad68a15b"
-  integrity sha512-hFc6XNYc2YE3HisxCH5VezRFtGQ2RwTvBy7eN+b67UuiGIhvEUR9h3uO4NUuulmvKPKJ4rONN+L9sVszgMBlJQ==
 
 vuex@^3.1.2:
   version "3.1.2"
