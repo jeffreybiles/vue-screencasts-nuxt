@@ -32,6 +32,9 @@
           <font-awesome-icon icon="check" /> 
         </div>
       </template>
+      <template #item.pro="{item}">
+        <ProMarker :isFree="!item.pro" />
+      </template>
       <template #item.actions="{item}">
         <td @click.stop class="non-clickable">
           <v-btn small :to="`/watch/${item.id}`">Watch</v-btn>
@@ -62,6 +65,7 @@ import DateDisplay from '@/components/DateDisplay'
 import { mapGetters } from 'vuex';
 import VideoWatch from '@/components/VideoWatch'
 import MarkdownDisplay from '@/components/MarkdownDisplay'
+import ProMarker from '@/components/ProMarker.vue';
 import _ from 'lodash'
 
   export default {
@@ -70,6 +74,7 @@ import _ from 'lodash'
       DateDisplay,
       VideoWatch,
       MarkdownDisplay,
+      ProMarker
     },
     data(){
       return {

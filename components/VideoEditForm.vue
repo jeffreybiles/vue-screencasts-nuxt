@@ -4,6 +4,7 @@
                   label="Name" 
                   counter=100
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
+    <v-checkbox v-model="video.pro" label="Pro" />
     <v-text-field v-model="video.duration"
                   label="Duration (in seconds)" >
       <template #prepend>

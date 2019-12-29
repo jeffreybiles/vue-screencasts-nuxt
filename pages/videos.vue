@@ -12,7 +12,8 @@
     data(){
       return {
         headers: [
-          {text: 'Played', value: 'played', sortable: false, width: "70px"},
+          {text: 'Played', value: 'played', sortable: false, width: "65px"},
+          {text: 'Pro', value: 'pro', sortable: false, width: "50px"},
           {text: 'Name', value: 'name'},
           {text: 'Date', value: 'sortable_published_at'},
           {text: 'Duration', value: 'duration'},
