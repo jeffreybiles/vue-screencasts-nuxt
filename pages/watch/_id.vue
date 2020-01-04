@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <VideoWatch :video="video" :ended="ended" :autoplay="false" />
+    <VideoWatch :video="video" :ended="ended" :autoplay="true" />
 
     <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
       {{percentVideosComplete}}% done with {{course.name}}
