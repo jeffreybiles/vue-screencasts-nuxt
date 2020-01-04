@@ -24,7 +24,10 @@
             <font-awesome-icon icon="check" /> Watched
           </span>
           <span v-else-if="$auth.loggedIn">
-            <v-btn x-small @click="markPlayed">
+            <v-btn x-small 
+                   @click="markPlayed"
+                   v-shortkey.once="['m']"
+                   @shortkey="markPlayed">
               Mark Played
             </v-btn>
           </span>
