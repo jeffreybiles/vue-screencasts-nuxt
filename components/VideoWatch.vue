@@ -1,5 +1,7 @@
 <template>
-  <div style="width:100%; padding-top:56.25%; position: relative; background-color: black;">
+  <div style="width:100%; padding-top:56.25%; position: relative; background-color: black;"
+       v-shortkey="['space']"
+       @shortkey="playPause">
     <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
       <div class="video-player-box"
            v-video-player:videoPlayer="playerOptions"
@@ -21,6 +23,9 @@
   import {getThumbnail} from '@/utils/video-decorator';
 
   export default {
+    data(){
+      return {playing: true}
+    },
     computed: {
       thumbnail(){
         return getThumbnail(this.video, this.$store)
@@ -36,6 +41,17 @@
           poster: this.thumbnail,
           fluid: true,
           autoplay: this.autoplay
+        }
+      }
+    },
+    methods: {
+      playPause(){
+        if(this.playing) {
+          this.videoPlayer.pause();
+          this.playing = false;
+        } else {
+          this.videoPlayer.play();
+          this.playing = true;
         }
       }
     },
