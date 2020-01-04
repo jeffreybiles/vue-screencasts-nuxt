@@ -27,8 +27,8 @@ export const sortCourse = (course, store) => {
 
   if(!course){ return {course, sortedItems: []} }
 
-  let videos = course.video_ids.map(v => getVideo(v))
-  let courses = course.chapter_ids.map(c => getCourse(c))
+  let videos = course.video_ids && course.video_ids.map(v => getVideo(v)) || []
+  let courses = course.chapter_ids && course.chapter_ids.map(c => getCourse(c)) || []
 
   let allItems = videos.concat(courses)
   let sortedItems = allItems.sort((i, j) => {

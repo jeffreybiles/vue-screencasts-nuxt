@@ -37,7 +37,8 @@ export default {
   */
   plugins: [
     '~/plugins/vuetify-datetime-picker',
-    { src: "~/plugins/vue-timer", mode: 'client'}
+    { src: "~/plugins/vue-timer", mode: 'client'},
+    { src: '@/plugins/vue-shortkey.js', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules

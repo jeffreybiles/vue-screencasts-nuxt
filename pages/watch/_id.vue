@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <VideoWatch :video="video" :ended="ended" :autoplay="true" />
+    <VideoWatch :video="video" :ended="ended" :autoplay="false" />
 
     <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
       {{percentVideosComplete}}% done with {{course.name}}
@@ -8,14 +8,13 @@
     
     <v-row>
 
-      <v-btn text @click="goToVideo(previousVideo)" v-if="previousVideo">
-        < Previous
-      </v-btn>
-      <v-btn text @click="goToChapter(previousChapter)" v-else-if="previousChapter.id">
-        << Previous <br>(part of previous chapter)
-      </v-btn>
-      <v-btn text :to="`/courses/${course.id}`" v-else>
-        Go Back to Course Page
+      <v-btn text 
+             @click="goToPrevious()"
+             v-shortkey.once="['arrowleft']" 
+             @shortkey="goToPrevious()">
+        <span v-if="previousVideo">&lt; Previous</span>
+        <span v-else-if="previousChapter.id">&lt;&lt; Previous <br>(part of previous chapter)</span>
+        <span v-else>Go Back to Course Page</span>
       </v-btn>
 
       <v-spacer />
@@ -39,16 +38,14 @@
       </VideoByline>
       <v-spacer />
       
-      <v-btn text @click="goToVideo(nextVideo)" v-if="nextVideo">
-        Next >
+      <v-btn text 
+             @click="goToNext()" 
+             v-shortkey.once="['arrowright']"
+             @shortkey="goToNext()">
+        <span v-if="nextVideo">Next &gt;</span>
+        <span v-else-if="nextChapter.id">Next <br>(part of next chapter) &gt;&gt;</span>
+        <span v-else>Explore More Courses</span>
       </v-btn>
-      <v-btn text @click="goToChapter(nextChapter, 'first')" v-else-if="nextChapter.id">
-        Next <br>(part of next chapter) >>
-      </v-btn>
-      <v-btn text :to="`/courses`" v-else>
-        Explore More Courses
-      </v-btn>
-
     </v-row>
 
     <v-row>
@@ -66,11 +63,11 @@
         
         <v-row>
           <v-btn v-if="previousChapter.id" text @click="goToChapter(previousChapter, 'first')">
-            << Previous Chapter
+            &lt;&lt; Previous Chapter
           </v-btn>
           <v-spacer />
           <v-btn v-if="nextChapter.id" text @click="goToChapter(nextChapter, 'first')">
-            Next Chapter >>
+            Next Chapter &gt;&gt;
           </v-btn>
         </v-row>
         <v-row>
@@ -218,6 +215,25 @@ export default {
     openAuthModal(){
 
     },
+
+    goToPrevious(){
+      if(this.previousVideo && this.previousVideo.id) {
+        this.goToVideo(this.previousVideo)
+      } else if (this.previousChapter && this.previousChapter.id) {
+        this.goToChapter(this.previousChapter)
+      } else {
+        this.$router.push(`/courses/${this.course.id}`)
+      }
+    },
+    goToNext(){
+      if(this.nextVideo && this.nextChapter.id) {
+        this.goToVideo(this.nextVideo)
+      } else if (this.nextChapter && this.nextChapter.id) {
+        this.goToChapter(this.nextChapter, 'first')
+      } else {
+        this.$router.push(`/courses`)
+      }
+    }
   }
 }
 </script>

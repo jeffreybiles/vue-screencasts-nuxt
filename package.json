@@ -24,6 +24,7 @@
     "nuxt": "^2.11.0",
     "nuxt-fontawesome": "^0.4.0",
     "rsvp": "^4.8.5",
+    "vue-shortkey": "^3.1.7",
     "vue-timers": "^2.0.4",
     "vue-video-player": "^5.0.2",
     "vuetify": "^2.1.15",
