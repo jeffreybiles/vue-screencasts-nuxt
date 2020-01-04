@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row :class="['course-content-video', isHighlighted ? 'highlight': '']">
+    <v-row :class="['course-content-video', isHighlighted ? 'green lighten-4': '']">
       <v-col cols="7" @click="clickAction(video)" class="clickable">
         &nbsp; {{video.name}}
       </v-col>
@@ -11,7 +11,6 @@
       </v-col>
       <v-col cols="1">
         <div v-if="isAdminScreen">
-          <!--TODO have up or down arrows -->
           <font-awesome-icon icon="arrow-up" @click="moveEarlier" class="clickable" />
           <font-awesome-icon icon="arrow-down" @click="moveLater" class="clickable" />
           {{video.order}}
@@ -20,7 +19,7 @@
           <v-row>
             <v-col cols="6" class="pt-0 pb-0">
               <span class="green--text" v-if="isPlayed(video.id)">
-                <font-awesome-icon icon="check" /> 
+                <font-awesome-icon icon="check" />
               </span>
             </v-col>
             <v-col cols="6" class="pt-0 pb-0">
@@ -104,10 +103,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .highlight {
-    // TODO: get better highlight color
-    background-color: lightgreen;
-  }
   .medium {
     font-size: 14px;
   }
