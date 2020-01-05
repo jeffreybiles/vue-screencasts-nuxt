@@ -13,7 +13,17 @@
     <p>Just a new video (almost) every morning, ready to help you to effortlessly level up your skills.</p>
     <p>Your career is worth the investment.</p> -->
     
+    <p>Yeah, the site needs a designer.  There's not much Pro content yet.</p>
+    <p>That's why, as a 'thank you' for believing in the project, I'm offering the biggest deal I'll ever offer.</p>
+
+    <div class="display-2">Order now and get <strong>75% off</strong> the full price.</div>
+    <div class="display-2 pt-2">Plus: for the first year, <strong>100% of your subscription goes to Open Source</strong>.</div>
+ 
+    <p class="headline pt-4 mb-1">This is the biggest sale I'll ever have...</p>
+    <p class="headline">and if you order now, it doesn't end. You get to keep your massively discounted rate for as long as you stay subscribed.</p>
+
     <h2>Here's what you get with your subscription</h2>
+    
     <ul>
       <li>Instant access to <strong>all Pro courses and videos</strong>.</li>
       <li>(coming soon) <strong>New videos most workdays.</strong></li>
@@ -22,14 +32,18 @@
       <li>25% of your subscription goes to help <strong>support the VueJS community</strong>.</li>
     </ul>
 
-    <h1>VueScreencasts Pro: Coming in January 2020</h1>
+    <StripeCheckoutButton buttonText="Subscribe $9/month" planId="plan_GUbsLVGwbTE2K1" />
+    <StripeCheckoutButton buttonText="Subscribe $90/year" planId="plan_GUbw5FDN0z2EHe" />
 
   </v-container>
 </template>
 
 <script>
+  import StripeCheckoutButton from '@/components/StripeCheckoutButton.vue';
   export default {
-    
+    components: {
+      StripeCheckoutButton
+    }
   }
 </script>
 
