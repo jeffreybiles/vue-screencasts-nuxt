@@ -1,7 +1,7 @@
 <template>
   <span>
-    <v-btn color="primary">
-      {{ buttonText }}
+    <v-btn large color="primary" class="mt-1">
+      <div v-html="buttonText" />
     </v-btn>
   </span>
 </template>
