@@ -8,6 +8,7 @@ export const courseDecorator = function(course, store) {
     videos,
     numChapters: course.chapter_ids.length,
     numVideos: videos.length,
+    numProVideos: videos.filter(v => v.pro).length,
     duration: _.sum(videos.map(v => v.duration)),
     mostRecentVideo: _.sortBy(videos, 'published_at').reverse()[0],
   }

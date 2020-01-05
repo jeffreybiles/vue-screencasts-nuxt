@@ -1,6 +1,18 @@
 <template>
   <div>
     <nuxt-link :to="`/courses/${course.id}`">
+      
+      <!-- TODO: make this more stylish -->
+      <span v-if="decoratedCourse.numProVideos == 0">
+        100% Free!
+      </span>
+      <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
+        Includes a free video!
+      </span>
+      <span v-else>
+        Pro Course
+      </span>
+      
       <v-card hover>
         <div class="pl-1 course-card">
           <v-row>
@@ -29,7 +41,7 @@
       <div class="pt-1">
         <h3 class="title">
           <DifficultyBars :difficulty="course.difficulty" />
-          {{ course.name }}  
+          {{ course.name }}
         </h3>
       </div>
     </nuxt-link>
