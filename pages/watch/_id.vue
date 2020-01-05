@@ -257,8 +257,7 @@ export default {
       }
     },
     goToNext(){
-      // TODO: Bugfix the issue where it skips over pro videos...
-      if(this.nextVideo && this.nextChapter.id) {
+      if(this.nextVideo && this.nextVideo.id) {
         this.goToVideo(this.nextVideo)
       } else if (this.nextChapter && this.nextChapter.id) {
         this.goToChapter(this.nextChapter, 'first')
