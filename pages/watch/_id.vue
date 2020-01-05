@@ -1,6 +1,32 @@
 <template>
   <v-container>
-    <VideoWatch :video="video" :ended="ended" :autoplay="true" />
+    <div v-if="video.pro">
+      <div v-if="$auth.loggedIn && $auth.user.pro">
+        <VideoWatch :video="video" :ended="ended" :autoplay="true" />
+      </div>
+      <div v-else class="text-center">
+        <div class="display-3">
+          This is a Pro video.
+        </div>
+        <div class="headline">
+          Study Vue <font-awesome-icon icon="laptop-code" />. 
+          Level Up <font-awesome-icon icon="arrow-up" />. 
+          Leap Forward <font-awesome-icon icon="dollar-sign" />.
+        </div>
+
+        <div v-if="$auth.loggedIn">
+          <v-btn to="/pro" class="primary ma-5" x-large>Go Pro</v-btn>
+          <!-- TODO: replace the link with an action that actually lets them sign up on-page -->
+          <!-- Then have a smaller "see more details" link below, which goes to the /pro page -->
+        </div>
+        <div v-else class="ma-4">
+          <UserAuthTogglableForm />
+        </div>  
+      </div>
+    </div>
+    <div v-else>
+      <VideoWatch :video="video" :ended="ended" :autoplay="true" />
+    </div>
 
     <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
       {{percentVideosComplete}}% done with {{course.name}}
@@ -106,6 +132,7 @@ import MarkdownDisplay from '@/components/MarkdownDisplay';
 import CourseContentTable from '@/components/CourseContentTable.vue';
 import UserAuthModal from '@/components/UserAuthModal.vue';
 import VideoWatchCompleteModal from '@/components/VideoWatchCompleteModal.vue';
+import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
 import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/course-decorator';
 
 import { mapState, mapGetters } from 'vuex';
@@ -124,7 +151,8 @@ export default {
     MarkdownDisplay,
     CourseContentTable,
     UserAuthModal,
-    VideoWatchCompleteModal
+    VideoWatchCompleteModal,
+    UserAuthTogglableForm
   },
   head(){
     let title = `${this.video.name} - VueScreencasts`
@@ -229,6 +257,7 @@ export default {
       }
     },
     goToNext(){
+      // TODO: Bugfix the issue where it skips over pro videos...
       if(this.nextVideo && this.nextChapter.id) {
         this.goToVideo(this.nextVideo)
       } else if (this.nextChapter && this.nextChapter.id) {
