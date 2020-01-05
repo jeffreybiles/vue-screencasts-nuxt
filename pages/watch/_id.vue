@@ -157,7 +157,8 @@ export default {
   head(){
     let title = `${this.video.name} - VueScreencasts`
     let thumbnail = getThumbnail(this.video, this.$store).split(' ').join('+')
-    let video = this.video.videoUrl.split(' ').join('+')
+    let videoUrl = this.video.videoUrl
+    let video = videoUrl && videoUrl.split(' ').join('+')
 
     return {
       title: title,
