@@ -1,16 +1,14 @@
 <template>
   <span>
-    <v-btn large color="primary" class="mt-1" @click="startCheckout" :disabled="disabled">
-      <v-progress-circular indeterminate v-if="loading" />
-      <div v-html="buttonText" v-else />
-    </v-btn>
-
-    <span v-if="displayAuthModal">
-      <UserAuthModal :isOpen="true"
-                     topPhrase="Log in or register, then you will be taken to the payment page."
-                     :postRegisterAction="finishAuth"
-                     :postLoginAction="finishAuth" />
-    </span>
+    <UserAuthModal topPhrase="Log in or register, then you will be taken to the payment page."
+                   :postRegisterAction="finishAuth"
+                   :postLoginAction="finishAuth"
+                   v-slot="{openModal}" >
+      <v-btn large color="primary" class="mt-1" @click="startCheckout(openModal)" :disabled="disabled">
+        <v-progress-circular indeterminate v-if="loading" />
+        <div v-html="buttonText" v-else />
+      </v-btn>
+    </UserAuthModal>
   </span>
 </template>
 
@@ -27,11 +25,11 @@
       }
     },
     methods: {
-      async startCheckout(){
+      async startCheckout(openModal){
         if(this.$auth.loggedIn) {
           this.goToCheckout()
         } else {
-          this.displayAuthModal = true
+          openModal()
         }
       },
       async finishAuth(){

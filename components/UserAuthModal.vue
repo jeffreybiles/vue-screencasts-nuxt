@@ -1,6 +1,6 @@
 <template>
   <span>
-    <slot :openModal="() => isOpen = true" v-if="!startOpened">
+    <slot :openModal="() => isOpen = true">
       <v-btn @click="isOpen = true">Open</v-btn>
     </slot>
     <v-dialog
@@ -29,13 +29,10 @@
     },
     data(){
       return {
-        isOpen: this.startOpened || 'false',
+        isOpen: false,
       }
     },
     props: {
-      startOpened: {
-        type: Boolean
-      },
       topPhrase: {
         type: String
       },
