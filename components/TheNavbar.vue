@@ -50,12 +50,15 @@
   export default {
     computed: {
       navLinks(){
+        let user = this.$auth.user
         let links = [
           {text: "Videos", to: "/videos"},
           {text: "Courses", to: "/courses"},
-          {text: "Pro", to: "/pro"}
         ]
-        if(this.$auth.user && this.$auth.user.admin) {
+        if(!user || !user.pro) {
+          links.push({text: "Pro", to: "/pro"})
+        }
+        if(user && user.admin) {
           links.push({text: "Admin", to: "/admin/videos"})
         }
         return links;
