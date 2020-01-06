@@ -1,7 +1,8 @@
 <template>
   <span>
     <v-btn large color="primary" class="mt-1" @click="goToCheckout">
-      <div v-html="buttonText" />
+      <v-progress-circular indeterminate v-if="loading" />
+      <div v-html="buttonText" v-else />
     </v-btn>
   </span>
 </template>
@@ -15,7 +16,6 @@
     },
     methods: {
       async goToCheckout(){
-        // TODO: have spinner when loading
         this.loading = true;
         
         let response = await this.$axios.post('/stripe/create_session_id', {
