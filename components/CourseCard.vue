@@ -3,14 +3,16 @@
     <nuxt-link :to="`/courses/${course.id}`">
       
       <!-- TODO: make this more stylish -->
-      <span v-if="decoratedCourse.numProVideos == 0">
-        100% Free!
-      </span>
-      <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
-        Includes a free video!
-      </span>
-      <span v-else>
-        Pro Course
+      <span v-if="showFreeStatus">
+        <span v-if="decoratedCourse.numProVideos == 0">
+          100% Free!
+        </span>
+        <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
+          Includes a free video!
+        </span>
+        <span v-else>
+          Pro Course
+        </span>
       </span>
       
       <v-card hover>
@@ -70,6 +72,10 @@
       course: {
         type: Object,
         required: true
+      },
+      showFreeStatus: {
+        type: Boolean,
+        default: true
       }
     }
   }

@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 import SocialProofGrid from '@/components/SocialProofGrid.vue';
 import CourseCard from '@/components/CourseCard.vue';
 
@@ -54,15 +54,6 @@ export default {
     ...mapGetters({
       getCourse: 'courses/get'
     }),
-    headers(){
-      return [
-        {text: 'Played', value: 'played', sortable: false, width: "70px"},
-        {text: 'Name', value: 'name'},
-        {text: 'Date', value: 'sortable_published_at'},
-        {text: 'Duration', value: 'duration'},
-        {text: 'Course', value: 'courseName'},
-      ]
-    },
     featuredCourses(){
       return this.course_ids.map(c_id => this.getCourse(c_id))
     },
