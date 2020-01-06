@@ -20,8 +20,11 @@
       Leap Forward <font-awesome-icon icon="dollar-sign" />.  
     </div>
     <div class="text-center">
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" :planId="monthlyPlan" />
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" :planId="yearlyPlan" />
+      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" :planId="monthlyPlan" :disabled="isPro" />
+      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" :planId="yearlyPlan" :disabled="isPro" />
+      <div v-if="isPro" class="pt-2">
+        You're already a Pro member.  Smart. <nuxt-link to="/courses">Start Learning</nuxt-link>.
+      </div>
     </div>
 
     <br class="pa-3">
@@ -58,8 +61,11 @@
 
     <p class="headline text-center">What are you waiting for?</p>
     <div class="text-center">
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" :planId="monthlyPlan" />
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" :planId="yearlyPlan" />
+      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" :planId="monthlyPlan" :disabled="isPro" />
+      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" :planId="yearlyPlan" :disabled="isPro" />
+      <div v-if="isPro" class="pt-2">
+        You're already a Pro member.  Smart. <nuxt-link to="/courses">Start Learning</nuxt-link>.
+      </div>
     </div>
   </v-container>
 </template>
@@ -77,6 +83,11 @@
     components: {
       StripeCheckoutButton
     },
+    computed: {
+      isPro(){
+        return this.$auth.user && this.$auth.user.pro
+      }
+    }
   }
 </script>
 

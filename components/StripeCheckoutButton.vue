@@ -1,6 +1,6 @@
 <template>
   <span>
-    <v-btn large color="primary" class="mt-1" @click="goToCheckout">
+    <v-btn large color="primary" class="mt-1" @click="goToCheckout" :disabled="disabled">
       <v-progress-circular indeterminate v-if="loading" />
       <div v-html="buttonText" v-else />
     </v-btn>
@@ -40,6 +40,10 @@
        planId: {
          type: String,
          required: true
+       },
+       disabled: {
+         type: Boolean,
+         default: false
        }
     }
   }
