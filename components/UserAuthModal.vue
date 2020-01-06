@@ -1,6 +1,6 @@
 <template>
   <span>
-    <slot :openModal="() => isOpen = true">
+    <slot :openModal="() => isOpen = true" v-if="!startOpened">
       <v-btn @click="isOpen = true">Open</v-btn>
     </slot>
     <v-dialog
@@ -9,7 +9,11 @@
     >
       <v-card min-height="200px" min-width="300px">
         <div class="pa-4">
-          <UserAuthTogglableForm />
+          <div class="headline" v-if="topPhrase">{{topPhrase}}</div>
+          <UserAuthTogglableForm :loginPhrase="loginPhrase"
+                                 :registerPhrase="registerPhrase"
+                                 :postLoginAction="postLoginAction"
+                                 :postRegisterAction="postRegisterAction" />
         </div>
       </v-card>
     </v-dialog>
@@ -25,9 +29,33 @@
     },
     data(){
       return {
-        isOpen: false,
+        isOpen: this.startOpened || 'false',
       }
     },
+    props: {
+      startOpened: {
+        type: Boolean
+      },
+      topPhrase: {
+        type: String
+      },
+      registerPhrase: {
+        type: String,
+        default: "Register"
+      },
+      loginPhrase: {
+        type: String,
+        default: "Login"
+      },
+      postRegisterAction: {
+        type: Function,
+        default: () => {}
+      },
+      postLoginAction: {
+        type: Function,
+        default: () => {}
+      }
+    }
   }
 </script>
 
