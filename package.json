@@ -23,6 +23,7 @@
     "marked": "^0.7.0",
     "nuxt": "^2.11.0",
     "nuxt-fontawesome": "^0.4.0",
+    "nuxt-stripe-module": "^2.0.0",
     "rsvp": "^4.8.5",
     "vue-shortkey": "^3.1.7",
     "vue-timers": "^2.0.4",
@@ -31,6 +32,7 @@
     "vuetify-datetime-picker": "^2.1.1"
   },
   "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-analytics": "^2.2.2",
     "@nuxtjs/vuetify": "^2.0.0-alpha.1",
     "cypress": "^3.8.1"

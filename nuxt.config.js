@@ -1,4 +1,3 @@
-
 export default {
   mode: 'universal',
   /*
@@ -21,6 +20,11 @@ export default {
       productionTip: false,
       devtools: true
     }
+  },
+
+  env: {
+    stripeMonthlyPlan: process.env.stripeMonthlyPlan,
+    stripeYearlyPlan: process.env.stripeYearlyPlan
   },
   
   /*
@@ -49,7 +53,13 @@ export default {
     '@nuxtjs/vuetify',
     ['@nuxtjs/google-analytics', {
       id: 'UA-154843930-1'
-    }]
+    }],
+    ['nuxt-stripe-module', {
+      version: 'v3',
+      //TODO: change publishableKey based on environment
+      publishableKey: 'pk_test_EiveKNyPoW3C9bpmpEJXuawF' 
+    }],
+    '@nuxtjs/dotenv',
   ],
   /*
   ** Nuxt.js modules

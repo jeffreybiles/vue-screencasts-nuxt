@@ -1,3 +1,4 @@
+
 <template>
   <v-container>
     <!-- Uncomment this sales pitch once I'm ready to charge -->
@@ -19,8 +20,8 @@
       Leap Forward <font-awesome-icon icon="dollar-sign" />.  
     </div>
     <div class="text-center">
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" planId="plan_GUbsLVGwbTE2K1" />
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" planId="plan_GUbw5FDN0z2EHe" />
+      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" :planId="monthlyPlan" />
+      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" :planId="yearlyPlan" />
     </div>
 
     <br class="pa-3">
@@ -57,8 +58,8 @@
 
     <p class="headline text-center">What are you waiting for?</p>
     <div class="text-center">
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" planId="plan_GUbsLVGwbTE2K1" />
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" planId="plan_GUbw5FDN0z2EHe" />
+      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" :planId="monthlyPlan" />
+      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" :planId="yearlyPlan" />
     </div>
   </v-container>
 </template>
@@ -66,9 +67,16 @@
 <script>
   import StripeCheckoutButton from '@/components/StripeCheckoutButton.vue';
   export default {
+    data(){
+      let env = this.$root.context.env;
+      return {
+        monthlyPlan: env.stripeMonthlyPlan,
+        yearlyPlan: env.stripeYearlyPlan
+      }
+    },
     components: {
       StripeCheckoutButton
-    }
+    },
   }
 </script>
 
