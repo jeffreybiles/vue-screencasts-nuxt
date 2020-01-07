@@ -76,7 +76,6 @@
 </template>
 
 <script>
-  import StripeCheckoutButton from '@/components/StripeCheckoutButton.vue';
   import SubscriptionList from '@/components/SubscriptionList.vue';
   import SubscriptionLinkButton from '@/components/SubscriptionLinkButton.vue';
   export default {
@@ -88,7 +87,6 @@
       }
     },
     components: {
-      StripeCheckoutButton,
       SubscriptionList,
       SubscriptionLinkButton
     },
