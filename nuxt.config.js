@@ -24,6 +24,7 @@ export default {
 
   env: {
     env: process.env.environment,
+    stripePublicKey: process.env.stripePublicKey,
     stripeMonthlyPlan: process.env.stripeMonthlyPlan,
     stripeYearlyPlan: process.env.stripeYearlyPlan
   },

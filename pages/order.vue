@@ -23,7 +23,7 @@
       <div v-else>
         <h1 class="display-1 grey--text">
           <font-awesome-icon icon="check" /> 
-          Step 1: you're logged in as {{$auth.user.email}}
+          You're logged in as {{$auth.user.email}}
         </h1>
         <a @click="$auth.logout()">Change User</a>
       </div>
@@ -32,7 +32,7 @@
       <div v-if="planId">
         <h1 class="display-1 grey--text">
           <font-awesome-icon icon="check" />
-          Step 2: You've selected a Pro subscription for ${{plan.currentPrice}}/{{plan.period}}
+          You've selected a Pro subscription for ${{plan.currentPrice}}/{{plan.period}}
         </h1>
         <a @click="planId = null" v-if="$auth.loggedIn">Change Plans</a>
       </div>
@@ -45,6 +45,8 @@
         <h1 class="display-1">
           Step 2: Select a plan
         </h1>
+        <!-- TODO: style this better, and make it functional -->
+        <!-- Also make the selection change the queryParams, if possible -->
         <v-row>
           <v-col cols="6" v-for="plan in plans" :key="plan.id">
             <v-card color="green">
@@ -69,6 +71,18 @@
         <h1 class="display-1">
           Step 3: Payment Info
         </h1>
+        <card class='stripe-card mt-2 mb-2'
+          :class='{ complete }'
+          :stripe='stripePublicKey'
+          :options='stripeOptions'
+          @change='complete = $event.complete'
+        />
+        <v-btn class='pay-with-stripe primary' 
+               @click='pay' 
+               :disabled='!complete'>
+               Pay and Subscribe
+        </v-btn>
+    
       </div>
     </div>
   </v-container>
@@ -79,13 +93,16 @@
   import CourseCard from '@/components/CourseCard.vue';
   import { mapGetters } from 'vuex';
   import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
+  import { Card, createSource } from 'vue-stripe-elements-plus'
 
   export default {
     components: {
       UserAuthTogglableForm,
-      CourseCard
+      CourseCard,
+      Card
     },
     data() {
+      let { environment, stripePublicKey } = this.$root.context.env;
       return {
         // TODO: when I get Pro courses, start including them here preferentially...
         // I want them seeing what they just gained
@@ -98,7 +115,10 @@
           26 //VueJS: Secure File Upload to S3, Directly from the Browser
         ],
         planId: this.$route.query.plan,
-        plans: subscriptionPlanJson.plans.filter(p => p.env == this.$root.context.env.environment)
+        plans: subscriptionPlanJson.plans.filter(p => p.env == environment),
+        complete: false,
+        stripePublicKey: stripePublicKey,
+        stripeOptions: {}
       }
     },
     computed: {
@@ -111,10 +131,22 @@
       plan(){
         return this.plans.find(p => p.id == this.planId)
       }
-    } 
+    },
+    methods: {
+      pay(){
+        // TODO: make this work
+        alert('yeah!')
+      }
+    }
   }
 </script>
 
 <style lang="scss" scoped>
-
+  .stripe-card {
+    width: 300px;
+    border: 1px solid grey;
+  }
+  .stripe-card.complete {
+    border-color: green;
+  }
 </style>
