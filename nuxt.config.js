@@ -23,6 +23,7 @@ export default {
   },
 
   env: {
+    env: process.env.environment,
     stripeMonthlyPlan: process.env.stripeMonthlyPlan,
     stripeYearlyPlan: process.env.stripeYearlyPlan
   },

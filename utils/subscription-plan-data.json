@@ -1,0 +1,36 @@
+{
+  "plans": [
+    {
+      "id": 1,
+      "env": "dev",
+      "stripeId": "plan_GUnIRF35MtJy67",
+      "period": "month",
+      "fullPrice": 36,
+      "currentPrice": 9
+    },
+    {
+      "id": 2,
+      "env": "dev",
+      "stripeId": "plan_GUnLuKPVBvo78i",
+      "period": "year",
+      "fullPrice": 290,
+      "currentPrice": 90
+    },
+    {
+      "id": 3,
+      "env": "prod",
+      "stripeId": "plan_GUbsLVGwbTE2K1",
+      "period": "month",
+      "fullPrice": 36,
+      "currentPrice": 9
+    },
+    {
+      "id": 4,
+      "env": "prod",
+      "stripeId": "plan_GUbw5FDN0z2EHe",
+      "period": "year",
+      "fullPrice": 290,
+      "currentPrice": 90
+    }
+  ]
+}

@@ -20,8 +20,10 @@
       Leap Forward <font-awesome-icon icon="dollar-sign" />.  
     </div>
     <div class="text-center">
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" :planId="monthlyPlan" :disabled="isPro" />
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" :planId="yearlyPlan" :disabled="isPro" />
+      <SubscriptionList v-slot="{plan}">
+        <SubscriptionLinkButton :plan="plan" :disabled="isPro" />
+      </SubscriptionList>
+      
       <div v-if="isPro" class="pt-2">
         You're already a Pro member.  Smart. <nuxt-link to="/courses">Start Learning</nuxt-link>.
       </div>
@@ -60,9 +62,12 @@
     <p class="subheader pt-2">When does the sale end? Soon. Before the end of January.  I'll announce it <a href="https://twitter.com/VueScreencasts" target="_blank">on twitter</a>.</p>
 
     <p class="headline text-center">What are you waiting for?</p>
+    
     <div class="text-center">
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$36/month</strike> $9/month" :planId="monthlyPlan" :disabled="isPro" />
-      <StripeCheckoutButton buttonText="Subscribe for <br><strike>$290/year</strike> $90/year" :planId="yearlyPlan" :disabled="isPro" />
+      <SubscriptionList v-slot="{plan}">
+        <SubscriptionLinkButton :plan="plan" :disabled="isPro" />
+      </SubscriptionList>
+      
       <div v-if="isPro" class="pt-2">
         You're already a Pro member.  Smart. <nuxt-link to="/courses">Start Learning</nuxt-link>.
       </div>
@@ -72,6 +77,8 @@
 
 <script>
   import StripeCheckoutButton from '@/components/StripeCheckoutButton.vue';
+  import SubscriptionList from '@/components/SubscriptionList.vue';
+  import SubscriptionLinkButton from '@/components/SubscriptionLinkButton.vue';
   export default {
     data(){
       let env = this.$root.context.env;
@@ -81,7 +88,9 @@
       }
     },
     components: {
-      StripeCheckoutButton
+      StripeCheckoutButton,
+      SubscriptionList,
+      SubscriptionLinkButton
     },
     computed: {
       isPro(){
