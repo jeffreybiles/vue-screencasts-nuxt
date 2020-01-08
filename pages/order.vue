@@ -170,6 +170,7 @@
           })
           this.$auth.fetchUser()
         } catch {
+          // TODO: error handling
           this.paymentPending = false
         }        
       }

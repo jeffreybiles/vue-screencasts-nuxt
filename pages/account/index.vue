@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div>
     <h1>Settings</h1>
 
     Name: {{user.name}}<br>
@@ -12,7 +12,7 @@
 
     <p>Subscriptions are tracked on the email provider.  If you haven’t been getting weekly newsletters, but you want to, then click this button to resubscribe.</p>
     <v-btn color="primary" @click="resubscribe">Resubscribe</v-btn>
-  </v-container>
+  </div>
 </template>
 
 <script>

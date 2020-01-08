@@ -67,7 +67,7 @@
       authLinks(){
         if(this.$auth.loggedIn){
           return [
-            {text: this.$auth.user.email, to: "/user"},
+            {text: this.$auth.user.email, to: "/account"},
             {text: "Logout", click: () => {this.$auth.logout()}}
           ]
         } else {
