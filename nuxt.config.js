@@ -123,7 +123,8 @@ export default {
     },
     redirect: {
       home: false,
-      callback: false 
+      callback: false,
+      logout: false
     }
   },
 }

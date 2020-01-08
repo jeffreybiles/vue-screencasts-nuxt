@@ -16,7 +16,7 @@
     </div>
     <div v-else>
       <!-- Step 1: Auth -->
-      <div v-if="!$auth.loggedIn">
+      <div v-if="!$auth.loggedIn" class="pb-2">
         <h1 class="display-1">Step 1: log in or register</h1>
         <UserAuthTogglableForm />
       </div>
@@ -47,6 +47,8 @@
         </h1>
         <v-row>
           <v-col cols="6" v-for="plan in plans" :key="plan.id">
+            <!-- STYLE TODO: add fun logos for each plan -->
+            <!-- TODO: make it work with a team plan -->
             <v-hover v-slot="{hover}">
               <v-card :class="['green', hover ? 'lighten-1' : 'lighten-2']" @click="updatePlan(plan.id)">
                 <v-card-title class="display-1">
@@ -68,6 +70,7 @@
             </v-hover>
           </v-col>
         </v-row>
+        <p>Have a team?  I'll be providing a one-click solution soon.  Until then, select yearly, then contact me: <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>.</p>
       </div>
 
       <!-- Step 3: Payment Info -->
@@ -80,7 +83,7 @@
         <h1 class="display-1">
           Step 3: Payment Info
         </h1>
-        <p class="subheader">Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencast servers.</p>
+        <p class="subheader">Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencasts servers.</p>
         <card class='stripe-card mt-2 mb-2'
           :class='{ complete }'
           :stripe='stripePublicKey'
