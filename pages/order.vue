@@ -45,18 +45,27 @@
         <h1 class="display-1">
           Step 2: Select a plan
         </h1>
-        <!-- TODO: style this better, and make it functional -->
-        <!-- Also make the selection change the queryParams, if possible -->
         <v-row>
           <v-col cols="6" v-for="plan in plans" :key="plan.id">
-            <v-card color="green" @click="updatePlan(plan.id)">
-              <v-card-title class="display-1">
-                {{plan.period}}ly subscription
-              </v-card-title>
-              <v-card-text>
-                {{plan}}
-              </v-card-text>
-            </v-card>
+            <v-hover v-slot="{hover}">
+              <v-card :class="['green', hover ? 'lighten-1' : 'lighten-2']" @click="updatePlan(plan.id)">
+                <v-card-title class="display-1">
+                  <span v-if="plan.currentPrice != plan.fullPrice">
+                    <strike>${{plan.fullPrice}}/{{plan.period}}</strike>
+                    &nbsp;
+                  </span>
+                  ${{plan.currentPrice}}/{{plan.period}}
+                </v-card-title>
+                <v-card-text>
+                  <span v-if="plan.period == 'year'">
+                    <p>Commit for a year and save big.</p>
+                  </span>
+                  <span v-else-if="plan.period == 'month'">
+                    <p>An affordable way to turbo-boost your knowledge.</p>
+                  </span>
+                </v-card-text>
+              </v-card>
+            </v-hover>
           </v-col>
         </v-row>
       </div>
