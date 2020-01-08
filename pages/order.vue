@@ -146,7 +146,6 @@
       }
     },
     methods: {
-      pay(){
       updatePlan(planId){
         this.planId = planId
         this.$router.replace({
@@ -156,8 +155,13 @@
           }
         })
       },
+      async pay(){
         // TODO: make this work
-        alert('yeah!')
+        let {source} = await createSource({type: 'card'})
+        this.$axios.post('stripe/create_subscription', {
+          source,
+          planId: this.plan.stripeId
+        })
       }
     }
   }
