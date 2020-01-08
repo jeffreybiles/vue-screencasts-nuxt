@@ -19,7 +19,7 @@
       {{ new Date(subscription.current_period_end * 1000).toDateString() }}
     </p>
 
-    <h3>Previous Payments</h3>
+    <h2 class="mt-3">Previous Payments</h2>
     <v-simple-table>
       <thead>
         <tr>
@@ -40,6 +40,18 @@
         </tr>
       </tbody>
     </v-simple-table>
+
+    <span v-if="!subscription.cancel_at_period_end">
+      <h2 class="mt-3">Cancellation</h2>
+      <p>Switched frameworks?  Had enough learning?</p>
+      <v-btn color="red" @click="cancelSubscription" :disabled="cancelActionIsLoading">
+        Cancel Subscription 
+        <span v-if="cancelActionIsLoading">
+          &nbsp;
+          <v-progress-circular indeterminate  size="20" />
+        </span>
+      </v-btn>
+    </span>
   </div>
 </template>
 
@@ -52,8 +64,19 @@
         charges,
         card,
         subscription,
+        cancelActionIsLoading: false
       }
     },
+    methods: {
+      async cancelSubscription(){
+        // TODO: Error handling
+        this.cancelActionIsLoading = true
+        let response = await this.$axios.post('/stripe/cancel_subscription')
+        this.subscription = response.data
+
+        this.cancelActionIsLoading = false
+      }
+    }
   }
 </script>
 
