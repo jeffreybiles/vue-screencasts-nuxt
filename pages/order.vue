@@ -34,7 +34,7 @@
           <font-awesome-icon icon="check" />
           You've selected a Pro subscription for ${{plan.currentPrice}}/{{plan.period}}
         </h1>
-        <a @click="planId = null" v-if="$auth.loggedIn">Change Plans</a>
+        <a @click="updatePlan(null)" v-if="$auth.loggedIn">Change Plans</a>
       </div>
       <div v-else-if="!$auth.loggedIn">
         <h1 class="display-1 grey--text">
@@ -49,7 +49,7 @@
         <!-- Also make the selection change the queryParams, if possible -->
         <v-row>
           <v-col cols="6" v-for="plan in plans" :key="plan.id">
-            <v-card color="green">
+            <v-card color="green" @click="updatePlan(plan.id)">
               <v-card-title class="display-1">
                 {{plan.period}}ly subscription
               </v-card-title>
@@ -71,6 +71,7 @@
         <h1 class="display-1">
           Step 3: Payment Info
         </h1>
+        <p class="subheader">Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencast servers.</p>
         <card class='stripe-card mt-2 mb-2'
           :class='{ complete }'
           :stripe='stripePublicKey'
@@ -134,6 +135,15 @@
     },
     methods: {
       pay(){
+      updatePlan(planId){
+        this.planId = planId
+        this.$router.replace({
+          name: 'order',
+          query: {
+            plan: planId
+          }
+        })
+      },
         // TODO: make this work
         alert('yeah!')
       }
