@@ -91,9 +91,13 @@
           @change='complete = $event.complete'
         />
         <v-btn class='pay-with-stripe primary' 
-               @click='pay' 
-               :disabled='!complete'>
-               Pay and Subscribe
+               @click='pay'
+               large
+               :disabled='!complete || paymentPending'>
+          <span>Pay and Subscribe</span>
+          &nbsp;
+          <v-progress-circular v-if="paymentPending" indeterminate size="20" />
+          <font-awesome-icon v-else :icon="['fab', 'cc-stripe']" size="lg" />
         </v-btn>
     
       </div>
@@ -131,7 +135,8 @@
         plans: subscriptionPlanJson.plans.filter(p => p.env == environment),
         complete: false,
         stripePublicKey: stripePublicKey,
-        stripeOptions: {}
+        stripeOptions: {},
+        paymentPending: false
       }
     },
     computed: {
@@ -156,12 +161,17 @@
         })
       },
       async pay(){
-        // TODO: make this work
-        let {source} = await createSource({type: 'card'})
-        this.$axios.post('stripe/create_subscription', {
-          source,
-          planId: this.plan.stripeId
-        })
+        this.paymentPending = true
+        try {
+          let {source} = await createSource({type: 'card'})
+          let updatedUser = await this.$axios.post('stripe/create_subscription', {
+            source,
+            planId: this.plan.stripeId
+          })
+          this.$auth.fetchUser()
+        } catch {
+          this.paymentPending = false
+        }        
       }
     }
   }
