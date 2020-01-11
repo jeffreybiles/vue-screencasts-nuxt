@@ -15,7 +15,7 @@
     <h2>Early to mid January: Launch</h2>
 
     <p>At this point we'll be ready for prime time</p>
-    <p>I'll start releasing a new video most workdays.</p>
+    <p>I'll start releasing new videos every week.</p>
     <p>There will be a MAJOR discount for those who believe in the project this early.</p>
     
     TODO
@@ -33,7 +33,7 @@
     </ul>
 
     <h2>After launch</h2>
-    <p>I'll be releasing new videos most workdays, and steadily improving the user experience.</p>
+    <p>I'll be releasing new videos every week, and steadily improving the user experience.</p>
 
     TODO
     <ul>
