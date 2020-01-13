@@ -54,9 +54,22 @@
       <span v-if="!subscription.canceled_at">
         <h2 class="mt-3">Cancellation</h2>
         <p>Switched frameworks?  Had enough learning?</p>
-        <v-btn color="red" @click="cancelSubscription" :disabled="cancelActionIsLoading">
+        <v-btn color="red" outlined @click="cancelSubscription" :disabled="cancelActionIsLoading">
           Cancel Subscription 
           <span v-if="cancelActionIsLoading">
+            &nbsp;
+            <v-progress-circular indeterminate  size="20" />
+          </span>
+        </v-btn>
+      </span>
+      <span v-else-if="$auth.user.pro">
+        <!-- If user still has subscription but has canceled it -->
+        <h2 class="mt-3">Resubscribe</h2>
+        <p>If you resubscribe, next payment will be on {{ subscriptionEndDate }}.</p>
+        <!-- TODO: make this button a component -->
+        <v-btn color="purple" outlined @click="resubscribe" :disabled="resubscribeActionIsLoading">
+          Resubscribe
+          <span v-if="resubscribeActionIsLoading">
             &nbsp;
             <v-progress-circular indeterminate  size="20" />
           </span>
@@ -75,7 +88,8 @@
         charges,
         card,
         subscription,
-        cancelActionIsLoading: false
+        cancelActionIsLoading: false,
+        resubscribeActionIsLoading: false,
       }
     },
     computed: {
@@ -90,7 +104,23 @@
         let response = await this.$axios.post('/stripe/cancel_subscription')
         this.subscription = response.data
 
+        // TODO: make this a popup asking what went wrong (maybe a quick poll), 
+        // then saying they can resubscribe any time...
+        // and if they do it within a month, they'll be able to keep their special pricing
+        this.$store.dispatch('snackbar/setSnackbar', {text: "You're unsubscribed :(  I hope you'll join us again soon.", timeout: 0})
+
         this.cancelActionIsLoading = false
+      },
+      async resubscribe(){
+        this.resubscribeActionIsLoading = true
+
+        let response = await this.$axios.post('/stripe/resubscribe');
+        this.subscription = response.data;
+
+        // TODO: make this a popup celebrating them, and explaining that they won't be charged until X date
+        this.$store.dispatch('snackbar/setSnackbar', {text: "You're subscribed again!  Congratulations!", timeout: 0})
+
+        this.resubscribeActionIsLoading = false
       }
     }
   }
