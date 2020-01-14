@@ -98,7 +98,6 @@
   import StripeCard from '@/components/StripeCard.vue';
   import { mapGetters } from 'vuex';
   import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
-  import { createSource } from 'vue-stripe-elements-plus'
 
   export default {
     components: {
@@ -144,8 +143,7 @@
           }
         })
       },
-      async pay(){
-        let {source} = await createSource({type: 'card'})
+      async pay(source){
         let updatedUser = await this.$axios.post('stripe/create_subscription', {
           source,
           planId: this.plan.stripeId

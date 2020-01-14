@@ -131,8 +131,10 @@
 
         this.$router.push('/order')
       },
-      async changeCards(){
-        let response = await this.$axios.post('/stripe/change_card')
+      async changeCards(source){
+        let response = await this.$axios.post('/stripe/change_card', {
+          source
+        })
         this.card = response.data
 
         this.$store.dispatch('snackbar/setSnackbar', {text: "Thanks for updating your card!", timeout: 0})

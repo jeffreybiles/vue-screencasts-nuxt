@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import { Card } from 'vue-stripe-elements-plus'
+  import { Card, createSource } from 'vue-stripe-elements-plus'
   export default {
     data(){
       let { stripePublicKey } = this.$root.context.env;
@@ -40,7 +40,8 @@
       async click(){
         this.paymentPending = true
         try {
-          await this.clickAction()
+          let {source} = await createSource({type: 'card'})
+          await this.clickAction(source)
           this.paymentPending = false
         } catch {
           // TODO: more specific error handling
