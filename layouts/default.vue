@@ -2,7 +2,7 @@
   <v-app>
     <TheNavbar />
     <v-content>
-      <div class="blue-grey darken-2 grey--text text--lighten-5 text-center">
+      <div class="green darken-4 grey--text text--lighten-5 text-center">
         VueScreencasts is in Open Beta.  I plan to officially launch mid to late January.  
         Please send me feedback and suggestions 
         via email (<a href="mailto:jeffrey@vuescreencasts.com" class="grey--text text--lighten-5" target="_blank">jeffrey@vuescreencasts.com</a>) 
