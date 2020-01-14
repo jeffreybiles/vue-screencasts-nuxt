@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div v-if="this.$auth.user && this.$auth.user.pro">
-      <h1 class="display-2">Congratulations!</h1>
+      <h1 class="display-2 pb-3">Congratulations!</h1>
       <p class="headline">You're a full-fledged VueScreencasts Pro member.</p>
       <p class="headline">You can access every single video on the site - including new exclusive content every week.</p>
       <p class="headline">Here are some good courses to get started with.</p>

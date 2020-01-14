@@ -11,7 +11,7 @@
     <h3>Email Settings</h3>
 
     <p>Subscriptions are tracked on the email provider.  If you haven’t been getting weekly newsletters, but you want to, then click this button to resubscribe.</p>
-    <v-btn color="primary" @click="resubscribe">Resubscribe</v-btn>
+    <v-btn color="primary" @click="resubscribe">Resubscribe To Mailing List</v-btn>
   </div>
 </template>
 

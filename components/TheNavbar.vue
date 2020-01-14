@@ -55,7 +55,7 @@
           {text: "Videos", to: "/videos"},
           {text: "Courses", to: "/courses"},
         ]
-        if(!user || !user.pro) {
+        if(!user || !user.pro || user.subscription_cancelled) {
           links.push({text: "Pro", to: "/pro"})
         }
         if(user && user.admin) {

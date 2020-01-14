@@ -107,6 +107,8 @@
 
         // TODO: make this a popup celebrating them, and explaining that they won't be charged until X date
         this.$store.dispatch('snackbar/setSnackbar', {text: "You're subscribed again!  Congratulations!", timeout: 0})
+
+        this.$router.push('/order')
       }
     }
   }

@@ -19,15 +19,8 @@
       Level Up <font-awesome-icon icon="arrow-up" />. 
       Leap Forward <font-awesome-icon icon="dollar-sign" />.  
     </div>
-    <div class="text-center">
-      <SubscriptionList v-slot="{plan}">
-        <SubscriptionLinkButton :plan="plan" :disabled="isPro" />
-      </SubscriptionList>
-      
-      <div v-if="isPro" class="pt-2">
-        You're already a Pro member.  Smart. <nuxt-link to="/courses">Start Learning</nuxt-link>.
-      </div>
-    </div>
+
+    <SubscriptionLinks />
 
     <br class="pa-3">
 
@@ -62,38 +55,18 @@
     <p class="subheader pt-2">When does the sale end? Soon. Before the end of January.  I'll announce it <a href="https://twitter.com/VueScreencasts" target="_blank">on twitter</a>.</p>
 
     <p class="headline text-center">What are you waiting for?</p>
-    
-    <div class="text-center">
-      <SubscriptionList v-slot="{plan}">
-        <SubscriptionLinkButton :plan="plan" :disabled="isPro" />
-      </SubscriptionList>
-      
-      <div v-if="isPro" class="pt-2">
-        You're already a Pro member.  Smart. <nuxt-link to="/courses">Start Learning</nuxt-link>.
-      </div>
-    </div>
+
+    <SubscriptionLinks />
+
   </v-container>
 </template>
 
 <script>
-  import SubscriptionList from '@/components/SubscriptionList.vue';
-  import SubscriptionLinkButton from '@/components/SubscriptionLinkButton.vue';
+  import SubscriptionLinks from '@/components/SubscriptionLinks.vue';
+  
   export default {
-    data(){
-      let env = this.$root.context.env;
-      return {
-        monthlyPlan: env.stripeMonthlyPlan,
-        yearlyPlan: env.stripeYearlyPlan
-      }
-    },
     components: {
-      SubscriptionList,
-      SubscriptionLinkButton
-    },
-    computed: {
-      isPro(){
-        return this.$auth.user && this.$auth.user.pro
-      }
+      SubscriptionLinks
     }
   }
 </script>
