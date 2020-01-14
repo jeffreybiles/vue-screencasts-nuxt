@@ -103,7 +103,7 @@
         charges,
         card,
         subscription,
-        isChangingCards: true
+        isChangingCards: false
       }
     },
     computed: {
@@ -135,7 +135,8 @@
         let response = await this.$axios.post('/stripe/change_card', {
           source
         })
-        this.card = response.data
+        this.card = response.data.card
+        this.isChangingCards = false
 
         this.$store.dispatch('snackbar/setSnackbar', {text: "Thanks for updating your card!", timeout: 0})
       }
