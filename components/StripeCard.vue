@@ -43,7 +43,9 @@
           await this.clickAction()
           this.paymentPending = false
         } catch {
-          // TODO: error handling
+          // TODO: more specific error handling
+          this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: "Something went wrong :( Check the card number and try again, or contact jeffrey: jeffrey@vuescreencasts.com", timeout: 0})
+
           this.paymentPending = false
         }
       }

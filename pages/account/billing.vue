@@ -8,10 +8,26 @@
     </span>
     <span v-else>
     
-      <p v-if="card">
-        Your current card ends in <strong>{{card.last4}}</strong>.  
-        It expires <strong>{{card.exp_month}}/{{card.exp_year}}</strong>.
-      </p>
+      <div v-if="card">
+        <p>
+          Your current card ends in <strong>{{card.last4}}</strong>.  
+          It expires <strong>{{card.exp_month}}/{{card.exp_year}}</strong>.
+          <br>
+          <a @click="isChangingCards = true">Change Cards</a>
+        </p>
+        <v-card v-if="isChangingCards">
+          <v-card-title>
+            Change Cards
+          </v-card-title>
+          <v-card-text>
+            <p>Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencasts servers.</p>
+            <p>The first charge on your new card will be on {{subscriptionEndDate}}.</p>
+            <StripeCard buttonText="Change Cards"
+                        :clickAction="changeCards" />  
+          </v-card-text>
+          
+        </v-card>
+      </div>
       <p v-else>
         There is no card on file.  <nuxt-link :to="`/order`">Go to the order page</nuxt-link> to restart your account.
       </p>
@@ -74,9 +90,11 @@
 
 <script>
   import ButtonAsync from '@/components/ButtonAsync.vue';
+  import StripeCard from '@/components/StripeCard.vue';
   export default {
     components: {
-      ButtonAsync
+      ButtonAsync,
+      StripeCard
     },
     async asyncData({$axios}){
       let { data } = await $axios.get('/stripe/user_info')
@@ -85,6 +103,7 @@
         charges,
         card,
         subscription,
+        isChangingCards: true
       }
     },
     computed: {
@@ -111,6 +130,12 @@
         this.$store.dispatch('snackbar/setSnackbar', {text: "You're subscribed again!  Congratulations!", timeout: 0})
 
         this.$router.push('/order')
+      },
+      async changeCards(){
+        let response = await this.$axios.post('/stripe/change_card')
+        this.card = response.data
+
+        this.$store.dispatch('snackbar/setSnackbar', {text: "Thanks for updating your card!", timeout: 0})
       }
     }
   }
