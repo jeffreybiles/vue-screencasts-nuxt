@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="green">
+  <v-app-bar app color="green lighten-3">
     <!-- Home Page -->
     <v-btn to="/" text>VueScreencasts</v-btn>
 

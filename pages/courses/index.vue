@@ -4,16 +4,16 @@
       <v-row>
         <v-col cols="6" sm="3">
           <h3>Difficulties</h3>
-          <v-checkbox v-model="difficulties.beginner" label="Beginner" hide-details />
-          <v-checkbox v-model="difficulties.intermediate" label="Intermediate" hide-details />
-          <v-checkbox v-model="difficulties.advanced" label="Advanced" hide-details />
+          <v-checkbox v-model="difficulties.beginner" label="Beginner" hide-details color="green" />
+          <v-checkbox v-model="difficulties.intermediate" label="Intermediate" hide-details color="green" />
+          <v-checkbox v-model="difficulties.advanced" label="Advanced" hide-details color="green" />
         </v-col>
         <v-col cols="6" sm="3">
           <!-- Consider changing these to links... "hide completed courses" and "view in-progress courses" -->
           <h3>Progress</h3>
-          <v-checkbox v-model="progress.fresh" label="Fresh" hide-details />
-          <v-checkbox v-model="progress.started" label="In Progress" hide-details />
-          <v-checkbox v-model="progress.completed" label="Completed" hide-details />
+          <v-checkbox v-model="progress.fresh" label="Fresh" hide-details color="green" />
+          <v-checkbox v-model="progress.started" label="In Progress" hide-details color="green" />
+          <v-checkbox v-model="progress.completed" label="Completed" hide-details color="green" />
         </v-col>
       </v-row>
       <p>{{sortedCourses.length}} course{{sortedCourses.length == 1 ? '' : 's'}}</p>

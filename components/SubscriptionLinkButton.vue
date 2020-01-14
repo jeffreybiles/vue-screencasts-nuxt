@@ -1,5 +1,5 @@
 <template>
-  <v-btn x-large color="primary" class="ma-1" :disabled="disabled" :to="`/order?plan=${plan.id}`">
+  <v-btn x-large color="green darken-2 grey--text text--lighten-4" class="ma-1" :disabled="disabled" :to="`/order?plan=${plan.id}`">
     <div>
       Subscribe for <br>
       <strike>${{plan.fullPrice}}/{{plan.period}}</strike>

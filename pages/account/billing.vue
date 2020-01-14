@@ -62,7 +62,7 @@
         <!-- If user still has subscription but has canceled it -->
         <h2 class="mt-3">Resubscribe</h2>
         <p>If you resubscribe, next payment will be on {{ subscriptionEndDate }}.</p>
-        <ButtonAsync color="purple" :clickAction="resubscribe">
+        <ButtonAsync color="green darken-2 grey--text text--lighten-4" :clickAction="resubscribe">
           Resubscribe
         </ButtonAsync>
       </span>

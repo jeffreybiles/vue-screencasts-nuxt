@@ -5,7 +5,7 @@
         <h1 class="display-2 text-center">VueJS for the Real World</h1>
         <h3 class="display-1 text-center">Advanced skills. Big projects.</h3>
         <div class="text-center">
-          <v-btn color="primary" text x-large class="mt-2 mb-2" to="/courses">Start Learning Now</v-btn>
+          <v-btn color="green darken-2" outlined x-large class="mt-2 mb-2" to="/courses">Start Learning Now</v-btn>
         </div>
       </v-col>
       <v-col cols="12" md="8">

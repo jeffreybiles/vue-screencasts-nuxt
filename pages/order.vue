@@ -90,9 +90,10 @@
           :options='stripeOptions'
           @change='complete = $event.complete'
         />
-        <v-btn class='pay-with-stripe primary' 
+        <v-btn class='pay-with-stripe' 
                @click='pay'
                large
+               color="green darken-2 grey--text text--lighten-4"
                :disabled='!complete || paymentPending'>
           <span>Pay and Subscribe</span>
           &nbsp;

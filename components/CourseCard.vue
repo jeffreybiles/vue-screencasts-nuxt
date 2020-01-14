@@ -16,7 +16,7 @@
       </span>
       
       <v-card hover>
-        <div class="pl-1 course-card">
+        <div class="pl-1 course-card blue-grey darken-1">
           <v-row>
             <v-col cols="3" class="text-center">
               <div class="big">{{ decoratedCourse.numVideos }}</div>
@@ -92,8 +92,7 @@
   }
 
   .course-card {
-     background-color: #806780; 
-     color: white;
+    color: white;
   }
 
   @media (min-width: 960px) and (max-width: 1264px) {

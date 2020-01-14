@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-tabs>
+    <v-tabs color="green darken-3">
       <v-tab to="/account">Account</v-tab>
       <v-tab to="/account/billing">Billing</v-tab>
     </v-tabs>

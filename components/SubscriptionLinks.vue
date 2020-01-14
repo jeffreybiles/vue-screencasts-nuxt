@@ -7,7 +7,7 @@
     <div v-if="isPro" class="pt-2">
       <span v-if="$auth.user.subscription_cancelled">
         Your subscription runs out on <DateDisplay :date="new Date($auth.user.subscription_end_date)" />.
-        <ButtonAsync color="purple" :clickAction="resubscribe">
+        <ButtonAsync color="green darken-2 grey--text text--lighten-4" :clickAction="resubscribe">
           Resubscribe
         </ButtonAsync>
       </span>

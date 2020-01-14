@@ -2,11 +2,11 @@
   <v-app>
     <TheNavbar />
     <v-content>
-      <div class="green darken-4 white--text text-center">
+      <div class="blue-grey darken-2 grey--text text--lighten-5 text-center">
         VueScreencasts is in Open Beta.  I plan to officially launch mid to late January.  
         Please send me feedback and suggestions 
-        via email (<a href="mailto:jeffrey@vuescreencasts.com" class="white--text" target="_blank">jeffrey@vuescreencasts.com</a>) 
-        or twitter (<a href="https://twitter.com/VueScreencasts" class="white--text" target="_blank">@vuescreencasts</a>).
+        via email (<a href="mailto:jeffrey@vuescreencasts.com" class="grey--text text--lighten-5" target="_blank">jeffrey@vuescreencasts.com</a>) 
+        or twitter (<a href="https://twitter.com/VueScreencasts" class="grey--text text--lighten-5" target="_blank">@vuescreencasts</a>).
       </div>
       <nuxt />
     </v-content>
@@ -52,6 +52,10 @@ html {
 
 .clickable {
   cursor: pointer;
+}
+
+body .v-application a {
+  color: #276E2B ;
 }
 
 .v-input--checkbox {

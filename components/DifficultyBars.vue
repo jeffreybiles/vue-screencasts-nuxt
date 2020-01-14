@@ -6,10 +6,10 @@
       <font-awesome-icon icon="minus" color="green" />
     </span>
     <span v-if="difficulty == 'intermediate'">
-      <font-awesome-icon icon="grip-lines" color="blue" />
+      <font-awesome-icon icon="grip-lines" color="green" />
     </span>
     <span v-if="difficulty == 'advanced'">
-      <font-awesome-icon icon="bars" color="purple" />
+      <font-awesome-icon icon="bars" color="green" />
     </span>
 
     <span v-if="verbose">
