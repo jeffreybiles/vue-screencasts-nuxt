@@ -84,22 +84,8 @@
           Step 3: Payment Info
         </h1>
         <p class="subheader">Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencasts servers.</p>
-        <card class='stripe-card mt-2 mb-2'
-          :class='{ complete }'
-          :stripe='stripePublicKey'
-          :options='stripeOptions'
-          @change='complete = $event.complete'
-        />
-        <v-btn class='pay-with-stripe' 
-               @click='pay'
-               large
-               color="green darken-2 grey--text text--lighten-4"
-               :disabled='!complete || paymentPending'>
-          <span>Pay and Subscribe</span>
-          &nbsp;
-          <v-progress-circular v-if="paymentPending" indeterminate size="20" />
-          <font-awesome-icon v-else :icon="['fab', 'cc-stripe']" size="lg" />
-        </v-btn>
+        <StripeCard buttonText="Pay and Subscribe"
+                    :clickAction="pay" />
     
       </div>
     </div>
@@ -109,18 +95,19 @@
 <script>
   import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
   import CourseCard from '@/components/CourseCard.vue';
+  import StripeCard from '@/components/StripeCard.vue';
   import { mapGetters } from 'vuex';
   import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
-  import { Card, createSource } from 'vue-stripe-elements-plus'
+  import { createSource } from 'vue-stripe-elements-plus'
 
   export default {
     components: {
       UserAuthTogglableForm,
       CourseCard,
-      Card
+      StripeCard
     },
     data() {
-      let { environment, stripePublicKey } = this.$root.context.env;
+      let { environment } = this.$root.context.env;
       return {
         // TODO: when I get Pro courses, start including them here preferentially...
         // I want them seeing what they just gained
@@ -134,10 +121,6 @@
         ],
         planId: this.$route.query.plan,
         plans: subscriptionPlanJson.plans.filter(p => p.env == environment),
-        complete: false,
-        stripePublicKey: stripePublicKey,
-        stripeOptions: {},
-        paymentPending: false
       }
     },
     computed: {
@@ -162,18 +145,12 @@
         })
       },
       async pay(){
-        this.paymentPending = true
-        try {
-          let {source} = await createSource({type: 'card'})
-          let updatedUser = await this.$axios.post('stripe/create_subscription', {
-            source,
-            planId: this.plan.stripeId
-          })
-          this.$auth.fetchUser()
-        } catch {
-          // TODO: error handling
-          this.paymentPending = false
-        }        
+        let {source} = await createSource({type: 'card'})
+        let updatedUser = await this.$axios.post('stripe/create_subscription', {
+          source,
+          planId: this.plan.stripeId
+        })
+        this.$auth.fetchUser()
       }
     }
   }
