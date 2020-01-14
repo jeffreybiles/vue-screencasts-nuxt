@@ -25,13 +25,6 @@
   import DateDisplay from '@/components/DateDisplay.vue';
 
   export default {
-    data(){
-      let env = this.$root.context.env;
-      return {
-        monthlyPlan: env.stripeMonthlyPlan,
-        yearlyPlan: env.stripeYearlyPlan
-      }
-    },
     components: {
       SubscriptionList,
       SubscriptionLinkButton,

@@ -21,11 +21,13 @@
           You are not currently subscribed.
         </span>
         <span v-else-if="subscription.canceled_at">
-          Your subscription will end on {{ subscriptionEndDate }}
-          <!-- TODO: make a one-click way for them to resubscribe -->
+          Your subscription will end on {{ subscriptionEndDate }}.
+          <ButtonAsync color="green darken-2 grey--text text--lighten-4" :clickAction="resubscribe">
+            Resubscribe
+          </ButtonAsync>
         </span>
         <span v-else>
-          Your next payment will be on {{ subscriptionEndDate }}
+          Your next payment will be on {{ subscriptionEndDate }}.
         </span>
       </p>
 
@@ -54,7 +56,7 @@
       <span v-if="!subscription.canceled_at">
         <h2 class="mt-3">Cancellation</h2>
         <p>Switched frameworks?  Had enough learning?</p>
-        <ButtonAsync color="red" :clickAction="cancelSubscription">
+        <ButtonAsync color="red" :clickAction="cancelSubscription" :outlined="true">
           Cancel Subscription
         </ButtonAsync>
       </span>
