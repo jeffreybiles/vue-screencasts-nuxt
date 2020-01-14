@@ -43,7 +43,7 @@
           <v-card-actions>
             <v-spacer />
             <v-btn color="secondary" @click="close">Stay in this video</v-btn>
-            <v-btn color="green" @click="goToNextVideo">Go now</v-btn>
+            <v-btn color="green accent-3" @click="goToNextVideo">Go now</v-btn>
           </v-card-actions>
         </div>
       </div>
