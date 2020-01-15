@@ -34,13 +34,14 @@
       they're in-depth, and advanced developers have commented, telling me they've been learning from them.  Sometimes even the videos I thought were for beginners!
     </p>
     
-    <p>Yeah, the site needs a designer.  There's not much subscription-only content yet (although it's going to start raining down soon).  It's not perfect.</p>
+    <p>Yeah, the site needs a designer.  Yeah, there's only free content so far (although pro-only content is going to start raining down soon).  It's not perfect.</p>
     <p>That's why, as a 'thank you' for believing in the project, I'm giving you the biggest deal I'll ever offer.</p>
 
     <p class="display-1">Order now and get <strong>75% off</strong> the monthly subscription.</p>
     <p class="display-1 pt-1">Plus: for the first year, <strong>100% of your subscription goes to Open Source</strong>.</p>
  
     <p class="headline pt-1 mb-1">This is the biggest sale I'll ever have... and if you order now, it doesn't end. You get to <strong>keep your massively discounted rate for as long as you stay subscribed</strong>.</p>
+    <p class="display-1"><strong>Sale ends the second I release the first Pro video</strong>.</p>
 
     <p class="headline">Here's what you get with your subscription:</p>
     
