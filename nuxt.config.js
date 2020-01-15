@@ -1,15 +1,21 @@
-
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   head: {
-    title: 'Vue Screencasts - Learn VueJS through cool tutorials',
+    title: 'Vue Screencasts - Learn VueJS through video tutorials',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
+      {property: 'og:title', content: 'VueScreencasts - Learn VueJS through video tutorials'},
+      {property: 'og:site_name', content: "VueScreencasts.com"},
+      {property: 'og:image', content: 'https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/thumbnails/logo.png'},
+      {property: 'og:image:url', content: 'https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/thumbnails/logo.png'},
+      {property: 'og:image:width', content: 1280},
+      {property: 'og:image:height', content: 720},
+      {property: 'og:image:type', content: "image/jpeg"},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -21,6 +27,11 @@ export default {
       productionTip: false,
       devtools: true
     }
+  },
+
+  env: {
+    stripeEnv: process.env.stripeEnv,
+    stripePublicKey: process.env.stripePublicKey,
   },
   
   /*
@@ -49,7 +60,13 @@ export default {
     '@nuxtjs/vuetify',
     ['@nuxtjs/google-analytics', {
       id: 'UA-154843930-1'
-    }]
+    }],
+    ['nuxt-stripe-module', {
+      version: 'v3',
+      //TODO: change publishableKey based on environment
+      publishableKey: 'pk_test_EiveKNyPoW3C9bpmpEJXuawF' 
+    }],
+    '@nuxtjs/dotenv',
   ],
   /*
   ** Nuxt.js modules
@@ -111,7 +128,8 @@ export default {
     },
     redirect: {
       home: false,
-      callback: false 
+      callback: false,
+      logout: false
     }
   },
 }

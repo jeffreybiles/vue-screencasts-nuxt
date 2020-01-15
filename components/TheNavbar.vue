@@ -50,12 +50,15 @@
   export default {
     computed: {
       navLinks(){
+        let user = this.$auth.user
         let links = [
           {text: "Videos", to: "/videos"},
           {text: "Courses", to: "/courses"},
-          {text: "Pro", to: "/pro"}
         ]
-        if(this.$auth.user && this.$auth.user.admin) {
+        if(!user || !user.pro || user.subscription_cancelled) {
+          links.push({text: "Pro", to: "/pro"})
+        }
+        if(user && user.admin) {
           links.push({text: "Admin", to: "/admin/videos"})
         }
         return links;
@@ -64,7 +67,7 @@
       authLinks(){
         if(this.$auth.loggedIn){
           return [
-            {text: this.$auth.user.email, to: "/user"},
+            {text: this.$auth.user.email, to: "/account"},
             {text: "Logout", click: () => {this.$auth.logout()}}
           ]
         } else {

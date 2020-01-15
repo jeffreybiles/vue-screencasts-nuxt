@@ -4,6 +4,9 @@
   "description": "VueJS Screencasts for intermediate and advanced developers",
   "author": "jeffreybiles",
   "private": true,
+  "engines": {
+    "node": "12.13.1"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -19,18 +22,22 @@
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "aws-s3": "^2.0.5",
+    "date-fns": "^2.9.0",
     "highlight.js": "^9.16.2",
     "marked": "^0.7.0",
     "nuxt": "^2.11.0",
     "nuxt-fontawesome": "^0.4.0",
+    "nuxt-stripe-module": "^2.0.0",
     "rsvp": "^4.8.5",
     "vue-shortkey": "^3.1.7",
+    "vue-stripe-elements-plus": "^0.3.2",
     "vue-timers": "^2.0.4",
     "vue-video-player": "^5.0.2",
     "vuetify": "^2.1.15",
     "vuetify-datetime-picker": "^2.1.1"
   },
   "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-analytics": "^2.2.2",
     "@nuxtjs/vuetify": "^2.0.0-alpha.1",
     "cypress": "^3.8.1"

@@ -3,18 +3,20 @@
     <nuxt-link :to="`/courses/${course.id}`">
       
       <!-- TODO: make this more stylish -->
-      <span v-if="decoratedCourse.numProVideos == 0">
-        100% Free!
-      </span>
-      <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
-        Includes a free video!
-      </span>
-      <span v-else>
-        Pro Course
+      <span v-if="showFreeStatus">
+        <span v-if="decoratedCourse.numProVideos == 0">
+          100% Free!
+        </span>
+        <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
+          Includes a free video!
+        </span>
+        <span v-else>
+          Pro Course
+        </span>
       </span>
       
       <v-card hover>
-        <div class="pl-1 course-card">
+        <div class="pl-1 course-card blue-grey darken-1">
           <v-row>
             <v-col cols="3" class="text-center">
               <div class="big">{{ decoratedCourse.numVideos }}</div>
@@ -70,6 +72,10 @@
       course: {
         type: Object,
         required: true
+      },
+      showFreeStatus: {
+        type: Boolean,
+        default: true
       }
     }
   }
@@ -86,8 +92,7 @@
   }
 
   .course-card {
-     background-color: #806780; 
-     color: white;
+    color: white;
   }
 
   @media (min-width: 960px) and (max-width: 1264px) {

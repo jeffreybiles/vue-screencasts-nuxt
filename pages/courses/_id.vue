@@ -9,7 +9,7 @@
           
           <v-spacer />
 
-          <v-btn :to="`/watch/${firstUnplayedVideo.id}`" class="primary">
+          <v-btn :to="`/watch/${firstUnplayedVideo.id}`" class="green accent-3">
             <span v-if="isComplete">Restart</span>
             <span v-else-if="hasPlayedVideos">Continue</span>
             <span v-else>Start</span>

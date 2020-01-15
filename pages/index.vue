@@ -5,7 +5,7 @@
         <h1 class="display-2 text-center">VueJS for the Real World</h1>
         <h3 class="display-1 text-center">Advanced skills. Big projects.</h3>
         <div class="text-center">
-          <v-btn color="primary" text x-large class="mt-2 mb-2" to="/courses">Start Learning Now</v-btn>
+          <v-btn color="green darken-2" outlined x-large class="mt-2 mb-2" to="/courses">Start Learning Now</v-btn>
         </div>
       </v-col>
       <v-col cols="12" md="8">
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 import SocialProofGrid from '@/components/SocialProofGrid.vue';
 import CourseCard from '@/components/CourseCard.vue';
 
@@ -54,15 +54,6 @@ export default {
     ...mapGetters({
       getCourse: 'courses/get'
     }),
-    headers(){
-      return [
-        {text: 'Played', value: 'played', sortable: false, width: "70px"},
-        {text: 'Name', value: 'name'},
-        {text: 'Date', value: 'sortable_published_at'},
-        {text: 'Duration', value: 'duration'},
-        {text: 'Course', value: 'courseName'},
-      ]
-    },
     featuredCourses(){
       return this.course_ids.map(c_id => this.getCourse(c_id))
     },

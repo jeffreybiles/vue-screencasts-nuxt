@@ -15,7 +15,7 @@
         </div>
 
         <div v-if="$auth.loggedIn">
-          <v-btn to="/pro" class="primary ma-5" x-large>Go Pro</v-btn>
+          <v-btn to="/pro" color="green darken-2 grey--text text--lighten-4" class="ma-5" x-large>Go Pro</v-btn>
           <!-- TODO: replace the link with an action that actually lets them sign up on-page -->
           <!-- Then have a smaller "see more details" link below, which goes to the /pro page -->
         </div>
@@ -50,7 +50,8 @@
             <font-awesome-icon icon="check" /> Watched
           </span>
           <span v-else-if="$auth.loggedIn">
-            <v-btn x-small 
+            <v-btn x-small
+                   outlined
                    @click="markPlayed"
                    v-shortkey.once="['m']"
                    @shortkey="markPlayed">

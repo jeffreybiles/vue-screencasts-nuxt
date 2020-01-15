@@ -1,18 +1,25 @@
 <template>
-  <v-container>
-    <h1>Settings</h1>
+  <div>
+    <h1>Account</h1>
 
     Name: {{user.name}}<br>
     Email: {{user.email}}<br>
     Created account on: <DateDisplay :date="new Date(user.created_at)" /><br>
-    The ability to edit name, email, and password are coming soon.  Thanks for your patience!
+
+
+    <v-btn class="mt-2 mb-2" color="green darken-2 grey--text text--lighten-4" to="/account/billing">
+      Billing
+    </v-btn>
+    <v-btn class="mt-2 mb-2" color="green darken-2 grey--text text--lighten-4" to="/account/edit">
+      Edit User Info
+    </v-btn>
     <hr>
 
     <h3>Email Settings</h3>
 
     <p>Subscriptions are tracked on the email provider.  If you haven’t been getting weekly newsletters, but you want to, then click this button to resubscribe.</p>
-    <v-btn color="primary" @click="resubscribe">Resubscribe</v-btn>
-  </v-container>
+    <v-btn color="green darken-2 grey--text text--lighten-4" @click="resubscribe">Resubscribe To Mailing List</v-btn>
+  </div>
 </template>
 
 <script>
