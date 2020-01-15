@@ -1,12 +1,6 @@
 
 <template>
   <v-container>
-    <div class="display-1 text-center pa-3">
-      Study Vue <font-awesome-icon icon="laptop-code" />. 
-      Level Up <font-awesome-icon icon="arrow-up" />. 
-      Leap Forward <font-awesome-icon icon="dollar-sign" />.  
-    </div>
-
     <!-- Uncomment this sales pitch once I'm ready to charge -->
     <!-- <h1>Instant access to a wealth of VueJS knowledge</h1>
     <p>Like most developers, you're either getting paid based on your skills... or you're busy trying to snag a higher-paying gig where you are.</p>

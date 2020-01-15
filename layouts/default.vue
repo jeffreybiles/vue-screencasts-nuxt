@@ -3,7 +3,7 @@
     <TheNavbar />
     <v-content>
       <div class="green darken-4 grey--text text--lighten-5 text-center">
-        VueScreencasts is in Open Beta.  I plan to officially launch mid to late January.  
+        VueScreencasts is feature-complete.  New videos coming soon.  
         Please send me feedback and suggestions 
         via email (<a href="mailto:jeffrey@vuescreencasts.com" class="grey--text text--lighten-5" target="_blank">jeffrey@vuescreencasts.com</a>) 
         or twitter (<a href="https://twitter.com/VueScreencasts" class="grey--text text--lighten-5" target="_blank">@vuescreencasts</a>).
