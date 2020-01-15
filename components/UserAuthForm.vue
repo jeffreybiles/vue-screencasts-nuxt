@@ -11,15 +11,7 @@
                   color="green" 
                   :rules="[required('email'), emailFormat()]"/>
 
-    <v-text-field v-model="userInfo.password"
-                  label="Password"
-                  color="green"
-                  :type="showPassword ? 'text' : 'password'" 
-                  :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                  @click:append="showPassword = !showPassword"
-                  counter=true
-                  :rules="[required('password'), minLength('password', 8)]"
-                  />
+    <UserAuthPassword v-model="userInfo.password" label="Password" />
 
     <div v-if="registrationCheckboxes">
       <!-- v-model connects it with the userInfo hash, value makes the :rules work -->
@@ -48,12 +40,12 @@
 
 <script>
   import validations from "@/utils/validations";
+  import UserAuthPassword from '@/components/UserAuthPassword.vue';
 
   export default {
     data() {
       return {
         valid: false,
-        showPassword: false,
         userInfo: {
           name: '',
           email: '',
@@ -64,6 +56,9 @@
         },
         ...validations
       }
+    },
+    components: {
+      UserAuthPassword
     },
     props: {
       submitForm: {
