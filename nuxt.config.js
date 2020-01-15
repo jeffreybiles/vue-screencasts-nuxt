@@ -23,7 +23,7 @@ export default {
   },
 
   env: {
-    env: process.env.environment,
+    stripeEnv: process.env.stripeEnv,
     stripePublicKey: process.env.stripePublicKey,
   },
   

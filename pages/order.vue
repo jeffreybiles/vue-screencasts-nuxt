@@ -106,7 +106,7 @@
       StripeCard
     },
     data() {
-      let { environment } = this.$root.context.env;
+      let { stripeEnv } = this.$root.context.env;
       return {
         // TODO: when I get Pro courses, start including them here preferentially...
         // I want them seeing what they just gained
@@ -119,7 +119,7 @@
           26 //VueJS: Secure File Upload to S3, Directly from the Browser
         ],
         planId: this.$route.query.plan,
-        plans: subscriptionPlanJson.plans.filter(p => p.env == environment),
+        plans: subscriptionPlanJson.plans.filter(p => p.env == stripeEnv),
       }
     },
     computed: {
