@@ -4,6 +4,9 @@
   "description": "VueJS Screencasts for intermediate and advanced developers",
   "author": "jeffreybiles",
   "private": true,
+  "engines": {
+    "node": "12.13.1"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
