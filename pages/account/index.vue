@@ -1,11 +1,18 @@
 <template>
   <div>
-    <h1>Settings</h1>
+    <h1>Account</h1>
 
     Name: {{user.name}}<br>
     Email: {{user.email}}<br>
     Created account on: <DateDisplay :date="new Date(user.created_at)" /><br>
-    The ability to edit name, email, and password are coming soon.  Thanks for your patience!
+
+
+    <v-btn class="mt-2 mb-2" color="green darken-2 grey--text text--lighten-4" to="/account/billing">
+      Billing
+    </v-btn>
+    <v-btn class="mt-2 mb-2" color="green darken-2 grey--text text--lighten-4" to="/account/edit">
+      Edit User Info
+    </v-btn>
     <hr>
 
     <h3>Email Settings</h3>
