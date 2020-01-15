@@ -6,7 +6,7 @@
       width="100%"
     >
       <v-card-title>
-        <div>Copyright 2019 Happy Programmer LLC</div>
+        <div>Copyright 2019-2020 Happy Programmer LLC</div>
 
         <v-spacer />
         
