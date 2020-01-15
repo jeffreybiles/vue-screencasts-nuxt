@@ -12,7 +12,7 @@
     data(){
       let plans = subscriptionPlanJson.plans;
       let env = this.$root.context.env.environment;
-      console.log(plans, env, this.$root)
+      console.log(plans, env, this.$root.context)
       return {
         plans: plans.filter(p => p.env == env)
       }
