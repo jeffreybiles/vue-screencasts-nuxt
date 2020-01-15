@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "env": "prod",
+      "env": "production",
       "stripeId": "plan_GUbsLVGwbTE2K1",
       "period": "month",
       "fullPrice": 36,
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "env": "prod",
+      "env": "production",
       "stripeId": "plan_GUbw5FDN0z2EHe",
       "period": "year",
       "fullPrice": 290,
