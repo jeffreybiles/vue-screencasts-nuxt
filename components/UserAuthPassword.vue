@@ -29,7 +29,7 @@
         if(this.passwordRequired){
           validations.push(this.required('password'))
         }
-        validations.push(this.min('password', 8))
+        validations.push(this.minLength('password', 8))
         return validations
       }
     },
