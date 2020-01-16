@@ -1,44 +1,24 @@
 <template>
   <v-container>
-    <h1>Roadmap</h1>
+    <h1>Videos</h1>
 
-    <h2>Late December to early January: Open Beta</h2>
-    <p>This open beta should be feature-complete for finding and watching videos.</p>
-    <p>Things could be a little rocky at first as I adjust based on user feedback.</p>
-
-    TODO
+    <p>New videos every week... every day, if I can manage it.</p>
+    <p>Here's a tentative short-term schedule:</p>
     <ul>
-      <li>Connect analytics, basic SEO check, etc.</li>
-      <li>Improve styling of front page</li>
+      <li>Jan. 16th - VueScreencasts Preview</li>
+      <li>Jan. 17th - Removing Tags</li>
+      <li>Jan. 18th - VueX Strict Mode</li>
+      <li>Jan. 19th - Data Structure for Courses</li>
+      <li>We'll continue to build VueScreencasts.com in the free courses</li>
     </ul>
+    <br>
+    <p>Pro screencasts will cover topics in even more depth.  Currently researching, first pro series coming soon.</p>
 
-    <h2>Early to mid January: Launch</h2>
-
-    <p>At this point we'll be ready for prime time</p>
-    <p>I'll start releasing new videos every week.</p>
-    <p>There will be a MAJOR discount for those who believe in the project this early.</p>
-    
-    TODO
-    <ul>
-      <li>Payment features</li>
-      <li>Backend email features</li>
-      <li> Update based on feedback
-        <ul>
-          <li>Update UI</li>
-          <li>Fix bugs</li>
-          <li>Fix errors in videos</li>
-        </ul>
-      </li>
-      <li>Plan first few weeks of videos</li>
-    </ul>
-
-    <h2>After launch</h2>
-    <p>I'll be releasing new videos every week, and steadily improving the user experience.</p>
-
-    TODO
+    <h1>Upgrades/Features</h1>
     <ul>
       <li>Refresh visual design</li>
       <li>Improve thumbnails for courses</li>
+      <li>"Watched" list</li>
       <li>"Watch Later" list</li>
       <li>Team Admin accounts</li>
       <li>Bugfixes, video fixes, and UI improvements</li>
