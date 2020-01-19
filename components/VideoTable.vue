@@ -27,18 +27,6 @@
           <font-awesome-icon icon="check" /> 
         </div>
       </template>
-      <template #item.tags="{item}">
-        <td @click.stop class="non-clickable">
-          <span v-for="tag_id in item.tag_ids" :key="tag_id">
-            <v-btn color="green lighten-2"
-                    :to="`/tags/${tag_id}`"
-                    x-small
-                    class="mr-1">
-              {{ getTag(tag_id).name }}
-            </v-btn>
-          </span>
-        </td>
-      </template>
       <template #item.actions="{item}">
         <td @click.stop class="non-clickable">
           <v-btn small :to="`/watch/${item.id}`">Watch</v-btn>
@@ -86,7 +74,6 @@ import _ from 'lodash'
     computed: {
       ...mapGetters({
         isPlayed: 'user/videoIsPlayed',
-        getTag: 'tags/get',
       }),
       mungedVideos(){
         return this.videos.map((v)=>{
@@ -107,14 +94,8 @@ import _ from 'lodash'
       },
       filter(value, search, item) {
         let inName = RegExp(search, 'i').test(item.name)
- 
-        let tagMatches = item.tag_ids.map(id => {
-          let tag = this.getTag(id)
-          return RegExp(search, 'i').test(tag.name)
-        })
-        let inTags = _.some(tagMatches)
- 
-        return inName || inTags
+
+        return inName
       },
       deleteVideo(video) {
         let response = confirm(`Are you sure you want to delete ${video.name}`)

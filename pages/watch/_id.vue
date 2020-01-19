@@ -18,14 +18,6 @@
         </div>
 
         <MarkdownDisplay :markdown="video.description" />
-        
-        <span v-for="tag_id in video.tag_ids" :key="tag_id">
-          <v-btn color="green lighten-2"
-                 :to="`/tags/${tag_id}`"
-                 class="mr-1 mb-2">
-            {{ getTag(tag_id).name }}
-          </v-btn>
-        </span>
       </v-col>
     </v-row>
     <v-row>
@@ -55,7 +47,6 @@ export default {
       isPlayed: 'user/videoIsPlayed'
     }),
     ...mapState({
-      tags: state => state.tags.tags,
       videos: state => state.videos.videos
     }),
     video(){
@@ -63,9 +54,6 @@ export default {
     },
   },
   methods: {
-    getTag(tagId) {
-      return this.tags.find(t => t.id == tagId);
-    },
     markPlayed(){
       this.$store.dispatch('user/markVideoPlayed', this.video.id)
     }
