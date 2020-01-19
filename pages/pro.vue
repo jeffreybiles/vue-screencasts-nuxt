@@ -29,12 +29,12 @@
     </p>
 
     <p class="subheader">
-      To do that, I'm going to be releasing massive numbers of videos... a new one most workdays (starting mid-January).
+      To do that, I'm going to be releasing massive numbers of videos... I'm guaranteeing new videos every week, but I'm going to try and give you <strong>a new video every day</strong>, starting January 19, 2020.
       And these videos aren't going to just be the "first fifteen minutes with X" you see all over YouTube... 
       they're in-depth, and advanced developers have commented, telling me they've been learning from them.  Sometimes even the videos I thought were for beginners!
     </p>
     
-    <p>Yeah, the site needs a designer.  Yeah, there's only free content so far (although pro-only content is going to start raining down soon).  It's not perfect.</p>
+    <p>Yeah, the site needs a designer.  Yeah, there's only free content so far.  It's not perfect.</p>
     <p>That's why, as a 'thank you' for believing in the project, I'm giving you the biggest deal I'll ever offer.</p>
 
     <p class="display-1">Order now and get <strong>75% off</strong> the monthly subscription.</p>
@@ -47,13 +47,13 @@
     
     <ul>
       <li>Instant access to <strong>all Pro courses and videos</strong>.</li>
-      <li>(coming soon) <strong>New videos (yes, that's plural) every week</strong>.</li>
+      <li><strong>New videos every week (maybe every day?)</strong>.</li>
       <li>(coming soon) Ability to <strong>download videos for offline viewing</strong>.</li>
       <li>(coming soon) More votes on <strong>user-selected topics</strong>.</li>
       <li>25% of your subscription goes to help <strong>support the VueJS community</strong>.</li>
     </ul>
 
-    <p class="subheader pt-2">When does the sale end? Soon. Before the end of January.  I'll announce it <a href="https://twitter.com/VueScreencasts" target="_blank">on twitter</a>.</p>
+    <p class="subheader pt-2">When does the sale end? Soon. Before the end of January.  I'll announce it <a href="https://twitter.com/VueScreencasts" target="_blank">on twitter</a> about a day ahead of time, but I wouldn't count on seeing that message.</p>
 
     <p class="headline text-center">What are you waiting for?</p>
 
@@ -68,6 +68,20 @@
   export default {
     components: {
       SubscriptionLinks
+    },
+    head(){
+      let title = `Become a VueScreencasts Pro`
+      let description = "Pro members get access to every single video in our library, and more member-exclusive perks are coming soon."
+      return {
+        title: title,
+        meta: [
+          {hid: 'description', property: 'description', content: description},
+          {hid: 'og-description', property: 'og:description', content: description},
+          {hid: 'twitter-description', property: 'twitter:description', content: description},
+          {hid: 'og-title', property: 'og:title', content: title},
+          {hid: 'twitter-title', property: 'twitter:title', content: title},
+        ]
+      }
     }
   }
 </script>
