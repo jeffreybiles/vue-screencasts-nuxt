@@ -41,7 +41,7 @@
 <script>
 import { mapState } from 'vuex';
 export default {
-  middleware: 'load-videos-and-tags',
+  middleware: 'preload-data',
   computed: {
     ...mapState({
       snackbars: state => state.snackbar.snackbars
