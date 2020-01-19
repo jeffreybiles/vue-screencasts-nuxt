@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="0" sm="4">
-        <v-img :src="course.image_url || ''" class="thumbnail-image mb-2" />
+        <v-img :src="thumbnail || ''" class="thumbnail-image mb-2" />
 
         <v-row class="ma-0">
           <DifficultyBars :difficulty="course.difficulty" :verbose="true" />
@@ -37,6 +37,7 @@
   import courseDecorator, { sortCourse, percentVideosComplete } from '../../utils/course-decorator';
   import MarkdownDisplay from '@/components/MarkdownDisplay.vue';
   import DifficultyBars from '@/components/DifficultyBars.vue';
+  import {getCourseThumbnail} from '@/utils/video-decorator';
 
   export default {
     components: {
@@ -91,6 +92,9 @@
         } else {
           return this.sortedVideos[0]
         }
+      },
+      thumbnail(){
+        return getCourseThumbnail(this.course.id, this.$store).split(' ').join('+');
       }
     },
   }

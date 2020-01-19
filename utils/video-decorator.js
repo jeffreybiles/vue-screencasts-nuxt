@@ -1,10 +1,18 @@
 export const getThumbnail = function(video, store) {
-  let getCourse = store.getters['courses/get'];
-
   if(video.thumbnail) {
     return video.thumbnail
   } else {
-    let course = getCourse(video.course_id)
-    return course && course.image_url
+    return getCourseThumbnail(video.course_id, store);
   }  
+}
+
+export const getCourseThumbnail = function(course_id, store) {
+  let getCourse = store.getters['courses/get'];
+
+  let course = getCourse(course_id);
+  if(course) {
+    return course.image_url || 
+           (course.parent_id && getCourseThumbnail(course.parent_id, store)) || 
+           '' 
+  }
 }
