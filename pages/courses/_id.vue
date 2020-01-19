@@ -103,6 +103,8 @@
       return {
         title: title,
         meta: [
+          {hid: 'description', property: 'description', content: this.course.description},
+          {hid: 'twitter-description', property: 'twitter:description', content: this.course.description},
           {hid: 'og-title', property: 'og:title', content: title},
           {hid: 'og-type', property: 'og:type', content: 'website'},
           {hid: 'og-url', property: 'og:url', content: `https://www.vuescreencasts.com/courses/${this.course.id}`},

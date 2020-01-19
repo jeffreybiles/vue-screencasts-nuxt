@@ -68,6 +68,20 @@
           return this.difficulties[course.difficulty] && this.progress[progress]
         })
       }
+    },
+    head(){
+      let title = `VueScreencasts - ${this.courses.length} courses available`
+      let description = "Come browse our ever-growing library of Vue-related video courses"
+      return {
+        title: title,
+        meta: [
+          {hid: 'description', property: 'description', content: description},
+          {hid: 'og-description', property: 'og:description', content: description},
+          {hid: 'twitter-description', property: 'twitter:description', content: description},
+          {hid: 'og-title', property: 'og:title', content: title},
+          {hid: 'twitter-title', property: 'twitter:title', content: title},
+        ]
+      }
     }
   }
 </script>

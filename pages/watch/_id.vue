@@ -249,7 +249,11 @@ export default {
     return {
       title: title,
       meta: [
+        {hid: 'description', property: 'description', content: this.video.description},
+        {hid: 'og-description', property: 'og:description', content: this.video.description},
+        {hid: 'twitter-description', property: 'twitter:description', content: this.video.description},
         {hid: 'og-title', property: 'og:title', content: title},
+        {hid: 'twitter-title', property: 'twitter:title', content: title},
         {hid: 'og-type', property: 'og:type', content: 'video.other'},
         {hid: 'og-url', property: 'og:url', content: `https://www.vuescreencasts.com/watch/${this.video.id}`},
         {hid: 'og-site-name', property: 'og:site_name', content: "VueScreencasts.com"},
@@ -264,8 +268,6 @@ export default {
         {hid: 'og-image-height', property: 'og:image:height', content: 720},
         {hid: 'og-image-type', property: 'og:image:type', content: "image/jpeg"},
         {hid: 'twitter-img-src', name: 'twitter:image:src', property: 'twitter:image:src', content: thumbnail},
-        {hid: 'twitter-title', property: 'twitter:title', content: title},
-        {hid: 'og-description', property: 'og:description', content: this.video.description},
       ]
     }
   },

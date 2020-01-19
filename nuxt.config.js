@@ -6,9 +6,9 @@ export default {
   head: {
     title: 'Vue Screencasts - Learn VueJS through video tutorials',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
+      {charset: 'utf-8' },
+      {name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
       {hid: 'og-title', property: 'og:title', content: 'VueScreencasts - Learn VueJS through video tutorials'},
       {hid: 'og-site-name', property: 'og:site_name', content: "VueScreencasts.com"},
       {hid: 'og-image', property: 'og:image', content: 'https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/thumbnails/logo.png'},

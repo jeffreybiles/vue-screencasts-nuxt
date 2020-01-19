@@ -38,6 +38,20 @@
       goToVideoShow(video) {
         this.$router.push(`/admin/videos/${video.id}`)
       },
+    },
+    head(){
+      let title = `VueScreencasts - ${this.videos.length} videos available`
+      let description = "Come browse our ever-growing library of Vue-related videos"
+      return {
+        title: title,
+        meta: [
+          {hid: 'description', property: 'description', content: description},
+          {hid: 'og-description', property: 'og:description', content: description},
+          {hid: 'twitter-description', property: 'twitter:description', content: description},
+          {hid: 'og-title', property: 'og:title', content: title},
+          {hid: 'twitter-title', property: 'twitter:title', content: title},
+        ]
+      }
     }
   }
 </script>
