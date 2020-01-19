@@ -16,6 +16,13 @@ export default {
       {property: 'og:image:width', content: 1280},
       {property: 'og:image:height', content: 720},
       {property: 'og:image:type', content: "image/jpeg"},
+      {property: 'twitter:card'},
+      {property: 'twitter:site', content: 'VueScreencasts.com'},
+      {property: 'twitter:creator', content: 'vuescreencasts'},
+
+      // Overwrite the following in different pages
+      {property: 'twitter:image', content: 'https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/thumbnails/logo.png'},
+      {property: 'twitter:title', content: 'VueScreencasts.com'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
