@@ -3,11 +3,10 @@
     <TheNavbar />
     <v-content>
       <div class="green darken-4 grey--text text--lighten-5 text-center">
-        VueScreencasts is feature-complete.
+        January 19th: We're launched!
         <span v-if="!($auth.user && !$auth.user.pro)">
           <nuxt-link  to="/pro" class="grey--text text--lighten-5">Subscribe now</nuxt-link> for huge discounts.
         </span>
-        New videos coming soon.  
         Send feedback and suggestions 
         via email (<a href="mailto:jeffrey@vuescreencasts.com" class="grey--text text--lighten-5" target="_blank">jeffrey@vuescreencasts.com</a>) 
         or twitter (<a href="https://twitter.com/VueScreencasts" class="grey--text text--lighten-5" target="_blank">@vuescreencasts</a>).
