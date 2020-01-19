@@ -97,6 +97,30 @@
         return getCourseThumbnail(this.course.id, this.$store).split(' ').join('+');
       }
     },
+    head(){
+      let title = `${this.course.name} - VueScreencasts Course`
+
+      return {
+        title: title,
+        meta: [
+          {property: 'og:title', content: title},
+          {property: 'og:type', content: 'video.other'},
+          {property: 'og:url', content: `https://www.vuescreencasts.com/courses/${this.course.id}`},
+          {property: 'og:site_name', content: "VueScreencasts.com"},
+          {property: 'og:video:type', content: 'text/html'},
+          {property: 'og:video:width', content: 1280},
+          {property: 'og:video:height', content: 720},
+          {property: 'og:image', content: this.thumbnail},
+          {property: 'og:image:url', content: this.thumbnail},
+          {property: 'og:image:width', content: 1280},
+          {property: 'og:image:height', content: 720},
+          {property: 'og:image:type', content: "image/jpeg"},
+          {name: 'twitter:image:src', property: 'twitter:image:src', content: this.thumbnail},
+          {property: 'twitter:title', content: title},
+          {property: 'og:description', content: this.course.description},
+        ]
+      }
+    },
   }
 </script>
 

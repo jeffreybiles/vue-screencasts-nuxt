@@ -155,34 +155,6 @@ export default {
     VideoWatchCompleteModal,
     UserAuthTogglableForm
   },
-  head(){
-    let title = `${this.video.name} - VueScreencasts`
-    let thumbnail = getThumbnail(this.video, this.$store).split(' ').join('+')
-    let videoUrl = this.video.videoUrl
-    let video = videoUrl && videoUrl.split(' ').join('+')
-
-    return {
-      title: title,
-      meta: [
-        {property: 'og:title', content: title},
-        {property: 'og:type', content: 'video.other'},
-        {property: 'og:url', content: `https://www.vuescreencasts.com/watch/${this.video.id}`},
-        {property: 'og:site_name', content: "VueScreencasts.com"},
-        {property: 'og:video:url', content: video},
-        {property: 'og:video:secure_url', content: video},
-        {property: 'og:video:type', content: 'text/html'},
-        {property: 'og:video:width', content: 1280},
-        {property: 'og:video:height', content: 720},
-        {property: 'og:image', content: thumbnail},
-        {property: 'og:image:url', content: thumbnail},
-        {property: 'og:image:width', content: 1280},
-        {property: 'og:image:height', content: 720},
-        {property: 'og:image:type', content: "image/jpeg"},
-        {name: 'twitter:image:src', property: 'twitter:image:src', content: thumbnail},
-        {property: 'og:description', content: this.video.description},
-      ]
-    }
-  },
   computed: {
     ...mapGetters({
       isPlayed: 'user/videoIsPlayed',
@@ -267,7 +239,36 @@ export default {
         this.$router.push(`/courses`)
       }
     }
-  }
+  },
+  head(){
+    let title = `${this.video.name} - VueScreencasts`
+    let thumbnail = getThumbnail(this.video, this.$store).split(' ').join('+')
+    let videoUrl = this.video.videoUrl
+    let video = videoUrl && videoUrl.split(' ').join('+')
+
+    return {
+      title: title,
+      meta: [
+        {property: 'og:title', content: title},
+        {property: 'og:type', content: 'video.other'},
+        {property: 'og:url', content: `https://www.vuescreencasts.com/watch/${this.video.id}`},
+        {property: 'og:site_name', content: "VueScreencasts.com"},
+        {property: 'og:video:url', content: video},
+        {property: 'og:video:secure_url', content: video},
+        {property: 'og:video:type', content: 'text/html'},
+        {property: 'og:video:width', content: 1280},
+        {property: 'og:video:height', content: 720},
+        {property: 'og:image', content: thumbnail},
+        {property: 'og:image:url', content: thumbnail},
+        {property: 'og:image:width', content: 1280},
+        {property: 'og:image:height', content: 720},
+        {property: 'og:image:type', content: "image/jpeg"},
+        {name: 'twitter:image:src', property: 'twitter:image:src', content: thumbnail},
+        {property: 'twitter:title', content: title},
+        {property: 'og:description', content: this.video.description},
+      ]
+    }
+  },
 }
 </script>
 
