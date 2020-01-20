@@ -1,10 +1,12 @@
 <template>
   <v-form v-model="valid">
-    <v-text-field v-model="video.name" 
+    <v-text-field :value="video.name" 
+                  @input="updateVideo('name', $event)"
                   label="Name" 
                   counter=50
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
-    <v-text-field v-model="video.duration"
+    <v-text-field :value="video.duration"
+                  @input="updateVideo('duration', $event)"
                   label="Duration (in seconds)" >
       <template #prepend>
         <span class="duration-display">
@@ -29,10 +31,13 @@
       </v-col>
     </v-row>
 
-    <v-datetime-picker label="Select Datetime" v-model="video.published_at"> </v-datetime-picker>   
+    <v-datetime-picker label="Select Datetime" 
+                      :datetime="video.published_at" 
+                      @input="updateVideo('published_at', $event)" />
 
     <MarkdownEditor :markdown="video.description">
-      <v-textarea v-model="video.description" 
+      <v-textarea :value="video.description"
+                  @input="updateVideo('description', $event)"
                   label="Description" 
                   counter=true
                   rows="9"
@@ -41,7 +46,8 @@
 
     <MarkdownEditor :markdown="video.code_summary">
       <template #default>
-        <v-textarea v-model="video.code_summary"
+        <v-textarea :value="video.code_summary"
+                    @input="updateVideo('code_summary', $event)"
                     label="Code Summary" 
                     rows="12" />
       </template>
@@ -72,6 +78,11 @@
       return {
         valid: false,
         ...validations
+      }
+    },
+    methods: {
+      updateVideo(fieldName, newValue){
+        this.$store.dispatch('videos/updateField', {video: this.video, fieldName, newValue})
       }
     },
     props: {
