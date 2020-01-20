@@ -1,5 +1,4 @@
 import {getData, deserializeVideos, editMutation} from '@/utils/store-utils';
-import Vue from 'vue'
 
 export const state = () => ({
   videos: [],
