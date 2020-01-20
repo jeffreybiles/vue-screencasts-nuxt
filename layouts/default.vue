@@ -24,14 +24,14 @@
     <v-snackbar
       v-for="(snackbar, index) in snackbars.filter(s => s.showing)"
       :key="snackbar.text + Math.random()"
-      v-model="snackbar.showing"
+      :value="snackbar.showing"
       :timeout="snackbar.timeout"
       :color="snackbar.color"
       :style="`bottom: ${(index * 60) + 8}px`"
     >
       {{snackbar.text}}
 
-      <v-btn text @click="snackbar.showing = false">
+      <v-btn text @click="() => hideSnackbar(snackbar)">
         Close
       </v-btn>
     </v-snackbar>
@@ -47,6 +47,11 @@ export default {
       snackbars: state => state.snackbar.snackbars
     })
   },
+  methods: {
+    hideSnackbar(snackbar) {
+      this.$store.dispatch('snackbar/hideSnackbar', snackbar)
+    }
+  }
 }
 </script>
 <style>
