@@ -671,6 +671,30 @@
       "link": "https://www.youtube.com/watch?v=SGGW8qbsXTg&lc=UgwhX3cGCmBSArOEZoV4AaABAg.93M8O2IKhKI93OLFEC15I9",
       "name": "D Durham",
       "img_url": "D+Durham.jpg"
+    }, {
+      "id": 78,
+      "message": "This is an amazing tutorial, especially for beginners. I love how you even go through the package.json. Nice work!",
+      "message_priority": 8,
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgyeZpKM2Ebngvx9kF94AaABAg",
+      "name": "Jin Tak",
+      "real_name": true,
+      "img_url": "Jin+Tak.jpg"
+    }, {
+      "id": 79,
+      "message": "Спасибо за урок. Никак не мог решить проблему с milddleware, но теперь все встало на свои места. (Thank you for the lesson. I could not solve the problem with milddleware in any way, but now everything fell into place.)",
+      "message_priority": 8,
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgxEoT3-Dc_iALqwGcl4AaABAg",
+      "name": "Адам Янг",
+      "real_name": true,
+      "img_url": "Адам+Янг.jpg"
+    }, {
+      "id": 80,
+      "message": "👍👍👍👍Great",
+      "message_priority": 4,
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgyiVUhWPES2sc6WijN4AaABAg",
+      "name": "Muhammed Owais",
+      "real_name": true,
+      "img_url": "Muhammed+Owais.jpg"
     }
   ]
 }
