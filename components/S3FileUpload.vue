@@ -58,13 +58,17 @@
             .uploadFile(file, this.newFileName).finally(()=>{
               this.isLoading = false
               let fileExtension = file.type.split('/')[1]
-              this.obj[this.fieldName] = `${this.url}.${fileExtension}`
+              this.updateFunction(this.fieldName, `${this.url}.${fileExtension}`)
             })
       }
     },
     props: {
       fieldName: {
         type: String,
+        required: true
+      },
+      updateFunction: {
+        type: Function,
         required: true
       },
       obj: {

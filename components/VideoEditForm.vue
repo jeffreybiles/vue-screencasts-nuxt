@@ -18,10 +18,12 @@
     <v-row>
       <v-col cols="12" sm="9" md="10">
         <S3FileUpload :obj="video" 
+                      :updateFunction="updateVideo"
                       fieldName="videoUrl" 
                       directory="videos" 
                       label="Video File"/>
         <S3FileUpload :obj="video" 
+                      :updateFunction="updateVideo"
                       fieldName="thumbnail" 
                       directory="thumbnails" 
                       label="Thumbnail Image" />
