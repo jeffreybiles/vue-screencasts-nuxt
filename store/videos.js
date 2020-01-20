@@ -19,6 +19,9 @@ export const mutations = {
   EDIT_VIDEO(state, video) {
     let v = state.videos.find(v => v.id == video.id)
     v = video;
+  },
+  UPDATE(state, {video, property, newValue}) {
+    video[property] = newValue;
   }
 }
 
@@ -40,6 +43,9 @@ export const actions = {
     if(response.status == 200 || response.status == 204){
       commit('DELETE_VIDEO', video.id);
     }
+  },
+  async update({commit}, {video, property, newValue}) {
+    commit('UPDATE', {video, property, newValue})
   },
   async edit({commit}, video) {
     let response = await this.$axios.put(`/videos/${video.id}`, video);
