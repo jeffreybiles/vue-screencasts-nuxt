@@ -19,7 +19,7 @@
     data(){
       return {
         isLoading: false,
-        uploadObject: {name: this.obj[this.fieldName] || ""}
+        uploadObject: {name: this.name || ''}
       }
     },
     computed: {
@@ -58,17 +58,20 @@
             .uploadFile(file, this.newFileName).finally(()=>{
               this.isLoading = false
               let fileExtension = file.type.split('/')[1]
-              this.obj[this.fieldName] = `${this.url}.${fileExtension}`
+              this.updateFunction(this.fieldName, `${this.url}.${fileExtension}`);
             })
       }
     },
     props: {
+      name: {
+        type: String
+      },
       fieldName: {
         type: String,
         required: true
       },
-      obj: {
-        type: Object,
+      updateFunction: {
+        type: Function,
         required: true
       },
       directory: {

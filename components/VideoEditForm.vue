@@ -17,12 +17,14 @@
 
     <v-row>
       <v-col cols="12" sm="9" md="10">
-        <S3FileUpload :obj="video" 
-                      fieldName="videoUrl" 
+        <S3FileUpload :name="video.videoUrl" 
+                      fieldName="videoUrl"
+                      :updateFunction="updateVideo"
                       directory="videos" 
                       label="Video File"/>
-        <S3FileUpload :obj="video" 
+        <S3FileUpload :name="video.thumbnail" 
                       fieldName="thumbnail" 
+                      :updateFunction="updateVideo"
                       directory="thumbnails" 
                       label="Thumbnail Image" />
       </v-col>
