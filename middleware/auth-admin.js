@@ -3,7 +3,7 @@ export default async function({$auth, redirect, store}) {
   if(user && user.admin) {
     // let the user in
   } else {
-    store.dispatch('snackbar/setSnackbar', {color: 'error', text: "You must be an admin to view that page."})
+    store.dispatch('snackbar/create', {color: 'error', text: "You must be an admin to view that page."})
     redirect('/')
   }
 }

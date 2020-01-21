@@ -5,18 +5,18 @@ export const state = () => ({
 })
 
 export const mutations = {
-  SET_VIDEOS(state, videos) {
+  SET(state, videos) {
     state.videos = videos;
   },
-  ADD_VIDEO(state, video) {
+  ADD(state, video) {
     let videos = state.videos.concat(video);
     state.videos = videos;
   },
-  DELETE_VIDEO(state, videoId){
+  DELETE(state, videoId){
     let videos = state.videos.filter(v => v.id != videoId)
     state.videos = videos;
   },
-  EDIT_VIDEO(state, video) {
+  EDIT(state, video) {
     let v = state.videos.find(v => v.id == video.id)
     v = video;
   }
@@ -27,24 +27,24 @@ export const actions = {
     let {data: videos} = await getData('/videos', this.$axios)
     deserializeVideos(videos)
 
-    commit('SET_VIDEOS', videos.map(v => v.attributes));
+    commit('SET', videos.map(v => v.attributes));
   },
   async create({commit}, video) {
     let response = await this.$axios.post('/videos', video);
     let savedVideo = response.data.data.attributes;
-    commit('ADD_VIDEO', savedVideo);
+    commit('ADD', savedVideo);
     return savedVideo;
   },
   async delete({commit}, video) {
     let response = await this.$axios.delete(`/videos/${video.id}`);
     if(response.status == 200 || response.status == 204){
-      commit('DELETE_VIDEO', video.id);
+      commit('DELETE', video.id);
     }
   },
   async edit({commit}, video) {
     let response = await this.$axios.put(`/videos/${video.id}`, video);
     let newVideo = response.data.data.attributes;
-    commit('EDIT_VIDEO', newVideo);
+    commit('EDIT', newVideo);
     return newVideo;
   },
 }
