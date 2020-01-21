@@ -58,6 +58,7 @@
       </template>
     </MarkdownEditor>
 
+    <v-btn @click="cancel">Cancel</v-btn>
     <v-btn @click="saveVideo" :disabled="!valid">{{buttonText}}</v-btn>
   </v-form>
 </template>
@@ -85,6 +86,9 @@
     methods: {
       updateVideo(fieldName, newValue){
         this.$store.dispatch('videos/updateField', {video: this.video, fieldName, newValue})
+      },
+      cancel(){
+        this.cancelAction()
       }
     },
     props: {
@@ -98,6 +102,10 @@
       }, 
       buttonText: {
         type: String,
+        required: true
+      },
+      cancelAction: {
+        type: Function,
         required: true
       }
     }
