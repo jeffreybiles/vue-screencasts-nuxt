@@ -1,55 +1,48 @@
 <template>
   <v-form v-model="valid">
-    <v-text-field :value="video.name" 
-                  @input="updateVideo('name', $event)"
+    <v-text-field v-model="videoChangeset.name" 
                   label="Name" 
                   counter=50
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
-    <v-text-field :value="video.duration"
-                  @input="updateVideo('duration', $event)"
+    <v-text-field v-model="videoChangeset.duration"
                   label="Duration (in seconds)" >
       <template #prepend>
         <span class="duration-display">
-          <DurationDisplay :duration="video.duration" />
+          <DurationDisplay :duration="videoChangeset.duration" />
         </span>
       </template>
     </v-text-field>
 
     <v-row>
       <v-col cols="12" sm="9" md="10">
-        <S3FileUpload :obj="video" 
-                      :updateFunction="updateVideo"
+        <S3FileUpload :obj="videoChangeset" 
                       fieldName="videoUrl" 
                       directory="videos" 
                       label="Video File"/>
-        <S3FileUpload :obj="video" 
-                      :updateFunction="updateVideo"
+        <S3FileUpload :obj="videoChangeset" 
                       fieldName="thumbnail" 
                       directory="thumbnails" 
                       label="Thumbnail Image" />
       </v-col>
       <v-col cols="12" sm="3" md="2">
-        <VideoWatch :video="video" />
+        <VideoWatch :video="videoChangeset" />
       </v-col>
     </v-row>
 
     <v-datetime-picker label="Select Datetime" 
-                      :datetime="video.published_at" 
-                      @input="updateVideo('published_at', $event)" />
+                      v-model="videoChangeset.published_at" />
 
-    <MarkdownEditor :markdown="video.description">
-      <v-textarea :value="video.description"
-                  @input="updateVideo('description', $event)"
+    <MarkdownEditor :markdown="videoChangeset.description">
+      <v-textarea v-model="videoChangeset.description"
                   label="Description" 
                   counter=true
                   rows="9"
                   :rules="[required('description'), minLength('description', 20)]"/>
     </MarkdownEditor>
 
-    <MarkdownEditor :markdown="video.code_summary">
+    <MarkdownEditor :markdown="videoChangeset.code_summary">
       <template #default>
-        <v-textarea :value="video.code_summary"
-                    @input="updateVideo('code_summary', $event)"
+        <v-textarea v-model="videoChangeset.code_summary"
                     label="Code Summary" 
                     rows="12" />
       </template>
@@ -59,7 +52,7 @@
     </MarkdownEditor>
 
     <v-btn @click="cancel">Cancel</v-btn>
-    <v-btn @click="saveVideo" :disabled="!valid">{{buttonText}}</v-btn>
+    <v-btn @click="saveVideo(videoChangeset)" :disabled="!valid">{{buttonText}}</v-btn>
   </v-form>
 </template>
 
@@ -69,6 +62,7 @@
   import MarkdownEditor from '@/components/MarkdownEditor';
   import VideoWatch from '@/components/VideoWatch';
   import S3FileUpload from '@/components/S3FileUpload';
+  import _ from 'lodash';
 
   export default {
     components: {
@@ -80,13 +74,11 @@
     data() {
       return {
         valid: false,
-        ...validations
+        ...validations,
+        videoChangeset: _.cloneDeep(this.video)
       }
     },
     methods: {
-      updateVideo(fieldName, newValue){
-        this.$store.dispatch('videos/updateField', {video: this.video, fieldName, newValue})
-      },
       cancel(){
         this.cancelAction()
       }

@@ -19,9 +19,6 @@ export const mutations = {
   EDIT_VIDEO(state, video) {
     let v = state.videos.find(v => v.id == video.id)
     v = video;
-  },
-  UPDATE_FIELD(state, {video, fieldName, newValue}) {
-    video[fieldName] = newValue;
   }
 }
 
@@ -49,9 +46,6 @@ export const actions = {
     let newVideo = response.data.data.attributes;
     commit('EDIT_VIDEO', newVideo);
     return newVideo;
-  },
-  async updateField({commit}, {video, fieldName, newValue}) {
-    commit('UPDATE_FIELD', {video, fieldName, newValue})
   }
 }
 
