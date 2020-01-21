@@ -101,7 +101,7 @@ import _ from 'lodash'
         let response = confirm(`Are you sure you want to delete ${video.name}`)
         if(response){
           this.$store.dispatch('videos/delete', video);
-          this.$store.dispatch('snackbar/setSnackbar', {text: `You have successfully deleted your video, ${video.name}.`});
+          this.$store.dispatch('snackbar/create', {text: `You have successfully deleted your video, ${video.name}.`});
         }
       }
     },
