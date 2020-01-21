@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1>Video Create Page</h1>
-    <VideoEditForm :video="video" :saveVideo="createVideo" buttonText="Create Video" />
+    <VideoEditForm :video="video" :saveVideo="createVideo" buttonText="Create Video" :cancelAction="cancel" />
   </v-container>
 </template>
 
@@ -22,6 +22,9 @@
         let video = await this.$store.dispatch('videos/create', this.video);
         this.$store.dispatch('snackbar/create', {text: `You have successfully created a new video, ${video.name}.`});
         this.$router.push(`/admin/videos/${video.id}`);
+      },
+      cancel() {
+        this.$router.push(`/admin/videos`);
       }
     },
   }
