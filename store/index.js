@@ -1,5 +1,5 @@
 
-export const strict = true
+export const strict = process.env.NODE_ENV !== 'production';
 
 export const state = () => ({
   isLoaded: false,
