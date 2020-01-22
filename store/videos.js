@@ -1,4 +1,5 @@
 import {getData, deserializeVideos} from '@/utils/store-utils';
+import Vue from 'vue';
 
 export const state = () => ({
   videos: [],
@@ -16,9 +17,10 @@ export const mutations = {
     let videos = state.videos.filter(v => v.id != videoId)
     state.videos = videos;
   },
-  EDIT(state, video) {
-    let v = state.videos.find(v => v.id == video.id)
-    v = video;
+  EDIT(state, newVideo) {
+    let vIndex = state.videos.findIndex(v => v.id == newVideo.id)
+    
+    Vue.set(state.videos, vIndex, newVideo)
   },
   UPDATE_FIELD(state, {video, fieldName, newValue}) {
     video[fieldName] = newValue;
@@ -46,9 +48,10 @@ export const actions = {
   },
   async edit({commit}, video) {
     let response = await this.$axios.put(`/videos/${video.id}`, video);
-    let newVideo = response.data.data.attributes;
-    commit('EDIT', newVideo);
-    return newVideo;
+    let newVideo = response.data.data;
+    deserializeVideos([newVideo])
+    commit('EDIT', newVideo.attributes);
+    return newVideo.attributes;
   },
   async updateField({commit}, {video, fieldName, newValue}) {
     commit('UPDATE_FIELD', {video, fieldName, newValue})
