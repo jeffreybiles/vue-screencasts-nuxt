@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <VideoEditForm :video="video" :saveVideo="saveVideo" buttonText="Save Video" />
+    <VideoEditForm :video="video" :saveVideo="saveVideo" buttonText="Save Video" :cancelAction="cancel"/>
   </v-container>
 </template>
 
@@ -24,11 +24,14 @@
       }
     },
     methods: {
-      async saveVideo() {
-        let video = await this.$store.dispatch('videos/edit', this.video);
+      async saveVideo(newVideo) {
+        let video = await this.$store.dispatch('videos/edit', newVideo);
         this.$store.dispatch('snackbar/create', {text: `You have successfully edited your video, ${video.name}.`});
         this.$router.push(`/admin/videos/${video.id}`);
       },
+      cancel(){
+        this.$router.push(`/admin/videos/${this.video.id}`)
+      }
     },
   }
 </script>
