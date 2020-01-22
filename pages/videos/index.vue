@@ -11,8 +11,10 @@
 <script>
   export default {
     async asyncData({$axios}) {
+      console.log("gonna call")
       let response = await $axios.get('/videos')
-      let videos = response.data.data.map(v => v.attributes);
+      console.log("called", response)
+      let videos = response.data.data.map(v => { return {...v.attributes, id: v.id}});
 
       return {
         videos
