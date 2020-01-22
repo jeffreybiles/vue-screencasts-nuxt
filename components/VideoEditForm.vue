@@ -1,7 +1,6 @@
 <template>
   <v-form v-model="valid">
-    <v-text-field :value="video.name" 
-                  @input="updateVideo('name', $event)"
+    <v-text-field v-model="videoChangeset.name" 
                   label="Name" 
                   counter=50
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
@@ -59,7 +58,7 @@
     </MarkdownEditor>
 
     <v-btn @click="cancel">Cancel</v-btn>
-    <v-btn @click="saveVideo" :disabled="!valid">{{buttonText}}</v-btn>
+    <v-btn @click="save" :disabled="!valid">{{buttonText}}</v-btn>
   </v-form>
 </template>
 
@@ -69,6 +68,7 @@
   import MarkdownEditor from '@/components/MarkdownEditor';
   import VideoWatch from '@/components/VideoWatch';
   import S3FileUpload from '@/components/S3FileUpload';
+  import _ from 'lodash';
 
   export default {
     components: {
@@ -80,7 +80,8 @@
     data() {
       return {
         valid: false,
-        ...validations
+        ...validations,
+        videoChangeset: _.cloneDeep(this.video)
       }
     },
     methods: {
@@ -89,6 +90,9 @@
       },
       cancel(){
         this.cancelAction()
+      },
+      save(){
+        this.saveVideo(this.videoChangeset)
       }
     },
     props: {
