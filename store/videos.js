@@ -21,9 +21,6 @@ export const mutations = {
     let vIndex = state.videos.findIndex(v => v.id == newVideo.id)
     
     Vue.set(state.videos, vIndex, newVideo)
-  },
-  UPDATE_FIELD(state, {video, fieldName, newValue}) {
-    video[fieldName] = newValue;
   }
 }
 
@@ -53,9 +50,6 @@ export const actions = {
     commit('EDIT_VIDEO', newVideo.attributes);
     return newVideo.attributes;
   },
-  async updateField({commit}, {video, fieldName, newValue}) {
-    commit('UPDATE_FIELD', {video, fieldName, newValue})
-  }
 }
 
 export const getters = {
