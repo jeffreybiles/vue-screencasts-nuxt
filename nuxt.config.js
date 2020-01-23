@@ -28,7 +28,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/mirage'
+    // '~/plugins/mirage'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -65,5 +65,9 @@ export default {
 
   server: {
     port: 8000
+  },
+
+  router: {
+    middleware: 'mirage'
   }
 }
