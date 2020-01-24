@@ -10,7 +10,7 @@
       </v-col>
       <v-col cols="12" md="8">
         <h1 class="display-2">SO MUCH TO LEARN</h1>
-        <p>16 courses. 171 videos. Over 17 hours of content.</p>
+        <p>{{courses.length}} courses. {{videos.length}} videos. Over 18 hours of content.</p>
         <p>And <em>much</em> more on the way.</p>
         <p>Here's a sample.</p>
         <v-row>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 import SocialProofGrid from '@/components/SocialProofGrid.vue';
 import CourseCard from '@/components/CourseCard.vue';
 
@@ -52,7 +52,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getCourse: 'courses/get'
+      getCourse: 'courses/get',
+      courses: 'courses/topLevel'
+    }),
+    ...mapState({
+      videos: state => state.videos.videos,
     }),
     featuredCourses(){
       return this.course_ids.map(c_id => this.getCourse(c_id))
