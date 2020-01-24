@@ -52,7 +52,7 @@
     </MarkdownEditor>
 
     <v-btn @click="cancel">Cancel</v-btn>
-    <v-btn @click="save" :disabled="!valid">{{buttonText}}</v-btn>
+    <v-btn @click="save" :disabled="!valid" color="primary">{{buttonText}}</v-btn>
   </v-form>
 </template>
 
