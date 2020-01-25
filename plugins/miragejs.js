@@ -32,11 +32,7 @@ new Server({
     this.namespace = 'api';
     this.urlPrefix = 'http://localhost:3000'
 
-    this.get('/videos', (schema) => {
-      return schema.videos.all()
-    })
-    this.get('/videos/:id', (schema, request) => {
-      return schema.videos.find(request.params.id)
-    })
+    this.get('/videos');
+    this.get('/videos/:id');
   }
 })
