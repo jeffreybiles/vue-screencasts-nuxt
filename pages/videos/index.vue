@@ -12,7 +12,9 @@
   export default {
     async asyncData({$axios}) {
       let response = await $axios.get('/videos')
-      let videos = response.data.data.map(v => v.attributes);
+      let videos = response.data.data.map(v => {
+        return {...v.attributes, id: v.id}
+      });
 
       return {
         videos
