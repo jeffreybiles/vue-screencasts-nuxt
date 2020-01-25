@@ -1,4 +1,4 @@
-import { Server } from 'miragejs';
+import { Server, Model, JSONAPISerializer } from 'miragejs';
 
 let videos = [
   {
@@ -19,12 +19,21 @@ let videos = [
 ];
 
 new Server({
+  fixtures: {
+    videos
+  },
+  models: {
+    video: Model
+  },
+  serializers: {
+    application: JSONAPISerializer
+  },
   routes(){
     this.namespace = 'api';
     this.urlPrefix = 'http://localhost:3000'
 
-    this.get('/videos', () => {
-      return videos;
+    this.get('/videos', (schema) => {
+      return schema.videos.all()
     })
   }
 })
