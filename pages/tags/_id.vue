@@ -6,7 +6,7 @@
 
     <div class="d-flex flex-wrap">
       <div v-for="video in videosOnTag" :key="video.id">
-        <VideoListVideo :video="video" :tags="tags" />
+        <VideoListVideo :video="video" :tags="tags"></VideoListVideo>
       </div>
     </div>
   </div>
