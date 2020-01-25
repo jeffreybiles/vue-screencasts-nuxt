@@ -7,7 +7,7 @@ let videos = [
     description: `<p>ES2015 (aka ES6) has some great ways to make your code easier to write and understand. In this episode, we cover two different ways that you can make your code clearer by removing the 'function' keyword.</p>`,
     thumbnail: "https://vue-screencasts.s3.us-east-2.amazonaws.com/images/video-thumbnails/Thumbnail+-+Arrow+Function.png",
     videoUrl: "https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/38-+es2015-+functions+minus+'function'.mp4",
-    tagIds: [1],
+    tagIds: ['1', '2'],
   },
   {
     id: 2,
@@ -16,14 +16,18 @@ let videos = [
                   <p>Here are 3 cool things that template strings enable.</p>`,
     thumbnail: "https://vue-screencasts.s3.us-east-2.amazonaws.com/images/video-thumbnails/Thumbnail+-+Template+Strings.png",
     videoUrl: "https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/42-+ES2015+template+strings.mp4",
-    tagIds: [1],
+    tagIds: ['1'],
   }
 ];
 
 let tags = [{
   id: '1',
   name: 'Javascript',
-  videoIds: [1, 2]
+  videoIds: ['1', '2']
+}, {
+  id: '2',
+  name: 'Arrow Functions',
+  videoIds: ['1']
 }]
 
 new Server({
@@ -42,7 +46,7 @@ new Server({
   serializers: {
     application: JSONAPISerializer,
     tag: JSONAPISerializer.extend({
-      include: ['videos']
+      include: ['videos.tags']
     }),
     video: JSONAPISerializer.extend({
       include: ['tags']
@@ -54,5 +58,6 @@ new Server({
 
     this.get('/videos');
     this.get('/videos/:id');
+    this.get('/tags/:id');
   }
 })
