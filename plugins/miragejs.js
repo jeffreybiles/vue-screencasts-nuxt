@@ -46,7 +46,7 @@ new Server({
   serializers: {
     application: JSONAPISerializer,
     tag: JSONAPISerializer.extend({
-      include: ['videos.tags']
+      include: ['videos', 'videos.tags']
     }),
     video: JSONAPISerializer.extend({
       include: ['tags']

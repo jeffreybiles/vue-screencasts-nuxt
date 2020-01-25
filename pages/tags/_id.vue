@@ -23,14 +23,18 @@ import VideoListVideo from '@/components/VideoListVideo'
       let tag = response.data.data
       tag.attributes.id = tag.id
 
-      let videosOnTag = response.data.included.filter(i => i.type === 'video' || i.type === 'videos')
-      videosOnTag.forEach(v => {
+      let videos = response.data.included.filter(i => i.type === 'video' || i.type === 'videos')
+      videos.forEach(v => {
         v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
       });
+      let videoIdsOnTag = response.data.data.relationships.videos.data.map(v => v.id);
+      let videosOnTag = videoIdsOnTag.map( v_id => videos.find(v => v.id == v_id))
+
       let tags = response.data.included.filter(i => i.type === 'tag' || i.type === 'tags')
       tags.forEach(t => {
         t.attributes.id = t.id
       })
+
       return {
         tag: tag.attributes,
         videosOnTag: videosOnTag.map(v => v.attributes),
