@@ -24,6 +24,7 @@ export default {
 
     videos.forEach(v => {
       v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
+      v.attributes.id = v.id
     });
 
     let tags = response.data.included;
