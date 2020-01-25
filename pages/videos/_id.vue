@@ -8,9 +8,12 @@
   export default {
     async asyncData({$axios, params}) {
       let response = await $axios.get(`/videos/${params.id}`)
-      let video = response.data.data.attributes;
+      let video = response.data.data;
       return {
-        video
+        video: {
+          ...video.attributes,
+          id: video.id
+        }
       }
     }
   }

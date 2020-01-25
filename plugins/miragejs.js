@@ -35,5 +35,8 @@ new Server({
     this.get('/videos', (schema) => {
       return schema.videos.all()
     })
+    this.get('/videos/:id', (schema, request) => {
+      return schema.videos.find(request.params.id)
+    })
   }
 })
