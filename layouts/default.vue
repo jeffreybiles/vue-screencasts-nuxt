@@ -3,13 +3,11 @@
     <TheNavbar />
     <v-content>
       <div class="green darken-4 grey--text text--lighten-5 text-center">
-        January 19th: We're launched!
+        New courses every Friday, 8am PST!
         <span v-if="!($auth.user && !$auth.user.pro)">
           <nuxt-link  to="/pro" class="grey--text text--lighten-5">Subscribe now</nuxt-link> for huge discounts.
         </span>
-        Send feedback and suggestions 
-        via email (<a href="mailto:jeffrey@vuescreencasts.com" class="grey--text text--lighten-5" target="_blank">jeffrey@vuescreencasts.com</a>) 
-        or twitter (<a href="https://twitter.com/VueScreencasts" class="grey--text text--lighten-5" target="_blank">@vuescreencasts</a>).
+        Send feedback to Jeffrey <a href="https://twitter.com/VueScreencasts" class="grey--text text--lighten-5" target="_blank">@vuescreencasts</a>.
       </div>
       <nuxt />
     </v-content>
