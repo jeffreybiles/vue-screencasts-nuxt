@@ -39,7 +39,8 @@ let users = [{
   id: '2',
   email: 'admin@vuescreencasts.com',
   name: 'Admin User',
-  token: 'rcohus!$#21234ch'
+  token: 'rcohus!$#21234ch',
+  admin: true
 }]
 
 new Server({
@@ -94,7 +95,7 @@ new Server({
     this.get('/tags');
     this.post('/tags');
     this.put('/tags/:id');
-    this.delete('/videos/:id');
+    this.delete('/tags/:id');
 
     this.post('/video_tags', function(){
       return new Response(201);
