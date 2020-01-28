@@ -30,10 +30,23 @@ let tags = [{
   videoIds: ['1']
 }]
 
+let users = [{
+  id: '1',
+  email: 'user@gmail.com',
+  name: 'Regular User',
+  token: '24%(&!$#tocuh'
+}, {
+  id: '2',
+  email: 'admin@vuescreencasts.com',
+  name: 'Admin User',
+  token: 'rcohus!$#21234ch'
+}]
+
 new Server({
   fixtures: {
     videos,
-    tags
+    tags,
+    users
   },
   models: {
     video: Model.extend({
@@ -41,7 +54,8 @@ new Server({
     }),
     tag: Model.extend({
       videos: hasMany()
-    })
+    }),
+    user: Model,
   },
   serializers: {
     application: JSONAPISerializer,
@@ -88,5 +102,28 @@ new Server({
     this.post('/video_tags/delete', function(){
       return new Response(200);
     });
+
+    // Nuxt Auth endpoints
+    this.post("/sessions", function(schema, request){
+      let json = JSON.parse(request.requestBody)
+      let response = schema.users.findBy({email: json.email})
+      if(json.password == 'aaaaaaaa') { // your actual backend should test the hashed password in the DB
+        return {token: response.attrs.token}
+      } else {
+        return new Response(401)
+      }
+    });
+    this.post("/users", function(schema, request){
+      let json = JSON.parse(request.requestBody)
+      let token = Math.random().toString().slice(1)
+      json['token'] = token;
+      schema.db.users.insert(json)
+      return {token}
+    });
+    this.get('/sessions/user', function(schema, request) {
+      let token = request.requestHeaders.Authorization
+      let response = schema.users.findBy({token: token})
+      return this.serialize(response)
+    })
   }
 })
