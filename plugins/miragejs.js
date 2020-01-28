@@ -11,7 +11,6 @@ let videos = [
     duration: '300',
     codeSummary: `let code = 'coolCode'`,
     published_at: new Date(),
-    tagIds: ['1', '2'],
   },
   {
     id: 2,
@@ -23,7 +22,6 @@ let videos = [
     duration: '236',
     code_summary: 'let code = "This code is even cooler."',
     published_at: Date.now(),
-    tagIds: ['1'],
   }
 ];
 
@@ -36,16 +34,6 @@ let BaseSerializer = JSONAPISerializer.extend({
     }
   }
 });
-
-let tags = [{
-  id: '1',
-  name: 'Javascript',
-  videoIds: ['1', '2']
-}, {
-  id: '2',
-  name: 'Arrow Functions',
-  videoIds: ['1']
-}]
 
 let users = [{
   id: '1',
@@ -69,33 +57,15 @@ let users = [{
 new Server({
   fixtures: {
     videos,
-    tags,
     users
   },
   models: {
-    video: Model.extend({
-      tags: hasMany()
-    }),
-    tag: Model.extend({
-      videos: hasMany()
-    }),
+    video: Model,
     user: Model,
   },
   serializers: {
     application: BaseSerializer,
-    tag: BaseSerializer.extend({
-      include: ['videos'],
-      normalize(json) {
-        return {
-          data: {
-            type: 'tag',
-            attributes: json
-          }
-        }
-      }
-    }),
     video: BaseSerializer.extend({
-      include: ['tags'],
       normalize(json) {
         return {
           data: {
@@ -119,17 +89,6 @@ new Server({
     this.put('/videos/:id');
     this.delete('/videos/:id');
 
-    this.get('/tags');
-    this.post('/tags');
-    this.put('/tags/:id');
-    this.delete('/tags/:id');
-
-    this.post('/video_tags', function(){
-      return new Response(201);
-    });
-    this.post('/video_tags/delete', function(){
-      return new Response(200);
-    });
     this.post('/video_plays', function(schema, request){
       return new Response(201);
     });
