@@ -29,7 +29,11 @@ let videos = [
 
 let BaseSerializer = JSONAPISerializer.extend({
   keyForAttribute(attr) {
-    return _.snakeCase(attr);
+    if(attr == 's3Keys') {
+      return 's3_keys'
+    } else {
+      return _.snakeCase(attr);
+    }
   }
 });
 
@@ -55,7 +59,11 @@ let users = [{
   name: 'Admin User',
   token: 'rcohus!$#21234ch',
   admin: true,
-  playedVideoIds: ['2']
+  playedVideoIds: ['2'],
+  s3Keys: {
+    id: 'tnoheurcheou',
+    secret: 'wvjktoenueouwvm'
+  }
 }]
 
 new Server({
@@ -99,6 +107,10 @@ new Server({
     })
   },
   routes(){
+    this.post('https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com', function(schema, request) {
+      return new Response(201)
+    })
+
     this.namespace = 'api';
     this.urlPrefix = 'http://localhost:3000'
 
