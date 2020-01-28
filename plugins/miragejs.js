@@ -46,7 +46,7 @@ new Server({
   serializers: {
     application: JSONAPISerializer,
     tag: JSONAPISerializer.extend({
-      include: ['videos', 'videos.tags']
+      include: ['videos']
     }),
     video: JSONAPISerializer.extend({
       include: ['tags']
@@ -57,7 +57,6 @@ new Server({
     this.urlPrefix = 'http://localhost:3000'
 
     this.get('/videos');
-    this.get('/videos/:id');
-    this.get('/tags/:id');
+    this.get('/tags');
   }
 })
