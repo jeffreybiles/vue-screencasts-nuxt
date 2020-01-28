@@ -47,13 +47,15 @@ let users = [{
   id: '1',
   email: 'user@gmail.com',
   name: 'Regular User',
-  token: '24%(&!$#tocuh'
+  token: '24%(&!$#tocuh',
+  playedVideoIds: ['1']
 }, {
   id: '2',
   email: 'admin@vuescreencasts.com',
   name: 'Admin User',
   token: 'rcohus!$#21234ch',
-  admin: true
+  admin: true,
+  playedVideoIds: ['2']
 }]
 
 new Server({
@@ -115,6 +117,9 @@ new Server({
     });
     this.post('/video_tags/delete', function(){
       return new Response(200);
+    });
+    this.post('/video_plays', function(schema, request){
+      return new Response(201);
     });
 
     // Nuxt Auth endpoints
