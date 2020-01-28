@@ -46,10 +46,26 @@ new Server({
   serializers: {
     application: JSONAPISerializer,
     tag: JSONAPISerializer.extend({
-      include: ['videos']
+      include: ['videos'],
+      normalize(json) {
+        return {
+          data: {
+            type: 'tag',
+            attributes: json
+          }
+        }
+      }
     }),
     video: JSONAPISerializer.extend({
-      include: ['tags']
+      include: ['tags'],
+      normalize(json) {
+        return {
+          data: {
+            type: "video",
+            attributes: json
+          }
+        }
+      }
     })
   },
   routes(){
@@ -57,6 +73,20 @@ new Server({
     this.urlPrefix = 'http://localhost:3000'
 
     this.get('/videos');
+    this.post('/videos');
+    this.put('/videos/:id');
+    this.delete('/videos/:id');
+
     this.get('/tags');
+    this.post('/tags');
+    this.put('/tags/:id');
+    this.delete('/videos/:id');
+
+    this.post('/video_tags', function(){
+      return new Response(201);
+    });
+    this.post('/video_tags/delete', function(){
+      return new Response(200);
+    });
   }
 })

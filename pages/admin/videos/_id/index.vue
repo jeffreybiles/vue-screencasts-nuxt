@@ -49,7 +49,7 @@
               this.$store.dispatch('tags/connectToVideo', {tag: addedTags[0], video: this.video})
             }
             if(removedTags.length > 0) {
-              this.$store.dispatch('tags/disconnectFromVideo', {tag: removedTags[0], video: this.video})
+              this.$store.dispatch('tags/disconnectTagFromVideo', {tag: removedTags[0], video: this.video})
             }
           }
         }
