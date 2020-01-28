@@ -1,6 +1,7 @@
 export const state = () => ({
   videos: [],
   tags: [],
+  isLoaded: false,
 })
 
 export const mutations = {
@@ -9,6 +10,9 @@ export const mutations = {
   },
   SET_TAGS (state, tags) {
     state.tags = tags
+  },
+  FINISH_LOADING(state) {
+    state.isLoaded = true;
   }
 }
 
