@@ -63,9 +63,10 @@
       },
       filteredCourses(){
         return this.courses.map(c => courseDecorator(c, this.$store)).filter(course => {
+          let isReleased = course.published_at && course.published_at < Date.now()
           let percentComplete = percentVideosComplete(course.videos, this.$store)
           let progress = percentComplete == 0 ? 'fresh' : percentComplete == 100 ? 'completed' : 'started'
-          return this.difficulties[course.difficulty] && this.progress[progress]
+          return this.difficulties[course.difficulty] && this.progress[progress] && isReleased
         })
       }
     },

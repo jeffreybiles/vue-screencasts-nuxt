@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isPublished">
     <v-row :class="['course-content-video', isHighlighted ? 'green lighten-4': '']">
       <v-col cols="7" @click="clickAction(video)" class="clickable">
         &nbsp; {{video.name}}
@@ -57,6 +57,9 @@
       }),
       isHighlighted(){
         return this.highlightedVideo && this.video.id == this.highlightedVideo.id;
+      },
+      isPublished(){
+        return this.video.published_at < Date.now()
       }
     },
     methods: {

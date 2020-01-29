@@ -2,6 +2,7 @@ import _ from 'lodash'
 
 export const courseDecorator = function(course, store) {
   let videos = videosFor(course, store);
+  let sortedVideos = _.sortBy(videos, 'published_at');
 
   return {
     ...course,
@@ -10,7 +11,8 @@ export const courseDecorator = function(course, store) {
     numVideos: videos.length,
     numProVideos: videos.filter(v => v.pro).length,
     duration: _.sum(videos.map(v => v.duration)),
-    mostRecentVideo: _.sortBy(videos, 'published_at').reverse()[0],
+    mostRecentVideo: sortedVideos[sortedVideos.length - 1],
+    published_at: sortedVideos[0] && sortedVideos[0].published_at
   }
 }
 
@@ -19,7 +21,7 @@ const videosFor = (course, store) => {
   let getVideo = store.getters['videos/get']
   let chapters = course.chapter_ids.map(c_id => getCourse(c_id))
   let video_ids = course.video_ids.concat(chapters.flatMap(c => c.video_ids))
-  return video_ids.map(v_id => getVideo(v_id))
+  return video_ids.map(v_id => getVideo(v_id)).filter(v => v.published_at < Date.now())
 }
 
 export const sortCourse = (course, store) => {
