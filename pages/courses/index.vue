@@ -40,7 +40,7 @@
   export default {
     data(){
       return {
-        difficulty: this.$route.query.difficulty || 'All',
+        difficulty: this.$route.query.difficulty || 'all',
         difficulties: [
           'all',
           'beginner',
