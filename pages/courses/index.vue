@@ -9,7 +9,7 @@
           </v-btn>
         </v-btn-toggle>
       </div>
-      <div class="pt-3">
+      <div class="pt-3 pb-2">
         <span>Progress</span>
         <v-btn-toggle v-model="completion" color="green darken-3">
           <v-btn v-for="prog in progress" :key="prog" :value="prog" small>
@@ -18,7 +18,7 @@
         </v-btn-toggle>
       </div>
 
-      <p>{{sortedCourses.length}} course{{sortedCourses.length == 1 ? '' : 's'}}</p>
+      <p><strong>{{sortedCourses.length}} course{{sortedCourses.length == 1 ? '' : 's'}}</strong> fit your criteria</p>
       <v-row>
         <v-col v-for="course in sortedCourses" 
               :key="course.id"
