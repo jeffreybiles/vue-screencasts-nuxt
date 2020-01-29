@@ -1,21 +1,23 @@
 <template>
   <div class="course-index">
     <v-container>
-      <v-row>
-        <v-col cols="6" sm="3">
-          <h3>Difficulties</h3>
-          <v-checkbox v-model="difficulties.beginner" label="Beginner" hide-details color="green" />
-          <v-checkbox v-model="difficulties.intermediate" label="Intermediate" hide-details color="green" />
-          <v-checkbox v-model="difficulties.advanced" label="Advanced" hide-details color="green" />
-        </v-col>
-        <v-col cols="6" sm="3">
-          <!-- Consider changing these to links... "hide completed courses" and "view in-progress courses" -->
-          <h3>Progress</h3>
-          <v-checkbox v-model="progress.fresh" label="Fresh" hide-details color="green" />
-          <v-checkbox v-model="progress.started" label="In Progress" hide-details color="green" />
-          <v-checkbox v-model="progress.completed" label="Completed" hide-details color="green" />
-        </v-col>
-      </v-row>
+      <div>
+        <span>Difficulty</span>
+        <v-btn-toggle v-model="difficulty" color="green darken-3">
+          <v-btn v-for="dif in difficulties" :key="dif" :value="dif" small>
+            {{dif}}
+          </v-btn>
+        </v-btn-toggle>
+      </div>
+      <div class="pt-3">
+        <span>Progress</span>
+        <v-btn-toggle v-model="completion" color="green darken-3">
+          <v-btn v-for="prog in progress" :key="prog" :value="prog" small>
+            {{prog}}
+          </v-btn>
+        </v-btn-toggle>
+      </div>
+
       <p>{{sortedCourses.length}} course{{sortedCourses.length == 1 ? '' : 's'}}</p>
       <v-row>
         <v-col v-for="course in sortedCourses" 
@@ -38,17 +40,20 @@
   export default {
     data(){
       return {
-        difficulties: {
-          beginner: true,
-          intermediate: true,
-          advanced: true,
-          'beginner to advanced': true
-        },
-        progress: {
-          fresh: true,
-          started: true,
-          completed: true
-        }
+        difficulty: this.$route.query.difficulty || 'All',
+        difficulties: [
+          'all',
+          'beginner',
+          'intermediate',
+          'advanced',
+        ],
+        completion: this.$route.query.completion || 'All',
+        progress: [
+          'All',
+          'Fresh',
+          'In Progress',
+          'Completed'
+        ]
       }
     },
     components: {
@@ -65,8 +70,25 @@
         return this.courses.map(c => courseDecorator(c, this.$store)).filter(course => {
           let isReleased = course.published_at && course.published_at < Date.now()
           let percentComplete = percentVideosComplete(course.videos, this.$store)
-          let progress = percentComplete == 0 ? 'fresh' : percentComplete == 100 ? 'completed' : 'started'
-          return this.difficulties[course.difficulty] && this.progress[progress] && isReleased
+          let progress = percentComplete == 0 ? 'Fresh' : percentComplete == 100 ? 'Completed' : 'In Progress'
+
+          let progressTrue = this.completion == 'All' || this.completion == progress
+          let difficultyTrue = this.difficulty == 'all' || course.difficulty == 'beginner to advanced' || this.difficulty == course.difficulty
+          return progressTrue && difficultyTrue && isReleased
+        })
+      }
+    },
+    watch: {
+      difficulty: function(newValue) { this.replaceQueryParams() },
+      completion: function(newValue) { this.replaceQueryParams() }
+    },
+    methods: {
+      replaceQueryParams(){
+        this.$router.replace({
+          query: {
+            difficulty: this.difficulty,
+            completion: this.completion
+          }
         })
       }
     },
