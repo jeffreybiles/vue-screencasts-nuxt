@@ -22,8 +22,8 @@
         
         <v-spacer />
         
-        <nuxt-link to="policies/terms-and-conditions">Terms and Conditions</nuxt-link>
-        <nuxt-link to="policies/privacy-policy">Privacy Policy</nuxt-link>
+        <nuxt-link to="/policies/terms-and-conditions">Terms and Conditions</nuxt-link>
+        <nuxt-link to="/policies/privacy-policy">Privacy Policy</nuxt-link>
         <a href="mailto:jeffrey@vuescreencasts.com">Contact Me</a>
         <!-- <nuxt-link to="policies">View All Policies</nuxt-link> -->
       </v-card-title>
