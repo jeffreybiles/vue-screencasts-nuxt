@@ -1,12 +1,10 @@
 <template>
   <v-form v-model="valid">
-    <v-text-field :value="video.name"
-                  @input="updateVideo('name', $event)"
+    <v-text-field v-model="video.name" 
                   label="Name" 
                   counter=50
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
-    <v-text-field :value="video.duration"
-                  @input="updateVideo('duration', $event)"
+    <v-text-field v-model="video.duration"
                   label="Duration (in seconds)" >
       <template #prepend>
         <span class="duration-display">
@@ -74,11 +72,6 @@
       return {
         valid: false,
         ...validations
-      }
-    },
-    methods: {
-      updateVideo(fieldName, updatedValue) {
-        this.$store.dispatch('videos/updateField', {video: this.video, fieldName, updatedValue})
       }
     },
     props: {
