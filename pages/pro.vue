@@ -29,9 +29,9 @@
     </p>
 
     <p class="subheader">
-      To do that, I'm going to be releasing massive numbers of videos... I'm guaranteeing new videos every week, but I'm going to try and give you <strong>a new video every day</strong>, starting January 19, 2020.
-      And these videos aren't going to just be the "first fifteen minutes with X" you see all over YouTube... 
-      they're in-depth, and advanced developers have commented, telling me they've been learning from them.  Sometimes even the videos I thought were for beginners!
+      To do that, I'm going to be releasing a new course every week.
+      And these courses aren't going to just be the "first fifteen minutes with X" you see all over YouTube... 
+      they're in-depth, and advanced developers have commented, telling me they've been learning from them.  Sometimes even the courses I thought were for beginners!
     </p>
     
     <p>Yeah, the site needs a designer.  Yeah, there's only free content so far.  It's not perfect.</p>
@@ -41,19 +41,19 @@
     <p class="display-1 pt-1">Plus: for the first year, <strong>100% of your subscription goes to Open Source</strong>.</p>
  
     <p class="headline pt-1 mb-1">This is the biggest sale I'll ever have... and if you order now, it doesn't end. You get to <strong>keep your massively discounted rate for as long as you stay subscribed</strong>.</p>
-    <p class="display-1"><strong>Sale ends the second I release the first Pro video</strong>.</p>
+      <p class="display-1"><strong>Sale ends February 6th, when I release the first Pro course</strong>.</p>
 
     <p class="headline">Here's what you get with your subscription:</p>
     
     <ul>
       <li>Instant access to <strong>all Pro courses and videos</strong>.</li>
-      <li><strong>New videos every week (maybe every day?)</strong>.</li>
+      <li><strong>New course every week</strong>.</li>
       <li>(coming soon) Ability to <strong>download videos for offline viewing</strong>.</li>
       <li>(coming soon) More votes on <strong>user-selected topics</strong>.</li>
       <li>25% of your subscription goes to help <strong>support the VueJS community</strong>.</li>
     </ul>
 
-    <p class="subheader pt-2">When does the sale end? Soon. Before the end of January.  I'll announce it <a href="https://twitter.com/VueScreencasts" target="_blank">on twitter</a> about a day ahead of time, but I wouldn't count on seeing that message.</p>
+    <p class="subheader pt-2"><strong>Sale ends Thursday, February 6th</strong>.</p>
 
     <p class="headline text-center">What are you waiting for?</p>
 
