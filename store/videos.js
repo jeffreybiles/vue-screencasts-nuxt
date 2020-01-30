@@ -1,4 +1,5 @@
 import {getData, deserializeVideos} from '@/utils/store-utils';
+import Vue from 'vue';
 
 export const state = () => ({
   videos: [],
@@ -17,8 +18,9 @@ export const mutations = {
     state.videos = videos;
   },
   EDIT_VIDEO(state, video) {
-    let v = state.videos.find(v => v.id == video.id)
-    v = video;
+    let vIndex = state.videos.findIndex(v => v.id == video.id)
+
+    Vue.set(state.videos, vIndex, video)
   }
 }
 
@@ -43,9 +45,10 @@ export const actions = {
   },
   async edit({commit}, video) {
     let response = await this.$axios.put(`/videos/${video.id}`, video);
-    let newVideo = response.data.data.attributes;
-    commit('EDIT_VIDEO', newVideo);
-    return newVideo;
+    let newVideo = response.data.data;
+    deserializeVideos([newVideo])
+    commit('EDIT_VIDEO', newVideo.attributes);
+    return newVideo.attributes;
   },
 }
 
