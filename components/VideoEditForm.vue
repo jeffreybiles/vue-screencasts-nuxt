@@ -4,49 +4,49 @@
                   label="Name" 
                   counter=50
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
-    <v-text-field v-model="video.duration"
+    <v-text-field v-model="videoCopy.duration"
                   label="Duration (in seconds)" >
       <template #prepend>
         <span class="duration-display">
-          <DurationDisplay :duration="video.duration" />
+          <DurationDisplay :duration="videoCopy.duration" />
         </span>
       </template>
     </v-text-field>
 
     <v-row>
       <v-col cols="12" sm="9" md="10">
-        <S3FileUpload :obj="video" 
+        <S3FileUpload :obj="videoCopy" 
                       fieldName="videoUrl" 
                       directory="videos" 
                       label="Video File"/>
-        <S3FileUpload :obj="video" 
+        <S3FileUpload :obj="videoCopy" 
                       fieldName="thumbnail" 
                       directory="thumbnails" 
                       label="Thumbnail Image" />
       </v-col>
       <v-col cols="12" sm="3" md="2">
-        <VideoWatch :video="video" />
+        <VideoWatch :video="videoCopy" />
       </v-col>
     </v-row>
 
-    <v-datetime-picker label="Select Datetime" v-model="video.published_at"> </v-datetime-picker>   
+    <v-datetime-picker label="Select Datetime" v-model="videoCopy.published_at"> </v-datetime-picker>   
 
-    <MarkdownEditor :markdown="video.description">
-      <v-textarea v-model="video.description" 
+    <MarkdownEditor :markdown="videoCopy.description">
+      <v-textarea v-model="videoCopy.description" 
                   label="Description" 
                   counter=true
                   rows="9"
                   :rules="[required('description'), minLength('description', 20)]"/>
     </MarkdownEditor>
 
-    <MarkdownEditor :markdown="video.code_summary">
+    <MarkdownEditor :markdown="videoCopy.code_summary">
       <template #default>
-        <v-textarea v-model="video.code_summary"
+        <v-textarea v-model="videoCopy.code_summary"
                     label="Code Summary" 
                     rows="12" />
       </template>
       <template #footer>
-        This code will be displayed below the video.
+        This code will be displayed below the videoCopy.
       </template>
     </MarkdownEditor>
 
