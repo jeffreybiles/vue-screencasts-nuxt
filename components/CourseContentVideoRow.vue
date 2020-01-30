@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isPublished">
+  <div v-if="isPublished || isAdminScreen">
     <v-row :class="['course-content-video', isHighlighted ? 'green lighten-4': '']">
       <v-col cols="7" @click="clickAction(video)" class="clickable">
         &nbsp; {{video.name}}
