@@ -18,8 +18,8 @@
       VideoEditForm,
     },
     methods: {
-      async createVideo() {
-        let video = await this.$store.dispatch('videos/create', this.video);
+      async createVideo(newVideo) {
+        let video = await this.$store.dispatch('videos/create', newVideo);
         this.$store.dispatch('snackbar/setSnackbar', {text: `You have successfully created a new video, ${video.name}.`});
         this.$router.push(`/admin/videos/${video.id}`);
       }

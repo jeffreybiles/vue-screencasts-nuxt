@@ -1,6 +1,6 @@
 <template>
   <v-form v-model="valid">
-    <v-text-field v-model="video.name" 
+    <v-text-field v-model="videoCopy.name" 
                   label="Name" 
                   counter=50
                   :rules="[required('name'), minLength('name', 5), maxLength('name', 50)]" />
@@ -50,7 +50,7 @@
       </template>
     </MarkdownEditor>
 
-    <v-btn @click="saveVideo" :disabled="!valid">{{buttonText}}</v-btn>
+    <v-btn @click="save" :disabled="!valid">{{buttonText}}</v-btn>
   </v-form>
 </template>
 
@@ -60,6 +60,7 @@
   import MarkdownEditor from '@/components/MarkdownEditor';
   import VideoWatch from '@/components/VideoWatch';
   import S3FileUpload from '@/components/S3FileUpload';
+  import _ from 'lodash';
 
   export default {
     components: {
@@ -71,7 +72,13 @@
     data() {
       return {
         valid: false,
-        ...validations
+        ...validations,
+        videoCopy: _.cloneDeep(this.video)
+      }
+    },
+    methods: {
+      save(){
+        this.saveVideo(this.videoCopy)
       }
     },
     props: {
