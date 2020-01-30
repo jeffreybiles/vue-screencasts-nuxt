@@ -5,7 +5,7 @@
         &nbsp; {{video.name}}
       </v-col>
       <v-col cols="1">
-        <v-btn small v-if="isAdminScreen" @click="detachVideo" class="clickable">
+        <v-btn x-small v-if="isAdminScreen" @click="detachVideo" class="clickable">
           Detach
         </v-btn>
       </v-col>
