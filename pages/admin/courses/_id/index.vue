@@ -9,7 +9,7 @@
         <v-btn :to="`/admin/courses/${course.id}/edit`">Edit</v-btn><br>
         type: {{ course.series_type }}<br>
 
-        {{ course.numChapters}} chapters,
+        <span v-if="course.numChapters > 0">{{ course.numChapters}} chapters,</span>
         {{ course.numVideos }} videos,
         <duration-display :duration="course.duration" /> total runtime<br>
         <hr>

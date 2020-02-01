@@ -19,7 +19,7 @@
       </v-col>
       <v-col cols="12" sm="8">
         <h1>{{ course.name }}</h1>
-        {{ course.numChapters}} chapters,
+        <span v-if="course.numChapters > 0">{{ course.numChapters}} chapters,</span>
         {{ course.numVideos }} videos,
         <duration-display :duration="course.duration" /> total runtime<br>
         <hr>
