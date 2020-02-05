@@ -2,13 +2,6 @@
   <v-app>
     <TheNavbar />
     <v-content>
-      <div class="green darken-4 grey--text text--lighten-5 text-center">
-        New course every week, Thursday afternoon PST!
-        <span v-if="!($auth.user && !$auth.user.pro)">
-          <nuxt-link  to="/pro" class="grey--text text--lighten-5">Subscribe now</nuxt-link> for huge early-bird discounts.
-        </span>
-        Send feedback to Jeffrey <a href="https://twitter.com/VueScreencasts" class="grey--text text--lighten-5" target="_blank">@vuescreencasts</a>.
-      </div>
       <nuxt />
     </v-content>
 
