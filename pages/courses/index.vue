@@ -65,8 +65,8 @@
         category: this.$route.query.category || 'all',
         categories: [
           'all',
-          'watch-me-code',
-          'interactive',
+          'Watch Me Code',
+          'Interactive',
         ]
       }
     },

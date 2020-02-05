@@ -2,46 +2,51 @@
   <div>
     <nuxt-link :to="`/courses/${course.id}`">      
       <v-card hover>
-        <div class="pl-0 course-card blue-grey darken-1">
+        <div class="pl-0 course-card grey darken-2">
           <v-row>
             <v-col cols="8" class="pb-0 pt-0 pr-0">
               <v-img :src="course.image_url || ''" />
             </v-col>
-            <v-col cols="4" class="text-center pl-0">
-              <!-- TODO: turn these into separately-colored strips? -->
-              {{ decoratedCourse.numVideos }} Videos
-              
-              <br>
-              
-              <DurationDisplay :duration="decoratedCourse.duration" v-slot="{hours, minutes}">
-                <span v-if="hours >= 2">
-                  {{hours}} HOURS
-                </span>
-                <span v-else>
-                  {{Number(minutes) + (hours * 60)}} Minutes
-                </span>
-              </DurationDisplay>
+            <v-col cols="4" class="text-center pl-0 pt-0 pb-0">
+              <div class="stripe grey darken-2">
+                {{ decoratedCourse.numVideos }} Videos
+              </div>
 
-              <br>
+              <div class="stripe grey darken-1">
+                <DurationDisplay :duration="decoratedCourse.duration" v-slot="{hours, minutes}">
+                  <span v-if="hours >= 2">
+                    {{hours}} HOURS
+                  </span>
+                  <span v-else>
+                    {{Number(minutes) + (hours * 60)}} Minutes
+                  </span>
+                </DurationDisplay>
+              </div>
 
-              <DifficultyBars :difficulty="course.difficulty" verbosity="medium" color="lightgreen" />
+              <div class="stripe grey darken-2">
+                <DifficultyBars :difficulty="course.difficulty" verbosity="medium" color="lightgreen" />
+              </div>
 
-              <br>
+              <div class="stripe grey darken-1">
+                {{ course.category }}
+              </div>
 
-              <span v-if="showFreeStatus">
-                <span v-if="decoratedCourse.numProVideos == 0">
-                  100% Free!
+              <div class="stripe grey darken-2">
+                <span v-if="showFreeStatus">
+                  <span v-if="decoratedCourse.numProVideos == 0">
+                    100% Free!
+                  </span>
+                  <span v-else-if="isFreePeriod">
+                    Free Period (watch now)
+                  </span>
+                  <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
+                    One free video!
+                  </span>
+                  <span v-else>
+                    Pro Course
+                  </span>
                 </span>
-                <span v-else-if="isFreePeriod">
-                  Free Period (watch now)
-                </span>
-                <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
-                  Includes a free video!
-                </span>
-                <span v-else>
-                  Pro Course
-                </span>
-              </span>
+              </div>
             </v-col>
           </v-row>
         </div>
@@ -100,8 +105,9 @@
     color:black;
   }
 
-  .big {
-    font-size: 36px;
+  .stripe {
+    padding: 2px;
+    margin: 0px;
   }
 
   .course-card {
@@ -113,8 +119,5 @@
       font-size: 13px;
     }
 
-    .big {
-      font-size: 28px;
-    }
   }
 </style>
