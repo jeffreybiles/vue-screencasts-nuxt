@@ -7,6 +7,9 @@
         <span v-if="decoratedCourse.numProVideos == 0">
           100% Free!
         </span>
+        <span v-else-if="isFreePeriod">
+          Free Period (watch now)
+        </span>
         <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
           Includes a free video!
         </span>
@@ -67,6 +70,12 @@
       decoratedCourse(){
         return courseDecorator(this.course, this.$store)
       },
+      isFreePeriod(){
+        var dateOffset = (24*60*60*1000) * 7;
+        var published_time = new Date(this.decoratedCourse.published_at)
+        var current_time =  new Date(Date.now())
+        return published_time.getTime() + dateOffset > current_time.getTime();
+      }
     },
     props: {
       course: {

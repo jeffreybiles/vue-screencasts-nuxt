@@ -2,7 +2,6 @@
 <template>
   <v-container style="max-width: 1024px;">
     <!-- Uncomment this sales pitch once I'm ready to charge -->
-    
 
     <div class="display-1 text-center pa-3">
       Study Vue <font-awesome-icon icon="laptop-code" />. 

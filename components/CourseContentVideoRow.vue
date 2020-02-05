@@ -23,7 +23,7 @@
               </span>
             </v-col>
             <v-col cols="6" class="pt-0 pb-0">
-              <ProMarker :isFree="!video.pro" />
+              <ProMarker :isFree="!video.pro" :video="video" />
             </v-col>
           </v-row>
         </div>

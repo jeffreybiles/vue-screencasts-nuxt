@@ -33,7 +33,7 @@
         </div>
       </template>
       <template #item.pro="{item}">
-        <ProMarker :isFree="!item.pro" />
+        <ProMarker :isFree="!item.pro" :video="item" />
       </template>
       <template #item.actions="{item}">
         <td @click.stop class="non-clickable">
@@ -94,7 +94,7 @@ import _ from 'lodash'
           return {
             ...v,
             sortable_published_at: v.published_at && v.published_at.toISOString(),
-            courseName
+            courseName,
           }
         })
       }
