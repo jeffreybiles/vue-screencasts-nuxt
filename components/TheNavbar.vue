@@ -52,8 +52,8 @@
       navLinks(){
         let user = this.$auth.user
         let links = [
-          {text: "Videos", to: "/videos"},
           {text: "Courses", to: "/courses"},
+          {text: "Archive", to: "/videos"},
         ]
         if(!user || !user.pro || user.subscription_cancelled) {
           links.push({text: "Pro", to: "/pro"})
