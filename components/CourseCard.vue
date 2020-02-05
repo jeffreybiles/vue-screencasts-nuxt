@@ -1,42 +1,47 @@
 <template>
   <div>
-    <nuxt-link :to="`/courses/${course.id}`">
-      
-      <!-- TODO: make this more stylish -->
-      <span v-if="showFreeStatus">
-        <span v-if="decoratedCourse.numProVideos == 0">
-          100% Free!
-        </span>
-        <span v-else-if="isFreePeriod">
-          Free Period (watch now)
-        </span>
-        <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
-          Includes a free video!
-        </span>
-        <span v-else>
-          Pro Course
-        </span>
-      </span>
-      
+    <nuxt-link :to="`/courses/${course.id}`">      
       <v-card hover>
-        <div class="pl-1 course-card blue-grey darken-1">
+        <div class="pl-0 course-card blue-grey darken-1">
           <v-row>
-            <v-col cols="3" class="text-center">
-              <div class="big">{{ decoratedCourse.numVideos }}</div>
-              Videos
+            <v-col cols="8" class="pb-0 pt-0 pr-0">
+              <v-img :src="course.image_url || ''" />
             </v-col>
-            <v-col cols="3" class="text-center">
+            <v-col cols="4" class="text-center pl-0">
+              <!-- TODO: turn these into separately-colored strips? -->
+              {{ decoratedCourse.numVideos }} Videos
+              
+              <br>
+              
               <DurationDisplay :duration="decoratedCourse.duration" v-slot="{hours, minutes}">
                 <span v-if="hours >= 2">
-                  <div class="big">{{hours}}</div> HOURS
+                  {{hours}} HOURS
                 </span>
                 <span v-else>
-                  <div class="big">{{Number(minutes) + (hours * 60)}}</div>Minutes
+                  {{Number(minutes) + (hours * 60)}} Minutes
                 </span>
               </DurationDisplay>
-            </v-col>
-            <v-col cols="6" class="pb-0 pt-0 pl-0">
-              <v-img :src="course.image_url || ''" />
+
+              <br>
+
+              <DifficultyBars :difficulty="course.difficulty" verbosity="medium" color="lightgreen" />
+
+              <br>
+
+              <span v-if="showFreeStatus">
+                <span v-if="decoratedCourse.numProVideos == 0">
+                  100% Free!
+                </span>
+                <span v-else-if="isFreePeriod">
+                  Free Period (watch now)
+                </span>
+                <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
+                  Includes a free video!
+                </span>
+                <span v-else>
+                  Pro Course
+                </span>
+              </span>
             </v-col>
           </v-row>
         </div>
@@ -45,7 +50,6 @@
 
       <div class="pt-1">
         <h3 class="title">
-          <DifficultyBars :difficulty="course.difficulty" />
           {{ course.name }}
         </h3>
       </div>

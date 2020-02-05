@@ -5,7 +5,7 @@
         <v-img :src="thumbnail || ''" class="thumbnail-image mb-2" />
 
         <v-row class="ma-0">
-          <DifficultyBars :difficulty="course.difficulty" :verbose="true" />
+          <DifficultyBars :difficulty="course.difficulty" verbosity="high" />
           
           <v-spacer />
 
