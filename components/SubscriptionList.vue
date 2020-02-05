@@ -14,7 +14,7 @@
       let env = this.$root.context.env.stripeEnv;
       console.log(plans, env, this.$root.context)
       return {
-        plans: plans.filter(p => p.env == env)
+        plans: plans.filter(p => p.env == env && !p.deprecated)
       }
     }  
   }
