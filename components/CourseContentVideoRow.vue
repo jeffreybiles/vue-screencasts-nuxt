@@ -1,13 +1,16 @@
 <template>
   <div v-if="isPublished || isAdminScreen">
     <v-row :class="['course-content-video', isHighlighted ? 'green lighten-4': '']">
-      <v-col cols="7" @click="clickAction(video)" class="clickable">
+      <v-col cols="6" @click="clickAction(video)" class="clickable">
         &nbsp; {{video.name}}
       </v-col>
       <v-col cols="1">
         <v-btn x-small v-if="isAdminScreen" @click="detachVideo" class="clickable">
           Detach
         </v-btn>
+      </v-col>
+      <v-col cols="1">
+          <VideoTypeIcon :video="video" />
       </v-col>
       <v-col cols="1">
         <div v-if="isAdminScreen">
@@ -42,6 +45,7 @@
   import DurationDisplay from '@/components/DurationDisplay.vue';
   import DateDisplay from '@/components/DateDisplay.vue';
   import ProMarker from '@/components/ProMarker.vue';
+  import VideoTypeIcon from '@/components/VideoTypeIcon.vue';
   import { mapGetters } from 'vuex';
   import _ from 'lodash';
 
@@ -49,7 +53,8 @@
     components: {
       DurationDisplay,
       DateDisplay,
-      ProMarker
+      ProMarker,
+      VideoTypeIcon
     },
     computed: {
       ...mapGetters({
