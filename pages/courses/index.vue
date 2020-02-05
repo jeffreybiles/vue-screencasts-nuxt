@@ -9,11 +9,19 @@
           </v-btn>
         </v-btn-toggle>
       </div>
-      <div class="pt-3 pb-2">
+      <div class="pt-3">
         <span>Progress</span>
         <v-btn-toggle v-model="completion" color="green darken-3">
           <v-btn v-for="prog in progress" :key="prog" :value="prog" small>
             {{prog}}
+          </v-btn>
+        </v-btn-toggle>
+      </div>
+      <div class="pt-3 pb-2">
+        <span>Category</span>
+        <v-btn-toggle v-model="category" color="green darken-3">
+          <v-btn v-for="cat in categories" :key="cat" :value="cat" small>
+            {{cat}}
           </v-btn>
         </v-btn-toggle>
       </div>
@@ -53,6 +61,12 @@
           'Fresh',
           'In Progress',
           'Completed'
+        ],
+        category: this.$route.query.category || 'all',
+        categories: [
+          'all',
+          'watch-me-code',
+          'interactive',
         ]
       }
     },
@@ -74,20 +88,23 @@
 
           let progressTrue = this.completion == 'All' || this.completion == progress
           let difficultyTrue = this.difficulty == 'all' || course.difficulty == 'beginner to advanced' || this.difficulty == course.difficulty
-          return progressTrue && difficultyTrue && isReleased
+          let categoryTrue = this.category == 'all' || this.category == course.category
+          return progressTrue && difficultyTrue && isReleased && categoryTrue
         })
       }
     },
     watch: {
       difficulty: function(newValue) { this.replaceQueryParams() },
-      completion: function(newValue) { this.replaceQueryParams() }
+      completion: function(newValue) { this.replaceQueryParams() },
+      category: function(newValue) { this.replaceQueryParams() }
     },
     methods: {
       replaceQueryParams(){
         this.$router.replace({
           query: {
             difficulty: this.difficulty,
-            completion: this.completion
+            completion: this.completion,
+            category: this.category,
           }
         })
       }
