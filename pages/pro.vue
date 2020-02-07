@@ -24,7 +24,7 @@
     <p>There's already 19 hours of video, with more being added every week.</p>
     <p><strong>Your career is worth the investment.</strong></p>
 
-    <p class="headline text-center">Subscribe before February 6th to get the super-early-bird discount</p>
+    <p class="headline text-center">Subscribe before March 5th to get the early-bird discount</p>
 
     <SubscriptionLinks />
 
