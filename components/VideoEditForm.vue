@@ -37,8 +37,7 @@
       <v-textarea v-model="video.description" 
                   label="Description" 
                   counter=true
-                  rows="9"
-                  :rules="[required('description'), minLength('description', 20)]"/>
+                  rows="9" />
     </MarkdownEditor>
 
     <MarkdownEditor :markdown="video.code_summary">
