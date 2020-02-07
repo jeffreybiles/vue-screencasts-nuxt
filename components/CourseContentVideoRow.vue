@@ -1,8 +1,8 @@
 <template>
   <div v-if="isPublished || isAdminScreen">
     <v-row :class="['course-content-video', isHighlighted ? 'green lighten-4': '']">
-      <v-col cols="6" @click="clickAction(video)" class="clickable">
-        &nbsp; {{video.name}}
+      <v-col cols="6" @click="clickAction(video)" class="clickable pl-4">
+        {{video.name}}
       </v-col>
       <v-col cols="1">
         <v-btn x-small v-if="isAdminScreen" @click="detachVideo" class="clickable">
