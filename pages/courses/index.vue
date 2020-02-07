@@ -30,7 +30,7 @@
       <v-row>
         <v-col v-for="course in sortedCourses" 
               :key="course.id"
-              cols="12" sm="6" lg="4">
+              cols="12" sm="6" md="4">
           <CourseCard :course="course" />
         </v-col>
       </v-row>

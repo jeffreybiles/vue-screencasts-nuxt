@@ -108,6 +108,7 @@
   .stripe {
     padding: 2px;
     margin: 0px;
+    font-size: 11px;
   }
 
   .course-card {
