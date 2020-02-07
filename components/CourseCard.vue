@@ -108,7 +108,7 @@
   .stripe {
     padding: 2px;
     margin: 0px;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .course-card {
@@ -117,7 +117,7 @@
 
   @media (min-width: 960px) and (max-width: 1264px) {
     .course-card {
-      font-size: 13px;
+      font-size: 12px;
     }
 
   }
