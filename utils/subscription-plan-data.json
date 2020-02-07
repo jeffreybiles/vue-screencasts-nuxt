@@ -39,7 +39,7 @@
     {
       "id": 5,
       "env": "dev",
-      "stripeId": "",
+      "stripeId": "plan_GgsLGxhiej3vrb",
       "period": "month",
       "fullPrice": 36,
       "currentPrice": 15
@@ -47,7 +47,7 @@
     {
       "id": 6,
       "env": "dev",
-      "stripeId": "",
+      "stripeId": "plan_GgsLvpFY1RzWpI",
       "period": "year",
       "fullPrice": 290,
       "currentPrice": 150
@@ -55,7 +55,7 @@
     {
       "id": 7,
       "env": "prod",
-      "stripeId": "",
+      "stripeId": "plan_GgsIRlrUB4Zgtd",
       "period": "month",
       "fullPrice": 36,
       "currentPrice": 15
@@ -63,7 +63,7 @@
     {
       "id": 8,
       "env": "prod",
-      "stripeId": "",
+      "stripeId": "plan_GgsIQeIRnmh5bF",
       "period": "year",
       "fullPrice": 290,
       "currentPrice": 150
