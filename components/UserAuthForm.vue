@@ -31,7 +31,7 @@
       </v-checkbox>
       <v-checkbox v-model="userInfo.email_weekly"
                   color="green"
-                  label="I would like a weekly email newsletter with a summary of the week's videos and fun VueJS news (starting early January)" />
+                  label="I would like to join the VIP list and get a weekly email when new courses are released." />
     </div>
 
     <v-btn @click="submitForm(userInfo)" :disabled="!valid" color="green accent-3">{{ buttonText }}</v-btn>
