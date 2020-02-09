@@ -17,13 +17,14 @@
 </template>
 
 <script>
+  import emailListJson from '@/utils/email-lists.json';
   export default {
     async asyncData({$axios}){
       let result = await $axios.get('/email_preferences/status')
 
       return {
         contact: result.data.contact,
-        raw_newsletters: result.data.newsletters
+        raw_newsletters: emailListJson.emailLists
       }
     },
     computed: {
@@ -35,10 +36,6 @@
       }
     },
     methods: {
-      async resubscribe(){
-        await this.$axios.post('/users/newsletter_subscribe')
-        this.$store.dispatch('snackbar/setSnackbar', {text: "You should be subscribed now.  Check your email!"})
-      },
       async changeSubscription(list){
         let response = await this.$axios.post('/email_preferences/change_subscription', list);
         this.$store.dispatch('snackbar/setSnackbar', {text: `You have been ${list.isSubscribed ? 'subscribed to' : 'unsubscribed from'} ${list.name}`})
