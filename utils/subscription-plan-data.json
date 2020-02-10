@@ -2,71 +2,85 @@
   "plans": [
     {
       "id": 1,
-      "env": "dev",
       "deprecated": true,
-      "stripeId": "plan_GUnIRF35MtJy67",
-      "period": "month",
-      "fullPrice": 36,
-      "currentPrice": 9
+      "name": "Pro - Mega Early Bird",
+      "month": {
+        "stripeId": {
+          "dev": "plan_GUnIRF35MtJy67",
+          "prod": "plan_GUbsLVGwbTE2K1"
+        },
+        "fullPrice": 36,
+        "currentPrice": 9  
+      },
+      "year": {
+        "stripeId": {
+          "dev": "plan_GUnLuKPVBvo78i",
+          "prod": "plan_GUbw5FDN0z2EHe"
+        },
+        "fullPrice": 290,
+        "currentPrice": 90  
+      }
     },
     {
       "id": 2,
-      "env": "dev",
-      "deprecated": true,
-      "stripeId": "plan_GUnLuKPVBvo78i",
-      "period": "year",
-      "fullPrice": 290,
-      "currentPrice": 90
+      "name": "Pro - Early Bird",
+      "month": {
+        "stripeId": {
+          "dev": "plan_GgsLGxhiej3vrb",
+          "prod": "plan_GgsIRlrUB4Zgtd"
+        },
+        "fullPrice": 36,
+        "currentPrice": 15
+      },
+      "year": {
+        "stripeId": {
+          "env": "plan_GgsLvpFY1RzWpI",
+          "prod": "plan_GgsIQeIRnmh5bF"
+        },
+        "fullPrice": 290,
+        "currentPrice": 150
+      }
     },
     {
       "id": 3,
-      "env": "prod",
-      "deprecated": true,
-      "stripeId": "plan_GUbsLVGwbTE2K1",
-      "period": "month",
-      "fullPrice": 36,
-      "currentPrice": 9
+      "name": "Pro - Silver",
+      "month": {
+        "stripeId": {
+          "dev": "prod_GhyIgvXZmLYtK2"
+        },
+        "currentPrice": 245
+      },
+      "year": {
+        "stripeId": {
+
+        },
+        "currentPrice": 2450
+      }
     },
     {
       "id": 4,
-      "env": "prod",
-      "deprecated": true,
-      "stripeId": "plan_GUbw5FDN0z2EHe",
-      "period": "year",
-      "fullPrice": 290,
-      "currentPrice": 90
+      "name": "Pro - Gold",
+      "month": {
+        "stripeId": {
+        },
+        "currentPrice": 795
+      },
+      "year": {
+        "stripeId": {},
+        "currentPrice": 8950
+      }
     },
     {
       "id": 5,
-      "env": "dev",
-      "stripeId": "plan_GgsLGxhiej3vrb",
-      "period": "month",
-      "fullPrice": 36,
-      "currentPrice": 15
-    },
-    {
-      "id": 6,
-      "env": "dev",
-      "stripeId": "plan_GgsLvpFY1RzWpI",
-      "period": "year",
-      "fullPrice": 290,
-      "currentPrice": 150
-    },
-    {
-      "id": 7,
-      "env": "prod",
-      "stripeId": "plan_GgsIRlrUB4Zgtd",
-      "period": "month",
-      "fullPrice": 36,
-      "currentPrice": 15
-    },
-    {
-      "id": 8,
-      "env": "prod",
-      "stripeId": "plan_GgsIQeIRnmh5bF",
-      "period": "year",
-      "fullPrice": 290,
-      "currentPrice": 150
+      "name": "Pro - Platinum",
+      "month": {
+        "stripeId": {},
+        "currentPrice": 1950
+      },
+      "year": {
+        "stripeId": {},
+        "currentPrice": 21500
+      }
     }
   ]
 }

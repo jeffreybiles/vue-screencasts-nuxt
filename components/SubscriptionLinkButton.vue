@@ -2,7 +2,8 @@
   <v-btn x-large color="green darken-2 grey--text text--lighten-4" class="ma-1" :disabled="disabled" :to="`/order?plan=${plan.id}`">
     <div>
       Subscribe for <br>
-      <strike>${{plan.fullPrice}}/{{plan.period}}</strike>
+      
+      <strike v-if="plan.fullPrice">${{plan.fullPrice}}/{{plan.period}}</strike>
       ${{plan.currentPrice}}/{{plan.period}}
     </div>
   </v-btn>
