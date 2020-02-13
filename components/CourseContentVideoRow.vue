@@ -10,7 +10,7 @@
         </v-btn>
       </v-col>
       <v-col cols="1">
-          <VideoTypeIcon :video="video" />
+        <VideoTypeIcon :video="video" />
       </v-col>
       <v-col cols="1">
         <div v-if="isAdminScreen">
