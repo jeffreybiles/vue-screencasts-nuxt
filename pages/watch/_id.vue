@@ -95,6 +95,10 @@
       <div>
         <div class="display-1">{{video.name}}</div>
         <MarkdownDisplay :markdown="video.description" />
+
+        <hr>
+
+        <CommentSection :video="video" />
       </div>
 
       <VideoWatchCompleteModal :isOpen="endingScreenOpen" 
@@ -124,6 +128,7 @@ import MarkdownDisplay from '@/components/MarkdownDisplay';
 import UserAuthModal from '@/components/UserAuthModal.vue';
 import VideoWatchCompleteModal from '@/components/VideoWatchCompleteModal.vue';
 import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
+import CommentSection from '@/components/CommentSection.vue';
 import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/course-decorator';
 
 import { mapState, mapGetters } from 'vuex';
@@ -143,6 +148,7 @@ export default {
     UserAuthModal,
     VideoWatchCompleteModal,
     UserAuthTogglableForm,
+    CommentSection
   },
   computed: {
     ...mapGetters({
