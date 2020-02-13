@@ -8,20 +8,32 @@
         Written by {{comment.username}} on <DateDisplay :date="new Date(comment.created_at)" />
       </div>
     </div>
+    <comment-display v-for="comment_id in comment.comment_ids"
+                    :key="comment_id"
+                    :comment="comments.find(c => c.id == comment_id)" 
+                    :comments="comments"
+                    class="pl-6" />
   </div>
 </template>
 
 <script>
   import DateDisplay from '@/components/DateDisplay.vue';
   import MarkdownDisplay from '@/components/MarkdownDisplay.vue';
+  import CommentDisplay from '@/components/CommentDisplay.vue';
   export default {
+    name: 'comment-display',
     components: {
       DateDisplay,
-      MarkdownDisplay
+      MarkdownDisplay,
+      'comment-display': CommentDisplay
     },
     props: {
       comment: {
         type: Object,
+        required: true
+      },
+      comments: {
+        type: Array,
         required: true
       }
     }
