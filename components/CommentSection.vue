@@ -2,7 +2,10 @@
   <div>
     <h1 class="display-1">Comments</h1>
 
-    <CommentDisplay v-for="comment in comments.filter(c => !c.parent_id)" :key="comment.id" :comment="comment" :comments="comments" />
+    <CommentDisplay v-for="comment in comments.filter(c => !c.parent_id)"
+                    :key="comment.id"
+                    :comment="comment"
+                    :comments="comments" />
     <CommentNew :video="video" @addComment="comments.push($event)" />
 
   </div>
