@@ -2,7 +2,7 @@
   <div>
     <div v-if="video.pro">
       <div v-if="$auth.loggedIn && $auth.user.pro">
-        <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" />
+        <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" :showSidebar="true" />
       </div>
       <div v-else class="text-center">
         <div class="display-3">
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div v-else>
-      <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" />
+      <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" :showSidebar="true" />
     </div>
 
     <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
