@@ -1,11 +1,52 @@
 <template>
-  <div style="width:100%; padding-top:56.25%; position: relative; background-color: black;"
-       v-shortkey="['space']"
-       @shortkey="playPause">
-    <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
-      <div class="video-player-box"
-           v-video-player:videoPlayer="playerOptions"
-           @ended="ended">
+  <div v-if="sortedVideos">
+    <div v-if="$vuetify.breakpoint.mdAndUp">
+      <div style="width:100%; padding-top:43%; position: relative; background-color: black;"
+          id="video-player-with-sidenav"
+          v-shortkey="['space']"
+          @shortkey="playPause">
+        <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+          <v-row>
+            <v-col cols="9" class="pa-0 my-0">
+              <div class="video-player-box"
+                  v-video-player:videoPlayer="playerOptions"
+                  @ended="ended">
+              </div>
+            </v-col>
+            <v-col cols="3" class="pa-0 ma-0">
+              <CourseContentVideoNavSide :selectedVideo="video" :sortedVideos="sortedVideos" :clickAction="() => {}" />
+            </v-col>
+          </v-row>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <div style="width:100%; position: relative; background-color: black;"
+          id="video-player-with-sidenav"
+          v-shortkey="['space']"
+          @shortkey="playPause">
+        <div>
+          <div class="video-player-box"
+              v-video-player:videoPlayer="playerOptions"
+              @ended="ended">
+          </div>
+        </div>
+      </div>
+      <div>
+        <CourseContentVideoNavSide :selectedVideo="video" :sortedVideos="sortedVideos" :clickAction="() => {}" />
+      </div>
+    </div>
+  </div>
+  <div v-else>
+    <div style="width:100%; padding-top:56.25%; position: relative; background-color: black;"
+        id="video-player"
+        v-shortkey="['space']"
+        @shortkey="playPause">
+      <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+        <div class="video-player-box"
+            v-video-player:videoPlayer="playerOptions"
+            @ended="ended">
+        </div>
       </div>
     </div>
   </div>
@@ -14,6 +55,7 @@
 <script>
   import 'video.js/dist/video-js.css'
   import Vue from 'vue';
+  import CourseContentVideoNavSide from '@/components/CourseContentVideoNavSide.vue';
 
   if (process.browser) {
     const VueVideoPlayer = require('vue-video-player/dist/ssr')
@@ -24,7 +66,12 @@
 
   export default {
     data(){
-      return {playing: true}
+      return {
+        playing: true,
+      }
+    },
+    components: {
+      CourseContentVideoNavSide
     },
     computed: {
       thumbnail(){
@@ -67,6 +114,9 @@
       ended: {
         type: Function,
         default: () => {}
+      },
+      sortedVideos: {
+        type: Array
       }
     }
   }

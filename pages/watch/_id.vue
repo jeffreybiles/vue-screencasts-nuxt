@@ -1,8 +1,8 @@
 <template>
-  <v-container>
+  <div>
     <div v-if="video.pro">
       <div v-if="$auth.loggedIn && $auth.user.pro">
-        <VideoWatch :video="video" :ended="ended" :autoplay="true" />
+        <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" />
       </div>
       <div v-else class="text-center">
         <div class="display-3">
@@ -25,112 +25,102 @@
       </div>
     </div>
     <div v-else>
-      <VideoWatch :video="video" :ended="ended" :autoplay="true" />
+      <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" />
     </div>
 
     <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
       {{percentVideosComplete}}% done with {{course.name}}
     </v-progress-linear>
-    
-    <v-row>
+    <v-container>
+      <v-row>
 
-      <v-btn text 
-             @click="goToPrevious()"
-             v-shortkey.once="['arrowleft']" 
-             @shortkey="goToPrevious()">
-        <span v-if="previousVideo">&lt; Previous</span>
-        <span v-else-if="previousChapter.id">&lt;&lt; Previous <br>(part of previous chapter)</span>
-        <span v-else>Go Back to Course Page</span>
-      </v-btn>
+        <v-btn text 
+              @click="goToPrevious()"
+              v-shortkey.once="['arrowleft']" 
+              @shortkey="goToPrevious()">
+          <span v-if="previousVideo">&lt; Previous</span>
+          <span v-else-if="previousChapter.id">&lt;&lt; Previous <br>(part of previous chapter)</span>
+          <span v-else>Go Back to Course Page</span>
+        </v-btn>
 
-      <v-spacer />
+        <v-spacer />
 
-      <VideoByline :video="video" class="mt-2">
-          <span class="green--text big-check" v-if="isPlayed(video.id)">
-            <font-awesome-icon icon="check" /> Watched
-          </span>
-          <span v-else-if="$auth.loggedIn">
-            <v-btn x-small
-                   outlined
-                   @click="markPlayed"
-                   v-shortkey.once="['m']"
-                   @shortkey="markPlayed">
-              Mark Played
-            </v-btn>
-          </span>
-          <span v-else>
-            <UserAuthModal v-slot="{openModal}">
-              <v-btn @click="openModal" x-small>
-                Log In to start tracking your learning
+        <VideoByline :video="video" class="mt-2">
+            <span class="green--text big-check" v-if="isPlayed(video.id)">
+              <font-awesome-icon icon="check" /> Watched
+            </span>
+            <span v-else-if="$auth.loggedIn">
+              <v-btn x-small
+                    outlined
+                    @click="markPlayed"
+                    v-shortkey.once="['m']"
+                    @shortkey="markPlayed">
+                Mark Played
               </v-btn>
-            </UserAuthModal>
-          </span>
-      </VideoByline>
-      <v-spacer />
-      
-      <v-btn text 
-             @click="goToNext()" 
-             v-shortkey.once="['arrowright']"
-             @shortkey="goToNext()">
-        <span v-if="nextVideo">Next &gt;</span>
-        <span v-else-if="nextChapter.id">Next <br>(part of next chapter) &gt;&gt;</span>
-        <span v-else>Explore More Courses</span>
-      </v-btn>
-    </v-row>
+            </span>
+            <span v-else>
+              <UserAuthModal v-slot="{openModal}">
+                <v-btn @click="openModal" x-small>
+                  Log In to start tracking your learning
+                </v-btn>
+              </UserAuthModal>
+            </span>
+        </VideoByline>
+        <v-spacer />
+        
+        <v-btn text 
+              @click="goToNext()" 
+              v-shortkey.once="['arrowright']"
+              @shortkey="goToNext()">
+          <span v-if="nextVideo">Next &gt;</span>
+          <span v-else-if="nextChapter.id">Next <br>(part of next chapter) &gt;&gt;</span>
+          <span v-else>Explore More Courses</span>
+        </v-btn>
+      </v-row>
 
-    <v-row>
-      
-      <v-col cols="12" md="6">
-        <div class="display-1">{{video.name}}</div>
-        <MarkdownDisplay :markdown="video.description" />
-      </v-col>
-
-      <v-col cols="12" md="6">
+      <v-row>
+        <v-btn v-if="previousChapter.id" text @click="goToChapter(previousChapter, 'first')">
+          &lt;&lt; Previous Chapter
+        </v-btn>
+        <v-spacer />
         <div v-if="course.parent_id" class="text-center">
           Chapter {{currentChapterIndex + 1}} of {{parentCourse.chapter_ids.length}} in <strong>{{parentCourse.name}}</strong>
         </div>
-        <div class="text-center"><strong>{{ course.name }}</strong></div>
-        
-        <v-row>
-          <v-btn v-if="previousChapter.id" text @click="goToChapter(previousChapter, 'first')">
-            &lt;&lt; Previous Chapter
-          </v-btn>
-          <v-spacer />
-          <v-btn v-if="nextChapter.id" text @click="goToChapter(nextChapter, 'first')">
-            Next Chapter &gt;&gt;
-          </v-btn>
-        </v-row>
-        <v-row>
-          <CourseContentTable :course="course" :highlightedVideo="video" :compact="true" />
-        </v-row>
-      </v-col>
+        <v-spacer />
+        <v-btn v-if="nextChapter.id" text @click="goToChapter(nextChapter, 'first')">
+          Next Chapter &gt;&gt;
+        </v-btn>
+      </v-row>
 
-    </v-row>
+      <div>
+        <div class="display-1">{{video.name}}</div>
+        <MarkdownDisplay :markdown="video.description" />
+      </div>
 
-    <VideoWatchCompleteModal :isOpen="endingScreenOpen" 
-                             :close="function(){endingScreenOpen = false}"
-                             :nextVideo="nextVideo"
-                             :markPlayed="markPlayed"
-                             :nextChapter="nextChapter"
-                             :goToNextChapter="goToChapter" />
+      <VideoWatchCompleteModal :isOpen="endingScreenOpen" 
+                              :close="function(){endingScreenOpen = false}"
+                              :nextVideo="nextVideo"
+                              :markPlayed="markPlayed"
+                              :nextChapter="nextChapter"
+                              :goToNextChapter="goToChapter" />
 
-    <!-- Probably put this in a tab -->
-    <!-- tabs: general, code, and transcript... but only show a tab if it has something available for it -->
-    <!-- <v-row>
-      <v-col cols="12">
-        <h1>Code Summary</h1>
-        <MarkdownDisplay :markdown="video.code_summary" />
-      </v-col>
-    </v-row> -->
+      <!-- Probably put this in a tab -->
+      <!-- tabs: general, code, and transcript... but only show a tab if it has something available for it -->
+      <!-- <v-row>
+        <v-col cols="12">
+          <h1>Code Summary</h1>
+          <MarkdownDisplay :markdown="video.code_summary" />
+        </v-col>
+      </v-row> -->
 
-  </v-container>
+    </v-container>
+  </div>
 </template>
 
 <script>
 import VideoByline from '@/components/VideoByline';
 import VideoWatch from '@/components/VideoWatch';
 import MarkdownDisplay from '@/components/MarkdownDisplay';
-import CourseContentTable from '@/components/CourseContentTable.vue';
 import UserAuthModal from '@/components/UserAuthModal.vue';
 import VideoWatchCompleteModal from '@/components/VideoWatchCompleteModal.vue';
 import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
@@ -150,10 +140,9 @@ export default {
     VideoByline,
     VideoWatch,
     MarkdownDisplay,
-    CourseContentTable,
     UserAuthModal,
     VideoWatchCompleteModal,
-    UserAuthTogglableForm
+    UserAuthTogglableForm,
   },
   computed: {
     ...mapGetters({
