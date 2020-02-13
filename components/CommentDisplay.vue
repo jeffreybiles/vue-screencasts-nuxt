@@ -4,19 +4,27 @@
       <CommentEdit :comment="comment" 
                    @endEditing="isEditing = false" />
     </div>
-    <div v-else class="comment mt-2">
+    <div v-else :class="['comment', 'mt-2', comment.deleted ? 'deleted' : '']">
       <div class="content px-2 pt-2">
-        <MarkdownDisplay :markdown="comment.content" />
+        <div v-if="comment.deleted">
+          This comment has been deleted by the author.
+          <button v-if="comment.user_id == $auth.user.id" @click="restoreComment()">
+            Restore
+          </button>
+        </div>
+        <div v-else>
+          <MarkdownDisplay :markdown="comment.content" />
+        </div>
       </div>
       <div class="byline px-2 pb-2">
         Written by {{comment.username}} on <DateDisplay :date="new Date(comment.created_at)" />
         <span v-if="comment.user_id == $auth.user.id">
           <br>
-          <!-- TODO: make these links work -->
           <span @click="isEditing = true" class="clickable">Edit</span>
-          <span>Delete</span>
+          <span @click="deleteComment()">Delete</span>
         </span>
       </div>
+      <!-- TODO: add 'reply' button -->
     </div>
     <comment-display v-for="comment_id in comment.comment_ids"
                     :key="comment_id"
@@ -44,6 +52,20 @@
       'comment-display': CommentDisplay,
       CommentEdit
     },
+    methods: {
+      deleteComment(){
+        this.$axios.put(`/comments/${this.comment.id}`, {
+          deleted: true
+        })
+        this.comment.deleted = true
+      },
+      restoreComment(){
+        this.$axios.put(`/comments/${this.comment.id}`, {
+          deleted: false
+        })
+        this.comment.deleted = false
+      }
+    },
     props: {
       comment: {
         type: Object,
@@ -67,5 +89,9 @@
 
   .byline {
     font-size: 0.8em;
+  }
+
+  .deleted {
+    opacity: 0.5;
   }
 </style>

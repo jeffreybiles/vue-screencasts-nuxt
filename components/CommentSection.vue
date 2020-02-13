@@ -31,6 +31,7 @@
       async fetchComments(){
         let response = await this.$axios.get(`/videos/${this.video.id}/comments`)
         let comments = response.data.data;
+        // sort by created_at
         this.comments = comments.map(c => {return {...c.attributes, id: c.id}})
       }
     },
