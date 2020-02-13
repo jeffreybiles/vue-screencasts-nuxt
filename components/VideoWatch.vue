@@ -1,6 +1,22 @@
 <template>
-  <div v-if="sortedVideos">
-    <div v-if="$vuetify.breakpoint.mdAndUp">
+  <div v-if="showSidebar">
+    <div v-if="($vuetify.breakpoint && $vuetify.breakpoint.smAndDown)">
+      <div style="width:100%; position: relative; background-color: black;"
+          id="video-player-with-sidenav"
+          v-shortkey="['space']"
+          @shortkey="playPause">
+        <div>
+          <div class="video-player-box"
+              v-video-player:videoPlayer="playerOptions"
+              @ended="ended">
+          </div>
+        </div>
+      </div>
+      <div>
+        <CourseContentVideoNavSide :selectedVideo="video" :sortedVideos="sortedVideos" :clickAction="() => {}" />
+      </div>
+    </div>
+    <div v-else>
       <div style="width:100%; padding-top:43%; position: relative; background-color: black;"
           id="video-player-with-sidenav"
           v-shortkey="['space']"
@@ -20,22 +36,7 @@
         </div>
       </div>
     </div>
-    <div v-else>
-      <div style="width:100%; position: relative; background-color: black;"
-          id="video-player-with-sidenav"
-          v-shortkey="['space']"
-          @shortkey="playPause">
-        <div>
-          <div class="video-player-box"
-              v-video-player:videoPlayer="playerOptions"
-              @ended="ended">
-          </div>
-        </div>
-      </div>
-      <div>
-        <CourseContentVideoNavSide :selectedVideo="video" :sortedVideos="sortedVideos" :clickAction="() => {}" />
-      </div>
-    </div>
+    
   </div>
   <div v-else>
     <div style="width:100%; padding-top:56.25%; position: relative; background-color: black;"
@@ -117,6 +118,9 @@
       },
       sortedVideos: {
         type: Array
+      },
+      showSidebar: {
+        type: Boolean
       }
     }
   }
