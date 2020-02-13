@@ -1,48 +1,28 @@
 <template>
-  <div v-if="hasComments">
+  <div>
     <h1 class="display-1">Comments</h1>
 
     <CommentDisplay v-for="comment in comments" :key="comment.id" :comment="comment" />
+    <CommentNew :video="video" @addComment="comments.push($event)" />
 
-    <MarkdownEditor :markdown="newComment">
-      <v-textarea v-model="newComment"
-                  label="Add your voice!"
-                  rows="9" />
-    </MarkdownEditor>
-  </div>
-  <div v-else>
-    <h1 class="display-1">Comment on this video</h1>
-
-    <MarkdownEditor :markdown="newComment">
-      <v-textarea v-model="newComment"
-                  label="Add your voice!"
-                  rows="9" />
-    </MarkdownEditor>
   </div>
 </template>
 
 <script>
-  import MarkdownEditor from '@/components/MarkdownEditor.vue';
   import CommentDisplay from '@/components/CommentDisplay.vue';
-
+  import CommentNew from '@/components/CommentNew.vue';
   export default {
     data(){
       return {
-        newComment: '',
         comments: []
       }
     },
     components: {
-      MarkdownEditor,
-      CommentDisplay
+      CommentDisplay,
+      CommentNew
     },
     mounted(){
       this.fetchComments()
-    },
-    computed: {
-      hasComments(){
-        return this.video.comment_ids.length > 0
-      }
     },
     methods: {
       async fetchComments(){

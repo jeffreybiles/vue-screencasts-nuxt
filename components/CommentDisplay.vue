@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="comment">
+    <div class="comment mt-2">
       <div class="content px-2 pt-2">
         <MarkdownDisplay :markdown="comment.content" />
       </div>
