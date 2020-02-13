@@ -14,6 +14,8 @@
 <script>
   import CommentDisplay from '@/components/CommentDisplay.vue';
   import CommentNew from '@/components/CommentNew.vue';
+  import _ from 'lodash';
+
   export default {
     data(){
       return {
@@ -31,8 +33,8 @@
       async fetchComments(){
         let response = await this.$axios.get(`/videos/${this.video.id}/comments`)
         let comments = response.data.data;
-        // sort by created_at
-        this.comments = comments.map(c => {return {...c.attributes, id: c.id}})
+        comments = comments.map(c => {return {...c.attributes, id: c.id}})
+        this.comments = _.sortBy(comments, 'created_at')
       }
     },
     props: {
