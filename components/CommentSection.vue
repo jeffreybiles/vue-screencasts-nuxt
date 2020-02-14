@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="display-1">Comments</h1>
+    <h1 class="display-1">Discussion</h1>
 
     <CommentDisplay v-for="comment in comments.filter(c => !c.parent_id)"
                     :key="comment.id"

@@ -96,7 +96,7 @@
         <div class="display-1">{{video.name}}</div>
         <MarkdownDisplay :markdown="video.description" />
 
-        <hr>
+        <hr class="my-5">
 
         <CommentSection :video="video" />
       </div>
