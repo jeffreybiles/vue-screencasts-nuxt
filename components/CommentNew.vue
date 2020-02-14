@@ -10,6 +10,7 @@
         Both the 4-space indentation and triple-backslash methods of creating code blocks work.
       </template>
     </MarkdownEditor>
+    <v-btn color="grey" @click="cancel()">Cancel</v-btn>
     <v-btn color="green" @click="leaveComment()">Leave Comment</v-btn>
   </div>
   <div v-else>
@@ -44,6 +45,10 @@
         comment = {...comment.attributes, id: comment.id}
         this.$emit('addComment', comment);
         this.newComment = ''
+      },
+      cancel(){
+        this.newComment = ''
+        this.$emit('cancel')
       }
     },
     props: {

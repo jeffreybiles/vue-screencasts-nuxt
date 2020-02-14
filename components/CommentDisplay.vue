@@ -27,7 +27,7 @@
       </div>
     </div>
     <div v-if="isReplying" class="ml-6">
-      <CommentNew  :video="video" :parentId="comment.id" @addComment="addComment($event)" />
+      <CommentNew  :video="video" :parentId="comment.id" @addComment="addComment($event)" @cancel="isReplying = false" />
     </div>
     <comment-display v-for="comment_id in comment.comment_ids"
                     :key="comment_id"
