@@ -7,9 +7,5 @@
     "id": 6,
     "name": "MiniCasts Updates",
     "description": "Get a notification email whenever I release a new video or course.  Expect several per week."
-  }, {
-    "id": 7,
-    "name": "Comment Notifications",
-    "description": "Get a notification email whenever someone responds to one of your comments."
   }]
 }
