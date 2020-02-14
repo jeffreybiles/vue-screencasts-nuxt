@@ -18,13 +18,15 @@
 
 <script>
   import emailListJson from '@/utils/email-lists.json';
+  import _ from 'lodash';
+
   export default {
     async asyncData({$axios}){
       let result = await $axios.get('/email_preferences/status')
 
       return {
         contact: result.data.contact,
-        raw_newsletters: emailListJson.emailLists
+        raw_newsletters: _.filter(emailListJson.emailLists, e => e.id != 7)
       }
     },
     computed: {
