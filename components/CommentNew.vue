@@ -30,7 +30,8 @@
       async leaveComment(){
         let response = await this.$axios.post(`/comments`, {
           video_id: this.video.id,
-          content: this.newComment 
+          content: this.newComment,
+          parent_id: this.parentId
         })
         let comment = response.data.data;
         comment = {...comment.attributes, id: comment.id}
@@ -42,6 +43,9 @@
       video: {
         type: Object,
         required: true
+      },
+      parentId: {
+        type: [Number, String]
       }
     }
   }

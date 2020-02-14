@@ -5,7 +5,8 @@
     <CommentDisplay v-for="comment in comments.filter(c => !c.parent_id)"
                     :key="comment.id"
                     :comment="comment"
-                    :comments="comments" />
+                    :comments="comments"
+                    :video="video" />
     <CommentNew :video="video" @addComment="comments.push($event)" />
 
   </div>
