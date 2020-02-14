@@ -8,7 +8,7 @@
       <div class="content px-2 pt-2">
         <div v-if="comment.deleted">
           This comment has been deleted by the author.
-          <button v-if="comment.user_id == $auth.user.id" @click="restoreComment()">
+          <button v-if="isAuthor" @click="restoreComment()">
             Restore
           </button>
         </div>
@@ -20,7 +20,7 @@
         Written by {{comment.username}} on <DateDisplay :date="new Date(comment.created_at)" />
         <br>
         <span @click="isReplying = true" class="clickable">Reply</span>
-        <span v-if="comment.user_id == $auth.user.id">
+        <span v-if="isAuthor">
           <span @click="isEditing = true" class="clickable">Edit</span>
           <span @click="deleteComment()" class="clickable">Delete</span>
         </span>
@@ -76,6 +76,11 @@
         this.isReplying = false;
         this.comments.push(newComment);
         this.comment.comment_ids.push(newComment.id);
+      }
+    },
+    computed: {
+      isAuthor(){
+        return this.$auth.user && this.$auth.user.id == this.comment.user_id;
       }
     },
     props: {

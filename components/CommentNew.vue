@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="$auth.user">
     <MarkdownEditor :markdown="newComment">
       <v-textarea v-model="newComment"
                   label="Leave comment here"
@@ -12,10 +12,16 @@
     </MarkdownEditor>
     <v-btn color="green" @click="leaveComment()">Leave Comment</v-btn>
   </div>
+  <div v-else>
+    You must be logged in to leave a comment.
+
+    <UserAuthTogglableForm />
+  </div>
 </template>
 
 <script>
   import MarkdownEditor from '@/components/MarkdownEditor.vue';
+  import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
 
   export default {
     data(){
@@ -24,7 +30,8 @@
       }
     },
     components: {
-      MarkdownEditor
+      MarkdownEditor,
+      UserAuthTogglableForm
     },
     methods: {
       async leaveComment(){
