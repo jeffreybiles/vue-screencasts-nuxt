@@ -48,10 +48,11 @@
         </div>
       </div>
       <div v-else>
-        <UserAuthTogglableForm registerPhrase="Keep track of the videos you've watched"
+        <UserAuthTogglableForm registerPhrase="We have almost two hundred free videos.  Sign up to track which ones you've watched."
                                 :postRegisterAction="postAuthAction"
                                 :postLoginAction="postAuthAction"/>
-        <a @click="skip">Skip for now</a>
+        <a @click="skip">Skip for now</a> or
+        <nuxt-link to="/">See what we're all about</nuxt-link>
       </div>
   </v-card>
   </v-dialog>
