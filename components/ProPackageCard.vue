@@ -19,13 +19,15 @@
       <li v-if="plan.services.groupFaq">
         <font-awesome-icon icon="user-friends" /> Monthly group FAQ sessions
       </li>
+      <li v-if="plan.services.proCourses">
+        <font-awesome-icon icon="laptop-code" /> Access to in-depth, interactive courses released monthly.
+      </li>
       <li v-if="plan.services.coursePriority">
-        <font-awesome-icon icon="desktop" /> Access to 100% of courses and videos, and {{plan.services.coursePriority}} for suggesting which topics to cover next.
+        <font-awesome-icon icon="clock" /> {{plan.services.coursePriority}} for suggesting which topics to cover next.
       </li>
-      <li v-if="plan.services.free">
-        <font-awesome-icon icon="desktop" /> Access to many free courses and videos.
-      </li>
+      <font-awesome-icon icon="desktop" /> Access to all free courses and videos.
     </ul>
+
     <div v-if="!plan.services.free" class="my-3">
       <v-btn>${{plan.month.currentPrice}}/month</v-btn>
       <v-btn>${{plan.year.currentPrice}}/year</v-btn>
@@ -59,15 +61,15 @@
 
 <style lang="scss" scoped>
   .pro-card {
-    background-color: #9B9;
+    background-color: #ACA;
     border: 1px solid black;
     padding: 10px;
     margin-top: 10px;
     cursor: pointer;
 
     &:hover {
-      transform: translate(-5px, -5px);
-      box-shadow: #797 5px 5px;
+      background-color: #A0C0A0;
+      box-shadow: #797 5px 5px 5px;
     }
   }
 

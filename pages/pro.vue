@@ -1,7 +1,7 @@
 
 <template>
   <v-container style="max-width: 1024px;">
-    <p class="headline"><strong>Instant access to a wealth of VueJS knowledge</strong></p>
+    <p class="display-1">Instant access to a wealth of VueJS knowledge</p>
     <p class="subheader">Like most developers, you're either getting paid based on your skills... or you're busy trying to snag a higher-paying gig where you are.</p>
     <p class="subheader"><strong>Knowledge and skill equals money.</strong></p>
     <p>So, how are you going to get those skills?</p>

@@ -25,7 +25,8 @@
       "id": 2,
       "name": "Pro - Early Bird",
       "services": {
-        "coursePriority": "elevated priority"
+        "coursePriority": "Elevated priority",
+        "proCourses": true
       },
       "month": {
         "stripeId": {
@@ -49,9 +50,10 @@
       "name": "Pro - Silver",
       "services": {
         "videoChat": "Monthly",
-        "coursePriority": "high priority",
+        "coursePriority": "High priority",
         "groupFaq": true,
-        "weeklyCheckin": true
+        "weeklyCheckin": true,
+        "proCourses": true
       },
       "month": {
         "stripeId": {
@@ -71,7 +73,9 @@
       "name": "Pro - Gold",
       "services": {
         "videoChat": "Weekly",
-        "coursePriority": "high priority"
+        "coursePriority": "High priority",
+        "proCourses": true,
+        "groupFaq": true
       },
       "month": {
         "stripeId": {
@@ -90,7 +94,8 @@
         "actionPlan": true,
         "retainer": true,
         "videoChat": "Weekly",
-        "coursePriority": "top priority"
+        "coursePriority": "Top priority",
+        "proCourses": true
       },
       "month": {
         "stripeId": {},
@@ -105,9 +110,10 @@
       "id": 6,
       "name": "Pro - Bronze",
       "services": {
-        "coursePriority": "elevated priority",
+        "coursePriority": "Elevated priority",
         "groupFaq": true,
-        "weeklyCheckin": true
+        "weeklyCheckin": true,
+        "proCourses": true
       },
       "month": {
         "stripeId": {
