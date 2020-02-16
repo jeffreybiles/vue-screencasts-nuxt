@@ -2,14 +2,14 @@
   <v-container class="home">
     <v-row>
       <v-col cols="12">
-        <h1 class="display-2 text-center">VueJS for the Real World</h1>
-        <h3 class="display-1 text-center">Advanced skills. Big projects.</h3>
+        <h1 class="display-2 text-center">VueScreencasts.com</h1>
+        <!-- change slogan font to make it more fun -->
+        <h3 class="display-1 text-center">All things intermediate and advanced.</h3>
         <div class="text-center">
           <v-btn color="green darken-2" outlined x-large class="mt-2 mb-2" to="/courses">Start Learning Now</v-btn>
         </div>
       </v-col>
       <v-col cols="12" md="8">
-        <h1 class="display-2">SO MUCH TO LEARN</h1>
         <p>{{courses.length}} courses. {{videos.length}} videos. Over 19 hours of content.</p>
         <p>And <em>much</em> more on the way.</p>
         <p>Here's a sample.</p>
