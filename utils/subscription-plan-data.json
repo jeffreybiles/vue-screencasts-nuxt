@@ -24,6 +24,9 @@
     {
       "id": 2,
       "name": "Pro - Early Bird",
+      "services": {
+        "coursePriority": "elevated priority"
+      },
       "month": {
         "stripeId": {
           "dev": "plan_GgsLGxhiej3vrb",
@@ -44,6 +47,12 @@
     {
       "id": 3,
       "name": "Pro - Silver",
+      "services": {
+        "videoChat": "Monthly",
+        "coursePriority": "high priority",
+        "groupFaq": true,
+        "weeklyCheckin": true
+      },
       "month": {
         "stripeId": {
           "dev": "prod_GhyIgvXZmLYtK2"
@@ -54,12 +63,16 @@
         "stripeId": {
 
         },
-        "currentPrice": 2450
+        "currentPrice": 2695
       }
     },
     {
       "id": 4,
       "name": "Pro - Gold",
+      "services": {
+        "videoChat": "Weekly",
+        "coursePriority": "high priority"
+      },
       "month": {
         "stripeId": {
         },
@@ -67,19 +80,55 @@
       },
       "year": {
         "stripeId": {},
-        "currentPrice": 8950
+        "currentPrice": 8745
       }
     },
     {
       "id": 5,
       "name": "Pro - Platinum",
+      "services": {
+        "actionPlan": true,
+        "retainer": true,
+        "videoChat": "Weekly",
+        "coursePriority": "top priority"
+      },
       "month": {
         "stripeId": {},
         "currentPrice": 1950
       },
       "year": {
         "stripeId": {},
-        "currentPrice": 21500
+        "currentPrice": 21450
+      }
+    },
+    {
+      "id": 6,
+      "name": "Pro - Bronze",
+      "services": {
+        "coursePriority": "elevated priority",
+        "groupFaq": true,
+        "weeklyCheckin": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": "plan_GgsLGxhiej3vrb",
+          "prod": "plan_GgsIRlrUB4Zgtd"
+        },
+        "currentPrice": 79
+      },
+      "year": {
+        "stripeId": {
+          "env": "plan_GgsLvpFY1RzWpI",
+          "prod": "plan_GgsIQeIRnmh5bF"
+        },
+        "currentPrice": 790
+      }
+    },
+    {
+      "id": 7,
+      "name": "Free",
+      "services": {
+        "free": true
       }
     }
   ]

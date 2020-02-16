@@ -1,7 +1,43 @@
 
 <template>
   <v-container style="max-width: 1024px;">
-    <!-- Uncomment this sales pitch once I'm ready to charge -->
+
+    You know you want to build your Vue skills.
+    
+    What's your commitment level?
+
+    Whether you're building an app that serves millions or just wanting to slake your curiousity, we've got a package for you.
+
+    <ProPackageCard :stripePlanId="5">
+
+      <p>You're all-in.  You've got lots of money on the line, and you need to be able to deliver.</p>
+      <p>I'm here to help.</p>
+      <p>With the Platinum package:</p>
+
+      <!-- Platinum badge -->
+    </ProPackageCard>
+
+    <ProPackageCard :stripePlanId="4">
+
+      <p>You're making money from your Vue skills -- or hope to be soon -- and are ready to take it to the next level.</p>
+      <p>With the Gold package, you get:</p>
+    </ProPackageCard>
+
+    <ProPackageCard :stripePlanId="3">
+      <p>With the Silver package, you get:</p>
+    </ProPackageCard>
+
+    <ProPackageCard :stripePlanId="6">
+      <p>With the Bronze package, you get:</p>
+    </ProPackageCard>
+
+    <ProPackageCard :stripePlanId="2">
+      <p>With the Pro subscription, you get:</p>
+    </ProPackageCard>
+
+    <ProPackageCard :stripePlanId="7">
+      <p>With the Free plan, you get:</p>
+    </ProPackageCard>
 
     <div class="display-1 text-center pa-3">
       Study Vue <font-awesome-icon icon="laptop-code" />. 
@@ -48,10 +84,12 @@
 
 <script>
   import SubscriptionLinks from '@/components/SubscriptionLinks.vue';
+  import ProPackageCard from '@/components/ProPackageCard.vue';
   
   export default {
     components: {
-      SubscriptionLinks
+      SubscriptionLinks,
+      ProPackageCard
     },
     head(){
       let title = `Become a VueScreencasts Pro`

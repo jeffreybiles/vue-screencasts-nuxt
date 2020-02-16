@@ -16,7 +16,7 @@
       return {
         plans: plans.filter(p => p.env == env && !p.deprecated)
       }
-    }  
+    }
   }
 </script>
 
