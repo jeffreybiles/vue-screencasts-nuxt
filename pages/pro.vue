@@ -1,24 +1,19 @@
 
 <template>
   <v-container style="max-width: 1024px;">
-
-    You know you want to build your Vue skills.
-    
-    What's your commitment level?
-
-    Whether you're building an app that serves millions or just wanting to slake your curiousity, we've got a package for you.
-
+    <p class="headline"><strong>Instant access to a wealth of VueJS knowledge</strong></p>
+    <p class="subheader">Like most developers, you're either getting paid based on your skills... or you're busy trying to snag a higher-paying gig where you are.</p>
+    <p class="subheader"><strong>Knowledge and skill equals money.</strong></p>
+    <p>So, how are you going to get those skills?</p>
+    <p>At VueScreencasts.com, we go beyond the first fifteen minutes, beyond the todo app, and dig deep into subjects that will level up your skills and get you paid.</p>
+    <p>Whatever your commitment level, we've got a package that will get you where you want to go.</p>
     <ProPackageCard :stripePlanId="5">
-
       <p>You're all-in.  You've got lots of money on the line, and you need to be able to deliver.</p>
       <p>I'm here to help.</p>
       <p>With the Platinum package:</p>
-
-      <!-- Platinum badge -->
     </ProPackageCard>
 
     <ProPackageCard :stripePlanId="4">
-
       <p>You're making money from your Vue skills -- or hope to be soon -- and are ready to take it to the next level.</p>
       <p>With the Gold package, you get:</p>
     </ProPackageCard>
@@ -32,6 +27,8 @@
     </ProPackageCard>
 
     <ProPackageCard :stripePlanId="2">
+      <p class="headline">Subscribe before March 5th to get the early-bird discount</p>
+
       <p>With the Pro subscription, you get:</p>
     </ProPackageCard>
 
@@ -39,46 +36,15 @@
       <p>With the Free plan, you get:</p>
     </ProPackageCard>
 
+
+    <br class="pa-3">
+
+
     <div class="display-1 text-center pa-3">
       Study Vue <font-awesome-icon icon="laptop-code" />. 
       Level Up <font-awesome-icon icon="arrow-up" />. 
       Leap Forward <font-awesome-icon icon="dollar-sign" />.  
     </div>
-
-    <SubscriptionLinks />
-
-    <br class="pa-3">
-
-    <p class="headline"><strong>Instant access to a wealth of VueJS knowledge</strong></p>
-    <p class="subheader">Like most developers, you're either getting paid based on your skills... or you're busy trying to snag a higher-paying gig where you are.</p>
-    <p class="subheader"><strong>Knowledge and skill equals money.</strong></p>
-    <p>So, how are you going to get those skills?</p>
-    <p>At VueScreencasts.com, we go beyond the Todo List app.</p>
-    <p><strong>Big Real-World Projects</strong> give you experience seeing real problems solved on a large scale.</p>
-    <p><strong>Focused Tutorials</strong> dig deep into techniques, concepts, and libraries.
-    <p><strong>Guided Exercises</strong> give you <em>actual experience</em> using advanced techniques, in a controlled environment that reduces frustration while maximizing knowledge.</p>
-    <p>There's already 19 hours of video, with more being added every week.</p>
-    <p><strong>Your career is worth the investment.</strong></p>
-
-    <p class="headline text-center">Subscribe before March 5th to get the early-bird discount</p>
-
-    <SubscriptionLinks />
-
-    <br>
-
-    <p class="headline text-center">What am I getting if I subscribe?</p>
-
-    <ul style="margin: auto; max-width: 550px;">
-      <li>Instant access to <strong>all Pro courses and videos</strong>.</li>
-      <li><strong>New course every week</strong>.</li>
-      <li>(coming soon) Ability to <strong>download videos for offline viewing</strong>.</li>
-      <li>(coming soon) More votes on <strong>user-selected topics</strong>.</li>
-      <li><strong>Lock in early-bird pricing</strong> for as long as you stay subscribed.</li>
-      <li>25% of your subscription goes to help <strong>support the VueJS community</strong>.</li>
-    </ul>
-    <br>
-    <SubscriptionLinks />
-
   </v-container>
 </template>
 

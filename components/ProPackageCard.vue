@@ -26,9 +26,13 @@
         <font-awesome-icon icon="desktop" /> Access to many free courses and videos.
       </li>
     </ul>
-    <span v-if="!plan.services.free">
-      <v-btn>${{plan.month.currentPrice}}/month</v-btn> or <v-btn>${{plan.year.currentPrice}}/year</v-btn>
-    </span>
+    <div v-if="!plan.services.free" class="my-3">
+      <v-btn>${{plan.month.currentPrice}}/month</v-btn>
+      <v-btn>${{plan.year.currentPrice}}/year</v-btn>
+    </div>
+    <div v-else class="my-3">
+      <v-btn>Sign Up Free</v-btn>
+    </div>
   </div>
 </template>
 
