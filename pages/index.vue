@@ -25,7 +25,7 @@
             <p>But maybe you don't have access to an expert... or the experts in your company prefer coding to teaching.</p>
           </div>
           <div class="col-md-6 col-sm-12 center-md">
-            <img src="images/happy-ember-programmer.png" class="img-responsive bottom-image" alt="Happy Ember Programmer">
+            <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Ember Programmer">
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ $primary: $blue;
   }
   .homepage-header {
     @media (min-width: 48em) {
-      // background: url(../images/hero-bg.png) no-repeat 50px;
+      background: url(~assets/vuescreencasts-hero-bg.png) no-repeat 50px;
       background-size: auto 100%;
       padding-top: 60px;
       padding-bottom: 60px;
