@@ -12,6 +12,9 @@
       </div>
     </header>
 
+    <!-- TODO: choose which testimonials to put here -->
+    <TestimonialsRow :testimonialIds="['1', '5', '7']" class="paper-container-large" />
+
     <section class="section" id="why-vue">
       <div class="paper-container-large">
         <div class="row">
@@ -54,10 +57,12 @@
 <script>
 import { mapGetters, mapState } from 'vuex';
 import SocialProofGrid from '@/components/SocialProofGrid.vue';
+import TestimonialsRow from '@/components/TestimonialsRow.vue';
 
 export default {
   components: {
     SocialProofGrid,
+    TestimonialsRow,
   },
   computed: {
     ...mapGetters({
