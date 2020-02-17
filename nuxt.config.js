@@ -95,7 +95,15 @@ export default {
           icons: ['fab']
         }
       ]
-    }]
+    }],
+    ['vue-currency-filter/nuxt', {
+      symbol: '$',
+      thousandsSeparator: ',',
+      fractionCount: 0,
+      fractionSeparator: '.',
+      symbolPosition: 'front',
+      symbolSpacing: false
+    }],
   ],
   /*
   ** Axios module configuration

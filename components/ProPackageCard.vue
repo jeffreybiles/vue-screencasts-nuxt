@@ -6,7 +6,6 @@
       </div>
 
       <div class="col-sm-6">
-
         <ul>
           <li v-if="plan.services.actionPlan">
             <font-awesome-icon icon="chart-bar" /> Analysis of your real-world situation.
@@ -39,11 +38,11 @@
         </ul>
       </div>
       <div v-if="!plan.services.free" class="my-3 buy-buttons">
-        <v-btn x-large color="green">
-          ${{plan.month.currentPrice}}/month
+        <v-btn x-large color="green accent-3">
+          {{plan.month.currentPrice | currency}}/month
         </v-btn>
-        <v-btn x-large color="green">
-          ${{plan.year.currentPrice}}/year
+        <v-btn x-large color="green accent-3">
+          {{plan.year.currentPrice | currency}}/year
         </v-btn>
       </div>
       <div v-else class="my-3">

@@ -29,6 +29,7 @@
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-stripe-module": "^2.0.0",
     "rsvp": "^4.8.5",
+    "vue-currency-filter": "^4.0.3",
     "vue-shortkey": "^3.1.7",
     "vue-stripe-elements-plus": "^0.3.2",
     "vue-timers": "^2.0.4",
