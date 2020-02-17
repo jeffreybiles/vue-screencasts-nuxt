@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-sm-6">
         <slot />
-        
+
         <div v-if="!plan.services.free" class="my-3">
           <v-btn x-large color="green accent-1 mr-2">
             {{plan.month.currentPrice | currency}}/month
           </v-btn>
-          <v-btn x-large color="green accent-1">
+          <v-btn x-large color="green accent-2">
             {{plan.year.currentPrice | currency}}/year
           </v-btn>
         </div>
