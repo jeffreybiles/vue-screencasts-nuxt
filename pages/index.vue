@@ -13,7 +13,7 @@
     </header>
 
     <!-- TODO: choose which testimonials to put here -->
-    <TestimonialsRow :testimonialIds="['1', '5', '7']" class="paper-container-large" />
+    <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
 
     <section class="section" id="why-vue">
       <div class="paper-container-large">
@@ -30,6 +30,9 @@
         </div>
       </div>
     </section>
+
+    <!-- TODO: choose which testimonials to put here -->
+    <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
 
   <v-container class="home">
     <v-row>

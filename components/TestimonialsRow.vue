@@ -3,7 +3,7 @@
     <v-col v-for="testimonial in testimonials" 
            :key="testimonial.id"
            cols="6"
-           sm="4"
+           sm="3"
            class="text-center testimonial">
       <img :src="testimonial.img_src" />
       <div class="testimonial-text text-center pa-2">
@@ -23,6 +23,11 @@
       return {
         testimonials: _.filter(socialProofJson.testimonials, t => {
           return this.testimonialIds.includes(t.id.toString())
+        }).map(t => {
+          let bucket = "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com"
+          let folder = "social-proof-portraits"
+          t.img_src = `${bucket}/${folder}/${t.img_url}`
+          return t
         })
       }
     },
