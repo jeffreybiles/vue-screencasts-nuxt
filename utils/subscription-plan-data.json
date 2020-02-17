@@ -73,6 +73,7 @@
       "name": "Pro - Gold",
       "services": {
         "videoChat": "Weekly",
+        "actionPlan": true,
         "coursePriority": "High priority",
         "proCourses": true,
         "groupFaq": true

@@ -75,7 +75,7 @@
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
-    <HomePageSection classes="bg-white">
+    <HomePageSection classes="bg-dark">
       <div class="col-sm-12 center-md">
         <h2 class="section-title">Pro Platinum - for when there's money on the line, and you need to deliver.</h2>
 
@@ -84,6 +84,81 @@
           <p>We'll start with a comprehensive analysis of your situation and come up with a custom action plan to get you where you need to be.</p>
           <p>Then we'll keep you on track with weekly meetings.</p>
           <p>And my phone is open to you - up to 4 hours/month retainer, you can call me and I'll do everything in my power to solve your problem.</p>
+        </ProPackageCard>
+      </div>
+    </HomePageSection>
+
+    <!-- TODO: choose which testimonials to put here -->
+    <div class="bg-gray">
+      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+    </div>
+
+    <HomePageSection class="bg-dark">
+      <div class="col-sm-12 center-md">
+        <h2 class="section-title">Pro Gold - your best bet for fast growth.</h2>
+
+        <ProPackageCard :stripePlanId="4">
+          <p>Some copy about needing a coach to push you along</p>
+        </ProPackageCard>
+      </div>
+    </HomePageSection>
+
+    <!-- TODO: choose which testimonials to put here -->
+    <div class="bg-gray">
+      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+    </div>
+
+    <HomePageSection class="bg-dark">
+      <div class="col-sm-12 center-md">
+        <h2 class="section-title">Pro Silver - a high-ROI investment in your career.</h2>
+
+        <ProPackageCard :stripePlanId="3">
+          <p>Some copy about long term growth</p>
+        </ProPackageCard>
+      </div>
+    </HomePageSection>
+
+        <!-- TODO: choose which testimonials to put here -->
+    <div class="bg-gray">
+      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+    </div>
+
+    <HomePageSection class="bg-dark">
+      <div class="col-sm-12 center-md">
+        <h2 class="section-title">Pro Bronze - guidance for those on a budget.</h2>
+
+        <ProPackageCard :stripePlanId="6">
+          <p>Some copy about nudging you on the right course</p>
+        </ProPackageCard>
+      </div>
+    </HomePageSection>
+
+        <!-- TODO: choose which testimonials to put here -->
+    <div class="bg-gray">
+      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+    </div>
+
+    <HomePageSection class="bg-dark">
+      <div class="col-sm-12 center-md">
+        <h2 class="section-title">Pro Standard - high-quality resources for self-directed learning.</h2>
+
+        <ProPackageCard :stripePlanId="2">
+          <p>Some copy about giving you the resources you need </p>
+        </ProPackageCard>
+      </div>
+    </HomePageSection>
+
+        <!-- TODO: choose which testimonials to put here -->
+    <div class="bg-gray">
+      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+    </div>
+
+    <HomePageSection class="bg-dark">
+      <div class="col-sm-12 center-md">
+        <h2 class="section-title">Free - a great start.</h2>
+
+        <ProPackageCard :stripePlanId="7">
+          <p>Some copy about long term growth</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
