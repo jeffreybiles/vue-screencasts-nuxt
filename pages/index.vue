@@ -54,7 +54,7 @@
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
-    <HomePageSection classes="bg-dark">
+    <HomePageSection classes="bg-dark" id="pricing">
       <div class="col-md-7 col-sm-12">
         <h2 class="section-title">Are you ready?</h2>
         <p>Remember, we have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email.</p>
