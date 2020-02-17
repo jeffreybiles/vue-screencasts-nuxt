@@ -88,14 +88,32 @@
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
+    <section class="section">
+      <div class="paper-container-large">
+        <div class="row">
+          <div class="col-sm-12 center-md">
+            <h2 class="section-title">Pro Platinum - for when there's money on the line, and you need to deliver.</h2>
 
-
-      <!-- <h2 class="section-title">Pro Platinum - for when there's money on the line, and you need to deliver.</h2>
-    <p>When you need an expert on your side, this is the package for you.</p>
-    <p>We'll start with a comprehensive analysis of your situation and come up with a custom action plan to get you where you need to be.</p>
-    <p>Then we'll keep you on track with weekly meetings.</p>
-    <p>And my phone is open to you - up to 4 hours/month retainer, you can call me and I'll do everything in my power to solve your problem.</p> -->
-
+            <ProPackageCard :stripePlanId="5">
+              <p>When you need an expert on your side, this is the package for you.</p>
+              <p>We'll start with a comprehensive analysis of your situation and come up with a custom action plan to get you where you need to be.</p>
+              <p>Then we'll keep you on track with weekly meetings.</p>
+              <p>And my phone is open to you - up to 4 hours/month retainer, you can call me and I'll do everything in my power to solve your problem.</p>
+            </ProPackageCard>
+          </div>
+          <!-- <div class="col-md-5 col-sm-12 center-md">
+            <div class="row">
+              <div v-for="x in new Array(9)" :key="x">
+                <div class="circle"></div>
+                <div>Title</div>
+                <p>Regular text</p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+    
 
   <v-container class="home">
     <v-row>
@@ -112,9 +130,6 @@
         <p>And <em>much</em> more on the way.</p>
         <p>Here's a sample.</p>
       </v-col>
-      <v-col cols="12" md="4" class="pr-0">
-        <SocialProofGrid />
-      </v-col>
     </v-row>
   </v-container>
   </div>
@@ -122,13 +137,13 @@
 
 <script>
 import { mapGetters, mapState } from 'vuex';
-import SocialProofGrid from '@/components/SocialProofGrid.vue';
 import TestimonialsRow from '@/components/TestimonialsRow.vue';
+import ProPackageCard from '@/components/ProPackageCard.vue';
 
 export default {
   components: {
-    SocialProofGrid,
     TestimonialsRow,
+    ProPackageCard
   },
   computed: {
     ...mapGetters({
@@ -309,6 +324,14 @@ $primary: $blue;
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center;
+}
+
+.circle {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 10px;
 }
 
 </style>
