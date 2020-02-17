@@ -17,103 +17,76 @@
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
-    <section class="section" id="why-vue">
-      <div class="paper-container-large">
-        <div class="row vertical-align-items">
-          <div class="col-md-6 col-sm-12">
-            <h2 class="section-title">Why VueScreencasts?</h2>
-            <p>You're beyond the first two hours.</p>
-            <p>Watching the same type of intro tutorials over and over isn't getting you anywhere.</p>
-            <p>But maybe you don't have access to an expert... or the experts you know prefer coding to teaching.</p>
-            <p>Good news: we're here, ready to help you level up your Vue skills.</p>
-          </div>
-          <div class="col-md-6 col-sm-12 center-md">
-            <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
-          </div>
-        </div>
+    <HomePageSection sectionId="why-vue">
+      <div class="col-md-6 col-sm-12">
+        <h2 class="section-title">Why VueScreencasts?</h2>
+        <p>You're beyond the first two hours.</p>
+        <p>Watching the same type of intro tutorials over and over isn't getting you anywhere.</p>
+        <p>But maybe you don't have access to an expert... or the experts you know prefer coding to teaching.</p>
+        <p>Good news: we're here, ready to help you level up your Vue skills.</p>
       </div>
-    </section>
+      <div class="col-md-6 col-sm-12 center-md">
+        <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
+      </div>
+    </HomePageSection>
 
     <!-- TODO: choose which testimonials to put here -->
     <div class="bg-dark">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
-    <section class="section bg-gray">
-      <div class="paper-container-large">
-        <div class="row vertical-align-items">
-          <div class="col-md-5 col-sm-12 center-md">
-            <img src="~assets/vuescreencasts-student-coding.png" class="img-responsive" alt="VueScreencasts Student Coding">
-          </div>
-          <div class="col-md-7 col-sm-12">
-            <h2 class="section-title">What will I be getting?</h2>
-            <p>Wherever you are in your Vue career, we have a package to meet your needs.</p>
-            <p>Some people will benefit from weekly coaching meetings to keep them on track.</p>
-            <p>Others will be satisfied with our monthly in-depth courses and our huge library of existing videos.</p>
-            <p>While a select few will need personalized, on-demand assistance with their projects.</p>
-            <p>Whatever level you're at, it's our goal to get you one level higher.</p>
-          </div>
-        </div>
+    <HomePageSection classes="bg-gray">
+      <div class="col-md-5 col-sm-12 center-md">
+        <img src="~assets/vuescreencasts-student-coding.png" class="img-responsive" alt="VueScreencasts Student Coding">
       </div>
-    </section>
+      <div class="col-md-7 col-sm-12">
+        <h2 class="section-title">What will I be getting?</h2>
+        <p>Wherever you are in your Vue career, we have a package to meet your needs.</p>
+        <p>Some people will benefit from weekly coaching meetings to keep them on track.</p>
+        <p>Others will be satisfied with our monthly in-depth courses and our huge library of existing videos.</p>
+        <p>While a select few will need personalized, on-demand assistance with their projects.</p>
+        <p>Whatever level you're at, it's our goal to get you one level higher.</p>
+      </div>
+    </HomePageSection>
 
     <!-- TODO: choose which testimonials to put here -->
     <div class="bg-white">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
-    <section class="section bg-dark">
-      <div class="paper-container-large">
-        <div class="row vertical-align-items">
-          <div class="col-md-7 col-sm-12">
-            <h2 class="section-title">Are you ready?</h2>
-            <p>Remember, we have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email.</p>
-            <p>If you have any questions, feel free to contact us.</p>
-            <ul>
-              <li>Email: <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a></li>
-              <li>Twitter: <a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a></li>
-              <li>Text or Phone: <a href="sms:501-256-3078">+1 (501) 256-3078</a></li>
-            </ul>
-          </div>
-          <div class="col-md-5 col-sm-12 center-md">
-            <img src="~assets/vuescreencasts-student-coding-2.png" class="img-responsive img-center-xs" alt="Ember School Student Learning">
-          </div>
-        </div>
+    <HomePageSection classes="bg-dark">
+      <div class="col-md-7 col-sm-12">
+        <h2 class="section-title">Are you ready?</h2>
+        <p>Remember, we have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email.</p>
+        <p>If you have any questions, feel free to contact us.</p>
+        <ul>
+          <li>Email: <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a></li>
+          <li>Twitter: <a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a></li>
+          <li>Text or Phone: <a href="sms:501-256-3078">+1 (501) 256-3078</a></li>
+        </ul>
       </div>
-    </section>
-
+      <div class="col-md-5 col-sm-12 center-md">
+        <img src="~assets/vuescreencasts-student-coding-2.png" class="img-responsive img-center-xs" alt="Ember School Student Learning">
+      </div>
+    </HomePageSection>
 
     <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
-    <section class="section">
-      <div class="paper-container-large">
-        <div class="row">
-          <div class="col-sm-12 center-md">
-            <h2 class="section-title">Pro Platinum - for when there's money on the line, and you need to deliver.</h2>
+    <HomePageSection classes="bg-white">
+      <div class="col-sm-12 center-md">
+        <h2 class="section-title">Pro Platinum - for when there's money on the line, and you need to deliver.</h2>
 
-            <ProPackageCard :stripePlanId="5">
-              <p>When you need an expert on your side, this is the package for you.</p>
-              <p>We'll start with a comprehensive analysis of your situation and come up with a custom action plan to get you where you need to be.</p>
-              <p>Then we'll keep you on track with weekly meetings.</p>
-              <p>And my phone is open to you - up to 4 hours/month retainer, you can call me and I'll do everything in my power to solve your problem.</p>
-            </ProPackageCard>
-          </div>
-          <!-- <div class="col-md-5 col-sm-12 center-md">
-            <div class="row">
-              <div v-for="x in new Array(9)" :key="x">
-                <div class="circle"></div>
-                <div>Title</div>
-                <p>Regular text</p>
-              </div>
-            </div>
-          </div> -->
-        </div>
+        <ProPackageCard :stripePlanId="5">
+          <p>When you need an expert on your side, this is the package for you.</p>
+          <p>We'll start with a comprehensive analysis of your situation and come up with a custom action plan to get you where you need to be.</p>
+          <p>Then we'll keep you on track with weekly meetings.</p>
+          <p>And my phone is open to you - up to 4 hours/month retainer, you can call me and I'll do everything in my power to solve your problem.</p>
+        </ProPackageCard>
       </div>
-    </section>
-    
+    </HomePageSection>
 
   <v-container class="home">
     <v-row>
@@ -139,11 +112,13 @@
 import { mapGetters, mapState } from 'vuex';
 import TestimonialsRow from '@/components/TestimonialsRow.vue';
 import ProPackageCard from '@/components/ProPackageCard.vue';
+import HomePageSection from '@/components/HomePageSection.vue';
 
 export default {
   components: {
     TestimonialsRow,
-    ProPackageCard
+    ProPackageCard,
+    HomePageSection
   },
   computed: {
     ...mapGetters({
