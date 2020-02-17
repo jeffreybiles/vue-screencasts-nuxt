@@ -29,9 +29,9 @@
       "link": "https://www.youtube.com/watch?v=shCCP4PFXeU&lc=UgzdpOe4M_-9otfWBEd4AaABAg"
     }, {
       "id": 4,
-      "name": "ayoub hammoudan",
+      "name": "Ayoub Hammoudan",
       "img_url": "ayoubh+hammoudan.jpg",
-      "message": "Thank you so Much",
+      "message": "Thank you so much.",
       "real_face": true,
       "real_name": true,
       "message_priority": 4,
@@ -306,7 +306,7 @@
       "img_url": "Emerson+smith+Huallpa+Zanabria.jpg"
     }, {
       "id": 34,
-      "message": "Have looked so many Vue.js tutorials, your videos are the best ones!",
+      "message": "Have looked [at] so many Vue.js tutorials, your videos are the best ones!",
       "message_priority": 8,
       "real_name": true,
       "name": "Nathan Yang",

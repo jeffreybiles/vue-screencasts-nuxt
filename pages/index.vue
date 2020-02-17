@@ -14,7 +14,7 @@
 
     <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['12', '21', '4', '34']" class="paper-container-large" />
     </div>
 
     <HomePageSection sectionId="why-vue">

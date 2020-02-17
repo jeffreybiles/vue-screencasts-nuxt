@@ -8,7 +8,7 @@
       <img :src="testimonial.img_src" />
       <div class="testimonial-text text-center pa-2">
         <div class="subtitle-1">"{{testimonial.message}}"</div>
-        <div>--{{testimonial.name}}</div>
+        <div>&mdash;{{testimonial.name}}</div>
       </div>
     </v-col>
   </v-row>
@@ -21,8 +21,8 @@
   export default {
     data(){
       return {
-        testimonials: _.filter(socialProofJson.testimonials, t => {
-          return this.testimonialIds.includes(t.id.toString())
+        testimonials: this.testimonialIds.map(t_id => {
+          return socialProofJson.testimonials.find(t => t.id == t_id)
         }).map(t => {
           let bucket = "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com"
           let folder = "social-proof-portraits"
@@ -51,6 +51,8 @@
     display: flex;
     justify-content: center; /* align horizontal */
     align-items: center;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 
   .testimonial-text {
