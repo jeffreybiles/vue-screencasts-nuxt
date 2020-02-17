@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="hero bg-blue" id="welcome">
+    <header class="hero bg-dark" id="welcome">
       <div class="paper-container-large homepage-header">
         <div class="row">
           <div class="col-md-6 col-sm-7">
