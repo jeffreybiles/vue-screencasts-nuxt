@@ -13,7 +13,7 @@
     </header>
 
     <!-- TODO: choose which testimonials to put here -->
-    <div class="testimonial-color">
+    <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
@@ -35,7 +35,7 @@
     </section>
 
     <!-- TODO: choose which testimonials to put here -->
-    <div class="testimonial-color">
+    <div class="bg-dark">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
@@ -58,7 +58,7 @@
     </section>
 
     <!-- TODO: choose which testimonials to put here -->
-    <div class="testimonial-color">
+    <div class="bg-white">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
@@ -84,7 +84,7 @@
 
 
     <!-- TODO: choose which testimonials to put here -->
-    <div class="testimonial-color">
+    <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
 
@@ -163,10 +163,6 @@ $blue-50: #E3F2FD;
 $transparent-blue: rgba(33, 150, 243, .12);
 
 $primary: $blue;
-
-.testimonial-color {
-  background-color: #EBEFF2;
-}
 
 .hero {
   padding: 60px 0;
@@ -293,10 +289,26 @@ $primary: $blue;
   max-width: 100%;
 }
 
-  .vertical-align-items {
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center;
+.bg-gray {
+  background-color: #EBEFF2;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+
+.bg-purple {
+  background-color: #DCD;
+  a {
+    color: #049;
   }
+}
+
+.vertical-align-items {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center;
+}
 
 </style>
