@@ -13,7 +13,9 @@
     </header>
 
     <!-- TODO: choose which testimonials to put here -->
-    <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+    <div class="testimonial-color">
+      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+    </div>
 
     <section class="section" id="why-vue">
       <div class="paper-container-large">
@@ -21,18 +23,48 @@
           <div class="col-md-6 col-sm-12">
             <h2 class="section-title margin-sm">Why VueScreencasts?</h2>
             <p>You're beyond the first two hours.</p>
-            <p>Watching the same intro tutorials over and over isn't getting you anywhere.</p>
-            <p>But maybe you don't have access to an expert... or the experts in your company prefer coding to teaching.</p>
+            <p>Watching the same type of intro tutorials over and over isn't getting you anywhere.</p>
+            <p>But maybe you don't have access to an expert... or the experts you know prefer coding to teaching.</p>
+            <p>Good news: we're here, ready to help you level up your Vue skills.</p>
           </div>
           <div class="col-md-6 col-sm-12 center-md">
-            <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Ember Programmer">
+            <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
           </div>
         </div>
       </div>
     </section>
 
     <!-- TODO: choose which testimonials to put here -->
-    <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+    <div class="testimonial-color">
+      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+    </div>
+
+    <section class="section bg-gray">
+      <div class="paper-container-large">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 center-md">
+            <img src="~assets/vuescreencasts-student-coding.png" class="img-responsive" alt="VueScreencasts Student Coding">
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <h2 class="section-title margin-lg">What will I be getting?</h2>
+            <p>Wherever you are in your Vue career, we have a package to meet your needs.</p>
+            <p>Some people will benefit from weekly coaching meetings to keep them on track.</p>
+            <p>Others will be satisfied with our monthly in-depth courses and our huge library of existing videos.</p>
+            <p>While a select few will need personalized, on-demand assistance with their projects.</p>
+            <p>Whatever level you're at, it's our goal to get you one level higher.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+      <!-- <h2 class="section-title margin-lg">Pro Platinum - for when there's money on the line, and you need to deliver.</h2>
+    <p>When you need an expert on your side, this is the package for you.</p>
+    <p>We'll start with a comprehensive analysis of your situation and come up with a custom action plan to get you where you need to be.</p>
+    <p>Then we'll keep you on track with weekly meetings.</p>
+    <p>And my phone is open to you - up to 4 hours/month retainer, you can call me and I'll do everything in my power to solve your problem.</p> -->
+
 
   <v-container class="home">
     <v-row>
@@ -89,6 +121,10 @@ $blue-50: #E3F2FD;
 $transparent-blue: rgba(33, 150, 243, .12);
 
 $primary: $blue;
+
+.testimonial-color {
+  background-color: #EBEFF2;
+}
 
 .hero {
   padding: 60px 0;
