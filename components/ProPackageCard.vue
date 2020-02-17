@@ -3,6 +3,18 @@
     <div class="row">
       <div class="col-sm-6">
         <slot />
+        
+        <div v-if="!plan.services.free" class="my-3">
+          <v-btn x-large color="green accent-1 mr-2">
+            {{plan.month.currentPrice | currency}}/month
+          </v-btn>
+          <v-btn x-large color="green accent-1">
+            {{plan.year.currentPrice | currency}}/year
+          </v-btn>
+        </div>
+        <div v-else class="my-3">
+          <v-btn>Sign Up Free</v-btn>
+        </div>
       </div>
 
       <div class="col-sm-6">
@@ -36,17 +48,6 @@
           </li>
           <font-awesome-icon icon="desktop" /> Access to all free courses and videos.
         </ul>
-      </div>
-      <div v-if="!plan.services.free" class="my-3 buy-buttons">
-        <v-btn x-large color="green accent-3">
-          {{plan.month.currentPrice | currency}}/month
-        </v-btn>
-        <v-btn x-large color="green accent-3">
-          {{plan.year.currentPrice | currency}}/year
-        </v-btn>
-      </div>
-      <div v-else class="my-3">
-        <v-btn>Sign Up Free</v-btn>
       </div>
     </div>
   </div>
@@ -83,13 +84,6 @@
 
     li {
       list-style-type: none;
-    }
-  }
-
-  .buy-buttons {
-    margin: auto;
-    button {
-      margin: 8px;
     }
   }
 </style>
