@@ -1,7 +1,7 @@
 <template>
   <section :class="`section ${classes}`" :id="sectionId">
     <div class="paper-container-large">
-      <div class="row">
+      <div class="row vertical-align-items">
         <slot />
       </div>
     </div>
