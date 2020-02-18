@@ -13,7 +13,10 @@
           <div v-if="$auth.loggedIn">
             <font-awesome-icon icon="check" /> &nbsp; You're logged in as {{$auth.user.email}}
           </div>
-          <UserAuthModal v-slot="{openModal}" v-else>
+          <UserAuthModal v-else
+                         :postRegisterAction="() => {paymentModalOpen = true}"
+                         :postLoginAction="() => {paymentModalOpen = true}"
+                         v-slot="{openModal}">
             <v-btn @click="openModal">
               Sign In or Register
             </v-btn>
@@ -68,7 +71,7 @@
         planId: this.$route.query.plan,
         planTerm: this.$route.query.planTerm,
         plans: subscriptionPlanJson.plans.filter(p => !p.deprecated),
-        paymentModalOpen: true
+        paymentModalOpen: false
       }
     },
     computed: {
