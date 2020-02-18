@@ -8549,6 +8549,11 @@ vue-video-player@^5.0.2:
     videojs-flash "^2.1.0"
     videojs-hotkeys "^0.2.20"
 
+vue2-filters@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/vue2-filters/-/vue2-filters-0.9.1.tgz#c31df2e44d523fac74d362a792c68890cfddc3f1"
+  integrity sha512-peQHwZIT4cv/SsFodfmS8QREOnpdbsblIcKg19Kgu6kDCZ2Q9vorI9QyRLDIdvziFsKYjDL4NtwqgKDUrgxNQg==
+
 vue@^2.6.10, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"

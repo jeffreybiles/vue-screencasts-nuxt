@@ -88,6 +88,16 @@ body .v-application a {
   max-width: 100%;
 }
 
+.section-title {
+  font: 300 32px/40px $font;
+  margin-bottom: 30px;
+}
+
+.section-subtitle {
+  font: 300 24px/32px $font;
+  margin-bottom: 20px;
+}
+
 .section {
   background-color: #ffffff;
   padding: 60px 0;
@@ -95,6 +105,7 @@ body .v-application a {
     font: 300 32px/40px $font;
     margin-bottom: 30px;
   }
+
   ul {
     margin: 0;
   }

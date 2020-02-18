@@ -41,10 +41,8 @@ $green: #23B408;
   h2, h3, h4 {
     color: #ffffff;
   }
-  button.md-button.md-default-theme.md-raised:disabled {
-    background-color: $grey;
-  }
   .disabled {
+    background-color: $grey;
     color: #aaaaaa;
   }
   .check {

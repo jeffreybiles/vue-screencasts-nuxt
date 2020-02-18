@@ -34,6 +34,7 @@
     "vue-stripe-elements-plus": "^0.3.2",
     "vue-timers": "^2.0.4",
     "vue-video-player": "^5.0.2",
+    "vue2-filters": "^0.9.1",
     "vuetify": "^2.1.15",
     "vuetify-datetime-picker": "^2.1.1"
   },
