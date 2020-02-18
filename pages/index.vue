@@ -118,7 +118,7 @@
       </div>
     </HomePageSection>
 
-        <!-- TODO: choose which testimonials to put here -->
+    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
@@ -133,7 +133,7 @@
       </div>
     </HomePageSection>
 
-        <!-- TODO: choose which testimonials to put here -->
+    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
@@ -148,7 +148,7 @@
       </div>
     </HomePageSection>
 
-        <!-- TODO: choose which testimonials to put here -->
+    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
     </div>
