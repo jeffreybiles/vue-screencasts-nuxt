@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row class="mx-auto">
     <v-col v-for="testimonial in testimonials" 
            :key="testimonial.id"
            cols="6"

@@ -24,6 +24,7 @@ export default {
 }
 </script>
 <style lang="scss">
+$font: Roboto, sans-serif;
 
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -69,4 +70,43 @@ body .v-application a {
     }
   } 
 }
+
+.paper-container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.paper-container-large {
+  @extend .paper-container;
+  max-width: 1200px;
+}
+
+.img-responsive {
+  max-width: 100%;
+}
+
+.section {
+  background-color: #ffffff;
+  padding: 60px 0;
+  .section-title {
+    font: 300 32px/40px $font;
+    margin-bottom: 30px;
+  }
+  ul {
+    margin: 0;
+  }
+  img {
+    margin-top: 30px;
+    @media (min-width: 64em) {
+      margin-top: 0;
+    }
+  }
+  .bottom-image {
+    margin-bottom: -66px;
+  }
+}
+
 </style>

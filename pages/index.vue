@@ -1,16 +1,13 @@
 <template>
   <div>
-    <header class="hero bg-dark" id="welcome">
-      <div class="paper-container-large homepage-header">
-        <div class="row">
-          <div class="col-md-6 col-sm-7">
-            <h1><strong>VueScreencasts.com</strong> is all things intermediate and advanced.​</h1>
-            <h4>You've read the docs.  You've done the beginner courses.  We're what's next.</h4>
-            <v-btn to="/courses">Get Started</v-btn>
-          </div>
-        </div>
+    <HomePageSection classes="hero bg-dark" innerClasses="homepage-header">
+      <div class="col-md-6 col-sm-7">
+        <h1><strong>VueScreencasts.com</strong> is all things intermediate and advanced.​</h1>
+        <h4>You've read the docs.  You've done the beginner courses.  We're what's next.</h4>
+        <v-btn to="/courses">Get Started</v-btn>
       </div>
-    </header>
+      <div class="col-md-6 col-sm-5"></div>
+    </HomePageSection>
 
     <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
@@ -202,131 +199,6 @@ $transparent-blue: rgba(33, 150, 243, .12);
 
 $primary: $blue;
 
-.hero {
-  padding: 60px 0;
-  text-align: center;
-  @media (min-width: 48em) {
-    padding: 0;
-    text-align: left;
-  }
-  .homepage-header {
-    @media (min-width: 48em) {
-      background: url(~assets/vuescreencasts-hero-bg.png) no-repeat 50px;
-      background-size: auto 100%;
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-    @media (min-width: 64em) {
-      background-position: right;
-    }
-  }
-  .hero-welcome {
-    @media (min-width: 48em) {
-      max-width: 520px;
-      flex-basis: 520px;
-    }
-  }
-  h1 {
-    color: #ffffff;
-    font: 400 28px/36px $font;
-    font-weight: 300;
-    margin: 0;
-    @media (min-width: 64em) {
-      font-size: 36px;
-      line-height: 44px;
-    }
-  }
-  h4 {
-    color: #ffffff;
-    font: 400 18px/26px $font;
-    margin: 16px 0 32px;
-    @media (min-width: 48em) {
-      font-size: 20px;
-      line-height: 28px;
-    }
-  }
-  .md-button {
-    margin: 0;
-  }
-}
-
-.bg-blue {
-  background-color: $primary;
-  p {
-    color: #ffffff;
-  }
-  .md-button.button-white-raised {
-    color: $primary;
-    &:hover, &:focus {
-      background-color: $blue-50 !important;
-    }
-  }
-  .md-button.button-white {
-    color: #ffffff;
-  }
-}
-
-.paper-container {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.paper-container-large {
-  @extend .paper-container;
-  max-width: 1200px;
-}
-
-.section {
-  background-color: #ffffff;
-  padding: 60px 0;
-  .section-title {
-    font: 300 32px/40px $font;
-    margin-bottom: 30px;
-  }
-  ul {
-    margin: 0;
-  }
-  img {
-    margin-top: 30px;
-    @media (min-width: 64em) {
-      margin-top: 0;
-    }
-  }
-  .bottom-image {
-    margin-bottom: -66px;
-  }
-}
-
-.bg-dark {
-  background-color: #2D384A;
-  .section-title {
-    color: #ffffff;
-  }
-  color: #ffffff;
-  h2, h3, h4 {
-    color: #ffffff;
-  }
-  button.md-button.md-default-theme.md-raised:disabled {
-    background-color: $grey;
-  }
-  .disabled {
-    color: #aaaaaa;
-  }
-  .check {
-    color: $green;
-  }
-  li a {
-    color: #ffffff;
-  }
-}
-
-.img-responsive {
-  max-width: 100%;
-}
-
 .bg-gray {
   background-color: #EBEFF2;
 }
@@ -335,26 +207,10 @@ $primary: $blue;
   background-color: #ffffff;
 }
 
-
-.bg-purple {
-  background-color: #DCD;
-  a {
-    color: #049;
-  }
-}
-
 .vertical-align-items {
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center;
-}
-
-.circle {
-  background-color: blue;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 10px;
 }
 
 </style>

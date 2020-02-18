@@ -1,4 +1,13 @@
 <template>
+<div>
+  <HomePageSection classes="bg-dark" innerClasses="order-header">
+    <div class="col-md-6">
+      <h2 class="section-title">You're two steps away from starting your Vue journey.</h2>
+    </div>
+    <div class="col-md-6 center-md">
+      <img src="~assets/vuescreencasts-student-learning-3.png" class="img-responsive" alt="VueScreencasts Student Learning">
+    </div>
+  </HomePageSection>
   <v-container>
     <div v-if="this.$auth.user && this.$auth.user.pro">
       <h1 class="display-2 pb-3">Congratulations!</h1>
@@ -90,12 +99,14 @@
       </div>
     </div>
   </v-container>
+</div>
 </template>
 
 <script>
   import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
   import CourseCard from '@/components/CourseCard.vue';
   import StripeCard from '@/components/StripeCard.vue';
+  import HomePageSection from '@/components/HomePageSection.vue';
   import { mapGetters } from 'vuex';
   import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
 
@@ -103,7 +114,8 @@
     components: {
       UserAuthTogglableForm,
       CourseCard,
-      StripeCard
+      StripeCard,
+      HomePageSection
     },
     data() {
       let { stripeEnv } = this.$root.context.env;
@@ -162,4 +174,13 @@
   .stripe-card.complete {
     border-color: green;
   }
+
+  .paper-container-large {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
 </style>
