@@ -3,13 +3,13 @@
     <div class="course-content-chapter" :style="{height: '100%', 'background': `linear-gradient(90deg, #99CC99 ${percentVideoComplete}%, transparent ${percentVideoComplete}%)`}">
       <v-expansion-panel-header>
         <v-row>
-          <v-col cols="7"><h2>{{decoratedCourse.name}}</h2></v-col>
-          <v-col cols="1">
+          <v-col sm="7" cols="12" class="pl-0"><h2>{{decoratedCourse.name}}</h2></v-col>
+          <v-col sm="1" cols="0">
             <v-btn small v-if="isAdminScreen" @click="detachChapter" class="clickable" >
               Detach
             </v-btn>
           </v-col>
-          <v-col cols="1">
+          <v-col sm="1" cols="4">
             <div v-if="isAdminScreen">
               <font-awesome-icon icon="arrow-up" @click.stop="moveEarlier" class="clickable" />
               <font-awesome-icon icon="arrow-down" @click.stop="moveLater" class="clickable" />
@@ -19,8 +19,8 @@
               {{ finishedVideos.length }} / {{decoratedCourse.numVideos}}
             </div>
           </v-col>
-          <v-col cols="1"><DurationDisplay :duration="decoratedCourse.duration" /></v-col>
-          <v-col cols="2">
+          <v-col sm="1" cols="4"><DurationDisplay :duration="decoratedCourse.duration" /></v-col>
+          <v-col sm="2" cols="4">
             <DateDisplay :date="mostRecentVideo && mostRecentVideo.published_at" />
           </v-col>
         </v-row>

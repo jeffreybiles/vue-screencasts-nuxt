@@ -1,18 +1,18 @@
 <template>
   <div v-if="isPublished || isAdminScreen">
-    <v-row :class="['course-content-video', isHighlighted ? 'green lighten-4': '']">
-      <v-col cols="6" @click="clickAction(video)" class="clickable pl-5 pr-0">
+    <v-row :class="['course-content-video', 'ma-0', isHighlighted ? 'green lighten-4': '']">
+      <v-col sm="6" cols="11" @click="clickAction(video)" class="clickable pa-1">
         {{video.name}}
       </v-col>
-      <v-col cols="1">
+      <v-col sm="1" cols="0" class="pa-1">
         <v-btn x-small v-if="isAdminScreen" @click="detachVideo" class="clickable">
           Detach
         </v-btn>
       </v-col>
-      <v-col cols="1">
+      <v-col sm="1" cols="2" clas="pa-1">
         <VideoTypeIcon :video="video" />
       </v-col>
-      <v-col cols="1">
+      <v-col sm="1" cols="3" class="pa-1">
         <div v-if="isAdminScreen">
           <font-awesome-icon icon="arrow-up" @click="moveEarlier" class="clickable" />
           <font-awesome-icon icon="arrow-down" @click="moveLater" class="clickable" />
@@ -20,20 +20,20 @@
         </div>
         <div v-else>
           <v-row>
-            <v-col cols="6" class="pt-0 pb-0">
+            <v-col sm="6" class="pt-0 pb-0">
               <span class="green--text" v-if="isPlayed(video.id)">
                 <font-awesome-icon icon="check" />
               </span>
             </v-col>
-            <v-col cols="6" class="pt-0 pb-0">
+            <v-col sm="6" class="pt-0 pb-0">
               <ProMarker :isFree="!video.pro" :video="video" />
             </v-col>
           </v-row>
         </div>
       </v-col>
-      <v-col v-if="!compact" cols="1"><DurationDisplay :duration="video.duration" /></v-col>
-      <v-col v-if="!compact" cols="2"><DateDisplay :date="video.published_at" /></v-col>
-      <v-col v-if="compact" cols="3" class="text-center pt-1 pb-1">
+      <v-col v-if="!compact" sm="1"><DurationDisplay :duration="video.duration" /></v-col>
+      <v-col v-if="!compact" sm="2"><DateDisplay :date="video.published_at" /></v-col>
+      <v-col v-if="compact" sm="3" cols="7" class="text-center pa-1">
         <DurationDisplay :duration="video.duration" class="medium" /><br>
         <DateDisplay :date="video.published_at" class="small" />
       </v-col>
@@ -117,4 +117,9 @@
   .small {
     font-size: 12px;
   }
+
+  .course-content-video {
+    border-top: 1px solid #AAA;
+  }
+
 </style>
