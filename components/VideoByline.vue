@@ -1,5 +1,5 @@
 <template>
-  <em>
+  <em class="video-byline">
     <DurationDisplay :duration="video.duration" />
     
     <br v-if="$vuetify.breakpoint.xsOnly"><span v-else> &nbsp; | &nbsp; </span>
@@ -49,5 +49,4 @@
 </script>
 
 <style lang="scss" scoped>
-
 </style>

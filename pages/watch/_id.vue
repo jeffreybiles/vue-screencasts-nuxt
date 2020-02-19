@@ -31,7 +31,7 @@
     <v-progress-linear v-model="percentVideosComplete" color="green" height="25">
       {{percentVideosComplete}}% done with {{course.name}}
     </v-progress-linear>
-    <v-container>
+    <v-container class="shrink-if-small-screen">
       <v-row>
 
         <v-btn text 
@@ -61,7 +61,7 @@
             <span v-else>
               <UserAuthModal v-slot="{openModal}">
                 <v-btn @click="openModal" x-small>
-                  Log In to start tracking your learning
+                  Log In to track your learning
                 </v-btn>
               </UserAuthModal>
             </span>
@@ -77,6 +77,7 @@
           <span v-else>Explore More Courses</span>
         </v-btn>
       </v-row>
+      <br>
 
       <v-row>
         <v-btn v-if="previousChapter.id" text @click="goToChapter(previousChapter, 'first')">
@@ -263,8 +264,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .big-check {
     font-size: 16px;
+  }
+
+  .shrink-if-small-screen {
+    @media (max-width: 480px) {
+      font-size: 0.8em;
+
+      button {
+        font-size: 0.8em;
+        padding: 0 12px !important;
+      }
+    }
   }
 </style>
