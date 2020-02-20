@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="video.pro">
-      <div v-if="$auth.loggedIn && $auth.user.pro">
+      <div v-if="canAccess">
         <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" :showSidebar="true" />
       </div>
       <div v-else class="text-center">
@@ -180,7 +180,12 @@ export default {
     previousVideo(){ return this.sortedVideos[this.currentIndex - 1]; },
     seriesType(){ return this.$route.query.seriesType},
 
-    percentVideosComplete(){ return percentVideosComplete(this.course.videos, this.$store) }
+    percentVideosComplete(){ return percentVideosComplete(this.course.videos, this.$store) },
+
+    canAccess(){
+      let user = this.$auth.user
+      return this.video.in_free_period || user && user.pro
+    },
   },
   methods: {
     ended(){

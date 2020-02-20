@@ -21,7 +21,6 @@
         let user = this.$auth.user
         return this.video.in_free_period || user && user.pro
       },
-
     },
     props: {
       isFree: {
