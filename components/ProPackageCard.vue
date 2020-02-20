@@ -5,10 +5,10 @@
         <slot />
 
         <div v-if="!plan.services.free" class="my-3">
-          <v-btn x-large color="green accent-1 mr-2">
+          <v-btn x-large color="green accent-1 mr-2" :to="`/order?plan=${plan.id}&planTerm=month`">
             {{plan.month.currentPrice | currency}}/month
           </v-btn>
-          <v-btn x-large color="green accent-2">
+          <v-btn x-large color="green accent-2" :to="`/order?plan=${plan.id}&planTerm=year`">
             {{plan.year.currentPrice | currency}}/year
           </v-btn>
         </div>

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "deprecated": true,
-      "name": "Pro - Mega Early Bird",
+      "name": "Pro Mega Early Bird",
       "month": {
         "stripeId": {
           "dev": "plan_GUnIRF35MtJy67",
@@ -23,7 +23,7 @@
     },
     {
       "id": 2,
-      "name": "Pro - Early Bird",
+      "name": "Pro Standard - Early Bird",
       "services": {
         "coursePriority": "Elevated priority",
         "proCourses": true
@@ -47,7 +47,7 @@
     },
     {
       "id": 3,
-      "name": "Pro - Silver",
+      "name": "Pro Silver",
       "services": {
         "videoChat": "Monthly",
         "coursePriority": "High priority",
@@ -70,7 +70,7 @@
     },
     {
       "id": 4,
-      "name": "Pro - Gold",
+      "name": "Pro Gold",
       "services": {
         "videoChat": "Weekly",
         "actionPlan": true,
@@ -90,7 +90,7 @@
     },
     {
       "id": 5,
-      "name": "Pro - Platinum",
+      "name": "Pro Platinum",
       "services": {
         "actionPlan": true,
         "retainer": true,
@@ -109,7 +109,7 @@
     },
     {
       "id": 6,
-      "name": "Pro - Bronze",
+      "name": "Pro Bronze",
       "services": {
         "coursePriority": "Elevated priority",
         "groupFaq": true,

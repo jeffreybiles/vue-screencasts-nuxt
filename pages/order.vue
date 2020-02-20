@@ -6,7 +6,7 @@
         <h2 class="section-title">You're {{stepsLeft}} {{ stepsLeft | pluralize('step') }} away from turbocharging your Vue journey.</h2>
 
         <div class="step">
-          <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}} payments.
+          <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments.
         </div>
 
         <div class="step">
