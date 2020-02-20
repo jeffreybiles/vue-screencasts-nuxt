@@ -695,6 +695,79 @@
       "name": "Muhammed Owais",
       "real_name": true,
       "img_url": "Muhammed+Owais.jpg"
+    }, {
+      "id": 81,
+      "message": "Saved me loads of time!!",
+      "message_priority": 7,
+      "name": "Jack Simple",
+      "link": "https://www.youtube.com/watch?v=0BHPs2kNnVA&lc=UgydADM728Ls6FlUlbB4AaABAg",
+      "real_name": true,
+      "img_url": "Jack+Simple.jpg"
+    }, {
+      "id": 82,
+      "message": "You deserve more views and subs man",
+      "message_priority": 4,
+      "name": "Jijin Jayakumar",
+      "real_name": true,
+      "real_face": true,
+      "img_url": "Jijin+Jayakumar.jpg",
+      "link": "https://www.youtube.com/watch?v=jJgodgk1CTM&lc=UgwdxVlq3yXxDkFyWjZ4AaABAg"
+    }, {
+      "id": 83,
+      "message": "Your tutorial is quite easy [to] understand",
+      "message_priority": 5,
+      "name": "Koga2 Kuzengenki",
+      "img_url": "Koga2+Kuzengenki.jpg",
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgxHiAu83M92qenujKJ4AaABAg"
+    }, {
+      "id": 84,
+      "name": "Kenneth Solberg",
+      "img_url": "Kenneth+Solberg.jpg",
+      "message_priority": 4,
+      "message": "Excellent video!",
+      "real_name": true,
+      "real_face": true,
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=Ugwf0GmeeWThT0nggjp4AaABAg"
+    }, {
+      "id": 85,
+      "message": "Thanks for the tutorial. Subscribed!!!! :)",
+      "name": "Zenish Shrestha",
+      "img_url": "Zenish+Shrestha.jpg",
+      "real_face": true,
+      "real_name": true,
+      "message_priority": 7,
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgxBAtUFX5CYxEXCfit4AaABAg"
+    }, {
+      "id": 86,
+      "message": "Really appreciate it! You're a good tutor.",
+      "message_priority": 5,
+      "name": "Ous",
+      "img_url": "Ous.jpg",
+      "link": "https://www.youtube.com/watch?v=NS0io3Z75GI&lc=UgzpH5zhec8M3E61Q914AaABAg"
+    }, {
+      "id": 87,
+      "message": "At 14:22... it was exactly that question which I had in mind seconds before!",
+      "message_priority": 8,
+      "name": "Henning Sieh",
+      "img_url": "Henning+Sieh.jpg",
+      "real_name": true,
+      "real_face": true,
+      "link": "https://www.youtube.com/watch?v=b9y6_sfmIKs&lc=UgxhfFz7v9btE_habzN4AaABAg"
+    }, {
+      "id": 88,
+      "message": "Thanks so much! Helped a lot.",
+      "name": "BoIoko",
+      "img_url": "BoIoko.jpg",
+      "message_priority": 5,
+      "link": "https://www.youtube.com/watch?v=T_QETy__Oko&lc=UgzUlYYSyyxRGjuJnzl4AaABAg"
+    }, {
+      "id": 89,
+      "message": "Thanks for your videos.",
+      "name": "Rafael Canan",
+      "img_url": "Rafael+Canan.jpg",
+      "message_priority": 4,
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=T_QETy__Oko&lc=UgwzwCG4FLWwAv7iqod4AaABAg"
     }
   ]
 }
