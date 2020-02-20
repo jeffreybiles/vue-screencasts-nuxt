@@ -5,7 +5,10 @@
            cols="6"
            sm="3"
            class="text-center testimonial">
-      <v-img :src="`https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/social-proof-portraits/${testimonial.img_url}`" />
+      
+      <v-img :src="testimonial.img_src" v-if="reloadHack" />
+      <img :src="testimonial.img_src" v-else />
+      
       <div class="testimonial-text text-center pa-2">
         <div class="subtitle-1">"{{testimonial.message}}"</div>
         <div>&mdash;{{testimonial.name}}</div>
@@ -24,6 +27,11 @@
         let allTestimonials = socialProofJson.testimonials;
         return this.testimonialIds.map(t_id => {
           return allTestimonials.find(t => t && t.id == t_id)
+        }).map(t => {
+          let host = 'https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com';
+          let folder = 'social-proof-portraits'
+          t.img_src = `${host}/${folder}/${t.img_url}`
+          return t
         })
       }
     },
@@ -31,6 +39,10 @@
       testimonialIds: {
         type: Array,
         required: true
+      },
+      reloadHack: {
+        type: Boolean,
+        default: false
       }
     }
   }
