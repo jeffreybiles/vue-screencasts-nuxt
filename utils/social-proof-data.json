@@ -765,9 +765,78 @@
       "message": "Thanks for your videos.",
       "name": "Rafael Canan",
       "img_url": "Rafael+Canan.jpg",
-      "message_priority": 4,
+      "message_priority": 5,
       "real_name": true,
       "link": "https://www.youtube.com/watch?v=T_QETy__Oko&lc=UgwzwCG4FLWwAv7iqod4AaABAg"
+    }, {
+      "id": 90,
+      "message": "tks u so much",
+      "name": "013356386",
+      "img_url": "013356386.jpg",
+      "message_priority": 4,
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=Ugx_pp70q02b0K9DAhp4AaABAg"
+    }, {
+      "id": 91,
+      "message": "Awesome!!",
+      "name": "Mohamad Nasir",
+      "img_url": "Mohamad+Nasir.jpg",
+      "message_priority": 5,
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=j7l5e2ID0aw&lc=UgyHjt0Vz4FhX6UZgzx4AaABAg"
+    }, {
+      "id": 92,
+      "message": "Thank you!",
+      "message_priority": 5,
+      "name": "Артем Єрко",
+      "img_url": "Артем+Єрко.jpg",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=T_QETy__Oko&lc=UgyvaiI54nZbEJgQmQN4AaABAg"
+    }, {
+      "id": 93,
+      "message": "Excellent tutorial. Thank you!",
+      "name": "luminaia",
+      "img_url": "luminaia.jpg",
+      "message_priority": 6,
+      "link": "https://www.youtube.com/watch?v=sSbahlvDfS4&lc=Ugw-Sf8j_Kl6CHvk3T14AaABAg"
+    }, {
+      "id": 94,
+      "message": "Really nice video with nice explanation. Subscribe",
+      "message_priority": 9,
+      "name": "Igor Špánik",
+      "img_url": "Igor+Špánik.jpg",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=Ugx4IrTP_XBmqMneq7J4AaABAg"
+    }, {
+      "id": 95,
+      "message": "Man, this is a nice video, thank you.",
+      "message_priority": 6,
+      "name": "Esteban Cordoba",
+      "img_url": "Esteban+Cordoba.jpg",
+      "real_name": true,
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgzGkOO4a3aQqT4FyUt4AaABAg"
+    }, {
+      "id": 96,
+      "message": "Nice job.",
+      "message_priority": 4,
+      "name": "Bucur Ion Niculae",
+      "img_url": "Bucur+Ion+Niculae.jpg",
+      "real_name": true,
+      "real_face": true,
+      "link": "https://www.youtube.com/watch?v=NS0io3Z75GI&lc=UgxZglm02hYzlvRTFHp4AaABAg"
+    }, {
+      "id": 97,
+      "message": "Excellent! Top vue tutorials I found.",
+      "message_priority": 8,
+      "name": "Igor Špánik",
+      "img_url": "Igor+Špánik.jpg",
+      "link": "https://www.youtube.com/watch?v=SGGW8qbsXTg&lc=UgyrT7dsYjj92yPEVLd4AaABAg"
+    }, {
+      "id": 98,
+      "message": "You're a blessing my dude. Thank you so much for this!",
+      "message_priority": 9,
+      "name": "elmo",
+      "img_url": "elmo.jpg",
+      "link": "https://www.youtube.com/watch?v=nngsKhTb2BA&lc=UgxGu9ZZDan-f2GpkE14AaABAg"
     }
   ]
 }
