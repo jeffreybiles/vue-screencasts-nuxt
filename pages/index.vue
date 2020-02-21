@@ -116,7 +116,9 @@
         <h2 class="section-title">Pro Silver - a high-ROI investment in your career.</h2>
 
         <ProPackageCard :stripePlanId="3">
-          <p>Some copy about long term growth</p>
+          <p>A little push may be all you need to get yourself on a better trajectory.</p>
+          <p>Monthly meetings, weekly check-ins...</p>
+          <p>The results are slow in building, but this is an investment that will pay for itself many times over the course of your career.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
@@ -131,7 +133,8 @@
         <h2 class="section-title">Pro Bronze - guidance for those on a budget.</h2>
 
         <ProPackageCard :stripePlanId="6">
-          <p>Some copy about nudging you on the right course</p>
+          <p>This is for the people who don't like seeking help... but know, deep down, that mentorship can make them an even better version of themselves.</p>
+          <p>Weekly email check-ins give you the chance to get the guidance you need, and you'll never have to speak up or show your face.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
@@ -146,7 +149,9 @@
         <h2 class="section-title">Pro Standard - high-quality resources for self-directed learning.</h2>
 
         <ProPackageCard :stripePlanId="2">
-          <p>Some copy about giving you the resources you need </p>
+          <p>You like our free videos.</p>
+          <p>That's why you're here.</p>
+          <p>Our Pro courses are more of that, but designed specifically to level you up.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
