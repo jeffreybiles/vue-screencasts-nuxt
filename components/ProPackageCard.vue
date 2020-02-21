@@ -3,18 +3,6 @@
     <div class="row">
       <div class="col-sm-6">
         <slot />
-
-        <div v-if="!plan.services.free" class="my-3">
-          <v-btn x-large color="green accent-1 mr-2" :to="`/order?plan=${plan.id}&planTerm=month`">
-            {{plan.month.currentPrice | currency}}/month
-          </v-btn>
-          <v-btn x-large color="green accent-2" :to="`/order?plan=${plan.id}&planTerm=year`">
-            {{plan.year.currentPrice | currency}}/year
-          </v-btn>
-        </div>
-        <div v-else class="my-3">
-          <v-btn>Sign Up Free</v-btn>
-        </div>
       </div>
 
       <div class="col-sm-6">
@@ -29,7 +17,7 @@
             <font-awesome-icon icon="phone" /> Access via phone, text, and email.
           </li>
           <li v-if="plan.services.retainer">
-            <font-awesome-icon icon="hands-helping" /> On retainer for up to 4 hours a month.
+            <font-awesome-icon icon="hands-helping" /> On retainer for 4 hours a month, with option for further contracts.
           </li>
           <li v-if="plan.services.videoChat">
             <font-awesome-icon icon="chalkboard-teacher" /> {{plan.services.videoChat}} 1-on-1 video chat.
@@ -49,6 +37,18 @@
           <font-awesome-icon icon="desktop" /> Access to all free courses and videos.
         </ul>
       </div>
+    </div>
+    <div v-if="!plan.services.free" class="my-3 buy-buttons">
+      <v-btn x-large color="green accent-1" :to="`/order?plan=${plan.id}&planTerm=month`">
+        {{plan.month.currentPrice | currency}}/month
+      </v-btn>
+      <v-btn x-large color="green accent-2" :to="`/order?plan=${plan.id}&planTerm=year`">
+        {{plan.year.currentPrice | currency}}/year
+      </v-btn>
+      <v-btn x-large color="green accent-3">Get your boss to pay for it</v-btn>
+    </div>
+    <div v-else class="my-3">
+      <v-btn>Sign Up Free</v-btn>
     </div>
   </div>
 </template>
@@ -84,6 +84,12 @@
 
     li {
       list-style-type: none;
+    }
+  }
+
+  .buy-buttons {
+    button, a {
+      margin-bottom: 8px;
     }
   }
 </style>

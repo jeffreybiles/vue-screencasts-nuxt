@@ -2,7 +2,8 @@
   <div>
     <HomePageSection classes="hero bg-dark" innerClasses="homepage-header">
       <div class="col-md-6 col-sm-7">
-        <h1><strong>VueScreencasts.com</strong> is all things intermediate and advanced.​</h1>
+        <h1><strong>VueScreencasts.com</strong></h1>
+        <h2>All things intermediate and advanced</h2>
         <h4>You've read the docs.  You've done the beginner courses.  We're what's next.</h4>
         <v-btn to="/courses">Get Started</v-btn>
       </div>
@@ -18,9 +19,10 @@
       <div class="col-md-6 col-sm-12">
         <h2 class="section-title">Why VueScreencasts?</h2>
         <p>You're beyond the first two hours.</p>
-        <p>Watching the same type of intro tutorials over and over isn't getting you anywhere.</p>
-        <p>But maybe you don't have access to an expert... or the experts you know prefer coding to teaching.</p>
-        <p>Good news: we're here, ready to help you level up your Vue skills.</p>
+        <p>You know that Vue is a power tool that can make your coding life so much simpler, letting you solve issues with ease...</p>
+        <p>But it's hard to level up your skills.  Watching the same type of intro tutorials over and over isn't getting you anywhere.</p>
+        <p>Maybe you don't have access to an expert... or the experts you know prefer coding to teaching.</p>
+        <p>Good news: we're here, ready to help you level up your Vue skills.  Call or text us any time (501-256-3078), or email us (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>), or message us on Twitter (<a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a>) and let's talk about building your future.</p>
       </div>
       <div class="col-md-6 col-sm-12 center-md">
         <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
@@ -37,12 +39,12 @@
         <img src="~assets/vuescreencasts-student-coding.png" class="img-responsive" alt="VueScreencasts Student Coding">
       </div>
       <div class="col-md-7 col-sm-12">
-        <h2 class="section-title">What will I be getting?</h2>
-        <p>Wherever you are in your Vue career, we have a package to meet your needs.</p>
-        <p>Some people will benefit from weekly coaching meetings to keep them on track.</p>
-        <p>Others will be satisfied with our monthly in-depth courses and our huge library of existing videos.</p>
-        <p>While a select few will need personalized, on-demand assistance with their projects.</p>
-        <p>Whatever level you're at, it's our goal to get you one level higher.</p>
+        <h2 class="section-title">You don't have to do it all yourself</h2>
+        <p>Have you ever banged your head against a wall for days, maybe even weeks, struggling to learn something new... only for it to click into place the second you heard the right metaphor?</p>
+        <p>Maybe you're the first person in your company to encounter a specific issue, and the friendly people over at StackOverflow tell you to RTFM... but there's no manual.</p>
+        <p>What now?</p>
+        <p>Whether you need personalized, on-demand assistance, weekly coaching calls to keep you on track, or just a friendly voice to help you along, we've got a package for you.</p>
+        <p>We'll meet you wherever you're at, and do whatever we can to get you one level higher.</p>
       </div>
     </HomePageSection>
 
@@ -54,7 +56,7 @@
     <HomePageSection classes="bg-dark" id="pricing">
       <div class="col-md-7 col-sm-12">
         <h2 class="section-title">Are you ready?</h2>
-        <p>Remember, we have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email.</p>
+        <p>Remember, we have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email or text.</p>
         <p>If you have any questions, feel free to contact us.</p>
         <ul>
           <li>Email: <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a></li>
@@ -74,13 +76,13 @@
 
     <HomePageSection classes="bg-dark">
       <div class="col-sm-12 center-md">
-        <h2 class="section-title">Pro Platinum - for when there's money on the line, and you need to deliver.</h2>
+        <h2 class="section-title">Pro Platinum - for when the survival of your company or job is on the line.</h2>
 
         <ProPackageCard :stripePlanId="5">
-          <p>When you need an expert on your side, this is the package for you.</p>
-          <p>We'll start with a comprehensive analysis of your situation and come up with a custom action plan to get you where you need to be.</p>
-          <p>Then we'll keep you on track with weekly meetings.</p>
-          <p>And my phone is open to you - up to 4 hours/month retainer, you can call me and I'll do everything in my power to solve your problem.</p>
+          <p>This is what you choose when you want us all-in.</p>
+          <p>When you need an expert who can care about your situation even more than you do, but can still stand back and give you the objective truth.</p>
+          <p>I'll give it to you straight: if you're calling us mid-explosion, this might not be enough.</p>
+          <p>But whatever the situation, we can massively increase your odds of success.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
@@ -95,7 +97,11 @@
         <h2 class="section-title">Pro Gold - your best bet for fast growth.</h2>
 
         <ProPackageCard :stripePlanId="4">
-          <p>Some copy about needing a coach to push you along</p>
+          <p>Have you ever felt overwhelmed by the frantic pace of the Javascript world?</p>
+          <p>Like you should be going faster, in ten different directions at once... but you don't know where to start?</p>
+          <p>With the Pro Gold plan, we'll analyze your situation and work with you to create a custom action plan that maximizes the impact of your learning time.  Then we'll have weekly meetings to adjust as needed and keep you on course.</p>
+          <p>Say goodbye to overwhelm.</p>
+          <p>Say hello to growth.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
