@@ -828,6 +828,7 @@
       "message": "Excellent! Top vue tutorials I found.",
       "message_priority": 8,
       "name": "Igor Špánik",
+      "real_name": true,
       "img_url": "Igor+Špánik.jpg",
       "link": "https://www.youtube.com/watch?v=SGGW8qbsXTg&lc=UgyrT7dsYjj92yPEVLd4AaABAg"
     }, {
@@ -837,6 +838,37 @@
       "name": "elmo",
       "img_url": "elmo.jpg",
       "link": "https://www.youtube.com/watch?v=nngsKhTb2BA&lc=UgxGu9ZZDan-f2GpkE14AaABAg"
+    }, {
+      "id": 99,
+      "message": "Short, precise, step-by-step, beginner-friendly and clear video..... Keep it this way, and thank you",
+      "name": "naty java",
+      "img_url": "naty+java.jpg",
+      "message_priority": 7,
+      "real_face": true,
+      "link": "https://www.youtube.com/watch?v=SGGW8qbsXTg&lc=UgxpIaPgXmsK3gUEc9J4AaABAg"
+    }, {
+      "id": 100,
+      "message": "Such an excellent video! Your explanations are so clear. This is the first time where I don't feel burned out in a 40min+ video tutorial. Thank you so much!",
+      "name": "João Victor Valentim",
+      "img_url": "João+Victor+Valentim.jpg",
+      "real_name": true,
+      "real_face": true,
+      "message_priority": 9,
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=Ugwv4XrsXUtExY9Majh4AaABAg"
+    }, {
+      "id": 101,
+      "message": "Great channel.",
+      "name": "The Nerdy Dev",
+      "img_url": "The+Nerdy+Dev.jpg",
+      "message_priority": 5,
+      "link": "https://www.youtube.com/watch?v=ZWYQZegWQgY&lc=Ugyrknj02OTDPqOmzsF4AaABAg"
+    }, {
+      "id": 102,
+      "message": "Really nice, thank you",
+      "name": "WaterCamelsHowLong",
+      "img_url": "WaterCamelsHowLong.jpg",
+      "message_priority": 4,
+      "link": "https://www.youtube.com/watch?v=lv-KHdoeSoI&lc=UgyQyKwbHNl_aSm0kX54AaABAg"
     }
   ]
 }
