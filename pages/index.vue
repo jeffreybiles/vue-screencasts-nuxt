@@ -79,7 +79,7 @@
     </HomePageSection>
 
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['1', '92', '96', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['4', '96', '92', '1']" class="paper-container-large" />
     </div>
 
     <HomePageSection classes="bg-dark">
