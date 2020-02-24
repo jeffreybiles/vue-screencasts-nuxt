@@ -11,7 +11,7 @@
     </HomePageSection>
 
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['100', '21', '65', '27']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['65', '21', '81', '27']" class="paper-container-large" />
     </div>
 
     <HomePageSection sectionId="why-vue">
@@ -35,9 +35,8 @@
       </div>
     </HomePageSection>
 
-    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-dark">
-      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['87', '77', '98', '76']" class="paper-container-large" />
     </div>
 
     <HomePageSection classes="bg-gray">
@@ -59,9 +58,8 @@
       </div>
     </HomePageSection>
 
-    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-white">
-      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['63', '48', '34', '99']" class="paper-container-large" />
     </div>
 
     <HomePageSection classes="bg-dark" id="pricing">
@@ -80,9 +78,8 @@
       </div>
     </HomePageSection>
 
-    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['1', '92', '96', '4']" class="paper-container-large" />
     </div>
 
     <HomePageSection classes="bg-dark">
@@ -100,7 +97,7 @@
 
     <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['79', '3', '56', '16']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark">
@@ -117,9 +114,9 @@
       </div>
     </HomePageSection>
 
-    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['19', '86', '97', '18']" class="paper-container-large" />
+
     </div>
 
     <HomePageSection class="bg-dark">
@@ -136,7 +133,7 @@
 
     <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['85', '70', '88', '93']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark">
@@ -169,7 +166,7 @@
 
     <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['8', '11', '103', '100']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark">

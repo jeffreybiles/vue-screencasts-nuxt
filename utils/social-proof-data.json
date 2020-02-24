@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Shamim Hossain",
       "img_url": "Shamim+Hossain.jpg",
-      "message": "You saved my job just now",
+      "message": "You saved my job just now.",
       "real_face": true,
       "real_name": true,
       "message_priority": 10,
@@ -143,7 +143,7 @@
     }, {
       "id": 16,
       "message": "Thank you very much!!!!!!!",
-      "name": "idriss jouid",
+      "name": "Idriss Jouid",
       "real_name": true,
       "real_face": true,
       "message_priority": 3,
@@ -306,7 +306,7 @@
       "img_url": "Emerson+smith+Huallpa+Zanabria.jpg"
     }, {
       "id": 34,
-      "message": "Have looked [at] so many Vue.js tutorials, your videos are the best ones!",
+      "message": "Have looked at so many Vue.js tutorials, your videos are the best ones!",
       "message_priority": 8,
       "real_name": true,
       "name": "Nathan Yang",
@@ -552,7 +552,7 @@
       "link": "https://www.youtube.com/watch?v=9xF89Q2052g&lc=UgwoE-CBE58X6f1MkU94AaABAg"
     }, {
       "id": 63,
-      "message": "a GREAT Vue code-along... Thank you for listening and being willing to put effort into helping us viewers better understand Vue!",
+      "message": "Thank you for listening and being willing to put effort into helping us better understand Vue!",
       "link": "https://www.youtube.com/watch?v=9xF89Q2052g&lc=UgzfrqLhnzHZ1sZkNIl4AaABAg",
       "message_priority": 8,
       "real_name": true,
@@ -658,7 +658,7 @@
       "link": "https://www.youtube.com/watch?v=shCCP4PFXeU&lc=UgzGLqPC5bmRcFZLtzp4AaABAg"
     }, {
       "id": 76,
-      "message": "Here I found answers to questions that I couldn't formulate before. Even russian videos haven't given it to me.",
+      "message": "Here I found answers to questions that I couldn't formulate before.",
       "message_priority": 9,
       "real_name": true,
       "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=UgzaHzUUJoQu9eVP_bF4AaABAg",
@@ -666,7 +666,7 @@
       "img_url": "Almas+Kamitov.jpg"
     }, {
       "id": 77,
-      "message": "Your series has really helped with that... even for seasoned developers! So thanks again for the time and effort and keep up the great work!",
+      "message": "Your series has really helped... even for seasoned developers!",
       "message_priority": 9,
       "link": "https://www.youtube.com/watch?v=SGGW8qbsXTg&lc=UgwhX3cGCmBSArOEZoV4AaABAg.93M8O2IKhKI93OLFEC15I9",
       "name": "D Durham",
@@ -681,7 +681,8 @@
       "img_url": "Jin+Tak.jpg"
     }, {
       "id": 79,
-      "message": "Спасибо за урок. Никак не мог решить проблему с milddleware, но теперь все встало на свои места. (Thank you for the lesson. I could not solve the problem with milddleware in any way, but now everything fell into place.)",
+      "original": "Спасибо за урок. Никак не мог решить проблему с milddleware, но теперь все встало на свои места", 
+      "message": "Thank you for the lesson. I could not solve the problem with milddleware in any way, but now everything fell into place.",
       "message_priority": 8,
       "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=UgxEoT3-Dc_iALqwGcl4AaABAg",
       "name": "Адам Янг",
@@ -825,7 +826,7 @@
       "link": "https://www.youtube.com/watch?v=NS0io3Z75GI&lc=UgxZglm02hYzlvRTFHp4AaABAg"
     }, {
       "id": 97,
-      "message": "Excellent! Top vue tutorials I found.",
+      "message": "Excellent! Top Vue tutorials I've found.",
       "message_priority": 8,
       "name": "Igor Špánik",
       "real_name": true,
@@ -840,8 +841,8 @@
       "link": "https://www.youtube.com/watch?v=nngsKhTb2BA&lc=UgxGu9ZZDan-f2GpkE14AaABAg"
     }, {
       "id": 99,
-      "message": "Short, precise, step-by-step, beginner-friendly and clear video..... Keep it this way, and thank you",
-      "name": "naty java",
+      "message": "Short, precise, step-by-step, beginner-friendly and clear..... Keep it this way, and thank you.",
+      "name": "Naty Java",
       "img_url": "naty+java.jpg",
       "message_priority": 7,
       "real_face": true,
@@ -871,7 +872,7 @@
       "link": "https://www.youtube.com/watch?v=lv-KHdoeSoI&lc=UgyQyKwbHNl_aSm0kX54AaABAg"
     }, {
       "id": 103,
-      "message": "You're really good at giving tutorials. The way you lay a solid foundation so new comers understand what is going on is what is missing from all the other tutorials out there. It's nice to get something working quickly but then you can't extend on it because you have no idea what you just did. You go the opposite direction and teach a man/woman to fish. Bravo!",
+      "message": "You're really good at giving tutorials. The way you lay a solid foundation so new comers understand what is going on is what is missing from all the other tutorials out there. It's nice to get something working quickly but then you can't extend on it because you have no idea what you just did. You go the opposite direction and teach your students to fish. Bravo!",
       "message_priority": 8,
       "name": "Bob Lazar",
       "img_url": "Bob+Lazar.jpg",
