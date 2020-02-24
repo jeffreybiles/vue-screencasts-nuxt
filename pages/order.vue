@@ -71,7 +71,8 @@
         planId: this.$route.query.plan,
         planTerm: this.$route.query.planTerm,
         plans: subscriptionPlanJson.plans.filter(p => !p.deprecated),
-        paymentModalOpen: false
+        paymentModalOpen: false,
+        stripeEnv
       }
     },
     computed: {
@@ -84,11 +85,13 @@
     },
     methods: {
       async pay(source){
+        let planId = this.plan[this.planTerm].stripeId[this.stripeEnv]
         let updatedUser = await this.$axios.post('stripe/create_subscription', {
           source,
-          planId: this.plan.stripeId
+          planId
         })
-        this.$auth.fetchUser()
+        await this.$auth.fetchUser()
+        this.$router.push({path: '/account'})
       }
     }
   }
