@@ -53,13 +53,13 @@
     border-radius: 50% !important;
     width: 80px;
     display: inline-block;
-    padding-top: 10px;
   }
 
   .testimonial {
     align-items: center;
     padding-left: 6px;
     padding-right: 6px;
+    margin-top: 10px;
   }
 
   .testimonial-text {
