@@ -5,22 +5,23 @@
     Name: {{user.name}}<br>
     Email: {{user.email}}<br>
     Created account on: <DateDisplay :date="new Date(user.created_at)" /><br>
-
-    <v-btn class="mt-2 mb-2" color="green darken-2 grey--text text--lighten-4" to="/account/email-preferences">
-      Email Preferences
-    </v-btn>
-    <v-btn class="mt-2 mb-2" color="green darken-2 grey--text text--lighten-4" to="/account/billing">
-      Billing
-    </v-btn>
-    <v-btn class="mt-2 mb-2" color="green darken-2 grey--text text--lighten-4" to="/account/edit">
-      Edit User Info
-    </v-btn>
     <hr>
+    <div v-if="user.plan_id">
+      <h1>You are subscribed to the {{plan.name}} plan.</h1>
+      <small>For billing details, see <nuxt-link to="/account/billing">the billing page</nuxt-link>.</small>
+
+      <p>You have the following perks:</p>
+
+      
+
+    </div>
   </div>
 </template>
 
 <script>
   import DateDisplay from '@/components/DateDisplay.vue';
+  import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
+
   export default {
     components: {
       DateDisplay,
@@ -28,6 +29,21 @@
     computed: {
       user(){
         return this.$auth.user;
+      },
+      plan(){
+        let plan_id = this.$auth.user.plan_id;
+        let plans = subscriptionPlanJson.plans;
+
+        return plans.find(p => {
+          let planIds = [
+            p.month.stripeId.dev,
+            p.month.stripeId.prod,
+            p.year.stripeId.dev,
+            p.year.stripeId.prod
+          ]
+
+          return planIds.includes(plan_id)
+        })
       }
     },
   }
