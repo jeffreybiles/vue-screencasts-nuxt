@@ -163,14 +163,14 @@
       "id": 18,
       "name": "มะ ม๋า",
       "message_priority": 3,
-      "message": "Thank you",
+      "message": "Thank you.",
       "source": "youtube-comment",
       "img_url": "มะ+ม๋า.jpg",
       "link": "https://www.youtube.com/watch?v=sSbahlvDfS4&lc=UgxirELLX754_g6l17p4AaABAg"
     }, {
       "id": 19,
       "name": "אלכסיי לוינזון",
-      "message": "Great as always, thanks Jeffrey",
+      "message": "Great as always, thanks Jeffrey.",
       "message_priority": 6,
       "source": "youtube-comment",
       "img_url": "אלכסיי+לוינזון.jpg",
@@ -715,7 +715,7 @@
       "link": "https://www.youtube.com/watch?v=jJgodgk1CTM&lc=UgwdxVlq3yXxDkFyWjZ4AaABAg"
     }, {
       "id": 83,
-      "message": "Your tutorial is quite easy [to] understand",
+      "message": "Your tutorial is quite easy to understand.",
       "message_priority": 5,
       "name": "Koga2 Kuzengenki",
       "img_url": "Koga2+Kuzengenki.jpg",
@@ -865,7 +865,7 @@
       "link": "https://www.youtube.com/watch?v=ZWYQZegWQgY&lc=Ugyrknj02OTDPqOmzsF4AaABAg"
     }, {
       "id": 102,
-      "message": "Really nice, thank you",
+      "message": "Really nice, thank you.",
       "name": "WaterCamelsHowLong",
       "img_url": "WaterCamelsHowLong.jpg",
       "message_priority": 4,
