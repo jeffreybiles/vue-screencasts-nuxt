@@ -103,7 +103,7 @@
           planId
         })
         await this.$auth.fetchUser()
-        this.$router.push({path: '/account'})
+        this.$router.push({path: '/account/next-steps'})
       }
     }
   }

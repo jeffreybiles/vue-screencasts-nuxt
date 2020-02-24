@@ -14,3 +14,8 @@ export const getPlan = function(plan_id){
     return planIds.includes(plan_id)
   })
 }
+
+// for use when the user is pro, but might have a plan from before we tracked
+export const getPlanWithDefault = function(plan_id) {
+  return getPlan(plan_id) || subscriptionPlanJson.plans.find(p => p.id == 2)
+}

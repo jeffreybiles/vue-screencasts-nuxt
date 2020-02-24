@@ -18,11 +18,9 @@
       <div class="col-md-6 col-sm-12">
         <h2 class="section-title">Remember how Neo downloaded Kung Fu? This is as close as it gets (but for Vue).</h2>
 
-        <!-- Can combine these two -->
-        <p>You've seen your friends flounder around, watching free tutorial after free tutorial, but never getting beyond the beginner level.</p>
-        <p>You've seen other coders go down wrong paths, use bad patterns, and generally make a mess of things.</p>
+        <p>You've seen your friends flounder around, watching free tutorial after free tutorial, but never getting beyond the beginner level. They go down wrong paths, use bad patterns, and generally make a mess of things.</p>
 
-        <p>There's nothing wrong with starting with free resources... this is your next step to developing true expertise.</p>
+        <p>There's nothing wrong with starting with free resources... VueScreencasts is your next step to developing true expertise.</p>
 
         <!-- 
         <p>You know that Vue is a power tool that can make your coding life so much simpler, letting you solve issues with ease...</p>

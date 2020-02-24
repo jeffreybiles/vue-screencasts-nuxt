@@ -5,6 +5,7 @@
       <v-tab to="/account/email-preferences">Email Preferences</v-tab>
       <v-tab to="/account/billing">Billing</v-tab>
       <v-tab to="/account/edit">Edit</v-tab>
+      <v-tab to="/account/next-steps">Next Steps</v-tab>
     </v-tabs>
     <nuxt-child />
   </v-container>

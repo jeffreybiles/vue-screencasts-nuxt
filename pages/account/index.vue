@@ -19,9 +19,8 @@
 
 <script>
   import DateDisplay from '@/components/DateDisplay.vue';
-  import { getPlan } from '@/utils/subscription-utils';
+  import { getPlanWithDefault } from '@/utils/subscription-utils';
   import ProPerksList from '@/components/ProPerksList.vue';
-  import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
 
   export default {
     components: {
@@ -33,7 +32,7 @@
         return this.$auth.user;
       },
       plan(){
-        return getPlan(this.user.plan_id) || subscriptionPlanJson.plans.find(p => p.id == 2)
+        return getPlanWithDefault(this.user.plan_id)
       }
     },
   }
