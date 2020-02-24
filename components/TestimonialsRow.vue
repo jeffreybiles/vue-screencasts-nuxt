@@ -53,18 +53,17 @@
     border-radius: 50% !important;
     width: 80px;
     display: inline-block;
+    padding-top: 10px;
   }
 
   .testimonial {
-    display: flex;
-    justify-content: center; /* align horizontal */
     align-items: center;
     padding-left: 6px;
     padding-right: 6px;
   }
 
   .testimonial-text {
-    display: inline-block;
+    display: block;
     text-align: center;
     vertical-align: top;
     font-size: 16px;
