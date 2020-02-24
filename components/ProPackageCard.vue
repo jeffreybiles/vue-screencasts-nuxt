@@ -6,36 +6,7 @@
       </div>
 
       <div class="col-sm-6">
-        <ul>
-          <li v-if="plan.services.actionPlan">
-            <font-awesome-icon icon="chart-bar" /> Analysis of your real-world situation.
-          </li>
-          <li v-if="plan.services.actionPlan">
-            <font-awesome-icon icon="tasks" /> Custom action plan based on your goals.
-          </li>
-          <li v-if="plan.services.retainer">
-            <font-awesome-icon icon="phone" /> Access via phone, text, and email.
-          </li>
-          <li v-if="plan.services.retainer">
-            <font-awesome-icon icon="hands-helping" /> On retainer for 4 hours a month, with option for further contracts.
-          </li>
-          <li v-if="plan.services.videoChat">
-            <font-awesome-icon icon="chalkboard-teacher" /> {{plan.services.videoChat}} 1-on-1 video chat.
-          </li>
-          <li v-if="plan.services.weeklyCheckin">
-            <font-awesome-icon icon="envelope" /> Weekly check-in.
-          </li>
-          <li v-if="plan.services.groupFaq">
-            <font-awesome-icon icon="user-friends" /> Monthly group FAQ sessions.
-          </li>
-          <li v-if="plan.services.proCourses">
-            <font-awesome-icon icon="laptop-code" /> Access to in-depth, interactive courses released on a regular basis.
-          </li>
-          <li v-if="plan.services.coursePriority">
-            <font-awesome-icon icon="clock" /> {{plan.services.coursePriority}} for suggesting which topics to cover next.
-          </li>
-          <font-awesome-icon icon="desktop" /> Access to all free courses and videos.
-        </ul>
+        <ProPerksList :services="plan.services" />
       </div>
     </div>
     <div v-if="!plan.services.free" class="my-3 buy-buttons">
@@ -55,6 +26,7 @@
 
 <script>
   import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
+  import ProPerksList from '@/components/ProPerksList.vue';
 
   export default {
      data(){
@@ -64,6 +36,9 @@
       return {
         plan,
       }
+    },
+    components: {
+      ProPerksList
     },
     props: {
       stripePlanId: {
@@ -77,14 +52,6 @@
 <style lang="scss" scoped>
   .pro-card {
     margin-top: 10px;
-  }
-
-  ul {
-    padding: 0px;
-
-    li {
-      list-style-type: none;
-    }
   }
 
   .buy-buttons {

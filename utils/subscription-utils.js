@@ -12,5 +12,5 @@ export const getPlan = function(plan_id){
     ]
 
     return planIds.includes(plan_id)
-  }) || {}
+  })
 }

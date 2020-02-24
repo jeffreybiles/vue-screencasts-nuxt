@@ -23,7 +23,7 @@
     },
     {
       "id": 2,
-      "name": "Pro Standard - Early Bird",
+      "name": "Pro Standard",
       "services": {
         "coursePriority": "Elevated priority",
         "proCourses": true
