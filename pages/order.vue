@@ -6,7 +6,7 @@
           <h1>Your current plan is {{currentPlan.name || 'Pro Standard'}}.</h1>
           <h1>We're working on a way to change your plan with a click. Until then...</h1>
           <h1>Email me to upgrade:  
-            <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
+            <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly&body=I understand that this email authorizes VueScreencasts.com to charge the card on file for $${plan[planTerm].currentPrice} every ${planTerm} until I cancel or change plans.`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
         </div>
         <div v-else>
           <!-- X will be calculated based on how many steps are completed (and be sure to pluralize step/steps)-->
