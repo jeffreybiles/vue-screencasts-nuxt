@@ -2,10 +2,16 @@
   <div>
     <HomePageSection classes="hero bg-dark" innerClasses="homepage-header">
       <div class="col-md-6 col-sm-7">
-        <h1><strong>VueScreencasts.com</strong></h1>
-        <h2>All things intermediate and advanced</h2>
-        <h4>You've read the docs.  You've done the beginner courses.  We're what's next.</h4>
-        <v-btn to="/courses">Get Started</v-btn>
+        <h1>VueScreencasts.com</h1>
+        <h3>All things intermediate and advanced</h3>
+        <h4>You've read the docs and done the beginner courses...</h4>
+        <h4>It's time to level up.</h4>
+
+        <!-- TODO: Turn this into a bullet-point list, with the comments being the smaller text -->
+        <h4>Structured. <!-- Can I do this?  Step by step -->
+            Practical. <!-- By using real-world situations, we learn real-world code -->
+            Effective.  <!-- Step-by-step anticipating your challenges --></h4>
+        <!-- make spacing below this smaller -->
       </div>
       <div class="col-md-6 col-sm-5"></div>
     </HomePageSection>
@@ -16,11 +22,18 @@
 
     <HomePageSection sectionId="why-vue">
       <div class="col-md-6 col-sm-12">
-        <h2 class="section-title">Remember how Neo downloaded Kung Fu? This is as close as it gets (but for Vue).</h2>
+        <!-- TODO: make the section title a heavier font weight -->
+        <h2 class="section-title">As close to downloading Kung Fu as it gets.</h2>
 
-        <p>You've seen your friends flounder around, watching free tutorial after free tutorial, but never getting beyond the beginner level. They go down wrong paths, use bad patterns, and generally make a mess of things.</p>
+        <p>Unfortunately, the human brain isn't like a tape drive and we can't download new skills to it.</p>
+        <p>But with VueScreencasts we can get really close.</p>
+        <!-- TODO: add features and benefits here on HOW we're going to do that -->
 
-        <p>There's nothing wrong with starting with free resources... VueScreencasts is your next step to developing true expertise.</p>
+        <p>VueScreencasts is your next step to developing true expertise.</p>
+
+
+        <!-- <p>You've seen your friends flounder around, watching free tutorial after free tutorial, but never getting beyond the beginner level. They go down wrong paths, use bad patterns, and generally make a mess of things.</p> -->
+        <!-- <p>There's nothing wrong with starting with free resources...  -->
 
         <!-- 
         <p>You know that Vue is a power tool that can make your coding life so much simpler, letting you solve issues with ease...</p>
@@ -42,11 +55,12 @@
         <img src="~assets/vuescreencasts-student-coding.png" class="img-responsive" alt="VueScreencasts Student Coding">
       </div>
       <div class="col-md-7 col-sm-12">
-        <h2 class="section-title">Why keep guessing?</h2>
-        <p>Imagine going into a gym, and they hand you a book.  "Here are the exercises." It's three hundred pages of detailed instructions about every exercise you could possibly perform in that gym.</p>
-        <p>Even if it's the best-written book in the world, even if the book has an 'example routines' section at the beginning, most people will still quit.</p>
-        <p>Now imagine walking in, and you have a personal trainer that designs a routine specifically for you. No more guessing at what exercise you should do, how many reps, when to push and when to slow down. All you have to do is show up and put in the work.</p>
-        <p>We're your personal trainer for Vue.</p>
+        <h2 class="section-title">Keep Training Step by Step</h2>
+        <p>No guessing, no wondering, no getting lost, no walking in circles.</p>
+        <p>The only way to gain expertise is to have a plan and execute it.  Whether you choose a custom plan, or to simply go through our video courses, or something in between, we have the perfect solution for your situation.</p>
+
+        <v-btn :to="`/#pro-platinum`" color="green accent-2">Okay, show me how we do this</v-btn>
+        <!-- <p>Imagine walking in to a gym, and you have a personal trainer that designs a routine specifically for you. No more guessing at what exercise you should do, how many reps, when to push and when to slow down. All you have to do is show up and put in the work.</p> -->
 
         <!-- <p>Have you ever banged your head against a wall for days, maybe even weeks, struggling to learn something new... only for it to click into place the second you heard the right metaphor?</p>
         <p>Maybe you're the first person in your company to encounter a specific issue, and the friendly people over at StackOverflow tell you to RTFM... but there's no manual.</p>
@@ -60,31 +74,17 @@
       <TestimonialsRow :testimonialIds="['63', '48', '34', '99']" class="paper-container-large" />
     </div>
 
-    <HomePageSection classes="bg-dark" id="pricing">
-      <div class="col-md-7 col-sm-12">
-        <h2 class="section-title">Are you ready?</h2>
-        <p>Remember, we have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email or text.</p>
-        <p>If you have any questions, feel free to contact us.</p>
-        <ul>
-          <li>Email: <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a></li>
-          <li>Twitter: <a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a></li>
-          <li>Text or Phone: <a href="sms:501-256-3078">(501) 256-3078</a></li>
-        </ul>
-      </div>
-      <div class="col-md-5 col-sm-12 center-md">
-        <img src="~assets/vuescreencasts-student-coding-2.png" class="img-responsive img-center-xs" alt="Ember School Student Learning">
-      </div>
-    </HomePageSection>
 
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['4', '96', '92', '1']" class="paper-container-large" />
     </div>
 
-    <HomePageSection classes="bg-dark">
+    <HomePageSection classes="bg-dark" id="pro-platinum">
       <div class="col-sm-12 center-md">
+        <h3>Solution 1</h3>
         <h2 class="section-title">Pro Platinum - for when the survival of your company or job is on the line.</h2>
 
-        <ProPackageCard :stripePlanId="5">
+        <ProPackageCard :stripePlanId="5" nextSolutionId="pro-gold">
           <p>This is what you choose when you want us all-in.</p>
           <p>When you need an expert who can care about your situation even more than you do, but can still stand back and give you the objective truth.</p>
           <p>I'll give it to you straight: if you're calling us mid-explosion, this might not be enough.</p>
@@ -98,7 +98,7 @@
       <TestimonialsRow :testimonialIds="['79', '3', '56', '16']" class="paper-container-large" />
     </div>
 
-    <HomePageSection class="bg-dark">
+    <HomePageSection class="bg-dark" id="pro-gold">
       <div class="col-sm-12 center-md">
         <h2 class="section-title">Pro Gold - your best bet for fast growth.</h2>
 
@@ -176,6 +176,25 @@
         </ProPackageCard>
       </div>
     </HomePageSection>
+
+
+    <HomePageSection classes="bg-dark" id="more-questions">
+      <div class="col-md-7 col-sm-12">
+        <!-- TODO: put this stuff in every section, then replace it with "I care" message and  "how to ask more questions" message  -->
+        <h2 class="section-title">Are you ready?</h2>
+        <p>Remember, we have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email or text.</p>
+        <p>If you have any questions, feel free to contact us.</p>
+        <ul>
+          <li>Email: <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a></li>
+          <li>Twitter: <a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a></li>
+          <li>Text or Phone: <a href="sms:501-256-3078">(501) 256-3078</a></li>
+        </ul>
+      </div>
+      <div class="col-md-5 col-sm-12 center-md">
+        <img src="~assets/vuescreencasts-student-coding-2.png" class="img-responsive img-center-xs" alt="Ember School Student Learning">
+      </div>
+    </HomePageSection>
+
   </div>
 </template>
 

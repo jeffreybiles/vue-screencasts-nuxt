@@ -100,7 +100,7 @@
       <div class="text-center pt-4">
         <div class="display-1">What do others think?</div>
         <TestimonialsRow :testimonialIds="randomTestimonialIds" :reloadHack="true" />
-        <v-btn color="green accent-3" to="/#pricing">Take your career to the next level</v-btn>
+        <v-btn color="green accent-3" to="/">Take your career to the next level</v-btn>
       </div>
 
       <VideoWatchCompleteModal :isOpen="endingScreenOpen" 

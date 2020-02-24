@@ -6,7 +6,7 @@
 <script>
   export default {
     created(){
-      this.$router.push('/#pricing');
+      this.$router.push('/#pro-platinum');
     }
   }
 </script>

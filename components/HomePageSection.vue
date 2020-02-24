@@ -51,6 +51,11 @@ $green: #23B408;
   li a {
     color: #ffffff;
   }
+
+
+  ::v-deep p a {
+    color: #fff;
+  }
 }
 
 .hero {
@@ -77,14 +82,20 @@ $green: #23B408;
       flex-basis: 520px;
     }
   }
-  h1 {
+  h1, h3 {
     color: #ffffff;
     font: 400 28px/36px $font;
-    font-weight: 300;
     margin: 0;
     @media (min-width: 64em) {
       font-size: 36px;
       line-height: 44px;
+    }
+  }
+  h3 {
+    font-size: 24px/28px;
+    @media (min-width: 64em) {
+      font-size: 28px;
+      line-height: 40px;
     }
   }
   h4 {

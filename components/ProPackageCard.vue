@@ -13,14 +13,14 @@
       <v-btn x-large color="green accent-1" :to="`/order?plan=${plan.id}&planTerm=month`">
         {{plan.month.currentPrice | currency}}/month
       </v-btn>
-      <v-btn x-large color="green accent-2" :to="`/order?plan=${plan.id}&planTerm=year`">
-        {{plan.year.currentPrice | currency}}/year
-      </v-btn>
-      <v-btn x-large color="green accent-3">Get your boss to pay for it</v-btn>
+      <v-btn x-large color="green accent-2">Get your boss to pay for it</v-btn>
+      <v-btn x-large color="green accent-3" :to="`/#${nextSolutionId}`" v-if="nextSolutionId">Next Solution</v-btn>
     </div>
     <div v-else class="my-3">
       <v-btn>Sign Up Free</v-btn>
     </div>
+    <p>If you have any other questions, text us (<a href="sms:501-256-3078">(501) 256-3078</a>) or email us (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>).  We really do care and want to help you make the best choice.</p>
+
   </div>
 </template>
 
@@ -44,6 +44,9 @@
       stripePlanId: {
         type: [Number, String],
         required: true
+      },
+      nextSolutionId: {
+        type: [Number, String],
       }
     }
   }
