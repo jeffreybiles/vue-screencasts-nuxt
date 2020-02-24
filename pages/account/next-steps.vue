@@ -9,6 +9,8 @@
 
       <p>But before we do that, let's do some pre-work so our call can be as effective as possible.</p>
 
+      <!-- https://calendly.com/jeffreybiles/create-an-action-plan -->
+
       <!-- link to Google Forms -->
     </div>
     <div v-if="plan.services.retainer" class="perk-step">
@@ -23,7 +25,7 @@
     <div v-if="plan.services.videoChat" class="perk-step">
       <p>Let's schedule a time for our first video chat.</p>
 
-      <!-- link to Calendly -->
+      <p><a href="https://calendly.com/jeffreybiles/coaching-chat">Schedule Now</a>.</p>
 
       <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
     </div>
