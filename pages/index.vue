@@ -138,10 +138,10 @@
 
     <HomePageSection class="bg-dark">
       <div class="col-sm-12 center-md">
-        <h2 class="section-title">Pro Bronze - guidance for those on a budget.</h2>
+        <h2 class="section-title">Pro Bronze - guidance for those in a hurry or on a budget.</h2>
 
         <ProPackageCard :stripePlanId="6">
-          <p>This is for the people who don't like seeking help... but know, deep down, that mentorship can make them an even better version of themselves.</p>
+          <p>This is for the people who are extremely busy, who don't like seeking help, or who are on a tight budget... but know, deep down, that mentorship can make them an even better version of themselves.</p>
           <p>Weekly email check-ins give you the chance to get the guidance you need, without having to ever show up for a meeting.</p>
         </ProPackageCard>
       </div>
@@ -149,7 +149,7 @@
 
     <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['1', '2', '3', '4']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['64', '95', '83', '69']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark">
