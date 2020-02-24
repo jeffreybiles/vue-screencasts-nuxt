@@ -61,7 +61,7 @@
         <ul>
           <li>Email: <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a></li>
           <li>Twitter: <a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a></li>
-          <li>Text or Phone: <a href="sms:501-256-3078">+1 (501) 256-3078</a></li>
+          <li>Text or Phone: <a href="sms:501-256-3078">(501) 256-3078</a></li>
         </ul>
       </div>
       <div class="col-md-5 col-sm-12 center-md">
