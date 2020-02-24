@@ -2,47 +2,55 @@
   <div>
     <HomePageSection classes="bg-dark" innerClasses="order-header">
       <div class="col-md-6">
-        <!-- X will be calculated based on how many steps are completed (and be sure to pluralize step/steps)-->
-        <h2 class="section-title">You're {{stepsLeft}} {{ stepsLeft | pluralize('step') }} away from turbocharging your Vue journey.</h2>
-
-        <div class="step">
-          <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments.
+        <div v-if="this.$auth.user && this.$auth.user.pro">
+          <h1>Your current plan is {{currentPlan.name || 'Pro Standard'}}.</h1>
+          <h1>We're working on a way to change your plan with a click. Until then...</h1>
+          <h1>Email me to upgrade:  
+            <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
         </div>
+        <div v-else>
+          <!-- X will be calculated based on how many steps are completed (and be sure to pluralize step/steps)-->
+          <h2 class="section-title">You're {{stepsLeft}} {{ stepsLeft | pluralize('step') }} away from turbocharging your Vue journey.</h2>
 
-        <div class="step">
-          <div v-if="$auth.loggedIn">
-            <font-awesome-icon icon="check" /> &nbsp; You're logged in as {{$auth.user.email}}
+          <div class="step">
+            <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments.
           </div>
-          <UserAuthModal v-else
-                         :postRegisterAction="() => {paymentModalOpen = true}"
-                         :postLoginAction="() => {paymentModalOpen = true}"
-                         v-slot="{openModal}">
-            <v-btn @click="openModal">
-              Sign In or Register
-            </v-btn>
-          </UserAuthModal>
-        </div>
 
-        <div class="step">
-          <v-btn :class="{'disabled': !$auth.loggedIn}" @click="paymentModalOpen = true">Enter Payment Information</v-btn>
-        </div>
-
-        <v-dialog
-          v-model="paymentModalOpen"
-          width="600"
-        >
-          <v-card min-height="200px" min-width="600px">
-            <div class="pa-3">
-              <h2 class="section-title">Purchase {{plan.name}} package.</h2>
-              <p class="subheader">Your card will be charged {{plan[planTerm].currentPrice | currency}} every {{planTerm}}.  At any point you can change your plan with just one email.</p>
-
-              <StripeCard buttonText="Pay and Subscribe"
-              :clickAction="pay" />
-
-              <small>Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencasts servers.</small>
+          <div class="step">
+            <div v-if="$auth.loggedIn">
+              <font-awesome-icon icon="check" /> &nbsp; You're logged in as {{$auth.user.email}}
             </div>
-          </v-card>
-        </v-dialog>
+            <UserAuthModal v-else
+                          :postRegisterAction="() => {paymentModalOpen = true}"
+                          :postLoginAction="() => {paymentModalOpen = true}"
+                          v-slot="{openModal}">
+              <v-btn @click="openModal">
+                Sign In or Register
+              </v-btn>
+            </UserAuthModal>
+          </div>
+
+          <div class="step">
+            <v-btn :class="{'disabled': !$auth.loggedIn}" @click="paymentModalOpen = true">Enter Payment Information</v-btn>
+          </div>
+
+          <v-dialog
+            v-model="paymentModalOpen"
+            width="600"
+          >
+            <v-card min-height="200px" min-width="600px">
+              <div class="pa-3">
+                <h2 class="section-title">Purchase {{plan.name}} package.</h2>
+                <p class="subheader">Your card will be charged {{plan[planTerm].currentPrice | currency}} every {{planTerm}}.  At any point you can change your plan with just one email.</p>
+
+                <StripeCard buttonText="Pay and Subscribe"
+                :clickAction="pay" />
+
+                <small>Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencasts servers.</small>
+              </div>
+            </v-card>
+          </v-dialog>
+        </div>
       </div>
       <div class="col-md-6 center-md">
         <img src="~assets/vuescreencasts-student-learning-3.png" class="img-responsive" alt="VueScreencasts Student Learning">
@@ -58,6 +66,7 @@
   import { mapGetters } from 'vuex';
   import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
   import UserAuthModal from '@/components/UserAuthModal.vue';
+  import { getPlan } from '@/utils/subscription-utils';
 
   export default {
     components: {
@@ -81,6 +90,9 @@
       },
       stepsLeft(){
         return this.$auth.loggedIn ? 1 : 2;
+      },
+      currentPlan(){
+        return getPlan(this.$auth.user.plan_id)
       }
     },
     methods: {
