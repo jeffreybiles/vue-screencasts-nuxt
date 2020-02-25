@@ -51,7 +51,7 @@
         <p>No guessing, no wondering, no getting lost, no walking in circles.</p>
         <p>The only way to gain expertise is to have a plan and execute it.  Whether you choose a custom plan, or simply go through our video courses, or something in between, we have the perfect solution for your situation.</p>
 
-        <v-btn :to="`/#pro-platinum`" color="green accent-2">Okay, show me how we do this</v-btn>
+        <v-btn to="/#pro-platinum" color="green accent-2">Okay, show me how we do this</v-btn>
       </div>
     </HomePageSection>
 
@@ -103,7 +103,7 @@
 
         <ProPackageCard :stripePlanId="3" nextSolutionId="pro-bronze">
           <p>A little push may be all you need to get yourself on a better trajectory.</p>
-          <p>Monthly meetings, weekly check-ins...</p>
+          <p>Monthly one-on-ones, weekly check-ins...</p>
           <p>The results may be slower than in our other plans, but this is an investment that will pay for itself many times over the course of your career.</p>
         </ProPackageCard>
       </div>
@@ -119,7 +119,7 @@
         <h2 class="section-title">Pro Bronze - guidance for those in a hurry or on a budget.</h2>
 
         <ProPackageCard :stripePlanId="6" nextSolutionId="pro-standard">
-          <p>This is for the people who are extremely busy, who don't like seeking help, or who are on a tight budget... but know, deep down, that mentorship can make them an even better version of themselves.</p>
+          <p>This is for the people who are extremely busy, or who are on a tight budget... but know how important mentorship is.</p>
           <p>Weekly email check-ins give you the chance to get the guidance you need, without having to ever show up for a meeting.</p>
         </ProPackageCard>
       </div>
@@ -135,9 +135,8 @@
         <h2 class="section-title">Pro Standard - high-quality resources for self-directed learning.</h2>
 
         <ProPackageCard :stripePlanId="2" nextSolutionId="more-questions" nextSolutionText="More Questions?">
-          <p>You like our free videos.</p>
-          <p>That's why you're here.</p>
-          <p>Our Pro courses are more of that, but designed specifically to level you up.</p>
+          <p>You like our free videos.  That's why you're here.</p>
+          <p>Our Pro courses are more of that, tackling harder subjects, and designed to level you up.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
@@ -152,7 +151,7 @@
 
         <ProPackageCard :stripePlanId="7">
           <p>Enjoy the free videos as much as you like.</p>
-          <p>Signing up for a free account will help you track your progress.</p>
+          <p>Signing up for a free account will let you track your progress.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
