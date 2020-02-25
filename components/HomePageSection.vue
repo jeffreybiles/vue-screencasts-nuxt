@@ -110,9 +110,6 @@ $green: #23B408;
   .md-button {
     margin: 0;
   }
-  p {
-    margin-bottom: 0px;
-  }
 }
 
 </style>

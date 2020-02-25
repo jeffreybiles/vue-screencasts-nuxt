@@ -6,11 +6,6 @@
         <h3>All things intermediate and advanced</h3>
         <h4>You've read the docs and done the beginner courses...</h4>
         <h4>It's time to level up.</h4>
-
-        <!-- TODO: Turn this into a bullet-point list, with the comments being the smaller text -->
-        <h4>Structured. <!-- Can I do this?  Step by step -->
-            Practical. <!-- By using real-world situations, we learn real-world code -->
-            Effective.  <!-- Step-by-step anticipating your challenges --></h4>
         <!-- make spacing below this smaller -->
       </div>
       <div class="col-md-6 col-sm-5"></div>
@@ -27,7 +22,14 @@
 
         <p>Unfortunately, the human brain isn't like a tape drive and we can't download new skills to it.</p>
         <p>But with VueScreencasts we can get really close.</p>
-        <!-- TODO: add features and benefits here on HOW we're going to do that -->
+
+        <div class="bullet-points">
+          <p><big>Structured</big> - Step-by-step tutorials keep you on the right path.</p>
+          <p><big>Practical</big> - Realistic code prepares you for real-world challenges.</p>
+          <p><big>Effective</big> - Experienced teachers anticipate and prevent common problems.</p>
+        </div>
+        <!-- <p>In-depth courses walk you step by step through real situations, going over common issues and tradeoffs.</p>
+        <p>Customized training sessions get you specifically where you need to go.</p> -->
 
         <p>VueScreencasts is your next step to developing true expertise.</p>
       </div>
@@ -228,6 +230,13 @@ $primary: $blue;
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center;
+}
+
+.bullet-points {
+  p {
+    margin-bottom: 0px;
+  }
+  margin-bottom: 16px;
 }
 
 </style>
