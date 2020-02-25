@@ -9,7 +9,7 @@
                               :stepCompleted="next_steps_taken.actionPlan">
         <p>First, let's schedule a time to create our action plan.</p>
 
-        <p><a href="https://calendly.com/jeffreybiles/create-an-action-plan">Book an initial planning session on Calendly</a></p>
+        <p><a href="https://calendly.com/jeffreybiles/create-an-action-plan" target="_blank">Book an initial planning session on Calendly</a></p>
 
         <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
       </NextStepCompletionCard>
@@ -20,9 +20,7 @@
                               :stepCompleted="next_steps_taken.retainer">
         <p>My phone number is 501-256-3078.</p>
 
-        <p>Message me, or put in your phone number here:<p>
-
-        <!-- TODO: phone number field -->
+        <p>Text me and say who you are and that you just signed up.</p>
 
         <p>I'll put your number in my phone so I can answer your calls and messages as soon as possible.</p>
       </NextStepCompletionCard>
@@ -32,12 +30,13 @@
                               :stepCompleted="next_steps_taken.videoChat">
         <p>Let's schedule a time for our first video chat.</p>
 
-        <p><a href="https://calendly.com/jeffreybiles/coaching-chat">Schedule Now on Calendly</a>.</p>
+        <p><a href="https://calendly.com/jeffreybiles/coaching-chat" target="_blank">Schedule Now on Calendly</a>.</p>
 
         <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
       </NextStepCompletionCard>
     </div>
-    <div v-if="plan.services.groupFaq" class="perk-step">
+    <!-- Turn this on when I create the first group FAQ -->
+    <div v-if="plan.services.groupFaq && false">
       <NextStepCompletionCard :markComplete="() => { markComplete('groupFaq')}" 
                               :stepCompleted="next_steps_taken.groupFaq">
         <p>Put the next group FAQ on your calendar.</p>
@@ -45,12 +44,18 @@
         <!-- Zoom URL -->
       </NextStepCompletionCard>
     </div>
-    <div v-if="plan.services.proCourses" class="perk-step">
+    <div v-if="plan.services.weeklyCheckin">
+      <NextStepCompletionCard :markComplete="() => { markComplete('weeklyCheckin')}" 
+                              :stepCompleted="next_steps_taken.weeklyCheckin">
+        <p>I'll be emailing you soon with special instructions on how to get started with weekly checkins.</p>
+        <p>The subject line will be "Your First Vue Check-In".</p>
+        <p>If you want to get a jump on the process, <a href="mailto:jeffrey@vuescreencasts.com?subject=Let's get started with weekly check-ins" target="_blank">click here to email me</a>.</p>
+      </NextStepCompletionCard>
+    </div>
+    <div v-if="plan.services.proCourses">
       <NextStepCompletionCard :markComplete="() => { markComplete('proCourses')}" 
                               :stepCompleted="next_steps_taken.proCourses">
-        <p>Check out some of our pro courses</p>
-
-        <!-- Course cards -->
+        <p><a href="https://www.vuescreencasts.com/courses" target="_blank">Check out our pro courses</a>.</p>
       </NextStepCompletionCard>
     </div>
   </div>
