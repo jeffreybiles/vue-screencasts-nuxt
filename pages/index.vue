@@ -18,7 +18,7 @@
     <HomePageSection sectionId="why-vue">
       <div class="col-md-6 col-sm-12">
         <!-- TODO: make the section title a heavier font weight -->
-        <h2 class="section-title">As close to Matrixing some Kung Fu as it gets.</h2>
+        <h2 class="section-title">As close to the Matrix Kung Fu upload as it gets.</h2>
 
         <p>Unfortunately, the human brain isn't like a tape drive and we can't download new skills to it.</p>
         <p>But with VueScreencasts we can get really close.</p>
