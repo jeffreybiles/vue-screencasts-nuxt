@@ -30,16 +30,6 @@
         <!-- TODO: add features and benefits here on HOW we're going to do that -->
 
         <p>VueScreencasts is your next step to developing true expertise.</p>
-
-
-        <!-- <p>You've seen your friends flounder around, watching free tutorial after free tutorial, but never getting beyond the beginner level. They go down wrong paths, use bad patterns, and generally make a mess of things.</p> -->
-        <!-- <p>There's nothing wrong with starting with free resources...  -->
-
-        <!-- 
-        <p>You know that Vue is a power tool that can make your coding life so much simpler, letting you solve issues with ease...</p>
-        <p>But it's hard to level up your skills.  Watching the same type of intro tutorials over and over isn't getting you anywhere.</p>
-        <p>Maybe you don't have access to an expert... or the experts you know prefer coding to teaching.</p>
-        <p>Good news: we're here, ready to help you level up your Vue skills.  Call or text us any time (501-256-3078), or email us (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>), or message us on Twitter (<a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a>) and let's talk about building your future.</p> -->
       </div>
       <div class="col-md-6 col-sm-12 center-md">
         <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
@@ -57,16 +47,9 @@
       <div class="col-md-7 col-sm-12">
         <h2 class="section-title">Keep Training Step by Step</h2>
         <p>No guessing, no wondering, no getting lost, no walking in circles.</p>
-        <p>The only way to gain expertise is to have a plan and execute it.  Whether you choose a custom plan, or to simply go through our video courses, or something in between, we have the perfect solution for your situation.</p>
+        <p>The only way to gain expertise is to have a plan and execute it.  Whether you choose a custom plan, or simply go through our video courses, or something in between, we have the perfect solution for your situation.</p>
 
         <v-btn :to="`/#pro-platinum`" color="green accent-2">Okay, show me how we do this</v-btn>
-        <!-- <p>Imagine walking in to a gym, and you have a personal trainer that designs a routine specifically for you. No more guessing at what exercise you should do, how many reps, when to push and when to slow down. All you have to do is show up and put in the work.</p> -->
-
-        <!-- <p>Have you ever banged your head against a wall for days, maybe even weeks, struggling to learn something new... only for it to click into place the second you heard the right metaphor?</p>
-        <p>Maybe you're the first person in your company to encounter a specific issue, and the friendly people over at StackOverflow tell you to RTFM... but there's no manual.</p>
-        <p>What now?</p>
-        <p>Whether you need personalized, on-demand assistance, weekly coaching calls to keep you on track, or just a friendly voice to help you along, we've got a package for you.</p>
-        <p>We'll meet you wherever you're at, and do whatever we can to get you one level higher.</p> -->
       </div>
     </HomePageSection>
 
@@ -74,10 +57,6 @@
       <TestimonialsRow :testimonialIds="['63', '48', '34', '99']" class="paper-container-large" />
     </div>
 
-
-    <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['4', '96', '92', '1']" class="paper-container-large" />
-    </div>
 
     <HomePageSection classes="bg-dark" id="pro-platinum">
       <div class="col-sm-12 center-md">
@@ -93,11 +72,10 @@
       </div>
     </HomePageSection>
 
-    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['79', '3', '56', '16']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['4', '96', '92', '1']" class="paper-container-large" />
     </div>
-
+    
     <HomePageSection class="bg-dark" id="pro-gold">
       <div class="col-sm-12 center-md">
         <h3>Solution 2</h3>
@@ -113,7 +91,7 @@
     </HomePageSection>
 
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['19', '86', '97', '18']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['79', '3', '56', '16']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark" id="pro-silver">
@@ -129,9 +107,8 @@
       </div>
     </HomePageSection>
 
-    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['85', '70', '88', '93']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['19', '86', '97', '18']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark" id="pro-bronze">
@@ -146,9 +123,8 @@
       </div>
     </HomePageSection>
 
-    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['64', '95', '83', '69']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['85', '70', '88', '93']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark" id="pro-standard">
@@ -164,9 +140,8 @@
       </div>
     </HomePageSection>
 
-    <!-- TODO: choose which testimonials to put here -->
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['8', '11', '103', '100']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['64', '95', '83', '69']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark">
@@ -174,18 +149,22 @@
         <h2 class="section-title">Free - a great start.</h2>
 
         <ProPackageCard :stripePlanId="7">
-          <p>Some copy about long term growth</p>
+          <p>Enjoy the free videos as much as you like.</p>
+          <p>Signing up for a free account will help you track your progress.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
 
+    <div class="bg-gray">
+      <TestimonialsRow :testimonialIds="['8', '11', '103', '100']" class="paper-container-large" />
+    </div>
 
     <HomePageSection classes="bg-dark" id="more-questions">
       <div class="col-md-7 col-sm-12">
         <!-- TODO: put this stuff in every section, then replace it with "I care" message and  "how to ask more questions" message  -->
-        <h2 class="section-title">Are you ready?</h2>
-        <p>Remember, we have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email or text.</p>
-        <p>If you have any questions, feel free to contact us.</p>
+        <h2 class="section-title">Still not sure?</h2>
+        <p>We have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email or text.</p>
+        <p>If you have any questions, please contact us.  We want to make sure you get the solution that's best for you.</p>
         <ul>
           <li>Email: <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a></li>
           <li>Twitter: <a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a></li>
