@@ -51,7 +51,7 @@
         <p>No guessing, no wondering, no getting lost, no walking in circles.</p>
         <p>The only way to gain expertise is to have a plan and execute it.  Whether you choose a custom plan, or simply go through our video courses, or something in between, we have the perfect solution for your situation.</p>
 
-        <v-btn to="/#pro-platinum" color="green accent-2">Okay, show me how we do this</v-btn>
+        <v-btn to="/pro?solution=pro-platinum" color="green accent-2">Okay, show me how we do this</v-btn>
       </div>
     </HomePageSection>
 

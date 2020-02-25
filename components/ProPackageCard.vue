@@ -14,7 +14,7 @@
         {{plan.month.currentPrice | currency}}/month
       </v-btn>
       <v-btn x-large color="green accent-2">Get your boss to pay for it</v-btn>
-      <v-btn x-large color="green accent-3" :to="`/#${nextSolutionId}`" v-if="nextSolutionId">{{nextSolutionText || 'Next Solution'}}</v-btn>
+      <v-btn x-large color="green accent-3" :to="`/pro?solution=${nextSolutionId}`" v-if="nextSolutionId">{{nextSolutionText || 'Next Solution'}}</v-btn>
     </div>
     <div v-else class="my-3">
       <v-btn>Sign Up Free</v-btn>
