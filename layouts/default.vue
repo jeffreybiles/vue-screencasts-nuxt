@@ -89,7 +89,7 @@ body .v-application a {
 }
 
 .section-title {
-  font: 300 32px/40px $font;
+  font: 400 32px/40px $font;
   margin-bottom: 30px;
 }
 
@@ -102,7 +102,7 @@ body .v-application a {
   background-color: #ffffff;
   padding: 60px 0;
   .section-title {
-    font: 300 32px/40px $font;
+    font: 400 32px/40px $font;
     margin-bottom: 30px;
   }
 

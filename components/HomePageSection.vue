@@ -101,7 +101,7 @@ $green: #23B408;
   h4 {
     color: #ffffff;
     font: 400 18px/26px $font;
-    margin: 16px 0 32px;
+    margin: 24px 0;
     @media (min-width: 48em) {
       font-size: 20px;
       line-height: 28px;
@@ -109,6 +109,9 @@ $green: #23B408;
   }
   .md-button {
     margin: 0;
+  }
+  p {
+    margin-bottom: 0px;
   }
 }
 
