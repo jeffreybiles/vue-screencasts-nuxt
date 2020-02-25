@@ -100,9 +100,10 @@
 
     <HomePageSection class="bg-dark" id="pro-gold">
       <div class="col-sm-12 center-md">
+        <h3>Solution 2</h3>
         <h2 class="section-title">Pro Gold - your best bet for fast growth.</h2>
 
-        <ProPackageCard :stripePlanId="4">
+        <ProPackageCard :stripePlanId="4" nextSolutionId="pro-silver">
           <p>With the Pro Gold plan, we'll analyze your situation and work with you to create a custom action plan that maximizes the impact of your learning time.</p>
           <p>One-on-one personal checkins hold you accountable and keep you winning.</p>
           <p>Say goodbye to overwhelm.</p>
@@ -113,14 +114,14 @@
 
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['19', '86', '97', '18']" class="paper-container-large" />
-
     </div>
 
-    <HomePageSection class="bg-dark">
+    <HomePageSection class="bg-dark" id="pro-silver">
       <div class="col-sm-12 center-md">
+        <h3>Solution 3</h3>
         <h2 class="section-title">Pro Silver - a high-ROI investment in your career.</h2>
 
-        <ProPackageCard :stripePlanId="3">
+        <ProPackageCard :stripePlanId="3" nextSolutionId="pro-bronze">
           <p>A little push may be all you need to get yourself on a better trajectory.</p>
           <p>Monthly meetings, weekly check-ins...</p>
           <p>The results may be slower than in our other plans, but this is an investment that will pay for itself many times over the course of your career.</p>
@@ -133,11 +134,12 @@
       <TestimonialsRow :testimonialIds="['85', '70', '88', '93']" class="paper-container-large" />
     </div>
 
-    <HomePageSection class="bg-dark">
+    <HomePageSection class="bg-dark" id="pro-bronze">
       <div class="col-sm-12 center-md">
+        <h3>Solution 4</h3>
         <h2 class="section-title">Pro Bronze - guidance for those in a hurry or on a budget.</h2>
 
-        <ProPackageCard :stripePlanId="6">
+        <ProPackageCard :stripePlanId="6" nextSolutionId="pro-standard">
           <p>This is for the people who are extremely busy, who don't like seeking help, or who are on a tight budget... but know, deep down, that mentorship can make them an even better version of themselves.</p>
           <p>Weekly email check-ins give you the chance to get the guidance you need, without having to ever show up for a meeting.</p>
         </ProPackageCard>
@@ -149,11 +151,12 @@
       <TestimonialsRow :testimonialIds="['64', '95', '83', '69']" class="paper-container-large" />
     </div>
 
-    <HomePageSection class="bg-dark">
+    <HomePageSection class="bg-dark" id="pro-standard">
       <div class="col-sm-12 center-md">
+        <h3>Solution 5</h3>
         <h2 class="section-title">Pro Standard - high-quality resources for self-directed learning.</h2>
 
-        <ProPackageCard :stripePlanId="2">
+        <ProPackageCard :stripePlanId="2" nextSolutionId="more-questions" nextSolutionText="More Questions?">
           <p>You like our free videos.</p>
           <p>That's why you're here.</p>
           <p>Our Pro courses are more of that, but designed specifically to level you up.</p>
