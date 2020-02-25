@@ -9,7 +9,7 @@
             <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly&body=I understand that this email authorizes VueScreencasts.com to charge the card on file for $${currentPrice} every ${planTerm} until I cancel or change plans.`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
         </div>
         <div v-else>
-          <h2 class="section-title">You're {{stepsLeft}} {{ stepsLeft | pluralize('step') }} away from turbocharging your Vue journey.</h2>
+          <h2 class="section-title">Cool!  Let's get some information and get you started.</h2>
 
           <div class="step">
             <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments of {{currentPrice | currency}}.
@@ -93,9 +93,6 @@
     computed: {
       plan(){
         return this.plans.find(p => p.id == this.planId)
-      },
-      stepsLeft(){
-        return this.$auth.loggedIn ? 1 : 2;
       },
       currentPlan(){
         return getPlan(this.$auth.user.plan_id)

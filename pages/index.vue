@@ -18,7 +18,7 @@
     <HomePageSection sectionId="why-vue">
       <div class="col-md-6 col-sm-12">
         <!-- TODO: make the section title a heavier font weight -->
-        <h2 class="section-title">As close to downloading Kung Fu as it gets.</h2>
+        <h2 class="section-title">As close to Matrixing some Kung Fu as it gets.</h2>
 
         <p>Unfortunately, the human brain isn't like a tape drive and we can't download new skills to it.</p>
         <p>But with VueScreencasts we can get really close.</p>
@@ -62,8 +62,10 @@
 
     <HomePageSection classes="bg-dark" id="pro-platinum">
       <div class="col-sm-12 center-md">
-        <h3>Solution 1</h3>
-        <h2 class="section-title">Pro Platinum - for when the survival of your company or job is on the line.</h2>
+        <div class="header-section">
+          <h3>Solution 1</h3>
+          <h2 class="section-title"><span class="platinum">Platinum</span> - for when the survival of your company or job is on the line.</h2>
+        </div>
 
         <ProPackageCard :stripePlanId="5" nextSolutionId="pro-gold">
           <p><strong>It's go-time.  Let's do it now. I'm all-in.</strong></p>
@@ -80,11 +82,13 @@
     
     <HomePageSection class="bg-dark" id="pro-gold">
       <div class="col-sm-12 center-md">
-        <h3>Solution 2</h3>
-        <h2 class="section-title">Pro Gold - your best bet for fast growth.</h2>
+        <div class="header-section">
+          <h3>Solution 2</h3>
+          <h2 class="section-title"><span class="gold">Gold</span> - your best bet for fast growth.</h2>
+        </div>
 
         <ProPackageCard :stripePlanId="4" nextSolutionId="pro-silver">
-          <p>With the Pro Gold plan, we'll analyze your situation and work with you to create a custom action plan that maximizes the impact of your learning time.</p>
+          <p>With the Gold plan, we'll analyze your situation and work with you to create a custom action plan that maximizes the impact of your learning time.</p>
           <p>One-on-one personal checkins hold you accountable and keep you winning.</p>
           <p>Say goodbye to overwhelm.</p>
           <p>Say hello to growth.</p>
@@ -98,13 +102,14 @@
 
     <HomePageSection class="bg-dark" id="pro-silver">
       <div class="col-sm-12 center-md">
-        <h3>Solution 3</h3>
-        <h2 class="section-title">Pro Silver - a high-ROI investment in your career.</h2>
+        <div class="header-section">
+          <h3>Solution 3</h3>
+          <h2 class="section-title"><span class="silver">Silver</span> - accountability and acceleration.</h2>
+        </div>
 
         <ProPackageCard :stripePlanId="3" nextSolutionId="pro-bronze">
-          <p>A little push may be all you need to get yourself on a better trajectory.</p>
-          <p>Monthly one-on-ones, weekly check-ins...</p>
-          <p>The results may be slower than in our other plans, but this is an investment that will pay for itself many times over the course of your career.</p>
+          <p>You already know where you're going, you've already got your plan established... but a little bit of guidance at the right time will get you over the hump.</p>
+          <p>You'll still receive suggestions and accountability, but it won't be as rigorous as the above plans.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
@@ -115,11 +120,13 @@
 
     <HomePageSection class="bg-dark" id="pro-bronze">
       <div class="col-sm-12 center-md">
-        <h3>Solution 4</h3>
-        <h2 class="section-title">Pro Bronze - guidance for those in a hurry or on a budget.</h2>
+        <div class="header-section">
+          <h3>Solution 4</h3>
+          <h2 class="section-title"><span class="bronze">Bronze</span> - for those who are more patient or on a budget.</h2>
+        </div>
 
         <ProPackageCard :stripePlanId="6" nextSolutionId="pro-standard">
-          <p>This is for the people who are extremely busy, or who are on a tight budget... but know how important mentorship is.</p>
+          <p>This is for the people who are on a more relaxed time-table, or who are on a tight budget... but know how important mentorship is.</p>
           <p>Weekly email check-ins give you the chance to get the guidance you need, without having to ever show up for a meeting.</p>
         </ProPackageCard>
       </div>
@@ -131,8 +138,10 @@
 
     <HomePageSection class="bg-dark" id="pro-standard">
       <div class="col-sm-12 center-md">
-        <h3>Solution 5</h3>
-        <h2 class="section-title">Pro Standard - high-quality resources for self-directed learning.</h2>
+        <div class="header-section">
+          <h3>Solution 5</h3>
+          <h2 class="section-title">Pro Standard - high-quality resources for self-directed learning.</h2>
+        </div>
 
         <ProPackageCard :stripePlanId="2" nextSolutionId="more-questions" nextSolutionText="More Questions?">
           <p>You like our free videos.  That's why you're here.</p>
@@ -145,38 +154,22 @@
       <TestimonialsRow :testimonialIds="['64', '95', '83', '69']" class="paper-container-large" />
     </div>
 
-    <HomePageSection class="bg-dark">
-      <div class="col-sm-12 center-md">
-        <h2 class="section-title">Free - a great start.</h2>
-
-        <ProPackageCard :stripePlanId="7">
-          <p>Enjoy the free videos as much as you like.</p>
-          <p>Signing up for a free account will let you track your progress.</p>
-        </ProPackageCard>
-      </div>
-    </HomePageSection>
-
-    <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['8', '11', '103', '100']" class="paper-container-large" />
-    </div>
-
     <HomePageSection classes="bg-dark" id="more-questions">
       <div class="col-md-7 col-sm-12">
         <!-- TODO: put this stuff in every section, then replace it with "I care" message and  "how to ask more questions" message  -->
-        <h2 class="section-title">Still not sure?</h2>
-        <p>We have a 30-day 100% money-back guarantee, and at any point you can easily cancel or change your subscription level with just one email or text.</p>
-        <p>If you have any questions, please contact us.  We want to make sure you get the solution that's best for you.</p>
-        <ul>
-          <li>Email: <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a></li>
-          <li>Twitter: <a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a></li>
-          <li>Text or Phone: <a href="sms:501-256-3078">(501) 256-3078</a></li>
-        </ul>
+        <h2 class="section-title">If you still have questions:</h2>
+        <p>Okay, we've done our best to answer everything, but if you have more questions then let's hear'em! Just send us an email (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>) or text us (<a href="sms:501-256-3078">(501) 256-3078</a>) right now.</p>
+        <p>Ultimately, one of the best ways to see if this is right for you is to just get started.  Why not click on some of the free videos and work your way through them, and let us know what you think.  We're listening.</p>
+        <p>Fair enough?</p>
       </div>
       <div class="col-md-5 col-sm-12 center-md">
         <img src="~assets/vuescreencasts-student-coding-2.png" class="img-responsive img-center-xs" alt="Ember School Student Learning">
       </div>
     </HomePageSection>
 
+    <div class="bg-gray">
+      <TestimonialsRow :testimonialIds="['8', '11', '103', '100']" class="paper-container-large" />
+    </div>
   </div>
 </template>
 
@@ -236,6 +229,39 @@ $primary: $blue;
     margin-bottom: 0px;
   }
   margin-bottom: 16px;
+}
+
+.bg-dark {
+  .header-section {
+    padding: 24px;
+    margin-left: -24px;
+    background-color: white;
+    border-radius: 20px;
+    display: inline-block;
+
+    h1, h2, h3, h4 {
+      color: #0430AD;
+
+      &.section-title {
+        // color: #2773D3;
+        color: #0430AD;
+        margin-bottom: 0px;
+      }
+
+      .platinum {
+        color: #797979;
+      }
+      .gold {
+        color: #F8AE00;
+      }
+      .silver {
+        color: #C0C0C0;
+      }
+      .bronze {
+        color: #CD7F31;
+      }
+    }
+  }
 }
 
 </style>
