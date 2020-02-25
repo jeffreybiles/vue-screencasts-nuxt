@@ -85,7 +85,7 @@
         <h2 class="section-title">Pro Platinum - for when the survival of your company or job is on the line.</h2>
 
         <ProPackageCard :stripePlanId="5" nextSolutionId="pro-gold">
-          <p>This is what you choose when you want us all-in.</p>
+          <p><strong>It's go-time.  Let's do it now. I'm all-in.</strong></p>
           <p>When you need an expert who can care about your situation even more than you do, but can still stand back and give you the objective truth.</p>
           <p>I'll give it to you straight: if you're calling us mid-explosion, this might not be enough.</p>
           <p>But whatever the situation, we can massively increase your odds of success.</p>
@@ -103,9 +103,8 @@
         <h2 class="section-title">Pro Gold - your best bet for fast growth.</h2>
 
         <ProPackageCard :stripePlanId="4">
-          <p>Have you ever felt overwhelmed by the frantic pace of the Javascript world?</p>
-          <p>Like you should be going faster, in ten different directions at once... but you don't know where to start?</p>
-          <p>With the Pro Gold plan, we'll analyze your situation and work with you to create a custom action plan that maximizes the impact of your learning time.  Then we'll have weekly meetings to adjust as needed and keep you on course.</p>
+          <p>With the Pro Gold plan, we'll analyze your situation and work with you to create a custom action plan that maximizes the impact of your learning time.</p>
+          <p>One-on-one personal checkins hold you accountable and keep you winning.</p>
           <p>Say goodbye to overwhelm.</p>
           <p>Say hello to growth.</p>
         </ProPackageCard>
