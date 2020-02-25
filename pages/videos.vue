@@ -9,6 +9,8 @@
   import { mapState } from 'vuex'
   import VideoTable from '@/components/VideoTable.vue';
   export default {
+    middleware: 'load-videos-and-courses',
+
     data(){
       return {
         headers: [

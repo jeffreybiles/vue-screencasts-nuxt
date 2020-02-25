@@ -40,6 +40,7 @@
   import {getCourseThumbnail} from '@/utils/video-decorator';
 
   export default {
+    middleware: 'load-videos-and-courses',
     components: {
       DurationDisplay,
       CourseContentTable,

@@ -46,6 +46,8 @@
   import { courseDecorator, percentVideosComplete } from '@/utils/course-decorator';
 
   export default {
+    middleware: 'load-videos-and-courses',
+
     data(){
       return {
         difficulty: this.$route.query.difficulty || 'all',

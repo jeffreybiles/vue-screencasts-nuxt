@@ -132,6 +132,8 @@ import _ from 'lodash';
 import {getThumbnail} from '@/utils/video-decorator';
 
 export default {
+  middleware: 'load-videos-and-courses',
+
   data(){
     return {
       endingScreenOpen: false,
