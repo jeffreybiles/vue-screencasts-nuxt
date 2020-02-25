@@ -63,8 +63,8 @@
     <HomePageSection classes="bg-dark" id="pro-platinum">
       <div class="col-sm-12 center-md">
         <div class="header-section">
-          <h3 class="platinum">Solution 1: Platinum</h3>
-          <h2 class="section-title">For when the Survival of your Company or Job is on the line.</h2>
+          <h2 class="section-title">Platinum Package</h2>
+          <h2 class="section-subtitle">For when the Survival of your Company or Job is on the line.</h2>
         </div>
 
         <ProPackageCard :stripePlanId="5" nextSolutionId="pro-gold">
@@ -83,8 +83,8 @@
     <HomePageSection class="bg-dark" id="pro-gold">
       <div class="col-sm-12 center-md">
         <div class="header-section">
-          <h3 class="gold">Solution 2: Gold</h3>
-          <h2 class="section-title">Your Best bet for Fast Growth.</h2>
+          <h2 class="section-title">Gold Package</h2>
+          <h2 class="section-subtitle">Your Best bet for Fast Growth.</h2>
         </div>
 
         <ProPackageCard :stripePlanId="4" nextSolutionId="pro-silver">
@@ -103,8 +103,8 @@
     <HomePageSection class="bg-dark" id="pro-silver">
       <div class="col-sm-12 center-md">
         <div class="header-section">
-          <h3 class="silver">Solution 3: Silver</h3>
-          <h2 class="section-title">Accountability and Acceleration.</h2>
+          <h2 class="section-title">Silver Package</h2>
+          <h2 class="section-subtitle">Accountability and Acceleration.</h2>
         </div>
 
         <ProPackageCard :stripePlanId="3" nextSolutionId="pro-bronze">
@@ -121,8 +121,8 @@
     <HomePageSection class="bg-dark" id="pro-bronze">
       <div class="col-sm-12 center-md">
         <div class="header-section">
-          <h3 class="bronze">Solution 4: Bronze</h3>
-          <h2 class="section-title">For those who are more Patient or on a Budget.</h2>
+          <h2 class="section-title">Bronze Plan</h2>
+          <h2 class="section-subtitle">For those who are more Patient or on a Budget.</h2>
         </div>
 
         <ProPackageCard :stripePlanId="6" nextSolutionId="pro-standard">
@@ -139,8 +139,8 @@
     <HomePageSection class="bg-dark" id="pro-standard">
       <div class="col-sm-12 center-md">
         <div class="header-section">
-          <h3>Solution 5: Pro Standard</h3>
-          <h2 class="section-title">High-Quality resources for self-directed Learning.</h2>
+          <h2 class="section-title">Standard Plan</h2>
+          <h2 class="section-subtitle">High-Quality resources for self-directed Learning.</h2>
         </div>
 
         <ProPackageCard :stripePlanId="2" nextSolutionId="more-questions" nextSolutionText="More Questions?">
@@ -240,14 +240,14 @@ $primary: $blue;
     display: inline-block;
 
     h1, h2, h3, h4 {
-      color: #2163B3;
-      // color: #2773D3;
+      // color: #2163B3;
+      color: #2773D3;
       // color: #2D374A;
       // color: #017FFF;
 
       &.section-title {
-        color: #2163B3;
-        // color: #2773D3;
+        // color: #2163B3;
+        color: #2773D3;
         // color: #2D374A;
         // color: #017FFF;
         margin-bottom: 0px;

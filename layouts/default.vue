@@ -93,8 +93,7 @@ body .v-application a {
 }
 
 .section-subtitle {
-  font: 300 24px/32px $font;
-  margin-bottom: 20px;
+  font: 400 24px/32px $font;
 }
 
 .section {
