@@ -98,7 +98,7 @@
       </div>
 
       <div class="text-center pt-4">
-        <div class="display-1">What do others think?</div>
+        <div class="display-1">What do others think of VueScreencasts?</div>
         <TestimonialsRow :testimonialIds="randomTestimonialIds" :reloadHack="true" />
         <v-btn color="green accent-3" to="/">Take your career to the next level</v-btn>
       </div>
