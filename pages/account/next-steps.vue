@@ -4,61 +4,70 @@
     <h1>Next steps to take:</h1>
     <!-- TODO: make workflow for each -->
     <!-- TODO: have ability to 'check them off' -->
-    <div v-if="plan.services.actionPlan" 
-        :class="['perk-step', next_steps_taken.actionPlan ? 'minimized-step' : '']">
-      <p v-if="next_steps_taken.actionPlan">
-        <font-awesome-icon icon="check" /> Done
-      </p>
-      
-      <p>First, let's schedule a time to create our action plan.</p>
+    <div v-if="plan.services.actionPlan">
+      <NextStepCompletionCard :markComplete="() => { markComplete('actionPlan')}" 
+                              :stepCompleted="next_steps_taken.actionPlan">
+        <p>First, let's schedule a time to create our action plan.</p>
 
-      <a href="https://calendly.com/jeffreybiles/create-an-action-plan">Book an initial planning session on Calendly</a>
+        <p><a href="https://calendly.com/jeffreybiles/create-an-action-plan">Book an initial planning session on Calendly</a></p>
 
-      <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
-
-      <v-btn @click="markComplete('actionPlan')" 
-             color="green accent-3" 
-             v-if="!next_steps_taken.actionPlan">
-        Mark Complete
-      </v-btn>
+        <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
+      </NextStepCompletionCard>
     </div>
-    <div v-if="plan.services.retainer" class="perk-step">
-      <p>My phone number is 501-256-3078.</p>
 
-      <p>Put in your phone number here<p>
+    <div v-if="plan.services.retainer">
+      <NextStepCompletionCard :markComplete="() => { markComplete('retainer')}" 
+                              :stepCompleted="next_steps_taken.retainer">
+        <p>My phone number is 501-256-3078.</p>
 
-      <!-- phone number field -->
+        <p>Message me, or put in your phone number here:<p>
 
-      <p>I'll put your number in my phone so I can answer your calls and messages as soon as possible.</p>
+        <!-- TODO: phone number field -->
+
+        <p>I'll put your number in my phone so I can answer your calls and messages as soon as possible.</p>
+      </NextStepCompletionCard>
     </div>
-    <div v-if="plan.services.videoChat" class="perk-step">
-      <p>Let's schedule a time for our first video chat.</p>
+    <div v-if="plan.services.videoChat">
+      <NextStepCompletionCard :markComplete="() => { markComplete('videoChat')}" 
+                              :stepCompleted="next_steps_taken.videoChat">
+        <p>Let's schedule a time for our first video chat.</p>
 
-      <p><a href="https://calendly.com/jeffreybiles/coaching-chat">Schedule Now on Calendly</a>.</p>
+        <p><a href="https://calendly.com/jeffreybiles/coaching-chat">Schedule Now on Calendly</a>.</p>
 
-      <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
+        <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
+      </NextStepCompletionCard>
     </div>
     <div v-if="plan.services.groupFaq" class="perk-step">
-      <p>Put the next group FAQ on your calendar.</p>
+      <NextStepCompletionCard :markComplete="() => { markComplete('groupFaq')}" 
+                              :stepCompleted="next_steps_taken.groupFaq">
+        <p>Put the next group FAQ on your calendar.</p>
 
-      <!-- Zoom URL -->
+        <!-- Zoom URL -->
+      </NextStepCompletionCard>
     </div>
     <div v-if="plan.services.proCourses" class="perk-step">
-      <p>Check out some of our pro courses</p>
+      <NextStepCompletionCard :markComplete="() => { markComplete('proCourses')}" 
+                              :stepCompleted="next_steps_taken.proCourses">
+        <p>Check out some of our pro courses</p>
 
-      <!-- Course cards -->
+        <!-- Course cards -->
+      </NextStepCompletionCard>
     </div>
   </div>
 </template>
 
 <script>
   import { getPlanWithDefault } from '@/utils/subscription-utils';
+  import NextStepCompletionCard from '@/components/NextStepCompletionCard.vue';
 
   export default {
     data(){
       return {
         plan: getPlanWithDefault(this.$auth.user.plan_id),
       }
+    },
+    components: {
+      NextStepCompletionCard
     },
     computed: {
       next_steps_taken(){
@@ -80,13 +89,5 @@
 </script>
 
 <style lang="scss" scoped>
-  .perk-step {
-    border: 1px solid black;
-    padding: 8px;
-    margin-top: 8px;
 
-    &.minimized-step {
-      opacity: 0.8;
-    }
-  }
 </style>
