@@ -6,14 +6,20 @@
           <h1>Your current plan is {{currentPlan && currentPlan.name || 'Pro Standard'}}.</h1>
           <h1>We're working on a way to change your plan with a click. Until then...</h1>
           <h1>Email me to upgrade:  
-            <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly&body=I understand that this email authorizes VueScreencasts.com to charge the card on file for $${plan[planTerm].currentPrice} every ${planTerm} until I cancel or change plans.`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
+            <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly&body=I understand that this email authorizes VueScreencasts.com to charge the card on file for $${currentPrice} every ${planTerm} until I cancel or change plans.`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
         </div>
         <div v-else>
-          <!-- X will be calculated based on how many steps are completed (and be sure to pluralize step/steps)-->
           <h2 class="section-title">You're {{stepsLeft}} {{ stepsLeft | pluralize('step') }} away from turbocharging your Vue journey.</h2>
 
           <div class="step">
-            <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments.
+            <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments of {{currentPrice | currency}}.
+            <br>
+            <div v-if="planTerm == 'month'">
+              <a @click="setTerm('year')">Save {{Math.floor((monthlyPrice / yearlyPrice) * 12 * 100 - 100)}}% by switching to yearly payments ({{yearlyPrice | currency}}/year)</a>
+            </div>
+            <div v-else>
+              <a @click="setTerm('month')">Switch back to monthly payments ({{monthlyPrice | currency}}/month)</a>
+            </div>
           </div>
 
           <div class="step">
@@ -41,7 +47,7 @@
             <v-card min-height="200px" min-width="600px">
               <div class="pa-3">
                 <h2 class="section-title">Purchase {{plan.name}} package.</h2>
-                <p class="subheader">Your card will be charged {{plan[planTerm].currentPrice | currency}} every {{planTerm}}.  At any point you can change your plan with just one email.</p>
+                <p class="subheader">Your card will be charged {{currentPrice | currency}} every {{planTerm}}.  At any point you can change or cancel your plan with just one email.</p>
 
                 <StripeCard buttonText="Pay and Subscribe"
                 :clickAction="pay" />
@@ -93,6 +99,15 @@
       },
       currentPlan(){
         return getPlan(this.$auth.user.plan_id)
+      },
+      currentPrice(){
+        return this.plan[this.planTerm].currentPrice
+      },
+      yearlyPrice(){
+        return this.plan['year'].currentPrice
+      },
+      monthlyPrice(){
+        return this.plan['month'].currentPrice
       }
     },
     methods: {
@@ -104,6 +119,14 @@
         })
         await this.$auth.fetchUser()
         this.$router.push({path: '/account/next-steps'})
+      },
+      setTerm(newTerm) {
+        this.planTerm = newTerm;
+
+        this.$router.push({path: '/order', query: {
+          ...this.$route.query,
+          planTerm: newTerm
+        }})
       }
     }
   }
@@ -130,6 +153,10 @@
 
   .step {
     padding-bottom: 20px;
+
+    a {
+      color: #CFC;
+    }
   }
 
   .disabled {
