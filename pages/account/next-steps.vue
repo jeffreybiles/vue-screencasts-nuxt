@@ -4,14 +4,23 @@
     <h1>Next steps to take:</h1>
     <!-- TODO: make workflow for each -->
     <!-- TODO: have ability to 'check them off' -->
-    <div v-if="plan.services.actionPlan" class="perk-step">
-      <p>We need to schedule a time to create our action plan.</p>
+    <div v-if="plan.services.actionPlan" 
+        :class="['perk-step', next_steps_taken.actionPlan ? 'minimized-step' : '']">
+      <p v-if="next_steps_taken.actionPlan">
+        <font-awesome-icon icon="check" /> Done
+      </p>
+      
+      <p>First, let's schedule a time to create our action plan.</p>
 
-      <p>But before we do that, let's do some pre-work so our call can be as effective as possible.</p>
+      <a href="https://calendly.com/jeffreybiles/create-an-action-plan">Book an initial planning session on Calendly</a>
 
-      <!-- https://calendly.com/jeffreybiles/create-an-action-plan -->
+      <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
 
-      <!-- link to Google Forms -->
+      <v-btn @click="markComplete('actionPlan')" 
+             color="green accent-3" 
+             v-if="!next_steps_taken.actionPlan">
+        Mark Complete
+      </v-btn>
     </div>
     <div v-if="plan.services.retainer" class="perk-step">
       <p>My phone number is 501-256-3078.</p>
@@ -25,7 +34,7 @@
     <div v-if="plan.services.videoChat" class="perk-step">
       <p>Let's schedule a time for our first video chat.</p>
 
-      <p><a href="https://calendly.com/jeffreybiles/coaching-chat">Schedule Now</a>.</p>
+      <p><a href="https://calendly.com/jeffreybiles/coaching-chat">Schedule Now on Calendly</a>.</p>
 
       <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
     </div>
@@ -50,6 +59,22 @@
       return {
         plan: getPlanWithDefault(this.$auth.user.plan_id),
       }
+    },
+    computed: {
+      next_steps_taken(){
+        return this.$auth.user.next_steps_taken
+      }
+    },
+    methods: {
+      async markComplete(step) {
+        let next_steps = this.next_steps_taken
+        next_steps[step] = true;
+
+        await this.$axios.put(`/users/${this.$auth.user.id}/update_nonsensitive`, {
+          next_steps_taken: next_steps
+        })
+        this.$auth.fetchUser();
+      }
     }
   }
 </script>
@@ -59,5 +84,9 @@
     border: 1px solid black;
     padding: 8px;
     margin-top: 8px;
+
+    &.minimized-step {
+      opacity: 0.8;
+    }
   }
 </style>
