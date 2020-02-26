@@ -16,7 +16,7 @@
               <div class="headline">The next chapter is <strong>{{nextChapter.name}}</strong>.</div>
             </v-card-text>
             <v-card-actions>
-              <v-btn color="secondary" @click="goToNextChapter(nextChapter, 'first')">Watch Now</v-btn>
+              <v-btn color="secondary" @click="goToNextChapter(nextChapter, 'first')" x-large>Watch Now</v-btn>
             </v-card-actions>
           </div>
           <div v-else>
@@ -26,7 +26,7 @@
               </span>
             </v-card-text>
             <v-card-actions>
-              <v-btn color="secondary" :to="`/courses/`">Find More Courses</v-btn>
+              <v-btn color="secondary" :to="`/courses/`" x-large>Find More Courses</v-btn>
               <!-- TODO: "Tell my friends" button -->
             </v-card-actions>
           </div>
