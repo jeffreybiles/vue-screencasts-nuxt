@@ -879,6 +879,20 @@
       "real_face": true,
       "real_name": true,
       "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=Ugwtjhgaz33ZDD7QwUR4AaABAg"
+    }, {
+      "id": 104,
+      "message": "I spent all evening doing Nuxt registration. I wish I had've spotted this video sooner. 🤦🏻‍♂️. Excellent and clear tutorial. Thank you!",
+      "message_priority": 7,
+      "name": "Si D",
+      "img_url": "Si+D.jpg",
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=Ugxc1_3nboIUnaUKWAR4AaABAg"
+    }, {
+      "id": 105,
+      "message": "You saved my day! Thanks!",
+      "message_priority": 9,
+      "name": "Ivomar Santos",
+      "img_url": "Ivomar+Santos.jpg",
+      "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=Ugy3XgkjyN163w3ioBt4AaABAg"
     }
   ]
 }
