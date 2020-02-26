@@ -24,8 +24,8 @@
         required: true
       },
       stepCompleted: {
-        type: Boolean,
-        required: true
+        type: [String, Boolean],
+        default: false
       }
     }    
   }
