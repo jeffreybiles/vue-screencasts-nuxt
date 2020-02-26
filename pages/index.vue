@@ -251,14 +251,14 @@ $primary: $blue;
     display: inline-block;
 
     h1, h2, h3, h4 {
-      // color: #2163B3;
-      color: #2773D3;
+      color: #2163B3;
+      // color: #2773D3;
       // color: #2D374A;
       // color: #017FFF;
 
       &.section-title {
-        // color: #2163B3;
-        color: #2773D3;
+        color: #2163B3;
+        // color: #2773D3;
         // color: #2D374A;
         // color: #017FFF;
         margin-bottom: 0px;
