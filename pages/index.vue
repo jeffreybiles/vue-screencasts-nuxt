@@ -67,7 +67,9 @@
           <h2 class="section-subtitle">For when the Survival of your Company or Job is on the line.</h2>
         </div>
 
-        <ProPackageCard :stripePlanId="5" nextSolutionId="pro-gold">
+        <ProPackageCard :stripePlanId="5" 
+                        nextSolutionId="pro-gold"
+                        bossLink="https://docs.google.com/document/d/13StavsXklWSzuYk0PN9G9LAja9QfXfwwJQkg3IpRcRU/edit?usp=sharing">
           <p><strong>It's go-time.  Let's do it now. I'm all-in.</strong></p>
           <p>When you need an expert who can care about your situation even more than you do, but can still stand back and give you the objective truth.</p>
           <p>I'll give it to you straight: if you're calling us mid-explosion, this might not be enough.</p>
@@ -87,7 +89,9 @@
           <h2 class="section-subtitle">Your Best bet for Fast Growth.</h2>
         </div>
 
-        <ProPackageCard :stripePlanId="4" nextSolutionId="pro-silver">
+        <ProPackageCard :stripePlanId="4" 
+                        nextSolutionId="pro-silver"
+                        bossLink="https://docs.google.com/document/d/166C59AXbqgFGSz1iRhwrp-MXUqIkKLCxpplJIcITwyU/edit?usp=sharing">
           <p>With the Gold plan, we'll analyze your situation and work with you to create a custom action plan that maximizes the impact of your learning time.</p>
           <p>One-on-one personal checkins hold you accountable and keep you winning.</p>
           <p>Say goodbye to overwhelm.</p>
@@ -107,7 +111,9 @@
           <h2 class="section-subtitle">Accountability and Acceleration.</h2>
         </div>
 
-        <ProPackageCard :stripePlanId="3" nextSolutionId="pro-bronze">
+        <ProPackageCard :stripePlanId="3" 
+                        nextSolutionId="pro-bronze"
+                        bossLink="https://docs.google.com/document/d/133lz57ovI0PiD1ZVpT-mcDShQBvmqTb7BHwihFsDB5c/edit?usp=sharing">
           <p>You already know where you're going, you've already got your plan established... but a little bit of guidance at the right time will get you over the hump.</p>
           <p>You'll still receive suggestions and accountability, but it won't be as rigorous as the above plans.</p>
         </ProPackageCard>
@@ -125,7 +131,9 @@
           <h2 class="section-subtitle">For those who are more Patient or on a Budget.</h2>
         </div>
 
-        <ProPackageCard :stripePlanId="6" nextSolutionId="pro-standard">
+        <ProPackageCard :stripePlanId="6" 
+                        nextSolutionId="pro-standard"
+                        bossLink="https://docs.google.com/document/d/1Hg3sZ3K2b5rAXAkwX_bAqM5Pnat_PahLDFtffdYH1Gw/edit?usp=sharing">
           <p>This is for the people who are on a more relaxed time-table, or who are on a tight budget... but know how important mentorship is.</p>
           <p>Weekly email check-ins give you the chance to get the guidance you need, without having to ever show up for a meeting.</p>
         </ProPackageCard>
@@ -143,7 +151,10 @@
           <h2 class="section-subtitle">High-Quality resources for self-directed Learning.</h2>
         </div>
 
-        <ProPackageCard :stripePlanId="2" nextSolutionId="more-questions" nextSolutionText="More Questions?">
+        <ProPackageCard :stripePlanId="2" 
+                        nextSolutionId="more-questions"
+                        nextSolutionText="More Questions?"
+                        bossLink="https://docs.google.com/document/d/16cXGOJkQoqwG-iq4sc0n84KMMldOlNHMGbhTijaPsQk/edit?usp=sharing">
           <p>You like our free videos.  That's why you're here.</p>
           <p>Our Pro courses are more of that, tackling harder subjects, and designed to level you up.</p>
         </ProPackageCard>
