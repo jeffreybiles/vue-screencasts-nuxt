@@ -6,7 +6,7 @@
 <script>
   export default {
     created(){
-      this.$router.push(`/#${ this.$route.query.solution || 'pro-platinum'}`);
+      this.$router.replace(`/#${ this.$route.query.solution || 'pro-platinum'}`);
     }
   }
 </script>
