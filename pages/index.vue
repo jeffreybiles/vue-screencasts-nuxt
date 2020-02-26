@@ -256,7 +256,7 @@ $primary: $blue;
       // color: #2D374A;
       // color: #017FFF;
 
-      &.section-title {
+      &.section-title, &.section-subtitle {
         color: #2163B3;
         // color: #2773D3;
         // color: #2D374A;
