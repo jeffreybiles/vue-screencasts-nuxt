@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Congratulations on subscribing to the {{plan.name}} plan!</h1>
-    <h1>Next steps to take:</h1>
+    <h1 class="section-title mt-3 mb-1">Congratulations on subscribing to the {{plan.name}} plan!</h1>
+    <h1 class="section-subtitle">Next steps to take:</h1>
     <!-- TODO: make workflow for each -->
     <!-- TODO: have ability to 'check them off' -->
     <div v-if="plan.services.actionPlan">
