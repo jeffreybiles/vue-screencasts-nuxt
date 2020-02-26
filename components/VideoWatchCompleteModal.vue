@@ -2,9 +2,9 @@
   <v-dialog
     v-model="open"
     @click:outside="close"
-    width="650"
+    width="850"
   >
-    <v-card class="pa-4">
+    <v-card class="pa-6">
       <div v-if="$auth.loggedIn">
         <div v-if="!nextVideo">
           <div v-if="nextChapter && nextChapter.name">
@@ -33,7 +33,7 @@
         </div>
         <div v-else>
           <v-card-title>
-            <h2>Up next: {{nextVideo.name}}</h2>
+            <h2 class="display-1">Up next: {{nextVideo.name}}</h2>
           </v-card-title>
           <v-card-text>
             <span class="display-1">Starting in</span>
@@ -42,8 +42,8 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer />
-            <v-btn color="secondary" @click="close">Stay in this video</v-btn>
-            <v-btn color="green accent-3" @click="goToNextVideo">Go now</v-btn>
+            <v-btn color="secondary" @click="close" x-large>Stay in this video</v-btn>
+            <v-btn color="green accent-3" @click="goToNextVideo" x-large>Go now</v-btn>
           </v-card-actions>
         </div>
       </div>
