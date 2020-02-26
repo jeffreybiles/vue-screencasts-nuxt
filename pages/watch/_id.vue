@@ -98,6 +98,12 @@
         <MarkdownDisplay :markdown="video.description" />
       </div>
 
+      <div class="text-center pt-4">
+        <div class="display-1">What do others think of VueScreencasts?</div>
+        <TestimonialsRow :testimonialIds="randomTestimonialIds" :reloadHack="true" />
+        <v-btn color="green accent-3" to="/">Take your career to the next level</v-btn>
+      </div>
+
       <VideoWatchCompleteModal :isOpen="endingScreenOpen" 
                               :close="function(){endingScreenOpen = false}"
                               :nextVideo="nextVideo"
@@ -105,14 +111,6 @@
                               :nextChapter="nextChapter"
                               :goToNextChapter="goToChapter" />
 
-      <!-- Probably put this in a tab -->
-      <!-- tabs: general, code, and transcript... but only show a tab if it has something available for it -->
-      <!-- <v-row>
-        <v-col cols="12">
-          <h1>Code Summary</h1>
-          <MarkdownDisplay :markdown="video.code_summary" />
-        </v-col>
-      </v-row> -->
 
     </v-container>
   </div>
@@ -125,13 +123,18 @@ import MarkdownDisplay from '@/components/MarkdownDisplay';
 import UserAuthModal from '@/components/UserAuthModal.vue';
 import VideoWatchCompleteModal from '@/components/VideoWatchCompleteModal.vue';
 import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
+import TestimonialsRow from '@/components/TestimonialsRow.vue';
 import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/course-decorator';
+import socialProofJson from '@/utils/social-proof-data.json';
+
 
 import { mapState, mapGetters } from 'vuex';
 import _ from 'lodash';
 import {getThumbnail} from '@/utils/video-decorator';
 
 export default {
+  middleware: 'load-videos-and-courses',
+
   data(){
     return {
       endingScreenOpen: false,
@@ -144,6 +147,7 @@ export default {
     UserAuthModal,
     VideoWatchCompleteModal,
     UserAuthTogglableForm,
+    TestimonialsRow
   },
   computed: {
     ...mapGetters({
@@ -185,6 +189,16 @@ export default {
     canAccess(){
       let user = this.$auth.user
       return this.video.in_free_period || user && user.pro
+    },
+    randomTestimonialIds(){
+      let allTestimonials = socialProofJson.testimonials;
+
+      return [
+          Math.floor(Math.random() * allTestimonials.length),
+          Math.floor(Math.random() * allTestimonials.length),
+          Math.floor(Math.random() * allTestimonials.length),
+          Math.floor(Math.random() * allTestimonials.length),
+        ]
     },
   },
   methods: {

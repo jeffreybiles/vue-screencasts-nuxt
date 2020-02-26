@@ -56,7 +56,8 @@ export default {
   plugins: [
     '~/plugins/vuetify-datetime-picker',
     { src: "~/plugins/vue-timer", mode: 'client'},
-    { src: '@/plugins/vue-shortkey.js', mode: 'client' }
+    { src: '@/plugins/vue-shortkey.js', mode: 'client' },
+    '~/plugins/vue2-filters'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -95,7 +96,15 @@ export default {
           icons: ['fab']
         }
       ]
-    }]
+    }],
+    ['vue-currency-filter/nuxt', {
+      symbol: '$',
+      thousandsSeparator: ',',
+      fractionCount: 0,
+      fractionSeparator: '.',
+      symbolPosition: 'front',
+      symbolSpacing: false
+    }],
   ],
   /*
   ** Axios module configuration

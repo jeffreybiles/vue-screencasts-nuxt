@@ -54,10 +54,8 @@
         let links = [
           {text: "Courses", to: "/courses"},
           {text: "Archive", to: "/videos"},
+          {text: "Pricing", to: "/pro"}
         ]
-        if(!user || !user.pro || user.subscription_cancelled) {
-          links.push({text: "Pro", to: "/pro"})
-        }
         if(user && user.admin) {
           links.push({text: "Admin", to: "/admin/videos"})
         }

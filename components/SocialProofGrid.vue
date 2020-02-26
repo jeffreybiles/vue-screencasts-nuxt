@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="d-flex flex-wrap">
+    <TestimonialsRow :testimonialIds="testimonials.map(t => t.id)" class="paper-container-large" :reloadHack="true" />
+    <!-- <div class="d-flex flex-wrap">
       <div v-for="testimonial in testimonials" :key="testimonial.id" class="testimonial-selector">
         <v-tooltip bottom content-class="full-testimonial">
           <template #activator="{on}">
@@ -14,24 +15,22 @@
 
         </v-tooltip>
       </div>      
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
   import socialProofJson from '@/utils/social-proof-data.json';
   import _ from 'lodash';
+  import TestimonialsRow from '@/components/TestimonialsRow.vue';
 
   export default {
     data(){
-      let bucket = "https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com"
-      let folder = "social-proof-portraits"
       let testimonials = socialProofJson.testimonials.map(t => {
           t.order = t.message_priority + 
                     (t.true_face ? 1 : 0) + 
                     (t.true_name ? 1 : 0) +
                     (Math.random() * 3)
-          t.img_src = `${bucket}/${folder}/${t.img_url}`
           return t
         })
       let sortedTestimonials = _.sortBy(testimonials, 'order').reverse();
@@ -39,8 +38,8 @@
         testimonials: _.uniqBy(sortedTestimonials, 'name')
       }
     },
-    computed: {
-      // possible algorithm: sort based on (message_priority + 1 each for real_name and real_face + (3 * Math.random)).
+    components: {
+      TestimonialsRow
     }
   }
 </script>

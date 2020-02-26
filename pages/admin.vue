@@ -10,7 +10,7 @@
 
 <script>
   export default {
-    middleware: ['auth-admin']
+    middleware: ['auth-admin', 'load-videos-and-courses']
   }
 </script>
 

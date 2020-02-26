@@ -2,71 +2,154 @@
   "plans": [
     {
       "id": 1,
-      "env": "dev",
       "deprecated": true,
-      "stripeId": "plan_GUnIRF35MtJy67",
-      "period": "month",
-      "fullPrice": 36,
-      "currentPrice": 9
+      "name": "Pro Mega Early Bird",
+      "month": {
+        "stripeId": {
+          "dev": "plan_GUnIRF35MtJy67",
+          "prod": "plan_GUbsLVGwbTE2K1"
+        },
+        "fullPrice": 36,
+        "currentPrice": 9  
+      },
+      "year": {
+        "stripeId": {
+          "dev": "plan_GUnLuKPVBvo78i",
+          "prod": "plan_GUbw5FDN0z2EHe"
+        },
+        "fullPrice": 290,
+        "currentPrice": 90  
+      }
     },
     {
       "id": 2,
-      "env": "dev",
-      "deprecated": true,
-      "stripeId": "plan_GUnLuKPVBvo78i",
-      "period": "year",
-      "fullPrice": 290,
-      "currentPrice": 90
+      "name": "Pro Standard",
+      "services": {
+        "coursePriority": "Elevated priority",
+        "proCourses": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": "plan_GgsLGxhiej3vrb",
+          "prod": "plan_GgsIRlrUB4Zgtd"
+        },
+        "fullPrice": 36,
+        "currentPrice": 15
+      },
+      "year": {
+        "stripeId": {
+          "env": "plan_GgsLvpFY1RzWpI",
+          "prod": "plan_GgsIQeIRnmh5bF"
+        },
+        "fullPrice": 290,
+        "currentPrice": 150
+      }
     },
     {
       "id": 3,
-      "env": "prod",
-      "deprecated": true,
-      "stripeId": "plan_GUbsLVGwbTE2K1",
-      "period": "month",
-      "fullPrice": 36,
-      "currentPrice": 9
+      "name": "Silver",
+      "services": {
+        "videoChat": "Monthly",
+        "coursePriority": "High priority",
+        "groupFaq": true,
+        "weeklyCheckin": true,
+        "proCourses": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": "plan_GhyIjKBy6KZJme",
+          "prod": "plan_Gn78TKZpvmDcc9"
+        },
+        "currentPrice": 245
+      },
+      "year": {
+        "stripeId": {
+          "dev": "plan_Gn6svIv7Kegx7q",
+          "prod": "plan_Gn79v8NYljZcKI"
+        },
+        "currentPrice": 2695
+      }
     },
     {
       "id": 4,
-      "env": "prod",
-      "deprecated": true,
-      "stripeId": "plan_GUbw5FDN0z2EHe",
-      "period": "year",
-      "fullPrice": 290,
-      "currentPrice": 90
+      "name": "Gold",
+      "services": {
+        "videoChat": "Weekly",
+        "actionPlan": true,
+        "coursePriority": "High priority",
+        "proCourses": true,
+        "groupFaq": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": "plan_Gn6tAMhAlEflS5",
+          "prod": "plan_Gn7BidvhyqbSUc"
+        },
+        "currentPrice": 795
+      },
+      "year": {
+        "stripeId": {
+          "dev": "plan_Gn6zb5FCZh9Qyn",
+          "prod": "plan_Gn7BInzxShwSJU"
+        },
+        "currentPrice": 8745
+      }
     },
     {
       "id": 5,
-      "env": "dev",
-      "stripeId": "plan_GgsLGxhiej3vrb",
-      "period": "month",
-      "fullPrice": 36,
-      "currentPrice": 15
+      "name": "Platinum",
+      "services": {
+        "actionPlan": true,
+        "retainer": true,
+        "videoChat": "Weekly",
+        "coursePriority": "Top priority",
+        "proCourses": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": "plan_Gn730zfZjoW48z",
+          "prod": "plan_Gn7FaxJcU2PjsJ"
+        },
+        "currentPrice": 1950
+      },
+      "year": {
+        "stripeId": {
+          "dev": "plan_Gn73Bw0xT5bRLD",
+          "prod": "plan_Gn7FOtAwzaK3Cy"
+        },
+        "currentPrice": 21450
+      }
     },
     {
       "id": 6,
-      "env": "dev",
-      "stripeId": "plan_GgsLvpFY1RzWpI",
-      "period": "year",
-      "fullPrice": 290,
-      "currentPrice": 150
+      "name": "Bronze",
+      "services": {
+        "coursePriority": "Elevated priority",
+        "groupFaq": true,
+        "weeklyCheckin": true,
+        "proCourses": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": "plan_Gn753leeEPP4e9",
+          "prod": "plan_Gn772aatafSXre"
+        },
+        "currentPrice": 79
+      },
+      "year": {
+        "stripeId": {
+          "env": "plan_Gn76npVrRnQAuZ",
+          "prod": "plan_Gn77aGcZK3umrq"
+        },
+        "currentPrice": 790
+      }
     },
     {
       "id": 7,
-      "env": "prod",
-      "stripeId": "plan_GgsIRlrUB4Zgtd",
-      "period": "month",
-      "fullPrice": 36,
-      "currentPrice": 15
-    },
-    {
-      "id": 8,
-      "env": "prod",
-      "stripeId": "plan_GgsIQeIRnmh5bF",
-      "period": "year",
-      "fullPrice": 290,
-      "currentPrice": 150
+      "name": "Free",
+      "services": {
+        "free": true
+      }
     }
   ]
 }
