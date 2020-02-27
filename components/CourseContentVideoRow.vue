@@ -1,15 +1,15 @@
 <template>
   <div v-if="isPublished || isAdminScreen">
-    <v-row :class="['course-content-video', 'ma-0', isHighlighted ? 'green lighten-4': '']">
+    <v-row :class="['course-content-video', 'ma-0', 'pl-2', isHighlighted ? 'green lighten-4': '']">
       <v-col sm="6" cols="11" @click="clickAction(video)" class="clickable pa-1">
         {{video.name}}
       </v-col>
-      <v-col sm="1" cols="0" class="pa-1">
+      <v-col sm="1" cols="0" class="pa-1 text-center">
         <v-btn x-small v-if="isAdminScreen" @click="detachVideo" class="clickable">
           Detach
         </v-btn>
       </v-col>
-      <v-col sm="1" cols="3" class="pa-1">
+      <v-col sm="1" cols="3" class="pa-1 text-center">
         <div v-if="isAdminScreen">
           <font-awesome-icon icon="arrow-up" @click="moveEarlier" class="clickable" />
           <font-awesome-icon icon="arrow-down" @click="moveLater" class="clickable" />
@@ -23,8 +23,8 @@
 
         </div>
       </v-col>
-      <v-col v-if="!compact" sm="2"><DurationDisplay :duration="video.duration" /></v-col>
-      <v-col v-if="!compact" sm="2"><DateDisplay :date="video.published_at" /></v-col>
+      <v-col v-if="!compact" sm="2" class="text-center"><DurationDisplay :duration="video.duration" /></v-col>
+      <v-col v-if="!compact" sm="2" class="text-center"><DateDisplay :date="video.published_at" /></v-col>
       <v-col v-if="compact" sm="4" cols="9" class="text-center pa-1">
         <DurationDisplay :duration="video.duration" class="medium" /><br>
         <DateDisplay :date="video.published_at" class="small" />
