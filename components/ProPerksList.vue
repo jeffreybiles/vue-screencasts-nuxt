@@ -22,7 +22,7 @@
       <font-awesome-icon icon="user-friends" /> Monthly group FAQ sessions.
     </li>
     <li v-if="services.proCourses">
-      <font-awesome-icon icon="laptop-code" /> Access to in-depth, interactive courses released on a regular basis.
+      <font-awesome-icon icon="laptop-code" /> Access to in-depth Pro courses released on a regular basis.
     </li>
     <li v-if="services.coursePriority">
       <font-awesome-icon icon="clock" /> {{services.coursePriority}} for suggesting which topics to cover next.

@@ -28,10 +28,6 @@
               </div>
 
               <div class="stripe grey darken-1">
-                {{ course.category }}
-              </div>
-
-              <div class="stripe grey darken-2">
                 <span v-if="showFreeStatus">
                   <span v-if="decoratedCourse.numProVideos == 0">
                     100% Free!
@@ -108,7 +104,7 @@
   .stripe {
     padding: 2px;
     margin: 0px;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .course-card {
