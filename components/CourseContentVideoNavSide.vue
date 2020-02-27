@@ -10,7 +10,6 @@
         </v-col>
         <v-col cols="12" md="4" class="py-0">
           <div>
-            <span class="icon-column"><VideoTypeIcon :video="video" /></span>
             <span class="icon-column"><ProMarker :isFree="!video.pro" :video="video" /></span>
             <span class="icon-column"><font-awesome-icon icon="check" v-if="isPlayed(video.id)" /></span>
             <DurationDisplay :duration="video.duration" />
@@ -23,7 +22,6 @@
 
 <script>
   import { mapGetters } from 'vuex';
-  import VideoTypeIcon from '@/components/VideoTypeIcon.vue';
   import ProMarker from '@/components/ProMarker.vue';
   import DurationDisplay from '@/components/DurationDisplay.vue';
   export default {
@@ -33,7 +31,6 @@
       }
     },
     components: {
-      VideoTypeIcon,
       ProMarker,
       DurationDisplay
     },

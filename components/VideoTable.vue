@@ -33,7 +33,6 @@
         </div>
       </template>
       <template #item.pro="{item}">
-        <VideoTypeIcon :video="item" />
         <ProMarker :isFree="!item.pro" :video="item" />
       </template>
       <template #item.actions="{item}">
@@ -67,7 +66,6 @@ import { mapGetters } from 'vuex';
 import VideoWatch from '@/components/VideoWatch'
 import MarkdownDisplay from '@/components/MarkdownDisplay'
 import ProMarker from '@/components/ProMarker.vue';
-import VideoTypeIcon from '@/components/VideoTypeIcon.vue';
 import _ from 'lodash'
 
   export default {
@@ -77,7 +75,6 @@ import _ from 'lodash'
       VideoWatch,
       MarkdownDisplay,
       ProMarker,
-      VideoTypeIcon
     },
     data(){
       return {

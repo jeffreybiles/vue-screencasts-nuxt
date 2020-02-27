@@ -9,9 +9,6 @@
           Detach
         </v-btn>
       </v-col>
-      <v-col sm="1" cols="2" clas="pa-1">
-        <VideoTypeIcon :video="video" />
-      </v-col>
       <v-col sm="1" cols="3" class="pa-1">
         <div v-if="isAdminScreen">
           <font-awesome-icon icon="arrow-up" @click="moveEarlier" class="clickable" />
@@ -19,21 +16,16 @@
           {{video.order}}
         </div>
         <div v-else>
-          <v-row>
-            <v-col sm="6" class="pt-0 pb-0">
-              <span class="green--text" v-if="isPlayed(video.id)">
-                <font-awesome-icon icon="check" />
-              </span>
-            </v-col>
-            <v-col sm="6" class="pt-0 pb-0">
-              <ProMarker :isFree="!video.pro" :video="video" />
-            </v-col>
-          </v-row>
+          <ProMarker :isFree="!video.pro" :video="video" />
+          <span class="green--text" v-if="isPlayed(video.id)">
+            <font-awesome-icon icon="check" />
+          </span>
+
         </div>
       </v-col>
-      <v-col v-if="!compact" sm="1"><DurationDisplay :duration="video.duration" /></v-col>
+      <v-col v-if="!compact" sm="2"><DurationDisplay :duration="video.duration" /></v-col>
       <v-col v-if="!compact" sm="2"><DateDisplay :date="video.published_at" /></v-col>
-      <v-col v-if="compact" sm="3" cols="7" class="text-center pa-1">
+      <v-col v-if="compact" sm="4" cols="9" class="text-center pa-1">
         <DurationDisplay :duration="video.duration" class="medium" /><br>
         <DateDisplay :date="video.published_at" class="small" />
       </v-col>
@@ -45,7 +37,6 @@
   import DurationDisplay from '@/components/DurationDisplay.vue';
   import DateDisplay from '@/components/DateDisplay.vue';
   import ProMarker from '@/components/ProMarker.vue';
-  import VideoTypeIcon from '@/components/VideoTypeIcon.vue';
   import { mapGetters } from 'vuex';
   import _ from 'lodash';
 
@@ -54,7 +45,6 @@
       DurationDisplay,
       DateDisplay,
       ProMarker,
-      VideoTypeIcon
     },
     computed: {
       ...mapGetters({
@@ -120,6 +110,9 @@
 
   .course-content-video {
     border-top: 1px solid #AAA;
+
+    display: flex;
+    align-items: center;
   }
 
 </style>
