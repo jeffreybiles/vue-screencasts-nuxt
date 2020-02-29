@@ -95,7 +95,7 @@
       <TestimonialsRow :testimonialIds="['19', '86', '97', '18']" class="paper-container-large" />
     </div>
 
-    <HomePageSection class="bg-dark" id="pro-bronze">
+    <HomePageSection class="bg-dark" id="pro-silver">
       <div class="col-sm-12 center-md">
         <div class="header-section">
           <h2 class="section-title">Silver Plan</h2>
@@ -103,7 +103,7 @@
         </div>
 
         <ProPackageCard :stripePlanId="6" 
-                        nextSolutionId="pro-standard"
+                        nextSolutionId="pro-bronze"
                         bossLink="https://docs.google.com/document/d/1Hg3sZ3K2b5rAXAkwX_bAqM5Pnat_PahLDFtffdYH1Gw/edit?usp=sharing">
           <p>If you're a self-directed learner, or on a budget, but know how important mentorship is - this is a great plan.</p>
           <p>Weekly email check-ins give you the chance to get the guidance you need.</p>
@@ -116,7 +116,7 @@
       <TestimonialsRow :testimonialIds="['85', '70', '88', '93']" class="paper-container-large" />
     </div>
 
-    <HomePageSection class="bg-dark" id="pro-standard">
+    <HomePageSection class="bg-dark" id="pro-bronze">
       <div class="col-sm-12 center-md">
         <div class="header-section">
           <h2 class="section-title">Bronze Plan</h2>
