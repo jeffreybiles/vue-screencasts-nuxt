@@ -30,14 +30,14 @@
       },
       "month": {
         "stripeId": {
-          "dev": "plan_GgsLGxhiej3vrb",
+          "dev": "plan_GpIlpbs3dTKIzq",
           "prod": "plan_GpIWfLfs28mht7"
         },
         "currentPrice": 29
       },
       "year": {
         "stripeId": {
-          "env": "plan_GgsLvpFY1RzWpI",
+          "dev": "plan_GpIl3qPZ740MO9",
           "prod": "plan_GpIaFn7tWtHbBe"
         },
         "currentPrice": 290
@@ -104,14 +104,14 @@
       },
       "month": {
         "stripeId": {
-          "dev": "plan_Gn753leeEPP4e9",
+          "dev": "plan_GpIm4tXtFFn5Ko",
           "prod": "plan_GpIVBm6gC18SWC"
         },
         "currentPrice": 99
       },
       "year": {
         "stripeId": {
-          "env": "plan_Gn76npVrRnQAuZ",
+          "dev": "plan_GpIm4tXtFFn5Ko",
           "prod": "plan_GpIV6CzqDCoesU"
         },
         "currentPrice": 950
