@@ -7,7 +7,7 @@
     Created account on: <DateDisplay :date="new Date(user.created_at)" /><br>
     <hr>
     <div v-if="user.pro">
-      <h1>You are subscribed to the {{plan.name || 'Pro Standard'}} plan.</h1>
+      <h1>You are subscribed to the {{plan.name || 'Bronze'}} Plan.</h1>
       <small>For billing details, see <nuxt-link to="/account/billing">the billing page</nuxt-link>.</small>
 
       <p>You have the following perks:</p>

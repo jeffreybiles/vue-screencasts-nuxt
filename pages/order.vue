@@ -3,7 +3,7 @@
     <HomePageSection classes="bg-dark" innerClasses="order-header">
       <div class="col-md-6">
         <div v-if="this.$auth.user && this.$auth.user.pro">
-          <h1>Your current plan is {{currentPlan && currentPlan.name || 'Pro Standard'}}.</h1>
+          <h1>Your current plan is {{currentPlan && currentPlan.name || 'Bronze'}}.</h1>
           <h1>We're working on a way to change your plan with a click. Until then...</h1>
           <h1>Email me to change your plan:  
             <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly&body=I understand that this email authorizes VueScreencasts.com to charge the card on file for $${currentPrice} every ${planTerm} until I cancel or change plans.`" target="_blank">jeffrey@vuescreencasts.com</a></h1>

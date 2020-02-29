@@ -23,7 +23,7 @@
     },
     {
       "id": 2,
-      "name": "Pro Standard",
+      "name": "Bronze",
       "services": {
         "coursePriority": "Elevated priority",
         "proCourses": true
@@ -31,18 +31,16 @@
       "month": {
         "stripeId": {
           "dev": "plan_GgsLGxhiej3vrb",
-          "prod": "plan_GgsIRlrUB4Zgtd"
+          "prod": "plan_GpIWfLfs28mht7"
         },
-        "fullPrice": 36,
-        "currentPrice": 15
+        "currentPrice": 29
       },
       "year": {
         "stripeId": {
           "env": "plan_GgsLvpFY1RzWpI",
-          "prod": "plan_GgsIQeIRnmh5bF"
+          "prod": "plan_GpIaFn7tWtHbBe"
         },
-        "fullPrice": 290,
-        "currentPrice": 150
+        "currentPrice": 290
       }
     },
     {
@@ -97,7 +95,7 @@
     },
     {
       "id": 6,
-      "name": "Bronze",
+      "name": "Silver",
       "services": {
         "coursePriority": "Elevated priority",
         "groupFaq": true,
@@ -107,16 +105,16 @@
       "month": {
         "stripeId": {
           "dev": "plan_Gn753leeEPP4e9",
-          "prod": "plan_Gn772aatafSXre"
+          "prod": "plan_GpIVBm6gC18SWC"
         },
-        "currentPrice": 79
+        "currentPrice": 99
       },
       "year": {
         "stripeId": {
           "env": "plan_Gn76npVrRnQAuZ",
-          "prod": "plan_Gn77aGcZK3umrq"
+          "prod": "plan_GpIV6CzqDCoesU"
         },
-        "currentPrice": 790
+        "currentPrice": 950
       }
     },
     {
