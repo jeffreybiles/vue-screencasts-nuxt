@@ -15,8 +15,8 @@
             <p>Coaching while working with you in the trenches of your project.</p>
           </div>
           <div class="bullet-point">
-            <v-btn to="/pro?solution=pro-gold" color="green accent-2">Mentorship and Training</v-btn>
-            <p>Custom action plans and regular pair-programming.</p>
+            <v-btn to="/pro?solution=pro-gold" color="green accent-2">Mentorship</v-btn>
+            <p>Custom action plan and regular pair-programming.</p>
           </div>
           <div class="bullet-point">
             <v-btn to="/pro?solution=pro-platinum" color="green accent-2">Quality Learning</v-btn>
@@ -210,9 +210,17 @@ $primary: $blue;
 
 .bullet-points {
   p {
-    margin-bottom: 8px;
   }
   margin-bottom: 16px;
+
+  .bullet-point {
+    margin-bottom: 12px;
+    p {
+      display: inline-block;
+      margin: 4px 0;
+      vertical-align: bottom;
+    }
+  }
 }
 
 .bg-dark {

@@ -64,12 +64,6 @@ $green: #23B408;
   @media (min-width: 48em) {
     padding: 30px 0;
   }
-  .hero-welcome {
-    @media (min-width: 48em) {
-      max-width: 520px;
-      flex-basis: 520px;
-    }
-  }
   h1, h3 {
     font: 400 28px/36px $font;
     margin: 0;
