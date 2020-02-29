@@ -6,15 +6,16 @@
     <li v-if="services.actionPlan">
       <font-awesome-icon icon="tasks" /> Custom action plan based on your goals.
     </li>
+    <li v-if="services.videoChat">
+      <font-awesome-icon icon="chalkboard-teacher" /> {{services.videoChat}} pair-coding sessions.
+    </li>
     <li v-if="services.retainer">
       <font-awesome-icon icon="phone" /> Access via phone, text, and email.
     </li>
     <li v-if="services.retainer">
-      <font-awesome-icon icon="hands-helping" /> On retainer for 4 hours a month, with option for further contracts.
+      <font-awesome-icon icon="hands-helping" /> On retainer for 4 hours a month beyond the weekly sessions.
     </li>
-    <li v-if="services.videoChat">
-      <font-awesome-icon icon="chalkboard-teacher" /> {{services.videoChat}} 1-on-1 video chat.
-    </li>
+
     <li v-if="services.weeklyCheckin">
       <font-awesome-icon icon="envelope" /> Weekly check-in.
     </li>
@@ -27,7 +28,7 @@
     <li v-if="services.coursePriority">
       <font-awesome-icon icon="clock" /> {{services.coursePriority}} for suggesting which topics to cover next.
     </li>
-    <font-awesome-icon icon="desktop" /> Access to all free courses and videos.
+    <font-awesome-icon icon="desktop" /> Access to 200+ existing videos.
   </ul>
 </template>
 

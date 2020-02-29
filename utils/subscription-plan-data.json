@@ -46,31 +46,6 @@
       }
     },
     {
-      "id": 3,
-      "name": "Silver",
-      "services": {
-        "videoChat": "Monthly",
-        "coursePriority": "High priority",
-        "groupFaq": true,
-        "weeklyCheckin": true,
-        "proCourses": true
-      },
-      "month": {
-        "stripeId": {
-          "dev": "plan_GhyIjKBy6KZJme",
-          "prod": "plan_Gn78TKZpvmDcc9"
-        },
-        "currentPrice": 245
-      },
-      "year": {
-        "stripeId": {
-          "dev": "plan_Gn6svIv7Kegx7q",
-          "prod": "plan_Gn79v8NYljZcKI"
-        },
-        "currentPrice": 2695
-      }
-    },
-    {
       "id": 4,
       "name": "Gold",
       "services": {

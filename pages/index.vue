@@ -1,36 +1,31 @@
 <template>
   <div>
-    <HomePageSection classes="hero bg-dark" innerClasses="homepage-header">
-      <div class="col-md-6 col-sm-7">
+    <HomePageSection sectionId="why-vue" classes="hero">
+      <div class="col-md-6 col-sm-12">
+        <!-- TODO: Fix this styling -->
         <h1>VueScreencasts.com</h1>
         <h3>All things intermediate and advanced</h3>
-        <h4>You've read the docs and done the beginner courses...</h4>
-        <h4>It's time to level up.</h4>
-        <!-- make spacing below this smaller -->
-      </div>
-      <div class="col-md-6 col-sm-5"></div>
-    </HomePageSection>
-
-    <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['65', '21', '81', '27']" class="paper-container-large" />
-    </div>
-
-    <HomePageSection sectionId="why-vue">
-      <div class="col-md-6 col-sm-12">
-        <h2 class="section-title">As close to the Matrix Kung Fu upload as it gets.</h2>
 
         <p>Whether you hire us, receive mentorship, or work at your own pace, this is as close to uploading Vue to your brain as it gets.</p>
         <p>Choose a solution:</p>
 
-        <!-- <v-btn to="/pro?solution=pro-platinum" color="green accent-2">Okay, show me how we do this</v-btn> -->
         <div class="bullet-points">
-          <p><big>Structured</big> - Step-by-step tutorials keep you on the right path.</p>
-          <p><big>Practical</big> - Realistic code prepares you for real-world challenges.</p>
-          <p><big>Effective</big> - Experienced teachers anticipate and prevent common problems.</p>
-          <p><big>Hire Me</big> - Coaching while working with you in the trenches (project-specific).</p>
-          <p><big>Mentorship and Training</big> - .</p>
-          <p><big>Quality Learning</big> - Structured courses and high-quality videos.</p>
-          <p><big>Free Videos</big> - 200 free videos because we're cool like that.</p>
+          <div class="bullet-point">
+            <v-btn to="/pro?solution=pro-platinum" color="green accent-2">Hire Me</v-btn>
+            <p>Coaching while working with you in the trenches of your project.</p>
+          </div>
+          <div class="bullet-point">
+            <v-btn to="/pro?solution=pro-gold" color="green accent-2">Mentorship and Training</v-btn>
+            <p>Custom action plans and regular pair-programming.</p>
+          </div>
+          <div class="bullet-point">
+            <v-btn to="/pro?solution=pro-platinum" color="green accent-2">Quality Learning</v-btn>
+            <p>Structured courses and high-quality videos.</p>
+          </div>
+          <div class="bullet-point">  
+            <v-btn to="/courses" color="green accent-2">Free Videos</v-btn>
+            <p>200+ free videos because we're cool like that.</p>
+          </div>
         </div>
       </div>
       <div class="col-md-6 col-sm-12 center-md">
@@ -85,7 +80,7 @@
                         nextSolutionId="pro-silver"
                         bossLink="https://docs.google.com/document/d/166C59AXbqgFGSz1iRhwrp-MXUqIkKLCxpplJIcITwyU/edit?usp=sharing">
           <p>You have a clear goal, but that's not enough.</p>
-          <p>You also need a specific, detailed action plan that maximizes your learning while respecting your time. Followed up by one-on-one personal check-ins to hold you accountable and keep you winning.</p>
+          <p>You also need a specific, detailed action plan that maximizes your learning while respecting your time. Followed up by one-on-one pair-coding sessions to hold you accountable and keep you winning.</p>
           <p>Say goodbye to overwhelm.</p>
           <p>Say hello to growth.</p>
         </ProPackageCard>
@@ -96,22 +91,6 @@
       <TestimonialsRow :testimonialIds="['79', '3', '56', '16']" class="paper-container-large" />
     </div>
 
-    <HomePageSection class="bg-dark" id="pro-silver">
-      <div class="col-sm-12 center-md">
-        <div class="header-section">
-          <h2 class="section-title">Silver Package</h2>
-          <h2 class="section-subtitle">Accountability and Acceleration.</h2>
-        </div>
-
-        <ProPackageCard :stripePlanId="3" 
-                        nextSolutionId="pro-bronze"
-                        bossLink="https://docs.google.com/document/d/133lz57ovI0PiD1ZVpT-mcDShQBvmqTb7BHwihFsDB5c/edit?usp=sharing">
-          <p>You already know where you're going, you've already got your plan established... but a little bit of guidance at the right time will get you over the hump.</p>
-          <p>You'll still receive suggestions and accountability, but it won't be as rigorous as the above plans.</p>
-        </ProPackageCard>
-      </div>
-    </HomePageSection>
-
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['19', '86', '97', '18']" class="paper-container-large" />
     </div>
@@ -119,7 +98,7 @@
     <HomePageSection class="bg-dark" id="pro-bronze">
       <div class="col-sm-12 center-md">
         <div class="header-section">
-          <h2 class="section-title">Bronze Plan</h2>
+          <h2 class="section-title">Silver Plan</h2>
           <h2 class="section-subtitle">Mentorship on a Budget.</h2>
         </div>
 
@@ -140,7 +119,7 @@
     <HomePageSection class="bg-dark" id="pro-standard">
       <div class="col-sm-12 center-md">
         <div class="header-section">
-          <h2 class="section-title">Standard Plan</h2>
+          <h2 class="section-title">Bronze Plan</h2>
           <h2 class="section-subtitle">High-Quality Resources for Self-Directed Learning.</h2>
         </div>
 
@@ -231,7 +210,7 @@ $primary: $blue;
 
 .bullet-points {
   p {
-    margin-bottom: 0px;
+    margin-bottom: 8px;
   }
   margin-bottom: 16px;
 }

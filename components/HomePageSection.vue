@@ -60,21 +60,9 @@ $green: #23B408;
 
 .hero {
   padding: 60px 0;
-  text-align: center;
+
   @media (min-width: 48em) {
-    padding: 0;
-    text-align: left;
-  }
-  .homepage-header {
-    @media (min-width: 48em) {
-      background: url(~assets/vuescreencasts-hero-bg.png) no-repeat 50px;
-      background-size: auto 100%;
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-    @media (min-width: 64em) {
-      background-position: right;
-    }
+    padding: 30px 0;
   }
   .hero-welcome {
     @media (min-width: 48em) {
@@ -83,7 +71,6 @@ $green: #23B408;
     }
   }
   h1, h3 {
-    color: #ffffff;
     font: 400 28px/36px $font;
     margin: 0;
     @media (min-width: 64em) {
@@ -99,7 +86,6 @@ $green: #23B408;
     }
   }
   h4 {
-    color: #ffffff;
     font: 400 18px/26px $font;
     margin: 24px 0;
     @media (min-width: 48em) {
