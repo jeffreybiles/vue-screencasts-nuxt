@@ -64,16 +64,16 @@
       <div class="col-sm-12 center-md">
         <div class="header-section">
           <h2 class="section-title">Platinum Package</h2>
-          <h2 class="section-subtitle">For when the Survival of your Company or Job is on the line.</h2>
+          <h2 class="section-subtitle">When the Survival of your Company or Job is on the line.</h2>
         </div>
 
         <ProPackageCard :stripePlanId="5" 
                         nextSolutionId="pro-gold"
                         bossLink="https://docs.google.com/document/d/13StavsXklWSzuYk0PN9G9LAja9QfXfwwJQkg3IpRcRU/edit?usp=sharing">
-          <p><strong>It's go-time.  Let's do it now. I'm all-in.</strong></p>
-          <p>When you need an expert who can care about your situation even more than you do, but can still stand back and give you the objective truth.</p>
-          <p>I'll give it to you straight: if you're calling us mid-explosion, this might not be enough.</p>
-          <p>But whatever the situation, we can massively increase your odds of success.</p>
+          <p><strong>YOU'RE HIRING ME.  LET'S DO IT NOW.</strong></p>
+          <p>I am right there, coding with you in the trenches. I will care about your project as much as you do. I will also coach you and make you succeed.</p>
+          <p>Imploding projects? Impossible deadlines?</p> 
+          <p>Hire me and let's get started.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
@@ -86,14 +86,14 @@
       <div class="col-sm-12 center-md">
         <div class="header-section">
           <h2 class="section-title">Gold Package</h2>
-          <h2 class="section-subtitle">Your Best bet for Fast Growth.</h2>
+          <h2 class="section-subtitle">Your Best Bet for Fast Growth.</h2>
         </div>
 
         <ProPackageCard :stripePlanId="4" 
                         nextSolutionId="pro-silver"
                         bossLink="https://docs.google.com/document/d/166C59AXbqgFGSz1iRhwrp-MXUqIkKLCxpplJIcITwyU/edit?usp=sharing">
-          <p>With the Gold plan, we'll analyze your situation and work with you to create a custom action plan that maximizes the impact of your learning time.</p>
-          <p>One-on-one personal checkins hold you accountable and keep you winning.</p>
+          <p>You have a clear goal, but that's not enough.</p>
+          <p>You also need a specific, detailed action plan that maximizes your learning while respecting your time. Followed up by one-on-one personal check-ins to hold you accountable and keep you winning.</p>
           <p>Say goodbye to overwhelm.</p>
           <p>Say hello to growth.</p>
         </ProPackageCard>
@@ -128,14 +128,15 @@
       <div class="col-sm-12 center-md">
         <div class="header-section">
           <h2 class="section-title">Bronze Plan</h2>
-          <h2 class="section-subtitle">For those who are more Patient or on a Budget.</h2>
+          <h2 class="section-subtitle">Mentorship on a Budget.</h2>
         </div>
 
         <ProPackageCard :stripePlanId="6" 
                         nextSolutionId="pro-standard"
                         bossLink="https://docs.google.com/document/d/1Hg3sZ3K2b5rAXAkwX_bAqM5Pnat_PahLDFtffdYH1Gw/edit?usp=sharing">
-          <p>This is for the people who are on a more relaxed time-table, or who are on a tight budget... but know how important mentorship is.</p>
-          <p>Weekly email check-ins give you the chance to get the guidance you need, without having to ever show up for a meeting.</p>
+          <p>If you're a self-directed learner, or on a budget, but know how important mentorship is - this is a great plan.</p>
+          <p>Weekly email check-ins give you the chance to get the guidance you need.</p>
+          <p>This is a great way to get started, and remember you can change your plan up or down at any time!</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
@@ -148,7 +149,7 @@
       <div class="col-sm-12 center-md">
         <div class="header-section">
           <h2 class="section-title">Standard Plan</h2>
-          <h2 class="section-subtitle">High-Quality resources for self-directed Learning.</h2>
+          <h2 class="section-subtitle">High-Quality Resources for Self-Directed Learning.</h2>
         </div>
 
         <ProPackageCard :stripePlanId="2" 
@@ -156,7 +157,8 @@
                         nextSolutionText="More Questions?"
                         bossLink="https://docs.google.com/document/d/16cXGOJkQoqwG-iq4sc0n84KMMldOlNHMGbhTijaPsQk/edit?usp=sharing">
           <p>You like our free videos.  That's why you're here.</p>
-          <p>Our Pro courses are more of that, tackling harder subjects, and designed to level you up.</p>
+          <p>But you know it's time to grow and get serious.</p>
+          <p>Our Pro Courses tackle harder subjects, and are designed to level you up.</p>
         </ProPackageCard>
       </div>
     </HomePageSection>
@@ -168,9 +170,9 @@
     <HomePageSection classes="bg-dark" id="more-questions">
       <div class="col-md-7 col-sm-12">
         <!-- TODO: put this stuff in every section, then replace it with "I care" message and  "how to ask more questions" message  -->
-        <h2 class="section-title">If you still have questions:</h2>
-        <p>Okay, we've done our best to answer everything, but if you have more questions then let's hear'em! Just send us an email (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>) or text us (<a href="sms:501-256-3078">(501) 256-3078</a>) right now.</p>
-        <p>Ultimately, one of the best ways to see if this is right for you is to just get started.  Why not click on some of the free videos and work your way through them, and let us know what you think.  We're listening.</p>
+        <h2 class="section-title">Talk to us</h2>
+        <p>We've done our best to answer everything, but if you have more questions just email <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a> or text <a href="sms:501-256-3078">(501) 256-3078</a> right now.</p>
+        <p>There are no stupid questions, and the only way that we can improve is if you let us know if somethig isn't clear.  Reach out - we're here for you.</p>
         <p>Fair enough?</p>
       </div>
       <div class="col-md-5 col-sm-12 center-md">

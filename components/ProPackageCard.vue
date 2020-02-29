@@ -23,7 +23,7 @@
     <div v-else class="my-3">
       <v-btn>Sign Up Free</v-btn>
     </div>
-    <p>If you have any other questions, text us (<a href="sms:501-256-3078">(501) 256-3078</a>) or email us (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>).  We really do care and want to help you make the best choice.</p>
+    <p>If you have any other questions,  email <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a> or text <a href="sms:501-256-3078">(501) 256-3078</a>.  We really do care and want you to make the best choice.</p>
 
   </div>
 </template>
