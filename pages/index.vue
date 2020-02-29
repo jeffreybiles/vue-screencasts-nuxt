@@ -17,43 +17,35 @@
 
     <HomePageSection sectionId="why-vue">
       <div class="col-md-6 col-sm-12">
-        <!-- TODO: make the section title a heavier font weight -->
         <h2 class="section-title">As close to the Matrix Kung Fu upload as it gets.</h2>
 
-        <p>Unfortunately, the human brain isn't like a tape drive and we can't download new skills to it.</p>
-        <p>But with VueScreencasts we can get really close.</p>
+        <p>Whether you hire us, receive mentorship, or work at your own pace, this is as close to uploading Vue to your brain as it gets.</p>
+        <p>Choose a solution:</p>
 
+        <!-- <v-btn to="/pro?solution=pro-platinum" color="green accent-2">Okay, show me how we do this</v-btn> -->
         <div class="bullet-points">
           <p><big>Structured</big> - Step-by-step tutorials keep you on the right path.</p>
           <p><big>Practical</big> - Realistic code prepares you for real-world challenges.</p>
           <p><big>Effective</big> - Experienced teachers anticipate and prevent common problems.</p>
+          <p><big>Hire Me</big> - Coaching while working with you in the trenches (project-specific).</p>
+          <p><big>Mentorship and Training</big> - .</p>
+          <p><big>Quality Learning</big> - Structured courses and high-quality videos.</p>
+          <p><big>Free Videos</big> - 200 free videos because we're cool like that.</p>
         </div>
-        <!-- <p>In-depth courses walk you step by step through real situations, going over common issues and tradeoffs.</p>
-        <p>Customized training sessions get you specifically where you need to go.</p> -->
-
-        <p>VueScreencasts is your next step to developing true expertise.</p>
       </div>
       <div class="col-md-6 col-sm-12 center-md">
         <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
       </div>
     </HomePageSection>
 
+    <div class="bg-gray">
+      <TestimonialsRow :testimonialIds="['65', '21', '81', '27']" class="paper-container-large" />
+    </div>
+
+
     <div class="bg-dark">
       <TestimonialsRow :testimonialIds="['87', '77', '98', '76']" class="paper-container-large" />
     </div>
-
-    <HomePageSection classes="bg-gray">
-      <div class="col-md-5 col-sm-12 center-md">
-        <img src="~assets/vuescreencasts-student-coding.png" class="img-responsive" alt="VueScreencasts Student Coding">
-      </div>
-      <div class="col-md-7 col-sm-12">
-        <h2 class="section-title">Keep Training Step by Step</h2>
-        <p>No guessing, no wondering, no getting lost, no walking in circles.</p>
-        <p>The only way to gain expertise is to have a plan and execute it.  Whether you choose a custom plan, or simply go through our video courses, or something in between, we have the perfect solution for your situation.</p>
-
-        <v-btn to="/pro?solution=pro-platinum" color="green accent-2">Okay, show me how we do this</v-btn>
-      </div>
-    </HomePageSection>
 
     <div class="bg-white">
       <TestimonialsRow :testimonialIds="['63', '48', '34', '99']" class="paper-container-large" />
