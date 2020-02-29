@@ -1,9 +1,12 @@
 <template>
   <ul>
-    <li v-if="services.actionPlan">
+    <li v-if="services.retainer">
+      <font-awesome-icon icon="user-friends" /> Right there with you in the trenches.
+    </li>
+    <li v-if="services.actionPlan && !services.retainer">
       <font-awesome-icon icon="chart-bar" /> Analysis of your real-world situation.
     </li>
-    <li v-if="services.actionPlan">
+    <li v-if="services.actionPlan && !services.retainer">
       <font-awesome-icon icon="tasks" /> Custom action plan based on your goals.
     </li>
     <li v-if="services.videoChat">
@@ -13,7 +16,7 @@
       <font-awesome-icon icon="phone" /> Access via phone, text, and email.
     </li>
     <li v-if="services.retainer">
-      <font-awesome-icon icon="hands-helping" /> On retainer for 4 hours a month beyond the weekly sessions.
+      <font-awesome-icon icon="hands-helping" /> On retainer for 4 hours a month, with option for further contracts.
     </li>
 
     <li v-if="services.weeklyCheckin">
@@ -28,7 +31,8 @@
     <li v-if="services.coursePriority">
       <font-awesome-icon icon="clock" /> {{services.coursePriority}} for suggesting which topics to cover next.
     </li>
-    <font-awesome-icon icon="desktop" /> Access to 200+ existing videos.
+    <li><font-awesome-icon icon="desktop" /> Access to 200+ existing videos.</li>
+    <li><font-awesome-icon icon="arrows-alt-v" /> You can change your plan up or down at any time with no penalty.</li>
   </ul>
 </template>
 
