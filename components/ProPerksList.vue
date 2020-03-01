@@ -10,7 +10,7 @@
       <font-awesome-icon icon="tasks" /> Custom action plan based on your goals.
     </li>
     <li v-if="services.videoChat">
-      <font-awesome-icon icon="chalkboard-teacher" /> {{services.videoChat}} pair-coding sessions.
+      <font-awesome-icon icon="chalkboard-teacher" /> {{services.videoChat}} pair-programming sessions.
     </li>
     <li v-if="services.retainer">
       <font-awesome-icon icon="phone" /> Access via phone, text, and email.

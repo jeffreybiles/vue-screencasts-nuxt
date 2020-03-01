@@ -70,7 +70,7 @@
                         nextSolutionId="pro-silver"
                         bossLink="https://docs.google.com/document/d/166C59AXbqgFGSz1iRhwrp-MXUqIkKLCxpplJIcITwyU/edit?usp=sharing">
           <p>You have a clear goal, but that's not enough.</p>
-          <p>You also need a specific, detailed action plan that maximizes your learning while respecting your time. Followed up by one-on-one pair-coding sessions to hold you accountable and keep you winning.</p>
+          <p>You also need a specific, detailed action plan that maximizes your learning while respecting your time. Followed up by one-on-one pair-programming sessions to hold you accountable and keep you winning.</p>
           <p>Say goodbye to overwhelm.</p>
           <p>Say hello to growth.</p>
         </ProPackageCard>
