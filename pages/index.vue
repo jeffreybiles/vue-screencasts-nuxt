@@ -19,7 +19,7 @@
             <p>Custom action plan and regular pair-programming.</p>
           </div>
           <div class="bullet-point">
-            <v-btn to="/pro?solution=pro-platinum" color="green accent-2">Quality Learning</v-btn>
+            <v-btn to="/pro?solution=pro-bronze" color="green accent-2">Quality Learning</v-btn>
             <p>Structured courses and high-quality videos.</p>
           </div>
           <div class="bullet-point">  
@@ -34,19 +34,9 @@
     </HomePageSection>
 
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['65', '21', '81', '27']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['99', '87', '21', '1']" class="paper-container-large" />
     </div>
-
-
-    <div class="bg-dark">
-      <TestimonialsRow :testimonialIds="['87', '77', '98', '76']" class="paper-container-large" />
-    </div>
-
-    <div class="bg-white">
-      <TestimonialsRow :testimonialIds="['63', '48', '34', '99']" class="paper-container-large" />
-    </div>
-
-
+    
     <HomePageSection classes="bg-dark" id="pro-platinum">
       <div class="col-sm-12 center-md">
         <div class="header-section">
@@ -66,7 +56,7 @@
     </HomePageSection>
 
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['4', '96', '92', '1']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['4', '96', '76', '98']" class="paper-container-large" />
     </div>
     
     <HomePageSection class="bg-dark" id="pro-gold">
@@ -88,11 +78,7 @@
     </HomePageSection>
 
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['79', '3', '56', '16']" class="paper-container-large" />
-    </div>
-
-    <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['19', '86', '97', '18']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['88', '19', '48', '18']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark" id="pro-silver">
@@ -113,7 +99,7 @@
     </HomePageSection>
 
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['85', '70', '88', '93']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['16', '79', '93', '97']" class="paper-container-large" />
     </div>
 
     <HomePageSection class="bg-dark" id="pro-bronze">
@@ -135,7 +121,7 @@
     </HomePageSection>
 
     <div class="bg-gray">
-      <TestimonialsRow :testimonialIds="['64', '95', '83', '69']" class="paper-container-large" />
+      <TestimonialsRow :testimonialIds="['34', '85', '77', '70']" class="paper-container-large" />
     </div>
 
     <HomePageSection classes="bg-dark" id="more-questions">
