@@ -61,8 +61,11 @@ $green: #23B408;
 .hero {
   padding: 60px 0;
 
-  @media (min-width: 48em) {
+  @media (max-width: 600px) {
     padding: 30px 0;
+  }
+  @media (min-width: 600px) {
+    padding: 30px 0 60px;
   }
   h1, h3 {
     font: 400 28px/36px $font;
