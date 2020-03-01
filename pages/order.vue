@@ -15,7 +15,7 @@
             <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments of {{currentPrice | currency}}.
             <br>
             <div v-if="planTerm == 'month'">
-              <a @click="setTerm('year')">Save {{Math.floor((monthlyPrice / yearlyPrice) * 12 * 100 - 100)}}% by switching to yearly payments ({{yearlyPrice | currency}}/year)</a>
+              <a @click="setTerm('year')">Save {{yearlySavings}}% by switching to yearly payments ({{yearlyPrice | currency}}/year)</a>
             </div>
             <div v-else>
               <a @click="setTerm('month')">Switch back to monthly payments ({{monthlyPrice | currency}}/month)</a>
@@ -105,6 +105,10 @@
       },
       monthlyPrice(){
         return this.plan['month'].currentPrice
+      },
+      yearlySavings(){
+        let costPercentOfYearly = Math.floor(this.yearlyPrice / (this.monthlyPrice * 12)  * 100)
+        return 100 - costPercentOfYearly;
       }
     },
     methods: {
