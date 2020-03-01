@@ -58,7 +58,7 @@
           </v-dialog>
         </div>
       </div>
-      <div class="col-md-6 center-md">
+      <div class="col-md-6 center-md d-sm-block d-none">
         <img src="~assets/vuescreencasts-student-learning-3.png" class="img-responsive" alt="VueScreencasts Student Learning">
       </div>
     </HomePageSection>

@@ -28,7 +28,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12 center-md">
+      <div class="col-md-6 col-sm-12 d-sm-block d-none center-md">
         <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
       </div>
     </HomePageSection>
@@ -132,7 +132,7 @@
         <p>There are no stupid questions, and the only way that we can improve is if you let us know if somethig isn't clear.  Reach out - we're here for you.</p>
         <p>Fair enough?</p>
       </div>
-      <div class="col-md-5 col-sm-12 center-md">
+      <div class="col-md-5 col-sm-12 d-sm-block d-none center-md">
         <img src="~assets/vuescreencasts-student-coding-2.png" class="img-responsive img-center-xs" alt="Ember School Student Learning">
       </div>
     </HomePageSection>
