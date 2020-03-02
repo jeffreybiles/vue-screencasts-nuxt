@@ -1,14 +1,14 @@
 <template>
   <div v-if="isSignedUp">
-    <h2 class="section-title">Thanks!  Look for an email in your inbox soon.</h2>
+    <h2 class="section-title">Thanks!  Look for the first email in your inbox soon.</h2>
   </div>
   <div class="email-signup" v-else>
-    <p class="section-subtitle mb-0">To be notified of new videos and get a weekly newsletter, put your email in below</p>
+    <p class="section-subtitle mb-0">Get free videos and more in your inbox.</p>
     <v-form v-model="valid">
       <div class="row">
         <div class="col-sm-6">
-          <v-text-field v-model="email" 
-                        label="Email" 
+          <v-text-field v-model="email"
+                        label="Email"
                         class="email-field pb-0"
                         :rules="[emailFormat()]"
                         outlined />
@@ -19,7 +19,7 @@
                  text
                  outlined
                  @click="signup">
-            Sign Up for free newsletters
+            Sign Up
           </v-btn>
         </div>
       </div>
@@ -65,6 +65,10 @@
 
   ::v-deep .v-input__slot {
     margin-bottom: 0;
+  }
+
+  ::v-deep fieldset {
+    border: 2px solid black !important;
   }
 
   .email-field.error--text {
