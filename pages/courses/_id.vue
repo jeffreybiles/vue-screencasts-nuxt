@@ -1,32 +1,6 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col cols="0" sm="4">
-        <v-img :src="thumbnail || ''" class="thumbnail-image mb-2" />
 
-        <v-row class="ma-0">
-          <DifficultyBars :difficulty="course.difficulty" verbosity="high" />
-          
-          <v-spacer />
-
-          <v-btn :to="`/watch/${firstUnplayedVideo.id}`" class="green accent-3">
-            <span v-if="isComplete">Restart</span>
-            <span v-else-if="hasPlayedVideos">Continue</span>
-            <span v-else>Start</span>
-          </v-btn>
-        </v-row>
-
-      </v-col>
-      <v-col cols="12" sm="8">
-        <h1>{{ course.name }}</h1>
-        <span v-if="course.numChapters > 0">{{ course.numChapters}} chapters,</span>
-        {{ course.numVideos }} videos,
-        <duration-display :duration="course.duration" /> total runtime<br>
-        <hr>
-        <MarkdownDisplay :markdown="course.description" />
-      </v-col>
-    </v-row>
-    <CourseContentTable :course="course" />
   </v-container>
 </template>
 
@@ -46,6 +20,9 @@
       CourseContentTable,
       MarkdownDisplay,
       DifficultyBars
+    },
+    created(){
+      this.$router.replace(`/watch/${ this.firstUnplayedVideo.id }`);
     },
     computed: {
       ...mapGetters({
