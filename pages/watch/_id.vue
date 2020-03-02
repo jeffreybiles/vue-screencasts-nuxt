@@ -5,7 +5,7 @@
         <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" :showSidebar="true" />
       </div>
       <div v-else class="text-center">
-        <div class="display-3">
+        <div class="display-3 mt-2">
           This is a Pro video.
         </div>
         <div class="headline">
@@ -20,7 +20,9 @@
           <!-- Then have a smaller "see more details" link below, which goes to the /pro page -->
         </div>
         <div v-else class="ma-4">
-          <UserAuthTogglableForm />
+          <v-container style="max-width: 450px;">
+            <UserAuthTogglableForm />
+          </v-container>
         </div>  
       </div>
     </div>
