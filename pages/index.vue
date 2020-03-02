@@ -146,6 +146,12 @@
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['8', '11', '103', '100']" class="paper-container-large" />
     </div>
+
+    <div class="bg-white" v-if="!$auth.loggedIn">
+      <div class="paper-container-large mx-auto">
+        <NewsletterSignupForm />
+      </div>
+    </div>
   </div>
 </template>
 

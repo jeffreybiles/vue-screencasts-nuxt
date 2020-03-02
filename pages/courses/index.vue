@@ -26,6 +26,8 @@
           <CourseCard :course="course" />
         </v-col>
       </v-row>
+
+      <NewsletterSignupForm v-if="!$auth.loggedIn"/>
     </v-container>
   </div>
 </template>
@@ -36,6 +38,7 @@
   import CourseCard from '@/components/CourseCard';
   import _ from 'lodash';
   import { courseDecorator, percentVideosComplete } from '@/utils/course-decorator';
+  import NewsletterSignupForm from '@/components/NewsletterSignupForm.vue';
 
   export default {
     middleware: 'load-videos-and-courses',
@@ -59,7 +62,8 @@
       }
     },
     components: {
-      CourseCard
+      CourseCard,
+      NewsletterSignupForm
     },
     computed: {
       ...mapGetters({
