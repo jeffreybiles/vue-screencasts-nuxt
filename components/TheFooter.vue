@@ -1,7 +1,7 @@
 <template>
   <v-footer padless>
     <v-card
-      flat
+      text
       tile
       width="100%"
     >
