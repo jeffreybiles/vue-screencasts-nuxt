@@ -1,6 +1,11 @@
 <template>
   <v-app-bar app color="green">
     <!-- Home Page -->
+    <nuxt-link to="/">
+      <v-img src="https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com/vuescreencasts-logo-small.jpg" 
+             to="/" />
+    </nuxt-link>
+
     <v-btn to="/" text>VueScreencasts</v-btn>
 
     <!-- Desktop menu -->
@@ -84,5 +89,10 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .v-image, img {
+    border-radius: 50% !important;
+    width: 55px;
+    margin-top: 5px;
+    display: inline-block;
+  }
 </style>
