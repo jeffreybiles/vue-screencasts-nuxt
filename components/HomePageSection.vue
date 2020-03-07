@@ -32,32 +32,6 @@ $font: Roboto, sans-serif;
 $grey: #E2E7E9;
 $green: #23B408;
 
-.bg-dark {
-  background-color: #2D384A;
-  .section-title {
-    color: #ffffff;
-  }
-  color: #ffffff;
-  h2, h3, h4 {
-    color: #ffffff;
-  }
-  .disabled {
-    background-color: $grey;
-    color: #aaaaaa;
-  }
-  .check {
-    color: $green;
-  }
-  li a {
-    color: #ffffff;
-  }
-
-
-  ::v-deep p a {
-    color: #fff;
-  }
-}
-
 .hero {
   padding: 60px 0;
 

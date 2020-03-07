@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomePageSection sectionId="why-vue" classes="hero">
+    <HomePageSection sectionId="why-vue" classes="hero bg-dark">
       <div class="col-md-6 col-sm-12">
         <!-- TODO: Fix this styling -->
         <h1>VueScreencasts.com</h1>
@@ -29,11 +29,11 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-12 d-sm-block d-none center-md">
-        <img src="~assets/happy-vue-programmer.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
+        <img src="~assets/vuescreencasts-student-learning-3.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
       </div>
     </HomePageSection>
 
-    <div class="bg-white" v-if="!$auth.loggedIn">
+    <div class="bg-dark" v-if="!$auth.loggedIn">
       <div class="paper-container-large mx-auto">
         <NewsletterSignupForm />
       </div>
@@ -224,6 +224,29 @@ $primary: $blue;
 }
 
 .bg-dark {
+  background-color: #2D384A;
+  .section-title {
+    color: #ffffff;
+  }
+  color: #ffffff;
+  h2, h3, h4 {
+    color: #ffffff;
+  }
+  .disabled {
+    background-color: $grey;
+    color: #aaaaaa;
+  }
+  .check {
+    color: $green;
+  }
+  li a {
+    color: #ffffff;
+  }
+
+  p a {
+    color: #fff;
+  }
+
   .header-section {
     padding: 24px;
     margin-left: -24px;
@@ -259,6 +282,43 @@ $primary: $blue;
       }
     }
   }
+
+  .email-signup {
+    fieldset {
+      border: 2px solid white !important;
+
+      legend {
+      }
+    }
+
+    input {
+      color: white !important;
+    }
+
+    .email-field.error--text {
+      color: #FAA !important;
+      caret-color: #FAA !important;
+    }
+    .email-field .error--text {
+      color: #FAA !important;
+    }
+
+    .v-text-field__slot label {
+        color: #AAF !important;
+    }
+
+    button.theme--light.v-btn--outlined.v-btn {
+      color: white !important;
+      border-color: white !important;
+
+      &.v-btn--disabled {
+        color: grey !important;
+        border-color: grey !important;
+      }
+    }
+  }
+    
+  
 }
 
 </style>

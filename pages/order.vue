@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomePageSection classes="bg-dark" innerClasses="order-header">
+    <HomePageSection classes="" innerClasses="order-header">
       <div class="col-md-6">
         <div v-if="this.$auth.user && this.$auth.user.pro">
           <h1>Your current plan is {{currentPlan && currentPlan.name || 'Bronze'}}.</h1>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="col-md-6 center-md d-sm-block d-none">
-        <img src="~assets/vuescreencasts-student-learning-3.png" class="img-responsive" alt="VueScreencasts Student Learning">
+        <img src="~assets/happy-vue-programmer.png" class="img-responsive" alt="VueScreencasts Student Learning">
       </div>
     </HomePageSection>
   </div>
@@ -156,7 +156,7 @@
     padding-bottom: 20px;
 
     a {
-      color: #CFC;
+      color: green;
     }
   }
 
