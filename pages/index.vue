@@ -96,7 +96,7 @@
 
         <ProPackageCard :stripePlanId="6" 
                         nextSolutionId="pro-bronze"
-                        bossLink="https://docs.google.com/document/d/1Hg3sZ3K2b5rAXAkwX_bAqM5Pnat_PahLDFtffdYH1Gw/edit?usp=sharing">
+                        bossLink="https://docs.google.com/document/d/133lz57ovI0PiD1ZVpT-mcDShQBvmqTb7BHwihFsDB5c/edit?usp=sharing">
           <p>If you're a self-directed learner, or on a budget, but know how important mentorship is - this is a great plan.</p>
           <p>Weekly email check-ins give you the chance to get the guidance you need.</p>
           <p>This is a great way to get started, and remember you can change your plan up or down at any time!</p>
