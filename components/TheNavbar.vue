@@ -91,7 +91,8 @@
 <style lang="scss" scoped>
   .v-image, img {
     border-radius: 50% !important;
-    width: 55px;
+    width: 45px;
+    margin-right: 5px;
     margin-top: 5px;
     display: inline-block;
   }
