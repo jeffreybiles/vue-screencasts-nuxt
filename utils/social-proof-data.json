@@ -876,8 +876,8 @@
       "message_priority": 8,
       "name": "Bob L.",
       "img_url": "Bob+Lazar.jpg",
-      "real_face": true,
-      "real_name": true,
+      "real_face": false,
+      "real_name": false,
       "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=Ugwtjhgaz33ZDD7QwUR4AaABAg"
     }, {
       "id": 104,
