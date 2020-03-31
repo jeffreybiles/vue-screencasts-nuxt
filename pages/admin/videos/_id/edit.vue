@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import { mapState, mapGetters } from 'vuex';
+  import { mapGetters } from 'vuex';
   import VideoEditForm from '@/components/VideoEditForm.vue';
 
   export default {
@@ -13,9 +13,6 @@
       VideoEditForm,
     },
     computed: {
-      ...mapState({
-        videos: state => state.videos.videos
-      }),
       ...mapGetters({
         getVideo: 'videos/get'
       }),
