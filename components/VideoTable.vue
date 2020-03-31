@@ -20,7 +20,7 @@
                   :mobile-breakpoint="0"
                   :page="Number($route.query.pageNumber) || 1"
                   @update:page="changePageNumber"
-                  :sort-desc="true">
+                  :sort-desc="sortDesc">
       <template #item.duration="{value, item}">
         <DurationDisplay :duration="value" />
       </template>
@@ -135,8 +135,11 @@ import _ from 'lodash'
       customClickAction: Function,
       dense: Boolean,
       itemsPerPage: Number,
-      showEditFields: Boolean,
       showExpand: {
+        type: Boolean,
+        default: true
+      },
+      sortDesc: {
         type: Boolean,
         default: true
       }
