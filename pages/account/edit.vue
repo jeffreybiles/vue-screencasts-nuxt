@@ -53,6 +53,7 @@
             new_password: this.newPassword,
             old_password: this.oldPassword
           })
+          this.$store.dispatch('snackbar/setSnackbar', {text: "You have successfully edited your personal details."})
           this.$router.push('/account')
         } catch {
           this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: "Something went wrong :( Check that you got the right password, or contact jeffrey: jeffrey@vuescreencasts.com", timeout: 0})
