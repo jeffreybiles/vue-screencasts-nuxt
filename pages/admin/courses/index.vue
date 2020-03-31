@@ -1,8 +1,18 @@
 <template>
   <div>
     <v-btn :to="`/admin/courses/new`" class="mt-2">Create Course</v-btn>
+    <v-text-field
+      v-model="search"
+      single-line
+      hide-details>
+      <template #label>
+        &nbsp; Search titles of all {{courses.length}} courses
+      </template>
+    </v-text-field>
     <v-data-table :items="processedCourses"
                   :headers="headers"
+                  :search="search"
+                  :custom-filter="filter"
                   @click:row="goToCourse">
       <template #item.duration="{item}">
         <DurationDisplay :duration="item.duration" />
@@ -24,6 +34,11 @@
   import courseDecorator from '@/utils/course-decorator';
 
   export default {
+    data(){
+      return {
+        search: ''
+      }
+    },
     components: {
       DurationDisplay
     },
@@ -57,7 +72,13 @@
         if(isConfirmed){
           this.$store.dispatch('courses/delete', course)
         }
-      }
+      },
+      filter(value, search, item) {
+        console.log("search", value, search)
+        let inName = RegExp(search, 'i').test(item.name)
+  
+        return inName;
+      },
     }
   }
 </script>
