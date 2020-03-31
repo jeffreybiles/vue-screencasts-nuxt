@@ -1,11 +1,14 @@
 <template>
   <div>
     <h1>Billing</h1>
-
-    <span v-if="!subscription">
+    <span v-if="error">
+      <p>There was an error loading your billing data.</p>
+    </span>
+    <span v-else-if="!subscription">
       You are not subscribed.
       <nuxt-link :to="`/order`">Order Now</nuxt-link>
     </span>
+
     <span v-else>
     
       <div v-if="card">
@@ -101,13 +104,20 @@
       StripeCard
     },
     async asyncData({$axios}){
-      let { data } = await $axios.get('/stripe/user_info')
-      let { charges, card, subscription } = data
-      return {
-        charges,
-        card,
-        subscription,
-        isChangingCards: false
+      try {
+        let { data } = await $axios.get('/stripe/user_info')
+        let { charges, card, subscription } = data
+        return {
+          charges,
+          card,
+          subscription,
+          isChangingCards: false,
+          error: false
+        }
+      } catch {
+        return {
+          error: true
+        }
       }
     },
     computed: {
