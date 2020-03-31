@@ -2,24 +2,27 @@
   <div>
     <h1>Edit Personal Details</h1>
 
-    <v-text-field color="green" 
-                  label="name"
-                  v-model="user.name" />
-    <v-text-field color="green"
-                  label="email"
-                  v-model="user.email" 
-                  :rules="[emailFormat()]"/>
+    <v-form v-model="valid">
+      <v-text-field color="green" 
+                    label="name"
+                    v-model="user.name"
+                    :rules="[required('name')]" />
+      <v-text-field color="green"
+                    label="email"
+                    v-model="user.email" 
+                    :rules="[emailFormat()]"/>
 
-    <UserAuthPassword v-model="newPassword" 
-                      label="New Password (leave blank if not changing)"
-                      :passwordRequired="false" />
+      <UserAuthPassword v-model="newPassword" 
+                        label="New Password (leave blank if not changing)"
+                        :passwordRequired="false" />
 
-    <UserAuthPassword v-model="oldPassword"
-                      label="Old Password (required to change anything)" />
+      <UserAuthPassword v-model="oldPassword"
+                        label="Old Password (required to change anything)" />
 
-    <ButtonAsync color="green accent-3" :clickAction="updateInfo">
-      Update Info
-    </ButtonAsync>
+      <ButtonAsync color="green accent-3" :clickAction="updateInfo" :disabled="!valid">
+        Update Info
+      </ButtonAsync>
+    </v-form>
     <!-- Submit button -->
   </div>
 </template>
@@ -35,7 +38,8 @@
         ...validations,
         user: this.$auth.user,
         newPassword: '',
-        oldPassword: ''
+        oldPassword: '',
+        valid: false
       }
     },
     components: {

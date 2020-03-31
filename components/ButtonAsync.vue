@@ -1,5 +1,5 @@
 <template>
-  <v-btn :color="color" :outlined="outlined" @click="click" :disabled="loading">
+  <v-btn :color="color" :outlined="outlined" @click="click" :disabled="loading || disabled">
     <slot />
     <span v-if="loading">
       &nbsp;
@@ -34,6 +34,10 @@
         required: true
       },
       outlined: {
+        type: Boolean,
+        default: false
+      },
+      disabled: {
         type: Boolean,
         default: false
       }
