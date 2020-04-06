@@ -892,7 +892,42 @@
       "message_priority": 9,
       "name": "Ivomar Santos",
       "img_url": "Ivomar+Santos.jpg",
+      "real_name": true,
+      "real_face": true,
       "link": "https://www.youtube.com/watch?v=zzUpO8tXoaw&lc=Ugy3XgkjyN163w3ioBt4AaABAg"
+    }, {
+      "id": 106,
+      "message": "Thanks!!!",
+      "message_priority": 3,
+      "name": "Tushar Mangle",
+      "img_url": "Tushar+Mangle.jpg",
+      "link": "https://www.youtube.com/watch?v=vaCrzaeC-RE&lc=Ugx16tTlN0d-vsR8Y-Z4AaABAg",
+      "real_face": true,
+      "real_name": true
+    }, {
+      "id": 107,
+      "message": "Thanks man, cool video",
+      "message_priority": 5,
+      "name": "Kirill Baryba",
+      "img_url": "Kirill+Baryba.jpg",
+      "link": "https://www.youtube.com/watch?v=M033S_-uHkQ&lc=UgyUqi555k1kjAqoeEt4AaABAg",
+      "real_name": true,
+      "real_face": true
+    }, {
+      "id": 108,
+      "message": "It really helps me thank you",
+      "message_priority": 5,
+      "name": "CHAHRAZED TOUATI",
+      "img_url": "CHAHRAZED+TOUATI.jpg",
+      "link": "https://www.youtube.com/watch?v=lv-KHdoeSoI&lc=Ugw_e4KNfLIBR8ypMhV4AaABAg"
+    }, {
+      "id": 109,
+      "message": "Perfect videos, thanks a lot!!!, you’re doing good stuff, helping others to understand clearly and easy!!! TY!!!",
+      "message_priority": 9,
+      "real_name": true,
+      "name": "Billy Milligan",
+      "img_url": "Billy+Milligan.jpg",
+      "link": "https://www.youtube.com/watch?v=M033S_-uHkQ&lc=UgxFecCNOAUEj3JOAPp4AaABAg"
     }
   ]
 }
