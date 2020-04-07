@@ -1,7 +1,11 @@
 <template>
   <div>
-    <VideoTable :videos="publishedVideos" :headers="headers" :itemsPerPage="1000" class="hidden-xs-only" />
-    <VideoTable :videos="publishedVideos" :headers="mobileHeaders" :itemsPerPage="1000" :showExpand="false" class="hidden-sm-and-up" />
+    <VideoTable
+      :videos="publishedVideos"
+      :headers="$vuetify.breakpoint.xsOnly ? mobileHeaders : headers"
+      :show-expand="!$vuetify.breakpoint.xsOnly"
+      :itemsPerPage="1000"
+    />
   </div>
 </template>
 
