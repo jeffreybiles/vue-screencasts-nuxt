@@ -163,7 +163,7 @@ import _ from 'lodash'
       },
       itemsFilteredByTitleOrDescription() {
         let isSearchTermInNameOrDescription = (item) => RegExp(this.search, 'i').test(item.name) || RegExp(this.search, 'i').test(item.description)
-        return  this.mungedVideos.filter(item => isSearchTermInNameOrDescription(item));
+        return this.search.length > 0 ? this.mungedVideos.filter(item => isSearchTermInNameOrDescription(item)) : this.mungedVideos;
       },
       itemsFilteredBySummary() {
         let isSearchTermInItemCodeSummary = (item) => RegExp(this.search, 'i').test(item.code_summary)
