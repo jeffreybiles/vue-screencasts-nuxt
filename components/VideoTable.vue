@@ -3,6 +3,7 @@
     <v-text-field
       v-model="search"
       single-line
+      @input="$emit('query-changed', $event)"
       hide-details>
       <template #label>
         &nbsp; Search titles of all {{videos.length}} videos
@@ -29,7 +30,7 @@
       </template>
       <template #item.played="{item}">
         <div class="green--text" v-if="isPlayed(item.id)">
-          <font-awesome-icon icon="check" /> 
+          <font-awesome-icon icon="check" />
         </div>
       </template>
       <template #item.pro="{item}">
@@ -100,6 +101,9 @@ import _ from 'lodash'
       }
     },
     methods: {
+      setSearchQuery(query) {
+        this.search = query
+      },
       goToVideo(item){
         if(this.customClickAction){
           this.customClickAction(item)
@@ -109,7 +113,7 @@ import _ from 'lodash'
       },
       filter(value, search, item) {
         let inName = RegExp(search, 'i').test(item.name)
-  
+
         return inName;
       },
       deleteVideo(video) {
