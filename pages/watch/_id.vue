@@ -9,8 +9,8 @@
           This is a Pro video.
         </div>
         <div class="headline">
-          Study Vue <font-awesome-icon icon="laptop-code" />. 
-          Level Up <font-awesome-icon icon="arrow-up" />. 
+          Study Vue <font-awesome-icon icon="laptop-code" />.
+          Level Up <font-awesome-icon icon="arrow-up" />.
           Leap Forward <font-awesome-icon icon="dollar-sign" />.
         </div>
 
@@ -23,7 +23,7 @@
           <v-container style="max-width: 450px;">
             <UserAuthTogglableForm />
           </v-container>
-        </div>  
+        </div>
       </div>
     </div>
     <div v-else>
@@ -36,9 +36,9 @@
     <v-container class="shrink-if-small-screen">
       <v-row>
 
-        <v-btn text 
+        <v-btn text
               @click="goToPrevious()"
-              v-shortkey.once="['arrowleft']" 
+              v-shortkey.once="['arrowleft']"
               @shortkey="goToPrevious()">
           <span v-if="previousVideo">&lt; Previous</span>
           <span v-else-if="previousChapter.id">&lt;&lt; Previous <br>(part of previous chapter)</span>
@@ -69,9 +69,9 @@
             </span>
         </VideoByline>
         <v-spacer />
-        
-        <v-btn text 
-              @click="goToNext()" 
+
+        <v-btn text
+              @click="goToNext()"
               v-shortkey.once="['arrowright']"
               @shortkey="goToNext()">
           <span v-if="nextVideo">Next &gt;</span>
@@ -100,13 +100,18 @@
         <MarkdownDisplay :markdown="video.description" />
       </div>
 
+      <div v-if="isCodeSummaryAvailable">
+        <div class="display-1">Code summary</div>
+        <MarkdownDisplay :markdown="video.code_summary" />
+      </div>
+
       <div class="text-center pt-4">
         <div class="display-1">What do others think of VueScreencasts?</div>
         <TestimonialsRow :testimonialIds="randomTestimonialIds" :reloadHack="true" />
         <v-btn color="green accent-3" to="/">Take your career to the next level</v-btn>
       </div>
 
-      <VideoWatchCompleteModal :isOpen="endingScreenOpen" 
+      <VideoWatchCompleteModal :isOpen="endingScreenOpen"
                               :close="function(){endingScreenOpen = false}"
                               :nextVideo="nextVideo"
                               :markPlayed="markPlayed"
@@ -133,6 +138,7 @@ import socialProofJson from '@/utils/social-proof-data.json';
 import { mapState, mapGetters } from 'vuex';
 import _ from 'lodash';
 import {getThumbnail} from '@/utils/video-decorator';
+import {CODE_SUMMARY_STATES} from "@/utils/consts";
 
 export default {
   middleware: 'load-videos-and-courses',
@@ -152,6 +158,9 @@ export default {
     TestimonialsRow
   },
   computed: {
+    isCodeSummaryAvailable() {
+      return this.video.code_summary_state === CODE_SUMMARY_STATES.READY
+    },
     ...mapGetters({
       isPlayed: 'user/videoIsPlayed',
       getCourse: 'courses/get',
@@ -168,7 +177,7 @@ export default {
     },
 
     parentCourse() { return this.getCourse(this.course.parent_id) },
-    sortedChapters() { 
+    sortedChapters() {
       if(this.parentCourse){
         let chapters = this.parentCourse.chapter_ids.map(c_id => this.getCourse(c_id));
         return _.sortBy(chapters, c => Number(c.order))
