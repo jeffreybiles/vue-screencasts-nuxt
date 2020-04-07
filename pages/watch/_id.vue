@@ -159,7 +159,7 @@ export default {
   },
   computed: {
     isCodeSummaryAvailable() {
-      return this.video.code_summary_state === CODE_SUMMARY_STATES.READY
+      return this.video.code_summary_state === CODE_SUMMARY_STATES.FINISHED
     },
     ...mapGetters({
       isPlayed: 'user/videoIsPlayed',
