@@ -13,12 +13,10 @@
         <div class="headline">
           {{ search.length > 0 ? `Videos with '${search}' in the title or description` : 'Recent videos'}}:
         </div>
-        <v-data-table :items="mungedVideos"
+        <v-data-table :items="itemsFilteredByTitleOrDescription"
                       :headers="headers"
                       :show-expand="showExpand"
                       sort-by="sortable_published_at"
-                      :search="search"
-                      :custom-filter="filterByTitleAndDescription"
                       :dense="dense"
                       :items-per-page="itemsPerPage || 10"
                       @click:row="goToVideo"
@@ -67,12 +65,10 @@
           <div class="headline">
             {{ `Videos with '${search}' in the code summary or transcription` }}
           </div>
-          <v-data-table :items="mungedVideos"
+          <v-data-table :items="itemsFilteredBySummary"
                         :headers="headers"
                         :show-expand="showExpand"
                         sort-by="sortable_published_at"
-                        :search="search"
-                        :custom-filter="filterBySummary"
                         :dense="dense"
                         :items-per-page="itemsPerPage || 10"
                         @click:row="goToVideo"
@@ -151,7 +147,7 @@ import _ from 'lodash'
         getCourse: 'courses/get',
       }),
       isSecondTableAvailable() {
-        return this.search.length > 0
+        return this.search.length > 0 && this.itemsFilteredBySummary.length > 0
       },
       mungedVideos(){
         return this.videos.map((v)=>{
@@ -164,7 +160,15 @@ import _ from 'lodash'
             courseName,
           }
         })
-      }
+      },
+      itemsFilteredByTitleOrDescription() {
+        let isSearchTermInNameOrDescription = (item) => RegExp(this.search, 'i').test(item.name) || RegExp(this.search, 'i').test(item.description)
+        return  this.mungedVideos.filter(item => isSearchTermInNameOrDescription(item));
+      },
+      itemsFilteredBySummary() {
+        let isSearchTermInItemCodeSummary = (item) => RegExp(this.search, 'i').test(item.code_summary)
+        return this.mungedVideos.filter(item => isSearchTermInItemCodeSummary(item));
+      },
     },
     methods: {
       goToVideo(item){
@@ -173,14 +177,6 @@ import _ from 'lodash'
         } else {
           this.$router.push(`/watch/${item.id}`)
         }
-      },
-      filterByTitleAndDescription(value, search, item) {
-        let isSearchTermInNameOrDescription = RegExp(search, 'i').test(item.name) || RegExp(search, 'i').test(item.description)
-        return isSearchTermInNameOrDescription;
-      },
-      filterBySummary(value, search, item) {
-        let isSearchTermInCodeSummary = RegExp(search, 'i').test(item.code_summary)
-        return isSearchTermInCodeSummary;
       },
       deleteVideo(video) {
         let response = confirm(`Are you sure you want to delete ${video.name}`)
