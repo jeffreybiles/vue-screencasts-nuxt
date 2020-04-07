@@ -1,6 +1,6 @@
 <template>
   <v-form v-model="valid">
-    <v-text-field v-model="course.name" />
+    <v-text-field v-model="course.name" label="Course Name" />
     <v-select :items="['course', 'chapter', 'standalone_chapter']"
               v-model="course.series_type"
               label="Series Type" />
