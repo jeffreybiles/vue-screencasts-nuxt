@@ -1,6 +1,7 @@
 <template>
-  <div class="scroll-box" :style="`height: ${height}px;`">
+  <div ref="scrollBox" class="scroll-box" :style="`height: ${height}px;`">
     <div v-for="video in sortedVideos"
+         :ref="`video-${video.id}`"
          :key="video.id"
          :class="['pa-3', 'video-row', 'white-text', video.id == selectedVideo.id ? 'active' : '']"
          @click="goToVideo(video)">
@@ -51,11 +52,20 @@
     mounted(){
       this.calculateHeight();
       window.addEventListener("resize", this.calculateHeight);
+      this.scrollToCurrentVideo()
     },
     destroyed(){
       window.removeEventListener("resize", this.calculateHeight);
     },
     methods: {
+      scrollToCurrentVideo() {
+        const selectedVideoTopOffset = this.$refs[`video-${this.selectedVideo.id}`][0].offsetTop
+        const currentScrollPosition = this.$refs.scrollBox.scrollTop
+        const videoListItemHeight = 72
+        if (selectedVideoTopOffset > this.height + currentScrollPosition) {
+          this.$refs.scrollBox.scrollTop = selectedVideoTopOffset - (this.height / 2) + videoListItemHeight
+        }
+      },
       calculateHeight(){
         this.height = document.getElementById('video-player-with-sidenav').clientHeight
       },
