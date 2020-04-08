@@ -3,6 +3,7 @@
     <v-container>
       <v-text-field
         v-model="search"
+        @input="handleQueryChange"
         single-line
         hide-details>
         <template #label>
@@ -61,6 +62,11 @@
         ]
       }
     },
+    mounted() {
+      if (this.routeHasSearchQuery()) {
+        this.search = this.$route.query.q
+      }
+    },
     components: {
       VideoTable
     },
@@ -104,6 +110,14 @@
         let isSearchTermInItemCodeSummary = (item) => RegExp(this.search, 'i').test(item.code_summary)
         return this.mungedVideos.filter(item => isSearchTermInItemCodeSummary(item));
       },
+    },
+    methods: {
+      routeHasSearchQuery() {
+        return this.$route.query.q && this.$route.query.q.length > 0
+      },
+      handleQueryChange(query) {
+        this.$router.replace({path: '/videos', query: {q: query}})
+      }
     }
   }
 </script>
