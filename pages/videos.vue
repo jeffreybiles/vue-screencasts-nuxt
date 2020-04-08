@@ -2,8 +2,8 @@
   <div>
     <VideoTable
       :videos="publishedVideos"
-      :headers="$vuetify.breakpoint.xsOnly ? mobileHeaders : headers"
-      :show-expand="!$vuetify.breakpoint.xsOnly"
+      :headers="isMobile ? mobileHeaders : headers"
+      :show-expand="!isMobile"
       :itemsPerPage="1000"
     />
   </div>
@@ -39,6 +39,9 @@
       ...mapState({
         allVideos: state => state.videos.videos
       }),
+      isMobile() {
+        return this.$vuetify.breakpoint.xsOnly
+      },
       publishedVideos(){
         return this.allVideos.filter(v => v.published_at < Date.now())
       }
