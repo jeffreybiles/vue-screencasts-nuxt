@@ -19,6 +19,10 @@
             <div v-else>
               <a @click="setTerm('month')">Switch back to monthly payments ({{monthlyPrice | currency}}/month)</a>
             </div>
+            or
+            <div>
+              <a @click="enableTeamPackageInterface">Purchase for a team and save up to {{teamPurchaseMaxSavings}}%</a>
+            </div>
           </div>
 
           <div class="step">
@@ -106,6 +110,10 @@
       },
       monthlyPrice(){
         return this.plan['month'].prices[this.priceRangeKey]
+      },
+      teamPurchaseMaxSavings() {
+        let teamCostDifference = Math.floor(this.plan['month'].prices["5+"] / this.plan['month'].prices["1"]  * 100)
+        return 100 - teamCostDifference;
       },
       yearlySavings(){
         let costPercentOfYearly = Math.floor(this.yearlyPrice / (this.monthlyPrice * 12)  * 100)
