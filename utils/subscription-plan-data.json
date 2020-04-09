@@ -10,7 +10,7 @@
           "prod": "plan_GUbsLVGwbTE2K1"
         },
         "fullPrice": 36,
-        "currentPrice": 9  
+        "currentPrice": 9
       },
       "year": {
         "stripeId": {
@@ -18,7 +18,7 @@
           "prod": "plan_GUbw5FDN0z2EHe"
         },
         "fullPrice": 290,
-        "currentPrice": 90  
+        "currentPrice": 90
       }
     },
     {
@@ -122,6 +122,34 @@
       "name": "Free",
       "services": {
         "free": true
+      }
+    },
+    {
+      "id": 8,
+      "name": "Bronze",
+      "services": {
+        "coursePriority": "Elevated priority",
+        "proCourses": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": "plan_H3A0vT0LwIpKjj"
+        },
+        "prices": {
+          "1": 29,
+          "2-4": 24,
+          "5+": 19
+        }
+      },
+      "year": {
+        "stripeId": {
+          "dev": "plan_H3A1yqWbEM37We"
+        },
+        "prices": {
+          "1": 290,
+          "2-4": 240,
+          "5+": 190
+        }
       }
     }
   ]
