@@ -99,17 +99,22 @@
         return getPlan(this.$auth.user.plan_id)
       },
       currentPrice(){
-        return this.plan[this.planTerm].currentPrice
+        return this.plan[this.planTerm].prices[this.priceRangeKey]
       },
       yearlyPrice(){
-        return this.plan['year'].currentPrice
+        return this.plan['year'].prices[this.priceRangeKey]
       },
       monthlyPrice(){
-        return this.plan['month'].currentPrice
+        return this.plan['month'].prices[this.priceRangeKey]
       },
       yearlySavings(){
         let costPercentOfYearly = Math.floor(this.yearlyPrice / (this.monthlyPrice * 12)  * 100)
         return 100 - costPercentOfYearly;
+      },
+      priceRangeKey() {
+        if (this.seats >= 5) { return "5+"}
+        else if (this.seats >= 2) { return "2-4" }
+        return "1"
       }
     },
     mounted() {
