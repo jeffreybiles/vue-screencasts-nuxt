@@ -62,7 +62,7 @@
                 </v-radio>
               </v-radio-group>
               <div>Per seat price: {{ currentPrice | currency }}</div>
-              <div>Total price: {{ currentPrice * seats | currency }}</div>
+              <div>Total price: {{ totalPrice | currency }}</div>
               <strong>You're saving {{ teamSavings }}% with a team package!</strong>
             </template>
           </div>
@@ -92,7 +92,7 @@
             <v-card min-height="200px" min-width="600px">
               <div class="pa-3">
                 <h2 class="section-title">Purchase {{plan.name}} package.</h2>
-                <p class="subheader">Your card will be charged {{currentPrice | currency}} every {{planTerm}}.  At any point you can change or cancel your plan with just one email.</p>
+                <p class="subheader">Your card will be charged {{totalPrice | currency}} every {{planTerm}}.  At any point you can change or cancel your plan with just one email.</p>
 
                 <StripeCard buttonText="Pay and Subscribe"
                 :clickAction="pay" />
@@ -149,6 +149,9 @@
       currentPrice(){
         return this.plan[this.planTerm].prices[this.currentUsersRangeKey]
       },
+      totalPrice() {
+        return this.currentPrice * this.seats
+      },
       yearlyPrice(){
         return this.plan['year'].prices[this.currentUsersRangeKey]
       },
@@ -176,7 +179,7 @@
         return "1"
       }
     },
-    mounted() {
+    created() {
       let { seats, team } = this.$route.query
       if (seats) {
         this.seats = parseInt(seats)
@@ -197,7 +200,8 @@
         let planId = this.plan[this.planTerm].stripeId[this.stripeEnv]
         let updatedUser = await this.$axios.post('stripe/create_subscription', {
           source,
-          planId
+          planId,
+          seats: this.seats
         })
         await this.$auth.fetchUser()
         this.$router.push({path: '/account/next-steps'})
