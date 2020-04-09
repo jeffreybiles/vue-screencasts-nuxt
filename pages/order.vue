@@ -11,18 +11,60 @@
         <div v-else>
           <h2 class="section-title">Cool!  Let's get some information and get you started.</h2>
           <div class="step">
-            <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments of {{currentPrice | currency}}.
-            <br>
-            <div v-if="planTerm == 'month'">
-              <a @click="setTerm('year')">Save {{yearlySavings}}% by switching to yearly payments ({{yearlyPrice | currency}}/year)</a>
-            </div>
-            <div v-else>
-              <a @click="setTerm('month')">Switch back to monthly payments ({{monthlyPrice | currency}}/month)</a>
-            </div>
-            or
-            <div>
-              <a @click="enableTeamPackageInterface">Purchase for a team and save up to {{teamPurchaseMaxSavings}}%</a>
-            </div>
+            <template v-if="!isTeamPackageInterfaceEnabled">
+              <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments of {{currentPrice | currency}}.
+              <br>
+              <div v-if="planTerm == 'month'">
+                <a @click="setTerm('year')">Save {{yearlySavings}}% by switching to yearly payments ({{yearlyPrice | currency}}/year)</a>
+              </div>
+              <div v-else>
+                <a @click="setTerm('month')">Switch back to monthly payments ({{monthlyPrice | currency}}/month)</a>
+              </div>
+              or
+              <div>
+                <a @click="enableTeamPackageInterface">Purchase for a team and save up to {{teamPurchaseMaxSavings}}%</a>
+              </div>
+            </template>
+            <template v-else>
+              <div class="headline">You've selected the {{plan.name}} package</div>
+              <v-simple-table>
+                <template v-slot:default>
+                  <thead>
+                  <tr>
+                    <th class="text-left">Number users</th>
+                    <th class="text-left">Cost per month</th>
+                    <th class="text-left">Cost per year</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr v-for="range in usersRangeKeys" :key="range">
+                    <td><v-icon>{{getIcon(range)}}</v-icon> {{ range }}</td>
+                    <td>{{ plan['month'].prices[range] | currency }}</td>
+                    <td>{{ plan['year'].prices[range] | currency }}</td>
+                  </tr>
+                  </tbody>
+                </template>
+              </v-simple-table>
+              <NumberInput label="Please select the number of seats:" :min="1" :value="seats" @input="setSeats" />
+              <v-radio-group :value="planTerm" @change="$event => setTerm($event)">
+                <template v-slot:label>
+                  <div>Select <strong>type of payments</strong></div>
+                </template>
+                <v-radio value="month">
+                  <template v-slot:label>
+                    <div>Monthly</div>
+                  </template>
+                </v-radio>
+                <v-radio value="year">
+                  <template v-slot:label>
+                    <div>Yearly</div>
+                  </template>
+                </v-radio>
+              </v-radio-group>
+              <div>Per seat price: {{ currentPrice | currency }}</div>
+              <div>Total price: {{ currentPrice * seats | currency }}</div>
+              <strong>You're saving {{ teamSavings }}% with a team package!</strong>
+            </template>
           </div>
 
           <div class="step">
@@ -76,9 +118,11 @@
   import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
   import UserAuthModal from '@/components/UserAuthModal.vue';
   import { getPlan } from '@/utils/subscription-utils';
+  import NumberInput from "~/components/NumberInput";
 
   export default {
     components: {
+      NumberInput,
       StripeCard,
       HomePageSection,
       UserAuthModal
@@ -103,23 +147,30 @@
         return getPlan(this.$auth.user.plan_id)
       },
       currentPrice(){
-        return this.plan[this.planTerm].prices[this.priceRangeKey]
+        return this.plan[this.planTerm].prices[this.currentUsersRangeKey]
       },
       yearlyPrice(){
-        return this.plan['year'].prices[this.priceRangeKey]
+        return this.plan['year'].prices[this.currentUsersRangeKey]
       },
       monthlyPrice(){
-        return this.plan['month'].prices[this.priceRangeKey]
+        return this.plan['month'].prices[this.currentUsersRangeKey]
       },
       teamPurchaseMaxSavings() {
-        let teamCostDifference = Math.floor(this.plan['month'].prices["5+"] / this.plan['month'].prices["1"]  * 100)
+        let teamCostDifference = Math.floor(this.plan[this.planTerm].prices["5+"] / this.plan[this.planTerm].prices["1"]  * 100)
+        return 100 - teamCostDifference;
+      },
+      teamSavings() {
+        let teamCostDifference = Math.floor(this.plan[this.planTerm].prices[this.currentUsersRangeKey] / this.plan[this.planTerm].prices["1"]  * 100)
         return 100 - teamCostDifference;
       },
       yearlySavings(){
         let costPercentOfYearly = Math.floor(this.yearlyPrice / (this.monthlyPrice * 12)  * 100)
         return 100 - costPercentOfYearly;
       },
-      priceRangeKey() {
+      usersRangeKeys() {
+        return Object.keys(this.plan['month'].prices)
+      },
+      currentUsersRangeKey() {
         if (this.seats >= 5) { return "5+"}
         else if (this.seats >= 2) { return "2-4" }
         return "1"
@@ -133,6 +184,11 @@
       this.isTeamPackageInterfaceEnabled = this.seats > 1 || team === "true"
     },
     methods: {
+      getIcon(range) {
+        if (range === "5+") { return "mdi-account-group"}
+        else if (range === "2-4") { return "mdi-account-multiple"}
+        return "mdi-account"
+      },
       enableTeamPackageInterface() {
         this.isTeamPackageInterfaceEnabled = true
         this.$router.replace({ path: '/order', query: { ...this.$route.query, team: true }})
@@ -153,6 +209,14 @@
           ...this.$route.query,
           planTerm: newTerm
         }})
+      },
+      setSeats(newSeats) {
+        this.seats = newSeats
+
+        this.$router.push({path: '/order', query: {
+            ...this.$route.query,
+            seats: newSeats
+          }})
       }
     }
   }
