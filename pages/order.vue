@@ -5,12 +5,11 @@
         <div v-if="this.$auth.user && this.$auth.user.pro">
           <h1>Your current plan is {{currentPlan && currentPlan.name || 'Bronze'}}.</h1>
           <h1>We're working on a way to change your plan with a click. Until then...</h1>
-          <h1>Email me to change your plan:  
+          <h1>Email me to change your plan:
             <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly&body=I understand that this email authorizes VueScreencasts.com to charge the card on file for $${currentPrice} every ${planTerm} until I cancel or change plans.`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
         </div>
         <div v-else>
           <h2 class="section-title">Cool!  Let's get some information and get you started.</h2>
-
           <div class="step">
             <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments of {{currentPrice | currency}}.
             <br>
@@ -83,6 +82,8 @@
     data() {
       let { stripeEnv } = this.$root.context.env;
       return {
+        isTeamPackageInterfaceEnabled: false,
+        seats: 1,
         planId: this.$route.query.plan,
         planTerm: this.$route.query.planTerm,
         plans: subscriptionPlanJson.plans.filter(p => !p.deprecated),
@@ -111,7 +112,18 @@
         return 100 - costPercentOfYearly;
       }
     },
+    mounted() {
+      let { seats, team } = this.$route.query
+      if (seats) {
+        this.seats = parseInt(seats)
+      }
+      this.isTeamPackageInterfaceEnabled = this.seats > 1 || team === "true"
+    },
     methods: {
+      enableTeamPackageInterface() {
+        this.isTeamPackageInterfaceEnabled = true
+        this.$router.replace({ path: '/order', query: { ...this.$route.query, team: true }})
+      },
       async pay(source){
         let planId = this.plan[this.planTerm].stripeId[this.stripeEnv]
         let updatedUser = await this.$axios.post('stripe/create_subscription', {
