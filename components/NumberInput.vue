@@ -17,6 +17,10 @@
     export default {
         name: "NumberInput",
         props: {
+          label: {
+            type: String,
+            default: null
+          },
           value: {
             type: Number,
             required: true
