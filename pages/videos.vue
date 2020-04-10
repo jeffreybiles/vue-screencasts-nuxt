@@ -3,7 +3,7 @@
     <v-container>
       <VideoTableWithSearch :videos="publishedVideos"
                             :headers="isMobile ? mobileHeaders : headers"
-                            :showExpand="isMobile"
+                            :showExpand="!isMobile"
                             :itemsPerPage="1000" />
     </v-container>
   </div>
