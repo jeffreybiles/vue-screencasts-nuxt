@@ -10,7 +10,6 @@
                 :page="Number($route.query.pageNumber) || 1"
                 @update:page="changePageNumber"
                 :sort-desc="sortDesc"
-                height="500px"
   >
     <template #item.duration="{value, item}">
       <DurationDisplay :duration="value" />
