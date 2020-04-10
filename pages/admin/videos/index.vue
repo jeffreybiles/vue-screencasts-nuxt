@@ -3,20 +3,20 @@
     <h1>Video List</h1>
     <v-btn text to="/admin/videos/new">Add Video</v-btn>
 
-    <VideoTable :videos="videos" 
-                :headers="headers" 
-                :customClickAction="goToVideoShow"
-                :dense="true"
-                :itemsPerPage="20" />
+    <VideoTableWithSearch :videos="videos" 
+                          :headers="headers" 
+                          :customClickAction="goToVideoShow"
+                          :dense="true"
+                          :itemsPerPage="20" />
   </v-container>
 </template>
 
 <script>
-  import VideoTable from '@/components/VideoTable'
+  import VideoTableWithSearch from '@/components/VideoTableWithSearch'
   import { mapState } from 'vuex';
   export default {
     components: {
-      VideoTable
+      VideoTableWithSearch
     },
     computed: {
       ...mapState({
