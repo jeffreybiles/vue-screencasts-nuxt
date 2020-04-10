@@ -114,9 +114,6 @@ import ProMarker from '@/components/ProMarker.vue';
 </script>
 
 <style lang="scss" scoped>
-  .search-result-tables .headline {
-    margin: 15px 0;
-  }
   ::v-deep tbody tr {
     cursor: pointer;
   }
