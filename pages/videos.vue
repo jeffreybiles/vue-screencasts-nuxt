@@ -1,13 +1,18 @@
 <template>
   <div>
-    <VideoTable :videos="publishedVideos" :headers="headers" :itemsPerPage="1000" class="hidden-xs-only" />
-    <VideoTable :videos="publishedVideos" :headers="mobileHeaders" :itemsPerPage="1000" :showExpand="false" class="hidden-sm-and-up" />
+    <v-container>
+      <VideoTableWithSearch :videos="publishedVideos"
+                            :headers="isMobile ? mobileHeaders : headers"
+                            :showExpand="!isMobile"
+                            :itemsPerPage="1000" />
+    </v-container>
   </div>
 </template>
 
 <script>
   import { mapState } from 'vuex'
-  import VideoTable from '@/components/VideoTable.vue';
+  import VideoTableWithSearch from '@/components/VideoTableWithSearch.vue';
+
   export default {
     middleware: 'load-videos-and-courses',
 
@@ -29,15 +34,18 @@
       }
     },
     components: {
-      VideoTable
+      VideoTableWithSearch
     },
     computed: {
       ...mapState({
-        allVideos: state => state.videos.videos
+        allVideos: state => state.videos.videos,
       }),
+      isMobile() {
+        return this.$vuetify.breakpoint.xsOnly
+      },
       publishedVideos(){
         return this.allVideos.filter(v => v.published_at < Date.now())
-      }
+      },
     }
   }
 </script>

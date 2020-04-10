@@ -15,17 +15,17 @@
 
     <h1>Videos whose code_summary state is: {{filterState}}</h1>
 
-    <VideoTable :videos="filteredVideos" 
-                :headers="headers" 
-                :sortDesc="false"
-                :customClickAction="goToVideoShow"
-                :dense="true"
-                :itemsPerPage="10" />
+    <VideoTableWithSearch :videos="filteredVideos" 
+                          :headers="headers" 
+                          :sortDesc="false"
+                          :customClickAction="goToVideoShow"
+                          :dense="true"
+                          :itemsPerPage="10" />
   </div>
 </template>
 
 <script>
-  import VideoTable from '@/components/VideoTable'
+  import VideoTableWithSearch from '@/components/VideoTableWithSearch'
   import { mapState } from 'vuex';
 
   export default {
@@ -35,7 +35,7 @@
       }
     },
     components: {
-      VideoTable
+      VideoTableWithSearch
     },
     computed: {
       ...mapState({
