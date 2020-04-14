@@ -39,8 +39,8 @@
                   <tbody>
                   <tr v-for="range in usersRangeKeys" :key="range">
                     <td><v-icon>{{getIcon(range)}}</v-icon> {{ range }}</td>
-                    <td>{{ plan['month'].prices[range] | currency }}</td>
-                    <td>{{ plan['year'].prices[range] | currency }}</td>
+                    <td>{{ plan['month'].prices[range] | currency }}/user</td>
+                    <td>{{ plan['year'].prices[range] | currency }}/user</td>
                   </tr>
                   </tbody>
                 </template>
