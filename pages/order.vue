@@ -46,6 +46,7 @@
                 </template>
               </v-simple-table>
               <NumberInput label="Please select the number of seats:" :min="1" :value="seats" @input="setSeats" />
+              <a @click="disableTeamPackageInterface">Purchase for an individual instead of a team</a>
               <v-radio-group :value="planTerm" @change="$event => setTerm($event)">
                 <template v-slot:label>
                   <div>Select <strong>type of payments</strong></div>
@@ -196,6 +197,11 @@
         this.isTeamPackageInterfaceEnabled = true
         this.seats = 2
         this.$router.replace({ path: '/order', query: { ...this.$route.query, team: true, seats: 2 }})
+      },
+      disableTeamPackageInterface(){
+        this.isTeamPackageInterfaceEnabled = false
+        this.seats = 1
+        this.$router.replace({ path: '/order', query: { ...this.$route.query, team: false, seats: 1}})
       },
       async pay(source){
         let planId = this.plan[this.planTerm].stripeId[this.stripeEnv]
