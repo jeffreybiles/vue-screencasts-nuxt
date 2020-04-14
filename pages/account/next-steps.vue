@@ -2,10 +2,16 @@
   <div>
     <h1 class="section-title mt-3 mb-1">Congratulations on subscribing to the {{plan.name}} plan!</h1>
     <h1 class="section-subtitle">Next steps to take:</h1>
-    <!-- TODO: make workflow for each -->
-    <!-- TODO: have ability to 'check them off' -->
+
+    <div v-if="seats > 1">
+      <NextStepCompletionCard :markComplete="() => { markComplete('sendTeamMembersInfo')}"
+                              :stepCompleted="next_steps_taken.sendTeamMembersInfo">
+        <p>Please send <a href="mailto:jeffrey@vuescreencasts.com">jeffrey@vuescreencasts.com</a>the names and emails of the other 
+           {{ seats == 2 ? 'team member' : `${seats - 1} team members` }} you want on the plan.</p>
+      </NextStepCompletionCard>
+    </div>
     <div v-if="plan.services.actionPlan">
-      <NextStepCompletionCard :markComplete="() => { markComplete('actionPlan')}" 
+      <NextStepCompletionCard :markComplete="() => { markComplete('actionPlan')}"
                               :stepCompleted="next_steps_taken.actionPlan">
         <p>First, let's schedule a time to create our action plan.</p>
 
@@ -14,9 +20,8 @@
         <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
       </NextStepCompletionCard>
     </div>
-
     <div v-if="plan.services.retainer">
-      <NextStepCompletionCard :markComplete="() => { markComplete('retainer')}" 
+      <NextStepCompletionCard :markComplete="() => { markComplete('retainer')}"
                               :stepCompleted="next_steps_taken.retainer">
         <p>My phone number is 501-256-3078.</p>
 
@@ -26,7 +31,7 @@
       </NextStepCompletionCard>
     </div>
     <div v-if="plan.services.videoChat">
-      <NextStepCompletionCard :markComplete="() => { markComplete('videoChat')}" 
+      <NextStepCompletionCard :markComplete="() => { markComplete('videoChat')}"
                               :stepCompleted="next_steps_taken.videoChat">
         <p>Let's schedule a time for our first video chat.</p>
 
@@ -37,7 +42,7 @@
     </div>
     <!-- Turn this on when I create the first group FAQ -->
     <div v-if="plan.services.groupFaq && false">
-      <NextStepCompletionCard :markComplete="() => { markComplete('groupFaq')}" 
+      <NextStepCompletionCard :markComplete="() => { markComplete('groupFaq')}"
                               :stepCompleted="next_steps_taken.groupFaq">
         <p>Put the next group FAQ on your calendar.</p>
 
@@ -45,7 +50,7 @@
       </NextStepCompletionCard>
     </div>
     <div v-if="plan.services.weeklyCheckin">
-      <NextStepCompletionCard :markComplete="() => { markComplete('weeklyCheckin')}" 
+      <NextStepCompletionCard :markComplete="() => { markComplete('weeklyCheckin')}"
                               :stepCompleted="next_steps_taken.weeklyCheckin">
         <p>I'll be emailing you soon with special instructions on how to get started with weekly checkins.</p>
         <p>The subject line will be "Your First Vue Check-In".</p>
@@ -53,7 +58,7 @@
       </NextStepCompletionCard>
     </div>
     <div v-if="plan.services.proCourses">
-      <NextStepCompletionCard :markComplete="() => { markComplete('proCourses')}" 
+      <NextStepCompletionCard :markComplete="() => { markComplete('proCourses')}"
                               :stepCompleted="next_steps_taken.proCourses">
         <p><a href="https://www.vuescreencasts.com/courses" target="_blank">Check out our pro courses</a>.</p>
       </NextStepCompletionCard>
@@ -77,6 +82,9 @@
     computed: {
       next_steps_taken(){
         return this.$auth.user.next_steps_taken
+      },
+      seats(){
+        return this.$auth.user.plan_seats
       }
     },
     methods: {
