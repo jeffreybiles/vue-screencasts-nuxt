@@ -194,7 +194,8 @@
       },
       enableTeamPackageInterface() {
         this.isTeamPackageInterfaceEnabled = true
-        this.$router.replace({ path: '/order', query: { ...this.$route.query, team: true }})
+        this.seats = 2
+        this.$router.replace({ path: '/order', query: { ...this.$route.query, team: true, seats: 2 }})
       },
       async pay(source){
         let planId = this.plan[this.planTerm].stripeId[this.stripeEnv]
