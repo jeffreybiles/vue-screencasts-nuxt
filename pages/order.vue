@@ -64,9 +64,16 @@
               </v-radio-group>
               <div>Per seat price: {{ currentPrice | currency }}</div>
               <div>Total price: {{ totalPrice | currency }}</div>
-              <strong>You're saving {{ teamSavings }}% with a team package!</strong>
             </template>
           </div>
+
+          <p v-if="teamSavings > 0 || planTerm == 'year'">
+            <strong>You're saving 
+              <span v-if="teamSavings > 0">{{ teamSavings }}% with a team package</span>
+              <span v-if="teamSavings > 0 && planTerm == 'year'"> and </span>
+              <span v-if="planTerm == 'year'">{{ yearlySavings}}% with an annual purchase.</span>
+            </strong>
+          </p>
 
           <div class="step">
             <div v-if="$auth.loggedIn">
