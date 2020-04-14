@@ -6,8 +6,8 @@
     <div v-if="seats > 1">
       <NextStepCompletionCard :markComplete="() => { markComplete('sendTeamMembersInfo')}"
                               :stepCompleted="next_steps_taken.sendTeamMembersInfo">
-        <p>Please send a list of other team members you want on the plan to <a href="mailto:jeffrey@vuescreencasts.com">jeffrey@vuescreencasts.com</a>.</p>
-        <p>This list should contain the names and email addresses.</p>
+        <p>Please send <a href="mailto:jeffrey@vuescreencasts.com">jeffrey@vuescreencasts.com</a>the names and emails of the other 
+           {{ seats == 2 ? 'team member' : `${seats - 1} team members` }} you want on the plan.</p>
       </NextStepCompletionCard>
     </div>
     <div v-if="plan.services.actionPlan">
