@@ -148,7 +148,7 @@
         return getPlan(this.$auth.user.plan_id)
       },
       currentPrice(){
-        return this.plan[this.planTerm].prices[this.currentUsersRangeKey]
+        return this.currentTermPrices[this.currentUsersRangeKey]
       },
       totalPrice() {
         return this.currentPrice * this.seats
@@ -159,12 +159,15 @@
       monthlyPrice(){
         return this.plan['month'].prices[this.currentUsersRangeKey]
       },
+      currentTermPrices(){
+        return this.plan[this.planTerm].prices
+      },
       teamPurchaseMaxSavings() {
-        let teamCostDifference = Math.floor(this.plan[this.planTerm].prices["5+"] / this.plan[this.planTerm].prices["1"]  * 100)
+        let teamCostDifference = Math.floor(this.currentTermPrices["5+"] / this.currentTermPrices["1"]  * 100)
         return 100 - teamCostDifference;
       },
       teamSavings() {
-        let teamCostDifference = Math.floor(this.plan[this.planTerm].prices[this.currentUsersRangeKey] / this.plan[this.planTerm].prices["1"]  * 100)
+        let teamCostDifference = Math.floor(this.currentTermPrices[this.currentUsersRangeKey] / this.currentTermPrices["1"]  * 100)
         return 100 - teamCostDifference;
       },
       yearlySavings(){
