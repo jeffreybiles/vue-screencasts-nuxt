@@ -50,7 +50,7 @@
           <h2 class="section-subtitle">When the Survival of your Company or Job is on the line.</h2>
         </div>
 
-        <ProPackageCard :stripePlanId="5" 
+        <ProPackageCard :stripePlanId="11" 
                         nextSolutionId="pro-gold"
                         bossLink="https://docs.google.com/document/d/13StavsXklWSzuYk0PN9G9LAja9QfXfwwJQkg3IpRcRU/edit?usp=sharing">
           <p><strong>YOU'RE HIRING ME.  LET'S DO IT NOW.</strong></p>
@@ -72,7 +72,7 @@
           <h2 class="section-subtitle">Your Best Bet for Fast Growth.</h2>
         </div>
 
-        <ProPackageCard :stripePlanId="4" 
+        <ProPackageCard :stripePlanId="10" 
                         nextSolutionId="pro-silver"
                         bossLink="https://docs.google.com/document/d/166C59AXbqgFGSz1iRhwrp-MXUqIkKLCxpplJIcITwyU/edit?usp=sharing">
           <p>You have a clear goal, but that's not enough.</p>
@@ -94,7 +94,7 @@
           <h2 class="section-subtitle">Mentorship on a Budget.</h2>
         </div>
 
-        <ProPackageCard :stripePlanId="6" 
+        <ProPackageCard :stripePlanId="9" 
                         nextSolutionId="pro-bronze"
                         bossLink="https://docs.google.com/document/d/133lz57ovI0PiD1ZVpT-mcDShQBvmqTb7BHwihFsDB5c/edit?usp=sharing">
           <p>If you're a self-directed learner, or on a budget, but know how important mentorship is - this is a great plan.</p>
@@ -115,7 +115,7 @@
           <h2 class="section-subtitle">High-Quality Resources for Self-Directed Learning.</h2>
         </div>
 
-        <ProPackageCard :stripePlanId="2" 
+        <ProPackageCard :stripePlanId="8" 
                         nextSolutionId="more-questions"
                         nextSolutionText="More Questions?"
                         bossLink="https://docs.google.com/document/d/16cXGOJkQoqwG-iq4sc0n84KMMldOlNHMGbhTijaPsQk/edit?usp=sharing">

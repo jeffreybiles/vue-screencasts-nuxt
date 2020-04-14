@@ -11,7 +11,7 @@
     </div>
     <div v-if="!plan.services.free" class="my-3 buy-buttons">
       <v-btn x-large color="green accent-1" :to="`/order?plan=${plan.id}&planTerm=month`">
-        {{plan.month.currentPrice | currency}}/month
+        {{plan.month.prices['1'] | currency}}/month
       </v-btn>
       <a :href="bossLink" target="_blank" v-if="bossLink">
         <v-btn x-large color="green accent-2">

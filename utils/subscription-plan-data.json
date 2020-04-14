@@ -151,6 +151,98 @@
           "5+": 190
         }
       }
+    },
+    {
+      "id": 9,
+      "name": "Silver",
+      "services": {
+        "coursePriority": "Elevated priority",
+        "groupFaq": true,
+        "weeklyCheckin": true,
+        "proCourses": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": ""
+        },
+        "prices": {
+          "1": 99,
+          "2-4": 89,
+          "5+": 85
+        }
+      },
+      "year": {
+        "stripeId": {
+          "dev": ""
+        },
+        "prices": {
+          "1": 990,
+          "2-4": 890,
+          "5+": 850
+        }
+      }
+    },
+    {
+      "id": 10,
+      "name": "Gold",
+      "services": {
+        "videoChat": "Weekly",
+        "actionPlan": true,
+        "coursePriority": "High priority",
+        "proCourses": true,
+        "groupFaq": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": ""
+        },
+        "prices": {
+          "1": 795,
+          "2-4": 745,
+          "5+": 695
+        }
+      },
+      "year": {
+        "stripeId": {
+          "dev": ""
+        },
+        "prices": {
+          "1": 8745,
+          "2-4": 8195,
+          "5+": 7645
+        }
+      }
+    },
+    {
+      "id": 11,
+      "name": "Platinum",
+      "services": {
+        "actionPlan": true,
+        "retainer": true,
+        "videoChat": "Weekly",
+        "coursePriority": "Top priority",
+        "proCourses": true
+      },
+      "month": {
+        "stripeId": {
+          "dev": ""
+        },
+        "prices": {
+          "1": 1950,
+          "2-4": 1890,
+          "5+": 1790
+        }
+      },
+      "year": {
+        "stripeId": {
+          "dev": ""
+        },
+        "prices": {
+          "1": 21450,
+          "2-4": 20790,
+          "5+": 19690
+        }
+      }
     }
   ]
 }
