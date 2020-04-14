@@ -2,8 +2,14 @@
   <div>
     <h1 class="section-title mt-3 mb-1">Congratulations on subscribing to the {{plan.name}} plan!</h1>
     <h1 class="section-subtitle">Next steps to take:</h1>
-    <!-- TODO: make workflow for each -->
-    <!-- TODO: have ability to 'check them off' -->
+
+    <div v-if="seats > 1">
+      <NextStepCompletionCard :markComplete="() => { markComplete('sendTeamMembersInfo')}"
+                              :stepCompleted="next_steps_taken.sendTeamMembersInfo">
+        <p>Please send a list of other team members you want on the plan to <a href="mailto:jeffrey@vuescreencasts.com">jeffrey@vuescreencasts.com</a>.</p>
+        <p>This list should contain the names and email addresses.</p>
+      </NextStepCompletionCard>
+    </div>
     <div v-if="plan.services.actionPlan">
       <NextStepCompletionCard :markComplete="() => { markComplete('actionPlan')}"
                               :stepCompleted="next_steps_taken.actionPlan">
@@ -12,13 +18,6 @@
         <p><a href="https://calendly.com/jeffreybiles/create-an-action-plan" target="_blank">Book an initial planning session on Calendly</a></p>
 
         <p>If there's not a time on the calendar that works for you, message me and we'll figure something out.</p>
-      </NextStepCompletionCard>
-    </div>
-    <div v-if="seats > 1">
-      <NextStepCompletionCard :markComplete="() => { markComplete('sendTeamMembersInfo')}"
-                              :stepCompleted="next_steps_taken.sendTeamMembersInfo">
-        <p>Please send a list of other team members you want on the plan to <a href="mailto:jeffrey@vuescreencasts.com">jeffrey@vuescreencasts.com</a>.</p>
-        <p>This list should contain the names and email addresses.</p>
       </NextStepCompletionCard>
     </div>
     <div v-if="plan.services.retainer">
@@ -75,7 +74,6 @@
     data(){
       return {
         plan: getPlanWithDefault(this.$auth.user.plan_id),
-        seats: this.$route.query.seats || 1
       }
     },
     components: {
@@ -84,6 +82,9 @@
     computed: {
       next_steps_taken(){
         return this.$auth.user.next_steps_taken
+      },
+      seats(){
+        return this.$auth.user.plan_seats
       }
     },
     methods: {

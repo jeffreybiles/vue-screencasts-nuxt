@@ -241,7 +241,7 @@
           seats: this.seats
         })
         await this.$auth.fetchUser()
-        this.$router.push({path: '/account/next-steps', query: {seats: this.seats}})
+        this.$router.push({path: '/account/next-steps'})
       },
       setTerm(newTerm) {
         this.planTerm = newTerm;
