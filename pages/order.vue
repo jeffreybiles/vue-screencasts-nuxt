@@ -15,14 +15,17 @@
               <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments of {{currentPrice | currency}}.
               <br>
               <div v-if="planTerm == 'month'">
-                <a @click="setTerm('year')">Save {{yearlySavings}}% by switching to yearly payments ({{yearlyPrice | currency}}/year)</a>
+                <a @click="setTerm('year')">Save {{calculateSavings('year', 1)}}% by switching to yearly payments ({{yearlyPrice | currency}}/year)</a>
               </div>
               <div v-else>
                 <a @click="setTerm('month')">Switch back to monthly payments ({{monthlyPrice | currency}}/month)</a>
               </div>
               or
               <div>
-                <a @click="enableTeamPackageInterface">Purchase for a team and save up to {{teamPurchaseMaxSavings}}%</a>
+                <a @click="enableTeamPackageInterface">
+                  Purchase for a team and save up to {{calculateSavings('month', '5+')}}%
+                  <span v-if="planTerm == 'year'">more</span>.
+                </a>
               </div>
             </template>
             <template v-else>
@@ -32,15 +35,21 @@
                   <thead>
                   <tr>
                     <th class="text-left">Number users</th>
-                    <th class="text-left">Cost per month</th>
-                    <th class="text-left">Cost per year</th>
+                    <th class="text-left">Paid monthly</th>
+                    <th class="text-left">Paid yearly</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr v-for="range in usersRangeKeys" :key="range">
                     <td><v-icon>{{getIcon(range)}}</v-icon> {{ range }}</td>
-                    <td>{{ plan['month'].prices[range] | currency }}/user</td>
-                    <td>{{ plan['year'].prices[range] | currency }}/user</td>
+                    <td>
+                      {{ plan['month'].prices[range] | currency }}/user
+                      (save {{calculateSavings('month', range)}}%)
+                    </td>
+                    <td>
+                      {{ plan['year'].prices[range] | currency }}/user
+                      (save {{calculateSavings('year', range)}}%)
+                    </td>
                   </tr>
                   </tbody>
                 </template>
@@ -58,7 +67,7 @@
                 </v-radio>
                 <v-radio value="year">
                   <template v-slot:label>
-                    <div>Yearly</div>
+                    <div>Yearly (save additional {{calculateSavings('year', 1)}}%)</div>
                   </template>
                 </v-radio>
               </v-radio-group>
@@ -67,11 +76,12 @@
             </template>
           </div>
 
-          <p v-if="teamSavings > 0 || planTerm == 'year'">
-            <strong>You're saving 
-              <span v-if="teamSavings > 0">{{ teamSavings }}% with a team package</span>
-              <span v-if="teamSavings > 0 && planTerm == 'year'"> and </span>
-              <span v-if="planTerm == 'year'">{{ yearlySavings}}% with an annual purchase.</span>
+          <p v-if="seats > 1 || planTerm == 'year'">
+            <strong>
+              You're saving {{ calculateSavings(planTerm, seats) }}% with
+              <span v-if="seats > 1">a team purchase</span>
+              <span v-if="seats > 1 && planTerm == 'year'"> and </span>
+              <span v-if="planTerm == 'year'">yearly payments</span>.
             </strong>
           </p>
 
@@ -169,18 +179,6 @@
       currentTermPrices(){
         return this.plan[this.planTerm].prices
       },
-      teamPurchaseMaxSavings() {
-        let teamCostDifference = Math.floor(this.currentTermPrices["5+"] / this.currentTermPrices["1"]  * 100)
-        return 100 - teamCostDifference;
-      },
-      teamSavings() {
-        let teamCostDifference = Math.floor(this.currentTermPrices[this.currentUsersRangeKey] / this.currentTermPrices["1"]  * 100)
-        return 100 - teamCostDifference;
-      },
-      yearlySavings(){
-        let costPercentOfYearly = Math.floor(this.yearlyPrice / (this.monthlyPrice * 12)  * 100)
-        return 100 - costPercentOfYearly;
-      },
       usersRangeKeys() {
         return Object.keys(this.plan['month'].prices)
       },
@@ -213,6 +211,28 @@
         this.seats = 1
         this.$router.replace({ path: '/order', query: { ...this.$route.query, team: false, seats: 1}})
       },
+      calculateSavings(term, rangeKey){
+        // allow for rangeKey to be either the key or an integer
+        if(!isNaN(Number(rangeKey))) {
+          if(rangeKey >= 5) {
+            rangeKey = '5+'
+          } else if(rangeKey >= 2) {
+            rangeKey = '2-4'
+          } else {
+            rangeKey = '1'
+          }
+        }
+
+        let highestCost = this.plan['month'].prices['1']
+        let currentCost = this.plan[term].prices[rangeKey]
+
+        // get per-month cost for yearly prices
+        if(term == 'year') {
+          currentCost = currentCost / 12
+        }
+
+        return 100 - Math.floor(currentCost/highestCost * 100)
+      },
       async pay(source){
         let planId = this.plan[this.planTerm].stripeId[this.stripeEnv]
         let updatedUser = await this.$axios.post('stripe/create_subscription', {
@@ -235,9 +255,9 @@
         this.seats = newSeats
 
         this.$router.push({path: '/order', query: {
-            ...this.$route.query,
-            seats: newSeats
-          }})
+          ...this.$route.query,
+          seats: newSeats
+        }})
       }
     }
   }
