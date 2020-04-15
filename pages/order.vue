@@ -30,30 +30,7 @@
             </template>
             <template v-else>
               <div class="headline">You've selected the {{plan.name}} package</div>
-              <v-simple-table>
-                <template v-slot:default>
-                  <thead>
-                  <tr>
-                    <th class="text-left">Number users</th>
-                    <th class="text-left">Paid monthly</th>
-                    <th class="text-left">Paid yearly</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr v-for="range in usersRangeKeys" :key="range">
-                    <td><v-icon>{{getIcon(range)}}</v-icon> {{ range }}</td>
-                    <td>
-                      {{ plan['month'].prices[range] | currency }}/user
-                      (save {{calculateSavings('month', range)}}%)
-                    </td>
-                    <td>
-                      {{ plan['year'].prices[range] | currency }}/user
-                      (save {{calculateSavings('year', range)}}%)
-                    </td>
-                  </tr>
-                  </tbody>
-                </template>
-              </v-simple-table>
+              <OrderPricesTable :data="orderPricesTableData" />
               <NumberInput label="Please select the number of seats:" :min="1" :value="seats" @input="setSeats" />
               <a @click="disableTeamPackageInterface">Purchase for an individual instead of a team</a>
               <v-radio-group :value="planTerm" @change="$event => setTerm($event)">
@@ -137,9 +114,11 @@
   import UserAuthModal from '@/components/UserAuthModal.vue';
   import { getPlan } from '@/utils/subscription-utils';
   import NumberInput from "~/components/NumberInput";
+  import OrderPricesTable from "~/components/OrderPricesTable";
 
   export default {
     components: {
+      OrderPricesTable,
       NumberInput,
       StripeCard,
       HomePageSection,
@@ -158,6 +137,16 @@
       }
     },
     computed: {
+      orderPricesTableData() {
+        return this.usersRangeKeys.map(range => ({
+          range,
+          icon: this.getIcon(range),
+          monthlyPrice: this.plan['month'].prices[range],
+          monthlySaving: this.calculateSavings('month', range),
+          yearlyPrice: this.plan['year'].prices[range],
+          yearlySaving: this.calculateSavings('year', range)
+        }))
+      },
       plan(){
         return this.plans.find(p => p.id == this.planId)
       },
