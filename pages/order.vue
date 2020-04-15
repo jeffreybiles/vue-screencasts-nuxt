@@ -31,7 +31,7 @@
             <template v-else>
               <div class="headline">You've selected the {{plan.name}} package</div>
               <OrderPricesTable :data="orderPricesTableData" />
-              <NumberInput label="Please select the number of seats:" :min="1" :value="seats" @input="setSeats" />
+              <NumberInput label="Please select the number of seats:" width="265" :min="1" :value="seats" @input="setSeats" />
               <a @click="disableTeamPackageInterface">Purchase for an individual instead of a team</a>
               <SelectWithButtons title="Select type of payments" :value="planTerm" :options="planTermOptions" @change="setTerm($event)" />
               <div>Per seat price: {{ currentPrice | currency }}</div>
