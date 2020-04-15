@@ -33,21 +33,7 @@
               <OrderPricesTable :data="orderPricesTableData" />
               <NumberInput label="Please select the number of seats:" :min="1" :value="seats" @input="setSeats" />
               <a @click="disableTeamPackageInterface">Purchase for an individual instead of a team</a>
-              <v-radio-group :value="planTerm" @change="$event => setTerm($event)">
-                <template v-slot:label>
-                  <div>Select <strong>type of payments</strong></div>
-                </template>
-                <v-radio value="month">
-                  <template v-slot:label>
-                    <div>Monthly</div>
-                  </template>
-                </v-radio>
-                <v-radio value="year">
-                  <template v-slot:label>
-                    <div>Yearly (save additional {{calculateSavings('year', 1)}}%)</div>
-                  </template>
-                </v-radio>
-              </v-radio-group>
+              <SelectWithButtons title="Select type of payments" :value="planTerm" :options="planTermOptions" @change="setTerm($event)" />
               <div>Per seat price: {{ currentPrice | currency }}</div>
               <div>Total price: {{ totalPrice | currency }}</div>
             </template>
@@ -115,9 +101,11 @@
   import { getPlan } from '@/utils/subscription-utils';
   import NumberInput from "~/components/NumberInput";
   import OrderPricesTable from "~/components/OrderPricesTable";
+  import SelectWithButtons from "~/components/SelectWithButtons";
 
   export default {
     components: {
+      SelectWithButtons,
       OrderPricesTable,
       NumberInput,
       StripeCard,
@@ -137,6 +125,17 @@
       }
     },
     computed: {
+      planTermOptions() {
+        const monthlyPlan = {
+          title: 'Monthly',
+          value: 'month'
+        }
+        const yearlyPlan = {
+          title: `Yearly (save additional ${this.calculateSavings('year', 1)}%)`,
+          value: 'year'
+        }
+        return [monthlyPlan, yearlyPlan]
+      },
       orderPricesTableData() {
         return this.usersRangeKeys.map(range => ({
           range,
