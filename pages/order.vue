@@ -35,8 +35,8 @@
             <thead>
               <tr>
                 <th class="text-left">Number users</th>
-                <th :class="['text-left', planTerm == 'month' ? 'selected-term' : '']">Paid monthly</th>
-                <th :class="['text-left', planTerm == 'year' ? 'selected-term' : '']">Paid yearly</th>
+                <th :class="['text-left', planTerm == 'month' ? 'selected-term' : '']">Billed monthly</th>
+                <th :class="['text-left', planTerm == 'year' ? 'selected-term' : '']">Billed yearly</th>
               </tr>
             </thead>
             <tbody>
