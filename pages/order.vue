@@ -78,7 +78,7 @@
             </tbody>
           </v-simple-table>
 
-          <div>Per seat price: {{ currentPrice | currency }}</div>
+          <div>Per-user price: {{ currentPrice | currency }}</div>
           <div>Total price: {{ totalPrice | currency }}</div>
 
           <p v-if="seats > 1 || planTerm == 'year'">
