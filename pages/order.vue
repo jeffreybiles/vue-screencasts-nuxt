@@ -55,7 +55,7 @@
               </tr>
               <tr>
                 <td>
-                  <NumberInput label="Please select the number of seats:" 
+                  <NumberInput label="# Users" 
                                width="150"
                                :min="1"
                                :value="seats"
