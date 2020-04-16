@@ -31,32 +31,12 @@
         <v-stepper-content step="1">
           <h2 class="section-title">Cool!  Let's get some information and get you started.</h2>
           <div class="step">
-            <template v-if="!isTeamPackageInterfaceEnabled">
-              <font-awesome-icon icon="check" /> &nbsp;You've selected the {{plan.name}} package, with {{planTerm}}ly payments of {{currentPrice | currency}}.
-              <br>
-              <div v-if="planTerm == 'month'">
-                <a @click="setTerm('year')">Save {{calculateSavings('year', 1)}}% by switching to yearly payments ({{yearlyPrice | currency}}/year)</a>
-              </div>
-              <div v-else>
-                <a @click="setTerm('month')">Switch back to monthly payments ({{monthlyPrice | currency}}/month)</a>
-              </div>
-              or
-              <div>
-                <a @click="enableTeamPackageInterface">
-                  Purchase for a team and save up to {{calculateSavings('month', '5+')}}%
-                  <span v-if="planTerm == 'year'">more</span>.
-                </a>
-              </div>
-            </template>
-            <template v-else>
-              <div class="headline">You've selected the {{plan.name}} package</div>
-              <OrderPricesTable :data="orderPricesTableData" />
-              <NumberInput label="Please select the number of seats:" width="265" :min="1" :value="seats" @input="setSeats" />
-              <a @click="disableTeamPackageInterface">Purchase for an individual instead of a team</a>
-              <SelectWithButtons title="Select type of payments" :value="planTerm" :options="planTermOptions" @change="setTerm($event)" />
-              <div>Per seat price: {{ currentPrice | currency }}</div>
-              <div>Total price: {{ totalPrice | currency }}</div>
-            </template>
+            <div class="headline">You've selected the {{plan.name}} package</div>
+            <OrderPricesTable :data="orderPricesTableData" />
+            <NumberInput label="Please select the number of seats:" width="265" :min="1" :value="seats" @input="setSeats" />
+            <SelectWithButtons title="Select type of payments" :value="planTerm" :options="planTermOptions" @change="setTerm($event)" />
+            <div>Per seat price: {{ currentPrice | currency }}</div>
+            <div>Total price: {{ totalPrice | currency }}</div>
           </div>
 
           <p v-if="seats > 1 || planTerm == 'year'">
@@ -125,7 +105,6 @@
       let { stripeEnv } = this.$root.context.env;
       return {
         step: 1,
-        isTeamPackageInterfaceEnabled: false,
         seats: 1,
         planId: this.$route.query.plan,
         planTerm: this.$route.query.planTerm,
@@ -167,12 +146,6 @@
       totalPrice() {
         return this.currentPrice * this.seats
       },
-      yearlyPrice(){
-        return this.plan['year'].prices[this.currentUsersRangeKey]
-      },
-      monthlyPrice(){
-        return this.plan['month'].prices[this.currentUsersRangeKey]
-      },
       currentTermPrices(){
         return this.plan[this.planTerm].prices
       },
@@ -190,23 +163,12 @@
       if (seats) {
         this.seats = parseInt(seats)
       }
-      this.isTeamPackageInterfaceEnabled = this.seats > 1 || team === "true"
     },
     methods: {
       getIcon(range) {
         if (range === "5+") { return "mdi-account-group"}
         else if (range === "2-4") { return "mdi-account-multiple"}
         return "mdi-account"
-      },
-      enableTeamPackageInterface() {
-        this.isTeamPackageInterfaceEnabled = true
-        this.seats = 2
-        this.$router.replace({ path: '/order', query: { ...this.$route.query, team: true, seats: 2 }})
-      },
-      disableTeamPackageInterface(){
-        this.isTeamPackageInterfaceEnabled = false
-        this.seats = 1
-        this.$router.replace({ path: '/order', query: { ...this.$route.query, team: false, seats: 1}})
       },
       calculateSavings(term, rangeKey){
         // allow for rangeKey to be either the key or an integer
