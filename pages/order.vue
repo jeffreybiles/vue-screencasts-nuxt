@@ -1,14 +1,34 @@
 <template>
-  <div>
-    <HomePageSection classes="" innerClasses="order-header">
-      <div class="col-md-6">
-        <div v-if="this.$auth.user && this.$auth.user.pro">
-          <h1>Your current plan is {{currentPlan && currentPlan.name || 'Bronze'}}.</h1>
-          <h1>We're working on a way to change your plan with a click. Until then...</h1>
-          <h1>Email me to change your plan:
-            <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly&body=I understand that this email authorizes VueScreencasts.com to charge the card on file for $${currentPrice} every ${planTerm} until I cancel or change plans.`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
-        </div>
-        <div v-else>
+  <v-container>
+  <div v-if="this.$auth.user && this.$auth.user.pro">
+    <h1>Your current plan is {{currentPlan && currentPlan.name || 'Bronze'}}.</h1>
+    <h1>We're working on a way to change your plan with a click. Until then...</h1>
+    <h1>Email me to change your plan:
+      <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly&body=I understand that this email authorizes VueScreencasts.com to charge the card on file for $${currentPrice} every ${planTerm} until I cancel or change plans.`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
+  </div>
+  <div v-else>
+    <v-stepper v-model="step" non-linear>
+      <v-stepper-header>
+        <v-stepper-step :complete="step > 1" editable step="1">
+          {{seats}} User{{seats > 1 ? 's' : ''}}, paid {{planTerm}}ly
+        </v-stepper-step>
+        <v-divider></v-divider>
+        <v-stepper-step :complete="$auth.loggedIn" editable step="2">
+          <span v-if="$auth.loggedIn">
+            Logged in as {{$auth.user.email}}
+          </span>
+          <span v-else>
+            Login
+          </span>
+        </v-stepper-step>
+        <v-divider></v-divider>
+        <v-stepper-step :editable="$auth.loggedIn" step="3">
+          Pay ${{totalPrice}}
+        </v-stepper-step>
+      </v-stepper-header>
+
+      <v-stepper-items>
+        <v-stepper-content step="1">
           <h2 class="section-title">Cool!  Let's get some information and get you started.</h2>
           <div class="step">
             <template v-if="!isTeamPackageInterfaceEnabled">
@@ -48,47 +68,36 @@
             </strong>
           </p>
 
+          <v-btn @click="step = 2" color="primary">Continue</v-btn>
+        </v-stepper-content>
+        <v-stepper-content step="2">
           <div class="step">
             <div v-if="$auth.loggedIn">
               <font-awesome-icon icon="check" /> &nbsp; You're logged in as {{$auth.user.email}}
             </div>
-            <UserAuthModal v-else
-                          :postRegisterAction="() => {paymentModalOpen = true}"
-                          :postLoginAction="() => {paymentModalOpen = true}"
-                          v-slot="{openModal}">
-              <v-btn @click="openModal">
-                Sign In or Register
-              </v-btn>
-            </UserAuthModal>
+            <UserAuthTogglableForm v-else
+                          :postRegisterAction="() => step = 3"
+                          :postLoginAction="() => step = 3" />
           </div>
+          <v-btn color="primary" @click="step = 3">Continue</v-btn>
+        </v-stepper-content>
+        <v-stepper-content step="3">
+          <v-card min-height="200px" min-width="600px">
+            <div class="pa-3">
+              <h2 class="section-title">Purchase {{plan.name}} package.</h2>
+              <p class="subheader">Your card will be charged {{totalPrice | currency}} every {{planTerm}}.  At any point you can change or cancel your plan with just one email.</p>
 
-          <div class="step">
-            <v-btn :class="{'disabled': !$auth.loggedIn}" @click="paymentModalOpen = true">Enter Payment Information</v-btn>
-          </div>
+              <StripeCard buttonText="Pay and Subscribe"
+              :clickAction="pay" />
 
-          <v-dialog
-            v-model="paymentModalOpen"
-            width="600"
-          >
-            <v-card min-height="200px" min-width="600px">
-              <div class="pa-3">
-                <h2 class="section-title">Purchase {{plan.name}} package.</h2>
-                <p class="subheader">Your card will be charged {{totalPrice | currency}} every {{planTerm}}.  At any point you can change or cancel your plan with just one email.</p>
-
-                <StripeCard buttonText="Pay and Subscribe"
-                :clickAction="pay" />
-
-                <small>Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencasts servers.</small>
-              </div>
-            </v-card>
-          </v-dialog>
-        </div>
-      </div>
-      <div class="col-md-6 center-md d-sm-block d-none">
-        <img src="~assets/happy-vue-programmer.png" class="img-responsive" alt="VueScreencasts Student Learning">
-      </div>
-    </HomePageSection>
+              <small>Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencasts servers.</small>
+            </div>
+          </v-card>
+        </v-stepper-content>
+      </v-stepper-items>
+    </v-stepper>
   </div>
+  </v-container>
 </template>
 
 <script>
@@ -97,7 +106,7 @@
   import HomePageSection from '@/components/HomePageSection.vue';
   import { mapGetters } from 'vuex';
   import subscriptionPlanJson from '@/utils/subscription-plan-data.json';
-  import UserAuthModal from '@/components/UserAuthModal.vue';
+  import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
   import { getPlan } from '@/utils/subscription-utils';
   import NumberInput from "~/components/NumberInput";
   import OrderPricesTable from "~/components/OrderPricesTable";
@@ -110,17 +119,17 @@
       NumberInput,
       StripeCard,
       HomePageSection,
-      UserAuthModal
+      UserAuthTogglableForm
     },
     data() {
       let { stripeEnv } = this.$root.context.env;
       return {
+        step: 1,
         isTeamPackageInterfaceEnabled: false,
         seats: 1,
         planId: this.$route.query.plan,
         planTerm: this.$route.query.planTerm,
         plans: subscriptionPlanJson.plans.filter(p => !p.deprecated),
-        paymentModalOpen: false,
         stripeEnv
       }
     },
