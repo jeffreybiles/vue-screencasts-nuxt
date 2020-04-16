@@ -8,9 +8,7 @@
       mandatory
       borderless
     >
-      <v-btn v-for="option in options" :key="option.value" :value="option.value">
-        {{ option.title }}
-      </v-btn>
+      <slot />
     </v-btn-toggle>
   </div>
 </template>
@@ -30,10 +28,6 @@
           color: {
             type: String,
             default: 'green'
-          },
-          options: {
-            type: Array,
-            default: () => []
           }
         }
     }

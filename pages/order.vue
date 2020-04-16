@@ -34,7 +34,10 @@
             <div class="headline">You've selected the {{plan.name}} package</div>
             <OrderPricesTable :data="orderPricesTableData" />
             <NumberInput label="Please select the number of seats:" width="265" :min="1" :value="seats" @input="setSeats" />
-            <SelectWithButtons title="Select type of payments" :value="planTerm" :options="planTermOptions" @change="setTerm($event)" />
+            <SelectWithButtons title="Select type of payments" :value="planTerm" @change="setTerm($event)">
+              <v-btn value="month">Monthly</v-btn>
+              <v-btn value="year">Yearly (save additional {{this.calculateSavings('year', 1)}})</v-btn>
+            </SelectWithButtons>
             <div>Per seat price: {{ currentPrice | currency }}</div>
             <div>Total price: {{ totalPrice | currency }}</div>
           </div>
@@ -113,17 +116,6 @@
       }
     },
     computed: {
-      planTermOptions() {
-        const monthlyPlan = {
-          title: 'Monthly',
-          value: 'month'
-        }
-        const yearlyPlan = {
-          title: `Yearly (save additional ${this.calculateSavings('year', 1)}%)`,
-          value: 'year'
-        }
-        return [monthlyPlan, yearlyPlan]
-      },
       orderPricesTableData() {
         return this.usersRangeKeys.map(range => ({
           range,
