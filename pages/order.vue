@@ -23,7 +23,7 @@
         </v-stepper-step>
         <v-divider></v-divider>
         <v-stepper-step :editable="$auth.loggedIn" step="3">
-          Pay {{totalPrice | currency}}
+          Pay {{totalPrice | currency}}/{{planTerm}}
         </v-stepper-step>
       </v-stepper-header>
 
@@ -52,13 +52,32 @@
                   (save {{calculateSavings('year', range)}}%)
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <NumberInput label="Please select the number of seats:" 
+                               width="150"
+                               :min="1"
+                               :value="seats"
+                               @input="setSeats" />
+                </td>
+                <td>
+                  <v-btn @click="planTerm='month'" 
+                          color="primary"
+                          :disabled="planTerm == 'month'">
+                    Billed Monthly
+                  </v-btn>
+                </td>
+                <td>
+                  <v-btn @click="planTerm='year'" 
+                         color="primary"
+                         :disabled="planTerm == 'year'">
+                    Billed Yearly
+                  </v-btn>
+                </td>
+              </tr>
             </tbody>
           </v-simple-table>
-          <NumberInput label="Please select the number of seats:" width="265" :min="1" :value="seats" @input="setSeats" />
-          <SelectWithButtons title="Select billing cycle" :value="planTerm" @change="setTerm($event)">
-            <v-btn value="month">Monthly</v-btn>
-            <v-btn value="year">Yearly (save additional {{this.calculateSavings('year', 1)}}%)</v-btn>
-          </SelectWithButtons>
+
           <div>Per seat price: {{ currentPrice | currency }}</div>
           <div>Total price: {{ totalPrice | currency }}</div>
 
@@ -110,11 +129,9 @@
   import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
   import { getPlan } from '@/utils/subscription-utils';
   import NumberInput from "~/components/NumberInput";
-  import SelectWithButtons from "~/components/SelectWithButtons";
 
   export default {
     components: {
-      SelectWithButtons,
       NumberInput,
       StripeCard,
       HomePageSection,
@@ -243,6 +260,20 @@
 
     .selected-term {
       background-color: #CCC;
+    }
+  }
+
+  // overriding v-simple-table border-bottom
+  .v-data-table tbody tr.selected-range td.selected-term {
+    border: 2px solid #999;
+  }
+
+  // overriding v-simple-table hover effect
+  .v-data-table tbody tr:hover:not(.v-data-table__expanded__content) {
+    background: inherit;
+
+    &.selected-range {
+      background: #EEE;
     }
   }
 </style>
