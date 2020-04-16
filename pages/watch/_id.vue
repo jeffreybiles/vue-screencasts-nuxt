@@ -62,7 +62,7 @@
             </span>
             <span v-else>
               <UserAuthModal v-slot="{openModal}">
-                <v-btn @click="openModal" x-small>
+                <v-btn @click="openModal" x-small outlined>
                   Log In to track your learning
                 </v-btn>
               </UserAuthModal>
