@@ -34,18 +34,20 @@
             <thead>
               <tr>
                 <th class="text-left">Number users</th>
-                <th class="text-left">Paid monthly</th>
-                <th class="text-left">Paid yearly</th>
+                <th :class="['text-left', planTerm == 'month' ? 'selected-term' : '']">Paid monthly</th>
+                <th :class="['text-left', planTerm == 'year' ? 'selected-term' : '']">Paid yearly</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="range in Object.keys(this.plan['month'].prices)" :key="range">
+              <tr v-for="range in Object.keys(this.plan['month'].prices)" 
+                  :key="range"
+                  :class="[ range == currentUsersRangeKey ? 'selected-range' : '']">
                 <td><v-icon>{{getIcon(range)}}</v-icon> {{ range }}</td>
-                <td>
+                <td :class="[planTerm == 'month' ? 'selected-term' : '']">
                   {{ plan['month'].prices[range] | currency }}/user
                   (save {{calculateSavings('month', range)}}%)
                 </td>
-                <td>
+                <td :class="[planTerm == 'year' ? 'selected-term' : '']">
                   {{ plan['year'].prices[range] | currency }}/user
                   (save {{calculateSavings('year', range)}}%)
                 </td>
@@ -231,5 +233,16 @@
     color: #aaaaaa;
     cursor: none;
     pointer-events: none;
+  }
+
+  .selected-term {
+    background-color: #EEE;
+  }
+  .selected-range {
+    background-color: #EEE;
+
+    .selected-term {
+      background-color: #CCC;
+    }
   }
 </style>
