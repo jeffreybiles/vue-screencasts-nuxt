@@ -4,7 +4,8 @@
            :key="testimonial.id"
            cols="6"
            sm="3"
-           class="text-center testimonial">
+           @click="goToSource(testimonial)"
+           :class="['text-center', 'testimonial', testimonial.link ? 'clickable' : '']">
       
       <v-img :src="testimonial.img_src" v-if="reloadHack" />
       <img :src="testimonial.img_src" v-else />
@@ -33,6 +34,13 @@
           t.img_src = `${host}/${folder}/${t.img_url}`
           return t
         })
+      }
+    },
+    methods: {
+      goToSource(testimonial) {
+        if(testimonial.link) {
+          window.open(testimonial.link, '_blank');
+        }
       }
     },
     props: {
