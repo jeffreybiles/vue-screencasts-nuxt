@@ -67,10 +67,8 @@
                 </v-btn>
               </UserAuthModal>
             </span>
-            <span> &nbsp; | &nbsp; </span>
-            <span>
-              <ShortcutsDialog />
-            </span>
+            &nbsp; | &nbsp;
+            <ShortcutsDialog />
         </VideoByline>
         <v-spacer />
 
