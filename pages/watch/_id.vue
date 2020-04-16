@@ -67,6 +67,8 @@
                 </v-btn>
               </UserAuthModal>
             </span>
+            &nbsp; | &nbsp;
+            <ShortcutsDialog />
         </VideoByline>
         <v-spacer />
 
@@ -139,6 +141,7 @@ import { mapState, mapGetters } from 'vuex';
 import _ from 'lodash';
 import {getThumbnail} from '@/utils/video-decorator';
 import {CODE_SUMMARY_STATES} from "@/utils/consts";
+import ShortcutsDialog from "~/components/ShortcutsDialog";
 
 export default {
   middleware: 'load-videos-and-courses',
@@ -149,6 +152,7 @@ export default {
     }
   },
   components: {
+    ShortcutsDialog,
     VideoByline,
     VideoWatch,
     MarkdownDisplay,
