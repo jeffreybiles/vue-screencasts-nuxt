@@ -29,17 +29,15 @@
 
       <v-stepper-items>
         <v-stepper-content step="1">
-          <div class="step">
-            <div class="headline">You've selected the {{plan.name}} package</div>
-            <OrderPricesTable :data="orderPricesTableData" />
-            <NumberInput label="Please select the number of seats:" width="265" :min="1" :value="seats" @input="setSeats" />
-            <SelectWithButtons title="Select billing cycle" :value="planTerm" @change="setTerm($event)">
-              <v-btn value="month">Monthly</v-btn>
-              <v-btn value="year">Yearly (save additional {{this.calculateSavings('year', 1)}}%)</v-btn>
-            </SelectWithButtons>
-            <div>Per seat price: {{ currentPrice | currency }}</div>
-            <div>Total price: {{ totalPrice | currency }}</div>
-          </div>
+          <div class="headline">You've selected the {{plan.name}} package</div>
+          <OrderPricesTable :data="orderPricesTableData" />
+          <NumberInput label="Please select the number of seats:" width="265" :min="1" :value="seats" @input="setSeats" />
+          <SelectWithButtons title="Select billing cycle" :value="planTerm" @change="setTerm($event)">
+            <v-btn value="month">Monthly</v-btn>
+            <v-btn value="year">Yearly (save additional {{this.calculateSavings('year', 1)}}%)</v-btn>
+          </SelectWithButtons>
+          <div>Per seat price: {{ currentPrice | currency }}</div>
+          <div>Total price: {{ totalPrice | currency }}</div>
 
           <p v-if="seats > 1 || planTerm == 'year'">
             <strong>
@@ -53,15 +51,13 @@
           <v-btn @click="step = 2" color="primary">Continue</v-btn>
         </v-stepper-content>
         <v-stepper-content step="2">
-          <div class="step">
-            <div v-if="$auth.loggedIn">
-              <font-awesome-icon icon="check" /> &nbsp; You're logged in as {{$auth.user.email}}
-            </div>
-            <UserAuthTogglableForm v-else
-                          :postRegisterAction="() => step = 3"
-                          :postLoginAction="() => step = 3" />
+          <div v-if="$auth.loggedIn">
+            <font-awesome-icon icon="check" /> &nbsp; You're logged in as {{$auth.user.email}}
+            <v-btn color="primary" @click="step = 3">Continue</v-btn>
           </div>
-          <v-btn color="primary" @click="step = 3">Continue</v-btn>
+          <UserAuthTogglableForm v-else
+                        :postRegisterAction="() => step = 3"
+                        :postLoginAction="() => step = 3" />
         </v-stepper-content>
         <v-stepper-content step="3">
           <v-card min-height="200px" min-width="600px">
@@ -222,22 +218,6 @@
   }
   .stripe-card.complete {
     border-color: green;
-  }
-
-  .paper-container-large {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .step {
-    padding-bottom: 20px;
-
-    a {
-      color: green;
-    }
   }
 
   .disabled {
