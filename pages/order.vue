@@ -30,7 +30,28 @@
       <v-stepper-items>
         <v-stepper-content step="1">
           <div class="headline">You've selected the {{plan.name}} package</div>
-          <OrderPricesTable :data="orderPricesTableData" />
+          <v-simple-table>
+            <thead>
+              <tr>
+                <th class="text-left">Number users</th>
+                <th class="text-left">Paid monthly</th>
+                <th class="text-left">Paid yearly</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="range in Object.keys(this.plan['month'].prices)" :key="range">
+                <td><v-icon>{{getIcon(range)}}</v-icon> {{ range }}</td>
+                <td>
+                  {{ plan['month'].prices[range] | currency }}/user
+                  (save {{calculateSavings('month', range)}}%)
+                </td>
+                <td>
+                  {{ plan['year'].prices[range] | currency }}/user
+                  (save {{calculateSavings('year', range)}}%)
+                </td>
+              </tr>
+            </tbody>
+          </v-simple-table>
           <NumberInput label="Please select the number of seats:" width="265" :min="1" :value="seats" @input="setSeats" />
           <SelectWithButtons title="Select billing cycle" :value="planTerm" @change="setTerm($event)">
             <v-btn value="month">Monthly</v-btn>
@@ -87,13 +108,11 @@
   import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
   import { getPlan } from '@/utils/subscription-utils';
   import NumberInput from "~/components/NumberInput";
-  import OrderPricesTable from "~/components/OrderPricesTable";
   import SelectWithButtons from "~/components/SelectWithButtons";
 
   export default {
     components: {
       SelectWithButtons,
-      OrderPricesTable,
       NumberInput,
       StripeCard,
       HomePageSection,
@@ -111,16 +130,6 @@
       }
     },
     computed: {
-      orderPricesTableData() {
-        return this.usersRangeKeys.map(range => ({
-          range,
-          icon: this.getIcon(range),
-          monthlyPrice: this.plan['month'].prices[range],
-          monthlySaving: this.calculateSavings('month', range),
-          yearlyPrice: this.plan['year'].prices[range],
-          yearlySaving: this.calculateSavings('year', range)
-        }))
-      },
       plan(){
         return this.plans.find(p => p.id == this.planId)
       },
@@ -135,9 +144,6 @@
       },
       currentTermPrices(){
         return this.plan[this.planTerm].prices
-      },
-      usersRangeKeys() {
-        return Object.keys(this.plan['month'].prices)
       },
       currentUsersRangeKey() {
         if (this.seats >= 5) { return "5+"}
