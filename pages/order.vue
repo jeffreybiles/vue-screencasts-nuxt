@@ -139,11 +139,12 @@
     },
     data() {
       let { stripeEnv } = this.$root.context.env;
+      let query = this.$route.query;
       return {
-        step: 1,
-        seats: 1,
-        planId: this.$route.query.plan,
-        planTerm: this.$route.query.planTerm,
+        step: query.step ? parseInt(query.step) : 1,
+        seats: query.seats ? parseInt(query.seats) : 1,
+        planId: query.plan,
+        planTerm: query.planTerm,
         plans: subscriptionPlanJson.plans.filter(p => !p.deprecated),
         stripeEnv
       }
@@ -170,10 +171,12 @@
         return "1"
       }
     },
-    created() {
-      let { seats, team } = this.$route.query
-      if (seats) {
-        this.seats = parseInt(seats)
+    watch: {
+      step(val){
+        this.$router.push({path: '/order', query: {
+          ...this.$route.query,
+          step: val
+        }})
       }
     },
     methods: {
