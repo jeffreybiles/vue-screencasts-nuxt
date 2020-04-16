@@ -7,6 +7,8 @@
       <a :href="`mailto:jeffrey@vuescreencasts.com?subject=I would like to change my subscription to ${plan.name}, billed ${planTerm}ly&body=I understand that this email authorizes VueScreencasts.com to charge the card on file for $${currentPrice} every ${planTerm} until I cancel or change plans.`" target="_blank">jeffrey@vuescreencasts.com</a></h1>
   </div>
   <div v-else>
+    <div class="headline">Purchase the {{plan.name}} package</div>
+
     <v-stepper v-model="step" non-linear>
       <v-stepper-header>
         <v-stepper-step :complete="step > 1" editable step="1">
@@ -29,7 +31,6 @@
 
       <v-stepper-items>
         <v-stepper-content step="1">
-          <div class="headline">You've selected the {{plan.name}} package</div>
           <v-simple-table>
             <thead>
               <tr>
@@ -94,8 +95,8 @@
         </v-stepper-content>
         <v-stepper-content step="2">
           <div v-if="$auth.loggedIn">
-            <font-awesome-icon icon="check" /> &nbsp; You're logged in as {{$auth.user.email}}
-            <v-btn color="primary" @click="step = 3">Continue</v-btn>
+            <font-awesome-icon icon="check" /> &nbsp; You're logged in as {{$auth.user.email}}.
+            <div class="pt-3"><v-btn color="primary" @click="step = 3">Continue</v-btn></div>
           </div>
           <UserAuthTogglableForm v-else
                         :postRegisterAction="() => step = 3"
@@ -104,7 +105,6 @@
         <v-stepper-content step="3">
           <v-card min-height="200px" min-width="600px">
             <div class="pa-3">
-              <h2 class="section-title">Purchase {{plan.name}} package.</h2>
               <p class="subheader">Your card will be charged {{totalPrice | currency}} every {{planTerm}}.  At any point you can change or cancel your plan with just one email.</p>
 
               <StripeCard buttonText="Pay and Subscribe"
