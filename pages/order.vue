@@ -10,7 +10,7 @@
     <v-stepper v-model="step" non-linear>
       <v-stepper-header>
         <v-stepper-step :complete="step > 1" editable step="1">
-          {{seats}} User{{seats > 1 ? 's' : ''}}, paid {{planTerm}}ly
+          {{seats}} User{{seats > 1 ? 's' : ''}}, billed {{planTerm}}ly
         </v-stepper-step>
         <v-divider></v-divider>
         <v-stepper-step :complete="$auth.loggedIn" editable step="2">
@@ -23,20 +23,19 @@
         </v-stepper-step>
         <v-divider></v-divider>
         <v-stepper-step :editable="$auth.loggedIn" step="3">
-          Pay ${{totalPrice}}
+          Pay {{totalPrice | currency}}
         </v-stepper-step>
       </v-stepper-header>
 
       <v-stepper-items>
         <v-stepper-content step="1">
-          <h2 class="section-title">Cool!  Let's get some information and get you started.</h2>
           <div class="step">
             <div class="headline">You've selected the {{plan.name}} package</div>
             <OrderPricesTable :data="orderPricesTableData" />
             <NumberInput label="Please select the number of seats:" width="265" :min="1" :value="seats" @input="setSeats" />
-            <SelectWithButtons title="Select type of payments" :value="planTerm" @change="setTerm($event)">
+            <SelectWithButtons title="Select billing cycle" :value="planTerm" @change="setTerm($event)">
               <v-btn value="month">Monthly</v-btn>
-              <v-btn value="year">Yearly (save additional {{this.calculateSavings('year', 1)}})</v-btn>
+              <v-btn value="year">Yearly (save additional {{this.calculateSavings('year', 1)}}%)</v-btn>
             </SelectWithButtons>
             <div>Per seat price: {{ currentPrice | currency }}</div>
             <div>Total price: {{ totalPrice | currency }}</div>
