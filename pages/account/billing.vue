@@ -10,10 +10,10 @@
     </span>
 
     <span v-else>
-    
+
       <div v-if="card">
         <p>
-          Your current card ends in <strong>{{card.last4}}</strong>.  
+          Your current card ends in <strong>{{card.last4}}</strong>.
           It expires <strong>{{card.exp_month}}/{{card.exp_year}}</strong>.
           <br>
           <a @click="isChangingCards = true">Change Cards</a>
@@ -26,9 +26,9 @@
             <p>Payment is handled securely through Stripe, so your credit-card number will never touch VueScreencasts servers.</p>
             <p>The first charge on your new card will be on {{subscriptionEndDate}}.</p>
             <StripeCard buttonText="Change Cards"
-                        :clickAction="changeCards" />  
+                        :clickAction="changeCards" />
           </v-card-text>
-          
+
         </v-card>
       </div>
       <p v-else>
@@ -52,8 +52,8 @@
 
       <h2 class="mt-3">Previous Payments</h2>
       <p>Note: Stripe subscriptions are complex and I haven't covered all edge cases.  If there's been an error, contact me and I'll make it right.
-        Email me (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>), 
-        text me (<a href="sms:501-256-3078">(501) 256-3078</a>), 
+        Email me (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>),
+        text me (<a href="sms:501-256-3078">(501) 256-3078</a>),
         or twitter message me (<a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a>).</p>
       <v-simple-table>
         <thead>
@@ -99,6 +99,7 @@
   import ButtonAsync from '@/components/ButtonAsync.vue';
   import StripeCard from '@/components/StripeCard.vue';
   export default {
+    middleware: 'auth-guard',
     components: {
       ButtonAsync,
       StripeCard
@@ -131,7 +132,7 @@
         let response = await this.$axios.post('/stripe/cancel_subscription')
         this.subscription = response.data
 
-        // TODO: make this a popup asking what went wrong (maybe a quick poll), 
+        // TODO: make this a popup asking what went wrong (maybe a quick poll),
         // then saying they can resubscribe any time...
         // and if they do it within a month, they'll be able to keep their special pricing
         this.$store.dispatch('snackbar/setSnackbar', {text: "You're unsubscribed :(  I hope you'll join us again soon.", timeout: 0})

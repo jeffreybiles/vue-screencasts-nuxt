@@ -3,16 +3,16 @@
     <h1>Edit Personal Details</h1>
 
     <v-form v-model="valid">
-      <v-text-field color="green" 
+      <v-text-field color="green"
                     label="name"
                     v-model="user.name"
                     :rules="[required('name')]" />
       <v-text-field color="green"
                     label="email"
-                    v-model="user.email" 
+                    v-model="user.email"
                     :rules="[emailFormat()]"/>
 
-      <UserAuthPassword v-model="newPassword" 
+      <UserAuthPassword v-model="newPassword"
                         label="New Password (leave blank if not changing)"
                         :passwordRequired="false" />
 
@@ -31,8 +31,9 @@
   import validations from "@/utils/validations";
   import UserAuthPassword from '@/components/UserAuthPassword.vue';
   import ButtonAsync from '@/components/ButtonAsync.vue';
-  
+
   export default {
+    middleware: 'auth-guard',
     data(){
       return {
         ...validations,

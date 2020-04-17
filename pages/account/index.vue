@@ -23,6 +23,7 @@
   import ProPerksList from '@/components/ProPerksList.vue';
 
   export default {
+    middleware: 'auth-guard',
     components: {
       DateDisplay,
       ProPerksList,
