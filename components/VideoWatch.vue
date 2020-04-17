@@ -98,7 +98,6 @@
     },
     methods: {
       shortkeyAction(event){
-        console.log(event)
         if(event.srcKey == 'playPause') {
           this.playPause();
         } else {
