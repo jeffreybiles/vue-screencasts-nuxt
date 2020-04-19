@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
     <div v-else>
       <div style="width:100%; padding-top:56.25%; position: relative; background-color: black;"
@@ -67,6 +67,12 @@
       return {
         playing: true,
         playbackRates: [0.7, 1.0, 1.5, 2.0, 2.5, 3.0]
+      }
+    },
+    mounted() {
+      const SAVED_PLAYBACK_RATE = localStorage.getItem('savedPlaybackRate')
+      if (SAVED_PLAYBACK_RATE) {
+        this.videoPlayer.playbackRate(SAVED_PLAYBACK_RATE)
       }
     },
     components: {
@@ -117,7 +123,9 @@
           speed -= 0.25
           if(speed < 0.5) speed = 0.5
         }
-        this.videoPlayer.playbackRate(Math.round(speed * 100)/100)
+        const PLAYBACK_RATE = Math.round(speed * 100)/100
+        localStorage.setItem('savedPlaybackRate', PLAYBACK_RATE)
+        this.videoPlayer.playbackRate(PLAYBACK_RATE)
       }
     },
     props: {
