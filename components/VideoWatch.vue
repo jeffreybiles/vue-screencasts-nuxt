@@ -111,13 +111,13 @@
       changeSpeed(increaseSpeed = true) {
         let speed = this.videoPlayer.playbackRate()
         if(increaseSpeed) {
-          speed += 0.1
+          speed += 0.25
           if(speed > 4) speed = 4
         } else {
-          speed -= 0.1
+          speed -= 0.25
           if(speed < 0.5) speed = 0.5
         }
-        this.videoPlayer.playbackRate(Math.round(speed * 10)/10)
+        this.videoPlayer.playbackRate(Math.round(speed * 100)/100)
       }
     },
     props: {

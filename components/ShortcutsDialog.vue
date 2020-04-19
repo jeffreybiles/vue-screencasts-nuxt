@@ -29,12 +29,12 @@
         </v-list-item>
         <v-list-item>
           <v-list-item-title>
-            <v-chip label>d</v-chip> – Speed Up Video by 0.1x
+            <v-chip label>d</v-chip> – Speed +0.25x
           </v-list-item-title>
         </v-list-item>
         <v-list-item>
           <v-list-item-title>
-            <v-chip label>s</v-chip> – Slow Down Video by 0.1x
+            <v-chip label>s</v-chip> – Speed -0.25x
           </v-list-item-title>
         </v-list-item>
         <v-list-item>
