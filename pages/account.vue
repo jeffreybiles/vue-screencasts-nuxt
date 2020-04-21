@@ -13,7 +13,7 @@
 
 <script>
   export default {
-
+    middleware: ['auth-guard']
   }
 </script>
 
