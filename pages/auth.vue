@@ -1,5 +1,8 @@
 <template>
   <v-container>
+    <v-sheet v-if="$route.query.redirect" color="green lighten-3" class="text-center">
+      Log in or register to access {{$route.query.redirect}}.
+    </v-sheet>
     <UserAuthTogglableForm loginPhrase="Login"
                            registerPhrase="Register"
                            :postLoginAction="redirect"
