@@ -2,12 +2,12 @@
   <div>
     <div v-if="isLogin">
       <h1>{{ loginPhrase }}</h1>
-      <p>New User? <a @click="isLogin = false">Click here to register.</a></p>
+      <p>New User? <a @click="changeScreen">Click here to register.</a></p>
       <UserAuthForm buttonText="Login" :submitForm="loginUser" />
     </div>
     <div v-else>
       <h1>{{ registerPhrase }}</h1>
-      <p>Existing User? <a @click="isLogin = true">Click here to login.</a></p>
+      <p>Existing User? <a @click="changeScreen">Click here to login.</a></p>
       <UserAuthForm buttonText="Register" 
           :submitForm="registerUser" 
           :hasName="true" 
@@ -21,8 +21,9 @@
 
   export default {
     data(){
+      let isLogin = this.$route.query.isLogin || false
       return {
-        isLogin: false,
+        isLogin
       }
     },
     components: {
@@ -35,7 +36,7 @@
             data: loginInfo
           })
           this.$store.dispatch('snackbar/setSnackbar', {text: `Thanks for signing in, ${this.$auth.user.name}`})
-          await this.$store.dispatch('videos/loadAll')
+
           this.postLoginAction()
         } catch {
           this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: 'There was an issue signing in.  Please try again.'})
@@ -55,6 +56,16 @@
           this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: 'There was an issue signing up.  Please try again.'})
         }
       },
+      changeScreen(){
+        this.isLogin = !this.isLogin
+
+        this.$router.replace({
+          query: {
+            ...this.$route.query,
+            isLogin: this.isLogin,
+          }
+        })
+      }
     },
     props: {
       registerPhrase: {

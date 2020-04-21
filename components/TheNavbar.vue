@@ -75,8 +75,7 @@
           ]
         } else {
           return [
-            {text: "Login", to: "/login"},
-            {text: "Register", to: "/register"}
+            {text: "Login/Register", to: "/auth"},
           ]
         }
       },
