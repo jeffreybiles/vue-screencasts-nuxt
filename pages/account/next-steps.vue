@@ -6,7 +6,7 @@
     <div v-if="seats > 1">
       <NextStepCompletionCard :markComplete="() => { markComplete('sendTeamMembersInfo')}"
                               :stepCompleted="next_steps_taken.sendTeamMembersInfo">
-        <p>Please send <a href="mailto:jeffrey@vuescreencasts.com">jeffrey@vuescreencasts.com</a> the names and emails of the other 
+        <p>Please send <a href="mailto:jeffrey@vuescreencasts.com">jeffrey@vuescreencasts.com</a> the names and emails of the other
            {{ seats == 2 ? 'team member' : `${seats - 1} team members` }} you want on the plan.</p>
       </NextStepCompletionCard>
     </div>
@@ -71,6 +71,7 @@
   import NextStepCompletionCard from '@/components/NextStepCompletionCard.vue';
 
   export default {
+    middleware: 'auth-guard',
     data(){
       return {
         plan: getPlanWithDefault(this.$auth.user.plan_id),
