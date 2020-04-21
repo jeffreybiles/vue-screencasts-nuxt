@@ -20,7 +20,7 @@
             data: loginInfo
           })
           this.$store.dispatch('snackbar/setSnackbar', {text: `Thanks for signing in, ${this.$auth.user.name}`})
-          await this.$store.dispatch('videos/loadAll')
+
           this.$router.push('/')
         } catch {
           this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: 'There was an issue signing in.  Please try again.'})
