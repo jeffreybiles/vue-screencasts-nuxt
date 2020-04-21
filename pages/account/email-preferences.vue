@@ -21,7 +21,6 @@
   import _ from 'lodash';
 
   export default {
-    middleware: 'auth-guard',
     async asyncData({$axios}){
       let result = await $axios.get('/email_preferences/status')
 

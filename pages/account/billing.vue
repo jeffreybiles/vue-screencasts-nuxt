@@ -99,7 +99,6 @@
   import ButtonAsync from '@/components/ButtonAsync.vue';
   import StripeCard from '@/components/StripeCard.vue';
   export default {
-    middleware: 'auth-guard',
     components: {
       ButtonAsync,
       StripeCard

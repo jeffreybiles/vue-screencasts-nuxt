@@ -33,7 +33,6 @@
   import ButtonAsync from '@/components/ButtonAsync.vue';
 
   export default {
-    middleware: 'auth-guard',
     data(){
       return {
         ...validations,

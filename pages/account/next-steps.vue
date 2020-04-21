@@ -71,7 +71,6 @@
   import NextStepCompletionCard from '@/components/NextStepCompletionCard.vue';
 
   export default {
-    middleware: 'auth-guard',
     data(){
       return {
         plan: getPlanWithDefault(this.$auth.user.plan_id),
