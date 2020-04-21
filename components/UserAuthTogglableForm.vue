@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div v-if="isLogin">
+    <div v-if="authScreen == 'login'">
       <h1>{{ loginPhrase }}</h1>
-      <p>New User? <a @click="changeScreen">Click here to register.</a></p>
+      <p>New User? <a @click="changeScreen('register')">Click here to register.</a></p>
       <UserAuthForm buttonText="Login" :submitForm="loginUser" />
     </div>
     <div v-else>
       <h1>{{ registerPhrase }}</h1>
-      <p>Existing User? <a @click="changeScreen">Click here to login.</a></p>
+      <p>Existing User? <a @click="changeScreen('login')">Click here to login.</a></p>
       <UserAuthForm buttonText="Register" 
           :submitForm="registerUser" 
           :hasName="true" 
@@ -21,9 +21,9 @@
 
   export default {
     data(){
-      let isLogin = this.$route.query.isLogin || false
+      let authScreen = this.$route.query.authScreen || 'login'
       return {
-        isLogin
+        authScreen
       }
     },
     components: {
@@ -56,13 +56,13 @@
           this.$store.dispatch('snackbar/setSnackbar', {color: 'red', text: 'There was an issue signing up.  Please try again.'})
         }
       },
-      changeScreen(){
-        this.isLogin = !this.isLogin
+      changeScreen(newScreen){
+        this.authScreen = newScreen
 
         this.$router.replace({
           query: {
             ...this.$route.query,
-            isLogin: this.isLogin,
+            authScreen: newScreen,
           }
         })
       }
