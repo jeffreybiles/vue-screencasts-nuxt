@@ -20,6 +20,13 @@ export default {
     TheFooter,
     TheSnackbar
   },
+  head(){
+    return {
+      meta: [
+        {name: 'google-site-verification', property: 'google-site-verification', content: "mjhSM8iNpXB9ns6_DOYUyPmVEGVu3dtIvcP88oASFMk"},
+      ]
+    }
+  }
 }
 </script>
 <style lang="scss">
