@@ -1,3 +1,5 @@
+const axios = require('axios')
+
 export default {
   mode: 'universal',
   /*
@@ -105,6 +107,7 @@ export default {
       symbolPosition: 'front',
       symbolSpacing: false
     }],
+    '@nuxtjs/sitemap'
   ],
   /*
   ** Axios module configuration
@@ -112,6 +115,20 @@ export default {
   */
   axios: {
     baseURL: process.env.BASE_URL || 'http://localhost:3000/api'
+  },
+
+  sitemap: {
+    exclude: [
+      '/account/**',
+      '/account',
+      '/admin/**',
+      '/admin',
+    ],
+    routes: async () => {
+      let baseUrl =  process.env.BASE_URL || 'http://localhost:3000/api'
+      let { data } = await axios.get(`${baseUrl}/videos`)
+      return data.data.map(v => `/watch/${v.id}`)
+    }
   },
   /*
   ** Build configuration
