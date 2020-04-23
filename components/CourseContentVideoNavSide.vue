@@ -60,7 +60,7 @@
       this.timeUpdateIntervaL = setInterval(() => {
         this.currentTime = Date.now()
         if (this.userNotPro && this.selectedVideo.pro && !this.proVideoInFreePeriod(this.selectedVideo)) {
-          location.reload()
+          window.location.reload()
         }
       }, 60000)
     },
