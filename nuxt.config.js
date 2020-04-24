@@ -107,6 +107,7 @@ export default {
       symbolPosition: 'front',
       symbolSpacing: false
     }],
+    '@nuxtjs/robots',
     '@nuxtjs/sitemap'
   ],
   /*
@@ -115,6 +116,10 @@ export default {
   */
   axios: {
     baseURL: process.env.BASE_URL || 'http://localhost:3000/api'
+  },
+
+  robots: {
+    Sitemap: 'https://www.vuescreencasts.com/sitemap.xml'
   },
 
   sitemap: {
