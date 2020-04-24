@@ -127,7 +127,35 @@ export default {
     routes: async () => {
       let baseUrl =  process.env.BASE_URL || 'http://localhost:3000/api'
       let { data } = await axios.get(`${baseUrl}/videos`)
-      return data.data.map(v => `/watch/${v.id}`)
+      let videos = data.data
+      let watchPages = videos.map(v => {
+        return {
+          url: `/watch/${v.id}`,
+          changefreq: 'weekly',
+          priority: 0.8,
+          lastmod: v.attributes.updated_at
+        }
+      })
+
+      let mostRecentUpdate = videos.map(v => v.attributes.updated_at).sort((v1, v2) => v1 < v2 ? 1 : -1)[0]
+
+      return [{
+        url: '/videos',
+        changefreq: 'daily',
+        priority: 1,
+        lastmod: mostRecentUpdate
+      }, {
+        url: '/courses',
+        changefreq: 'daily',
+        priority: 1,
+        lastmod: mostRecentUpdate
+      }, {
+        url: '/',
+        changefreq: 'weekly',
+        priority: 1,
+      },
+        ...watchPages
+      ]
     }
   },
   /*
