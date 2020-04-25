@@ -8,7 +8,12 @@
       <v-row class="pa-0 ma-0">
         <v-col cols="12" md="8" class="py-0">
           <div class="subheader video-title">{{video.name}}</div>
-          <div v-if="video.pro && proVideoInFreePeriod(video) && userNotPro" class="pro-time-left green--text text--accent-3">{{ timeLeft(video, currentTime) | formatTimeLeft }}</div>
+          <div
+            v-if="video.pro && proVideoInFreePeriod(video) && userNotPro"
+            class="pro-time-left green--text text--accent-3"
+          >
+            {{ timeLeft(video, currentTime) | formatTimeLeft }}
+          </div>
         </v-col>
         <v-col cols="12" md="4" class="py-0">
           <div>
@@ -62,7 +67,7 @@
         if (this.userNotPro && this.selectedVideo.pro && !this.proVideoInFreePeriod(this.selectedVideo)) {
           window.location.reload()
         }
-      }, 60000)
+      }, MINUTE)
     },
     destroyed(){
       window.removeEventListener("resize", this.calculateHeight);
@@ -90,7 +95,7 @@
         return SEVEN_DAYS - this.diffInMilliseconds(currentTime, video.published_at.getTime())
       },
       proVideoInFreePeriod(video) {
-        return (this.timeLeft(video, this.currentTime) > 0)
+        return this.timeLeft(video, this.currentTime) > 0
       },
       scrollToCurrentVideo() {
         const selectedVideoTopOffset = this.$refs[`video-${this.selectedVideo.id}`][0].offsetTop
@@ -112,7 +117,7 @@
         isPlayed: 'user/videoIsPlayed',
       }),
       userNotPro() {
-        return !this.$auth.user || (this.$auth.user && !this.$auth.user.pro)
+        return !this.$auth.user || !this.$auth.user.pro
       }
     }
   }
