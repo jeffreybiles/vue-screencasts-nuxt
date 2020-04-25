@@ -8,12 +8,7 @@
       <v-row class="pa-0 ma-0">
         <v-col cols="12" md="8" class="py-0">
           <div class="subheader video-title">{{video.name}}</div>
-          <div
-            v-if="video.pro && proVideoInFreePeriod(video) && userNotPro"
-            class="pro-time-left green--text text--accent-3"
-          >
-            {{ timeLeft(video, currentTime) | formatTimeLeft }}
-          </div>
+          <ProVideoFreePeriodCountdown v-if="video.pro && proVideoInFreePeriod(video) && userNotPro" :video="video" :current-time="currentTime" />
         </v-col>
         <v-col cols="12" md="4" class="py-0">
           <div>
@@ -31,7 +26,8 @@
   import { mapGetters } from 'vuex';
   import ProMarker from '@/components/ProMarker.vue';
   import DurationDisplay from '@/components/DurationDisplay.vue';
-  import {DAY, HOUR, MINUTE, SEVEN_DAYS} from "~/utils/consts";
+  import { MINUTE, SEVEN_DAYS } from "~/utils/consts";
+  import ProVideoFreePeriodCountdown from "~/components/ProVideoFreePeriodCountdown";
   export default {
     data(){
       return {
@@ -41,6 +37,7 @@
       }
     },
     components: {
+      ProVideoFreePeriodCountdown,
       ProMarker,
       DurationDisplay
     },
@@ -73,29 +70,9 @@
       window.removeEventListener("resize", this.calculateHeight);
       clearInterval(this.timeUpdateIntervaL)
     },
-    filters: {
-      formatTimeLeft(value) {
-        const minutes = value / MINUTE
-        const hours = minutes / 60
-        const days = hours / 24
-        if (value > DAY) {
-          return `Free for ${parseInt(days)} more days`
-        }
-        if (value > HOUR) {
-          return `Free for ${parseInt(hours)} more hours`
-        }
-        return `Free for ${parseInt(minutes)} more minutes`
-      }
-    },
     methods: {
-      diffInMilliseconds(firstDate, secondDate) {
-        return firstDate - secondDate
-      },
-      timeLeft(video, currentTime) {
-        return SEVEN_DAYS - this.diffInMilliseconds(currentTime, video.published_at.getTime())
-      },
       proVideoInFreePeriod(video) {
-        return this.timeLeft(video, this.currentTime) > 0
+        return SEVEN_DAYS - (this.currentTime - video.published_at.getTime()) > 0
       },
       scrollToCurrentVideo() {
         const selectedVideoTopOffset = this.$refs[`video-${this.selectedVideo.id}`][0].offsetTop
