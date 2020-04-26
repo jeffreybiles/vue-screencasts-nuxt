@@ -26,7 +26,6 @@
   import { mapGetters } from 'vuex';
   import ProMarker from '@/components/ProMarker.vue';
   import DurationDisplay from '@/components/DurationDisplay.vue';
-  import { MINUTE, SEVEN_DAYS } from "~/utils/consts";
   import ProVideoFreePeriodCountdown from "~/components/ProVideoFreePeriodCountdown";
   export default {
     data(){
