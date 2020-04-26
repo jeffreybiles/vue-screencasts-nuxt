@@ -8,7 +8,7 @@
       <v-row class="pa-0 ma-0">
         <v-col cols="12" md="8" class="py-0">
           <div class="subheader video-title">{{video.name}}</div>
-          <ProVideoFreePeriodCountdown v-if="video.pro && proVideoInFreePeriod(video) && userNotPro" :video="video" :current-time="currentTime" />
+          <ProVideoFreePeriodCountdown :video="video" :selectedVideo="selectedVideo" />
         </v-col>
         <v-col cols="12" md="4" class="py-0">
           <div>
@@ -31,8 +31,6 @@
   export default {
     data(){
       return {
-        timeUpdateIntervaL: null,
-        currentTime: Date.now(),
         height: 100
       }
     },
@@ -59,21 +57,11 @@
       this.calculateHeight();
       window.addEventListener("resize", this.calculateHeight);
       this.scrollToCurrentVideo();
-      this.timeUpdateIntervaL = setInterval(() => {
-        this.currentTime = Date.now()
-        if (this.userNotPro && this.selectedVideo.pro && !this.proVideoInFreePeriod(this.selectedVideo)) {
-          window.location.reload()
-        }
-      }, MINUTE)
     },
     destroyed(){
       window.removeEventListener("resize", this.calculateHeight);
-      clearInterval(this.timeUpdateIntervaL)
     },
     methods: {
-      proVideoInFreePeriod(video) {
-        return SEVEN_DAYS - (this.currentTime - video.published_at.getTime()) > 0
-      },
       scrollToCurrentVideo() {
         const selectedVideoTopOffset = this.$refs[`video-${this.selectedVideo.id}`][0].offsetTop
         const currentScrollPosition = this.$refs.scrollBox.scrollTop
@@ -93,9 +81,6 @@
       ...mapGetters({
         isPlayed: 'user/videoIsPlayed',
       }),
-      userNotPro() {
-        return !this.$auth.user || !this.$auth.user.pro
-      }
     }
   }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <div
     class="pro-time-left green--text text--accent-3"
+    v-if="video.pro && inFreePeriod"
   >
     {{ timeLeft | formatTimeLeft }}
   </div>
@@ -11,15 +12,38 @@
 
     export default {
         name: "ProVideoFreePeriodCountdown",
+        data(){
+          return {
+            timeUpdateIntervaL: null,
+            currentTime: Date.now(),
+          }
+        },
         props: {
           video: {
             type: Object,
             default: () => ({})
           },
-          currentTime: {
-            type: Number,
-            default: Date.now()
+          selectedVideo: {
+            type: Object,
+            default: () => ({})
           }
+        },
+        mounted(){
+          this.currentTime = Date.now()
+          
+          if(this.inFreePeriod) {
+            this.timeUpdateIntervaL = setInterval(() => {
+              this.currentTime = Date.now()
+
+              let isSelectedVideo = this.video.id == this.selectedVideo.id
+              if (isSelectedVideo && !this.userPro && !this.inFreePeriod) {
+                window.location.reload()
+              }
+            }, MINUTE)
+          }
+        },
+        beforeDestroy(){
+          clearInterval(this.timeUpdateIntervaL)
         },
         filters: {
           formatTimeLeft(value) {
@@ -39,6 +63,12 @@
           timeLeft() {
             return SEVEN_DAYS - (this.currentTime - this.video.published_at.getTime())
           },
+          inFreePeriod(){
+            return this.timeLeft > 0
+          },
+          userPro() {
+            return this.$auth.user && this.$auth.user.pro
+          }
         }
     }
 </script>
