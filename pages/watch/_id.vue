@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AvailableSoonModal v-if="videoWillBeReleasedLater" :releaseDate="video.published_at" />
     <!-- TODO: Put this in a modal -->
     <div v-if="video.pro && !canAccess" class="text-center">
       <div class="display-3 mt-2">
@@ -137,6 +138,7 @@ import _ from 'lodash';
 import {getThumbnail} from '@/utils/video-decorator';
 import {CODE_SUMMARY_STATES} from "@/utils/consts";
 import ShortcutsDialog from "~/components/ShortcutsDialog";
+import AvailableSoonModal from "~/components/AvailableSoonModal";
 
 export default {
   middleware: 'load-videos-and-courses',
@@ -147,6 +149,7 @@ export default {
     }
   },
   components: {
+    AvailableSoonModal,
     ShortcutsDialog,
     VideoByline,
     VideoWatch,
@@ -157,6 +160,9 @@ export default {
     TestimonialsRow
   },
   computed: {
+    videoWillBeReleasedLater() {
+      return this.video.published_at.getTime() > Date.now()
+    },
     isCodeSummaryAvailable() {
       return this.video.code_summary_state === CODE_SUMMARY_STATES.FINISHED
     },
@@ -198,7 +204,7 @@ export default {
 
     canAccess(){
       let user = this.$auth.user
-      return this.video.in_free_period || user && user.pro
+      return (this.video.in_free_period || user && user.pro) && (this.video.published_at.getTime() < Date.now())
     },
     randomTestimonialIds(){
       let allTestimonials = socialProofJson.testimonials;
