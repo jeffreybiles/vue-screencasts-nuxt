@@ -1,14 +1,25 @@
 <template>
-  <div>
-    <v-btn @click="filterState = null">
+  <div class="mt-3">
+    <v-btn @click="filterState = null" small class="ma-1">
       All ({{ users.length }})
     </v-btn>
-    <v-btn v-for="plan in plans" :key="plan.id" @click="filterState = plan">
-      {{ plan.name }} ({{ users.filter(user => getPlanIds(plan).includes(user.plan_id)).length }})
-    </v-btn>
+    <span v-for="plan in plans" :key="plan.id" @click="filterState = plan">
+      <Let :val="users.filter(user => getPlanIds(plan).includes(user.plan_id))" v-slot="{val: subscribedUsers}">
+        <v-btn v-if="subscribedUsers.length > 0" small class="ma-1">
+          {{ plan.name }} ({{ subscribedUsers.length }})
+        </v-btn>
+      </Let>
+    </span>
 
-    <h1 v-if="filterState">Users whose plan is: {{filterState.name}}</h1>
+    <span v-if="filterState">
+      <h1>Users whose plan is: {{filterState.name}}</h1>
+      <h3>
+        ID {{filterState.id}}, 
+        price {{getMonthlyPrice(filterState) | currency}}/month
+      </h3>
+    </span>
     <h1 v-else>All users</h1>
+    
 
     <v-text-field
       v-model="search"
@@ -38,12 +49,16 @@
   import subscriptionPlanJson from '@/utils/subscription-plan-data.json'
   import { mapState } from 'vuex';
   import {getPlanWithDefault} from "~/utils/subscription-utils";
+  import Let from '@/components/Let.vue';
 
   export default {
     async middleware({store}) {
       if (!store.state.user.users.length) {
         await store.dispatch('user/loadAll')
       }
+    },
+    components: {
+      Let
     },
     data(){
       return {
@@ -94,7 +109,14 @@
 
         return isInName(item) || isInEmail(item)
       },
-      getPlanWithDefault
+      getPlanWithDefault,
+      getMonthlyPrice(plan) {
+        if(plan.month.prices){
+          return plan.month.prices['1']
+        } else {
+          return plan.month.currentPrice
+        }
+      }
     }
   }
 </script>
