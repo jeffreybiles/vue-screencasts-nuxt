@@ -28,7 +28,7 @@
         let allTestimonials = socialProofJson.testimonials;
         return this.testimonialIds.map(t_id => {
           return allTestimonials.find(t => t && t.id == t_id)
-        }).map(t => {
+        }).filter(t => t).map(t => {
           let host = 'https://vue-screencasts-uploads.s3-us-west-2.amazonaws.com';
           let folder = 'social-proof-portraits'
           t.img_src = `${host}/${folder}/${t.img_url}`
