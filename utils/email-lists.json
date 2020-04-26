@@ -1,14 +1,14 @@
 {
   "emailLists": [{
-    "id": 3,
+    "id": "2",
     "name": "Weekly Newsletter",
     "description": "A weekly newsletter with the biggest updates of the week, including that week's new course."
   }, {
-    "id": 6,
+    "id": "3",
     "name": "New-Video Notifications",
     "description": "Get a notification email whenever I release a new video or course.  Expect several per week."
   }, {
-    "id": 7,
+    "id": "7",
     "name": "Comment Notifications",
     "description": "Get a notification email whenever someone responds to one of your comments."
   }]

@@ -31,7 +31,7 @@
     },
     computed: {
       subscribed_newsletters(){
-        return this.contact && this.contact.listIds || [];
+        return this.contact && this.contact.contactLists || [];
       },
       newsletters(){
         return this.raw_newsletters.map(n => {return {...n, isSubscribed: this.subscribed_newsletters.includes(n.id)}})
