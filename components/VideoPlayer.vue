@@ -3,7 +3,8 @@
       @shortkey="shortkeyAction">
     <div class="video-player-box"
         v-video-player:videoPlayer="playerOptions"
-        @ended="ended">
+        @ended="videoEnded"
+        @timeupdate="timeUpdate">
     </div>
   </div>
 </template>
@@ -30,6 +31,9 @@
       if (SAVED_PLAYBACK_RATE) {
         this.videoPlayer.playbackRate(SAVED_PLAYBACK_RATE)
       }
+
+      let currentTime = localStorage.getItem(this.currentTimeKey)
+      this.videoPlayer.currentTime(currentTime)
     },
     beforeDestroy(){
       this.videoPlayer.pause();
@@ -50,6 +54,9 @@
           fluid: true,
           autoplay: this.autoplay
         }
+      },
+      currentTimeKey(){
+        return `video-${this.video.id}-current-time`
       }
     },
     methods: {
@@ -82,6 +89,14 @@
         const PLAYBACK_RATE = Math.round(speed * 100)/100
         localStorage.setItem('savedPlaybackRate', PLAYBACK_RATE)
         this.videoPlayer.playbackRate(PLAYBACK_RATE)
+      },
+      timeUpdate(){
+        localStorage.setItem(this.currentTimeKey, this.videoPlayer.currentTime())
+      },
+      videoEnded(){
+        localStorage.setItem(this.currentTimeKey, 0)
+
+        this.ended()
       }
     },
     props: {
