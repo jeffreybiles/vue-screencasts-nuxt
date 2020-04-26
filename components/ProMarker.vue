@@ -5,10 +5,10 @@
   <span v-else>
     <slot name="pro">
       <span v-if="isPro">
-        <slot name="locked"><font-awesome-icon icon="lock" /></slot>
+        <slot name="unlocked"><font-awesome-icon icon="lock-open" /></slot>
       </span>
       <span>
-        <slot name="unlocked"><font-awesome-icon icon="lock-open" /></slot>
+        <slot name="locked"><font-awesome-icon icon="lock" /></slot>
       </span>
       
     </slot>
