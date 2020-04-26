@@ -21,7 +21,7 @@ const videosFor = (course, store) => {
   let getVideo = store.getters['videos/get']
   let chapters = course.chapter_ids.map(c_id => getCourse(c_id))
   let video_ids = course.video_ids.concat(chapters.flatMap(c => c.video_ids))
-  return video_ids.map(v_id => getVideo(v_id)).filter(v => v.published_at < Date.now())
+  return video_ids.map(v_id => getVideo(v_id))
 }
 
 export const sortCourse = (course, store) => {
