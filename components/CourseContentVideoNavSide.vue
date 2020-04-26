@@ -8,6 +8,7 @@
       <v-row class="pa-0 ma-0">
         <v-col cols="12" md="8" class="py-0">
           <div class="subheader video-title">{{video.name}}</div>
+          <ProVideoFreePeriodCountdown :video="video" :selectedVideo="selectedVideo" />
         </v-col>
         <v-col cols="12" md="4" class="py-0">
           <div>
@@ -25,6 +26,7 @@
   import { mapGetters } from 'vuex';
   import ProMarker from '@/components/ProMarker.vue';
   import DurationDisplay from '@/components/DurationDisplay.vue';
+  import ProVideoFreePeriodCountdown from "~/components/ProVideoFreePeriodCountdown";
   export default {
     data(){
       return {
@@ -32,6 +34,7 @@
       }
     },
     components: {
+      ProVideoFreePeriodCountdown,
       ProMarker,
       DurationDisplay
     },
@@ -52,7 +55,7 @@
     mounted(){
       this.calculateHeight();
       window.addEventListener("resize", this.calculateHeight);
-      this.scrollToCurrentVideo()
+      this.scrollToCurrentVideo();
     },
     destroyed(){
       window.removeEventListener("resize", this.calculateHeight);
@@ -82,6 +85,14 @@
 </script>
 
 <style lang="scss" scoped>
+  .pro-time-left {
+    font-size: 0.8em;
+  }
+  .video-row:hover, .video-row.active {
+    .pro-time-left {
+      color: #fff !important;
+    }
+  }
   .scroll-box {
     overflow-y: auto;
     background-color: #111;
