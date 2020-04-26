@@ -7,7 +7,7 @@
       <span v-if="isPro">
         <slot name="unlocked"><font-awesome-icon icon="lock-open" /></slot>
       </span>
-      <span>
+      <span v-else>
         <slot name="locked"><font-awesome-icon icon="lock" /></slot>
       </span>
       
