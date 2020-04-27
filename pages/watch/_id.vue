@@ -1,7 +1,8 @@
 <template>
   <div>
-    <AvailableSoonModal v-if="videoWillBeReleasedLater" :releaseDate="video.published_at" :goToPrevious="goToPrevious" />
+    <VideoBlockModalUpcoming v-if="videoWillBeReleasedLater" :releaseDate="video.published_at" :goToPrevious="goToPrevious" />
     <!-- TODO: Put this in a modal -->
+    
     <div v-else-if="video.pro && !canAccess" class="text-center">
       <div class="display-3 mt-2">
         This is a Pro video.
@@ -129,16 +130,15 @@ import UserAuthModal from '@/components/UserAuthModal.vue';
 import VideoWatchCompleteModal from '@/components/VideoWatchCompleteModal.vue';
 import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
 import TestimonialsRow from '@/components/TestimonialsRow.vue';
+import ShortcutsDialog from "~/components/ShortcutsDialog";
+import VideoBlockModalUpcoming from "~/components/VideoBlockModalUpcoming";
+
 import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/course-decorator';
 import socialProofJson from '@/utils/social-proof-data.json';
-
-
 import { mapState, mapGetters } from 'vuex';
 import _ from 'lodash';
 import {getThumbnail} from '@/utils/video-decorator';
 import {CODE_SUMMARY_STATES} from "@/utils/consts";
-import ShortcutsDialog from "~/components/ShortcutsDialog";
-import AvailableSoonModal from "~/components/AvailableSoonModal";
 
 export default {
   middleware: 'load-videos-and-courses',
@@ -149,7 +149,7 @@ export default {
     }
   },
   components: {
-    AvailableSoonModal,
+    VideoBlockModalUpcoming,
     ShortcutsDialog,
     VideoByline,
     VideoWatch,

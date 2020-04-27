@@ -26,7 +26,7 @@
   import DateDisplay from "~/components/DateDisplay";
   import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
   export default {
-    name: "AvailableSoonModal",
+    name: "VideoBlockModalUpcoming",
     components: {
       DateDisplay, 
       UserAuthTogglableForm
