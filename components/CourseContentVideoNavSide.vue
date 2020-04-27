@@ -3,7 +3,7 @@
     <div v-for="video in sortedVideos"
          :ref="`video-${video.id}`"
          :key="video.id"
-         :class="['pa-3', 'video-row', 'white-text', video.id == selectedVideo.id ? 'active' : '']"
+         :class="['pa-3', 'video-row', 'white-text', video.id == selectedVideo.id ? 'active' : '', videoIsPublished(video) ? 'published' : 'upcoming']"
          @click="goToVideo(video)">
       <v-row class="pa-0 ma-0">
         <v-col cols="12" md="8" class="py-0">
@@ -11,7 +11,7 @@
           <ProVideoFreePeriodCountdown :video="video" :selectedVideo="selectedVideo" />
         </v-col>
         <v-col cols="12" md="4" class="py-0">
-          <div v-if="video.published_at.getTime() < currentTime">
+          <div v-if="videoIsPublished(video)">
             <span class="icon-column"><ProMarker :isFree="!video.pro" :video="video" /></span>
             <span class="icon-column"><font-awesome-icon icon="check" v-if="isPlayed(video.id)" /></span>
             <DurationDisplay :duration="video.duration" />
@@ -79,7 +79,12 @@
         this.height = document.getElementById('video-player-with-sidenav').clientHeight
       },
       goToVideo(video){
-        this.$router.push(`/watch/${video.id}`)
+        if(this.videoIsPublished(video)){
+          this.$router.push(`/watch/${video.id}`)
+        }
+      },
+      videoIsPublished(video){
+        return video.published_at.getTime() < this.currentTime
       }
     },
     computed: {
@@ -113,13 +118,23 @@
   .video-row {
     cursor: pointer;
 
+    &.upcoming {
+      cursor: auto;
+    }
+
     &:nth-of-type(2n) {
       background-color: #222;
     }
 
     &.active, &:hover {
-      color: black !important;
-      background-color: #4BAF51;
+      &.published {
+        color: black !important;
+        background-color: #4BAF51;
+      }
+
+      &.upcoming {
+        background-color: #2B5F31;
+      }
     }
   }
 </style>
