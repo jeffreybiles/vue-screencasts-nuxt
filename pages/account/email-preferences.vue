@@ -36,7 +36,7 @@
       newsletters(){
         return this.raw_newsletters.map(n => {return {
           ...n, 
-          isSubscribed: this.subscribed_newsletters.map(sn => sn.id).includes(n.id)
+          isSubscribed: this.subscribed_newsletters.map(sn => sn.list).includes(n.id)
         }})
       }
     },
