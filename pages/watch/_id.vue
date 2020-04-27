@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AvailableSoonModal v-if="videoWillBeReleasedLater" :releaseDate="video.published_at" />
+    <AvailableSoonModal v-if="videoWillBeReleasedLater" :releaseDate="video.published_at" :goToPrevious="goToPrevious" />
     <!-- TODO: Put this in a modal -->
     <div v-else-if="video.pro && !canAccess" class="text-center">
       <div class="display-3 mt-2">
