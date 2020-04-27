@@ -182,7 +182,7 @@ export default {
 
     canAccess(){
       let user = this.$auth.user
-      return (this.video.in_free_period || user && user.pro) && (this.video.published_at.getTime() < Date.now())
+      return (this.video.in_free_period || user && user.pro) && !this.videoWillBeReleasedLater
     },
     randomTestimonialIds(){
       let allTestimonials = socialProofJson.testimonials;
