@@ -144,7 +144,7 @@
         step: query.step ? parseInt(query.step) : 1,
         seats: query.seats ? parseInt(query.seats) : 1,
         planId: query.plan,
-        planTerm: query.planTerm,
+        planTerm: query.planTerm || 'month',
         plans: subscriptionPlanJson.plans.filter(p => !p.deprecated),
         stripeEnv
       }

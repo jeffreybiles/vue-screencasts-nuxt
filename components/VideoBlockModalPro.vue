@@ -14,7 +14,7 @@
       
       <v-card-text>
         <div v-if="$auth.loggedIn">
-          <v-btn to="/pro?solution=pro-bronze" color="green darken-2 grey--text text--lighten-4" class="ma-5" x-large>Go Pro</v-btn>
+          <v-btn to="/order?plan=8" color="green darken-2 grey--text text--lighten-4" class="ma-5" x-large>Go Pro</v-btn>
           <!-- TODO: replace the link with an action that actually lets them sign up on-page -->
           <!-- Then have a smaller "see more details" link below, which goes to the /pro page -->
         </div>
