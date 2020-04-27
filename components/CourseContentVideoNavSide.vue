@@ -3,7 +3,7 @@
     <div v-for="video in sortedVideos"
          :ref="`video-${video.id}`"
          :key="video.id"
-         :class="['pa-3', 'video-row', 'white-text', video.id == selectedVideo.id ? 'active' : '']"
+         :class="['pa-3', 'video-row', 'white-text', video.id == selectedVideo.id ? 'active' : '', videoIsPublished(video) ? 'published' : 'upcoming']"
          @click="goToVideo(video)">
       <v-row class="pa-0 ma-0">
         <v-col cols="12" md="8" class="py-0">
@@ -11,10 +11,13 @@
           <ProVideoFreePeriodCountdown :video="video" :selectedVideo="selectedVideo" />
         </v-col>
         <v-col cols="12" md="4" class="py-0">
-          <div>
+          <div v-if="videoIsPublished(video)">
             <span class="icon-column"><ProMarker :isFree="!video.pro" :video="video" /></span>
             <span class="icon-column"><font-awesome-icon icon="check" v-if="isPlayed(video.id)" /></span>
             <DurationDisplay :duration="video.duration" />
+          </div>
+          <div v-else>
+            <span class="caption font-italic">Available on <DateDisplay :date="video.published_at" class="small" /></span>
           </div>
         </v-col>
       </v-row>
@@ -27,13 +30,16 @@
   import ProMarker from '@/components/ProMarker.vue';
   import DurationDisplay from '@/components/DurationDisplay.vue';
   import ProVideoFreePeriodCountdown from "~/components/ProVideoFreePeriodCountdown";
+  import DateDisplay from "~/components/DateDisplay";
   export default {
     data(){
       return {
+        currentTime: Date.now(),
         height: 100
       }
     },
     components: {
+      DateDisplay,
       ProVideoFreePeriodCountdown,
       ProMarker,
       DurationDisplay
@@ -73,7 +79,12 @@
         this.height = document.getElementById('video-player-with-sidenav').clientHeight
       },
       goToVideo(video){
-        this.$router.push(`/watch/${video.id}`)
+        if(this.videoIsPublished(video)){
+          this.$router.push(`/watch/${video.id}`)
+        }
+      },
+      videoIsPublished(video){
+        return video.published_at.getTime() < this.currentTime
       }
     },
     computed: {
@@ -107,13 +118,23 @@
   .video-row {
     cursor: pointer;
 
+    &.upcoming {
+      cursor: auto;
+    }
+
     &:nth-of-type(2n) {
       background-color: #222;
     }
 
     &.active, &:hover {
-      color: black !important;
-      background-color: #4BAF51;
+      &.published {
+        color: black !important;
+        background-color: #4BAF51;
+      }
+
+      &.upcoming {
+        background-color: #2B5F31;
+      }
     }
   }
 </style>

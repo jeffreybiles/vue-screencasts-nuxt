@@ -30,7 +30,7 @@
         },
         mounted(){
           this.currentTime = Date.now()
-          
+
           if(this.inFreePeriod) {
             this.timeUpdateIntervaL = setInterval(() => {
               this.currentTime = Date.now()
@@ -61,6 +61,9 @@
         },
         computed: {
           timeLeft() {
+            if (this.video.published_at.getTime() > this.currentTime) {
+              return 0
+            }
             return SEVEN_DAYS - (this.currentTime - this.video.published_at.getTime())
           },
           inFreePeriod(){

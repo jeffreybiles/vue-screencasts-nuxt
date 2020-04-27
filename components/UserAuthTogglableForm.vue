@@ -21,7 +21,7 @@
 
   export default {
     data(){
-      let authScreen = this.$route.query.authScreen || 'login'
+      let authScreen = this.$route.query.authScreen || this.startingScreen
       return {
         authScreen
       }
@@ -83,6 +83,10 @@
       postLoginAction: {
         type: Function,
         default: () => {}
+      },
+      startingScreen: {
+        type: String,
+        default: 'login'
       }
     }
   }
