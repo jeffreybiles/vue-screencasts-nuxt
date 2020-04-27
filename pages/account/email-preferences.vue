@@ -25,16 +25,19 @@
       let result = await $axios.get('/email_preferences/status')
 
       return {
-        contact: result.data.contact,
+        contactLists: result.data.contactLists,
         raw_newsletters: _.filter(emailListJson.emailLists, e => e.id != 7)
       }
     },
     computed: {
       subscribed_newsletters(){
-        return this.contact && this.contact.contactLists || [];
+        return this.contactLists.filter(cl => cl.status == "1") || [];
       },
       newsletters(){
-        return this.raw_newsletters.map(n => {return {...n, isSubscribed: this.subscribed_newsletters.includes(n.id)}})
+        return this.raw_newsletters.map(n => {return {
+          ...n, 
+          isSubscribed: this.subscribed_newsletters.map(sn => sn.id).includes(n.id)
+        }})
       }
     },
     methods: {
