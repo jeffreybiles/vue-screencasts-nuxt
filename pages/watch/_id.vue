@@ -2,7 +2,7 @@
   <div>
     <AvailableSoonModal v-if="videoWillBeReleasedLater" :releaseDate="video.published_at" />
     <!-- TODO: Put this in a modal -->
-    <div v-if="video.pro && !canAccess" class="text-center">
+    <div v-else-if="video.pro && !canAccess" class="text-center">
       <div class="display-3 mt-2">
         This is a Pro video.
       </div>
