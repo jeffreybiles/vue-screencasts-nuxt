@@ -1,29 +1,7 @@
 <template>
   <div>
     <VideoBlockModalUpcoming v-if="videoWillBeReleasedLater" :releaseDate="video.published_at" :goToPrevious="goToPrevious" />
-    <!-- TODO: Put this in a modal -->
-    
-    <div v-else-if="video.pro && !canAccess" class="text-center">
-      <div class="display-3 mt-2">
-        This is a Pro video.
-      </div>
-      <div class="headline">
-        Study Vue <font-awesome-icon icon="laptop-code" />.
-        Level Up <font-awesome-icon icon="arrow-up" />.
-        Leap Forward <font-awesome-icon icon="dollar-sign" />.
-      </div>
-
-      <div v-if="$auth.loggedIn">
-        <v-btn to="/pro?solution=pro-bronze" color="green darken-2 grey--text text--lighten-4" class="ma-5" x-large>Go Pro</v-btn>
-        <!-- TODO: replace the link with an action that actually lets them sign up on-page -->
-        <!-- Then have a smaller "see more details" link below, which goes to the /pro page -->
-      </div>
-      <div v-else class="ma-4">
-        <v-container style="max-width: 450px;">
-          <UserAuthTogglableForm />
-        </v-container>
-      </div>
-    </div>
+    <VideoBlockModalPro v-else-if="video.pro && !canAccess" />
 
     <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" :showSidebar="true" />
 
@@ -128,10 +106,10 @@ import VideoWatch from '@/components/VideoWatch';
 import MarkdownDisplay from '@/components/MarkdownDisplay';
 import UserAuthModal from '@/components/UserAuthModal.vue';
 import VideoWatchCompleteModal from '@/components/VideoWatchCompleteModal.vue';
-import UserAuthTogglableForm from '@/components/UserAuthTogglableForm.vue';
 import TestimonialsRow from '@/components/TestimonialsRow.vue';
 import ShortcutsDialog from "~/components/ShortcutsDialog";
 import VideoBlockModalUpcoming from "~/components/VideoBlockModalUpcoming";
+import VideoBlockModalPro from '@/components/VideoBlockModalPro.vue';
 
 import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/course-decorator';
 import socialProofJson from '@/utils/social-proof-data.json';
@@ -149,15 +127,15 @@ export default {
     }
   },
   components: {
-    VideoBlockModalUpcoming,
     ShortcutsDialog,
     VideoByline,
     VideoWatch,
     MarkdownDisplay,
     UserAuthModal,
     VideoWatchCompleteModal,
-    UserAuthTogglableForm,
-    TestimonialsRow
+    TestimonialsRow,
+    VideoBlockModalUpcoming,
+    VideoBlockModalPro,
   },
   computed: {
     videoWillBeReleasedLater() {
