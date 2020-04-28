@@ -33,12 +33,6 @@
       </div>
     </HomePageSection>
 
-    <div class="bg-dark" v-if="!$auth.loggedIn">
-      <div class="paper-container-large mx-auto">
-        <NewsletterSignupForm />
-      </div>
-    </div>
-
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['99', '87', '21', '1']" class="paper-container-large" />
     </div>
@@ -146,12 +140,6 @@
     <div class="bg-gray">
       <TestimonialsRow :testimonialIds="['8', '11', '104', '100']" class="paper-container-large" />
     </div>
-
-    <div class="bg-white" v-if="!$auth.loggedIn">
-      <div class="paper-container-large mx-auto">
-        <NewsletterSignupForm />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -159,14 +147,12 @@
 import TestimonialsRow from '@/components/TestimonialsRow.vue';
 import ProPackageCard from '@/components/ProPackageCard.vue';
 import HomePageSection from '@/components/HomePageSection.vue';
-import NewsletterSignupForm from '@/components/NewsletterSignupForm.vue';
 
 export default {
   components: {
     TestimonialsRow,
     ProPackageCard,
     HomePageSection,
-    NewsletterSignupForm
   },
 }
 </script>
