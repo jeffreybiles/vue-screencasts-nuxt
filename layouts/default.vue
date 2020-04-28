@@ -1,12 +1,18 @@
 <template>
   <v-app>
     <TheNavbar />
+    
     <v-content>
       <nuxt />
     </v-content>
 
     <TheFooter />
     <TheSnackbar />
+
+    <template v-if="!$auth.loggedIn">
+      <!-- TODO: add a conditional for if the user is logged in but not subscribed -->
+      <script src="https://vuescreencasts.activehosted.com/f/embed.php?id=3" type="text/javascript" charset="utf-8"></script>
+    </template>
   </v-app>
 </template>
 
