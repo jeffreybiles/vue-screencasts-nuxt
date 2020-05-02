@@ -48,7 +48,7 @@
         return `<div>${this.highlightSearchTerm(courseName)}</div>`
       },
       highlightSearchTerm(text) {
-        if (!this.highlightedTerm) {
+        if (!this.highlightedTerm || !text) {
           return text
         }
         const toReplace = new RegExp("(" + this.highlightedTerm + ")", 'ig')
