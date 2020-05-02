@@ -1,17 +1,15 @@
 <template>
   <div>
     <v-container>
-      <VideoTableWithSearch :videos="publishedVideos"
-                            :headers="isMobile ? mobileHeaders : headers"
-                            :showExpand="!isMobile"
-                            :itemsPerPage="1000" />
+      <VideoGrid :videos="videoList" />
     </v-container>
   </div>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import {mapGetters, mapState} from 'vuex'
   import VideoTableWithSearch from '@/components/VideoTableWithSearch.vue';
+  import VideoGrid from "~/components/VideoGrid";
 
   export default {
     middleware: 'load-videos-and-courses',
@@ -34,17 +32,31 @@
       }
     },
     components: {
+      VideoGrid,
       VideoTableWithSearch
     },
     computed: {
       ...mapState({
         allVideos: state => state.videos.videos,
       }),
+      ...mapGetters({
+        getCourse: 'courses/get'
+      }),
       isMobile() {
         return this.$vuetify.breakpoint.xsOnly
       },
-      publishedVideos(){
-        return this.allVideos.filter(v => v.published_at < Date.now())
+      videoList () {
+        return this.allVideos.filter(v => v.published_at < Date.now()).map((v)=>{
+          let course = this.getCourse(v.course_id)
+          let courseName = course && course.name
+          courseName = courseName && courseName.length > 33  ? `${courseName.slice(0, 30)}...` : courseName
+          return {
+            ...v,
+            sortable_published_at: v.published_at && v.published_at.toISOString(),
+            courseName,
+            courseVideoNumber: course.video_ids.findIndex( i => parseInt(i) === v.id) + 1
+          }
+        })
       },
     }
   }
