@@ -79,8 +79,8 @@
         })
       },
       paginatedVideos() {
-        const startIndex = 25 * (this.page - 1)
-        const endIndex = 25 * this.page
+        const startIndex = PAGE_SIZE * (this.page - 1)
+        const endIndex = PAGE_SIZE * this.page
         return this.sortedFilteredVideos.slice(startIndex, endIndex)
       },
       routeHasSearchQuery() {
