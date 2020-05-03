@@ -1,6 +1,3 @@
-const loginUrl = '/api/sessions';
-const userUrl = '/api/sessions/user';
-
 function register(user, email, password) {
   cy.visit('/auth');
   cy.contains('a', 'Click here to register').click();
