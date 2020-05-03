@@ -42,7 +42,7 @@ export default {
     stripeEnv: process.env.stripeEnv,
     stripePublicKey: process.env.stripePublicKey,
   },
-  
+
   /*
   ** Customize the progress-bar color
   */
@@ -59,7 +59,8 @@ export default {
     '~/plugins/vuetify-datetime-picker',
     { src: "~/plugins/vue-timer", mode: 'client'},
     { src: '@/plugins/vue-shortkey.js', mode: 'client' },
-    '~/plugins/vue2-filters'
+    '~/plugins/vue2-filters',
+    { src: '~/plugins/cypress.js', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -74,7 +75,7 @@ export default {
     ['nuxt-stripe-module', {
       version: 'v3',
       //TODO: change publishableKey based on environment
-      publishableKey: 'pk_test_EiveKNyPoW3C9bpmpEJXuawF' 
+      publishableKey: 'pk_test_EiveKNyPoW3C9bpmpEJXuawF'
     }],
     '@nuxtjs/dotenv',
   ],

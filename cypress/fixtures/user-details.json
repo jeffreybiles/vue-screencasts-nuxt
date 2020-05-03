@@ -1,0 +1,27 @@
+{
+  "data": {
+    "id": "2",
+    "type": "user",
+    "attributes": {
+      "id": 2,
+      "name": "Admin User",
+      "email": "admin@user.com",
+      "admin": true,
+      "created_at": "2020-04-07T11:31:45.004Z",
+      "pro": true,
+      "subscription_cancelled": false,
+      "subscription_end_date": "2020-06-01T03:11:28.000Z",
+      "plan_id": "plan_GpIlpbs3dTKIzq",
+      "next_steps_taken": {},
+      "plan_seats": null,
+      "played_video_ids": [
+        10
+      ],
+      "has_stripe": true,
+      "s3_keys": {
+        "id": null,
+        "secret": null
+      }
+    }
+  }
+}

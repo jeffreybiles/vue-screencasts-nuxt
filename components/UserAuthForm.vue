@@ -1,14 +1,14 @@
 <template>
   <v-form v-model="valid">
-    <v-text-field v-model="userInfo.name" 
-                  label="Name" 
+    <v-text-field v-model="userInfo.name"
+                  label="Name"
                   color="green"
                   :rules="[required('name')]"
                   v-if="hasName" />
 
-    <v-text-field v-model="userInfo.email" 
+    <v-text-field v-model="userInfo.email"
                   label="Email"
-                  color="green" 
+                  color="green"
                   :rules="[required('email'), emailFormat()]"/>
 
     <UserAuthPassword v-model="userInfo.password" label="Password" />
@@ -22,9 +22,9 @@
                   :rules="[required('agreeToTerms', 'You must agree to the terms and conditions and privacy policy')]">
         <template #label @click.stop>
           <span>
-            I have read and agree to the 
+            I have read and agree to the
             <a href="/policies/terms-and-conditions" target="_blank" @click.stop>Terms and Conditions</a>
-            and 
+            and
             <a href="/policies/privacy-policy" target="_blank" @click.stop>Privacy Policy</a>
           </span>
         </template>
@@ -38,7 +38,7 @@
                   label="I would like to get an email notification whenever new videos or courses are released." />
     </div>
 
-    <v-btn @click="submitForm(userInfo)" :disabled="!valid" color="green accent-3">{{ buttonText }}</v-btn>
+    <v-btn id="authButton" @click="submitForm(userInfo)" :disabled="!valid" color="green accent-3">{{ buttonText }}</v-btn>
   </v-form>
 </template>
 
