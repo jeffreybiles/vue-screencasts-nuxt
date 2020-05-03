@@ -9,5 +9,4 @@ describe('Continue course watch', () => {
     cy.url().should('not.match', /watch\/20/)
   })
 
-
 });

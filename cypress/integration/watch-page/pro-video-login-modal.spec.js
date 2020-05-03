@@ -16,5 +16,4 @@ describe('Continue course watch', () => {
     cy.contains('.v-dialog #authButton', 'Login')
   });
 
-
 });

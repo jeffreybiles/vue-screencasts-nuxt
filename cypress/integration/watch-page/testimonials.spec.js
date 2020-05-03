@@ -6,5 +6,4 @@ describe('Continue course watch', () => {
       .should('have.length', 4)
   })
 
-
 });
