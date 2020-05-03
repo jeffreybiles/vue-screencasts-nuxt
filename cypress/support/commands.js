@@ -23,7 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-Cypress.Commands.add("login", (email = 'admin@user.com', password = 'aaaaaaaa') => {
+Cypress.Commands.add("login", (type = 'admin') => {
+  let email = type + '@user.com'
+  const password = 'aaaaaaaa'
   cy.window().its('app')
   cy.window().then((window) => {
     window.app.$auth.loginWith('local', {
