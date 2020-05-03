@@ -23,3 +23,33 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add("login", (email = 'admin@user.com', password = 'aaaaaaaa') => {
+  cy.window().its('app')
+  cy.window().then((window) => {
+    window.app.$auth.loginWith('local', {
+      data: {
+        name: '',
+        email: email,
+        password: password,
+        agreeToTerms: false,
+        email_daily: true,
+        email_weekly: true
+      }
+    })
+    cy.window()
+      .its('app.store')
+      .its('state.auth.loggedIn')
+      .should('equal', true);
+  })
+})
+
+Cypress.Commands.add("logout", () => {
+  cy.window().its('app')
+  cy.window().then((window) => {
+    window.app.$auth.logout()
+  })
+  cy.window()
+    .its('app.store')
+    .its('state.auth.loggedIn')
+    .should('equal', false);
+})
