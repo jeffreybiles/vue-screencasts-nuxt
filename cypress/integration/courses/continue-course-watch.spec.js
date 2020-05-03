@@ -21,10 +21,7 @@ describe('Continue course watch', () => {
   })
 
   it('progress bar shows progress', () => {
-    cy.get('.v-progress-linear').then(($e) => {
-      const progress = parseInt($e.attr('aria-valuenow'))
-      expect(progress).to.be.greaterThan(0)
-    })
+    cy.get('.v-progress-linear').invoke('attr', 'aria-valuenow').should('be.greaterThan', 0)
   })
 
 });
