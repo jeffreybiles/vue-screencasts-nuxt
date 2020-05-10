@@ -8,7 +8,6 @@
 
 <script>
   import {mapGetters, mapState} from 'vuex'
-  import VideoTableWithSearch from '@/components/VideoTableWithSearch.vue';
   import VideoGrid from "~/components/VideoGrid";
 
   export default {
@@ -32,8 +31,7 @@
       }
     },
     components: {
-      VideoGrid,
-      VideoTableWithSearch
+      VideoGrid
     },
     computed: {
       ...mapState({

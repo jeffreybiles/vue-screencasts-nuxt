@@ -1,6 +1,5 @@
 <template>
-  <v-hover
-    v-slot:default="{ hover }">
+  <v-hover #default="{ hover }">
     <v-card :elevation="hover ? 16 : 2" class="video-grid__list-item pa-3">
       <img :src="thumbnail" :alt="video.name" />
       <div class="video-grid__list-item-info">
@@ -9,10 +8,7 @@
           <v-chip
             v-html="getCourseNameHtml(video.courseName)"
           />
-          <v-chip
-            color="red"
-            text-color="white"
-          >
+          <v-chip color="red" text-color="white">
             Video {{ video.courseVideoNumber }}
           </v-chip>
         </div>

@@ -25,7 +25,7 @@
         v-model="page"
         :length="pagesCount"
         :total-visible="7"
-      ></v-pagination>
+      />
     </div>
   </div>
 </template>
