@@ -42,18 +42,20 @@ $green: #23B408;
     padding: 30px 0 60px;
   }
   h1, h3 {
-    font: 400 28px/36px $font;
     margin: 0;
+    font: 400 28px/36px $font;
+  }
+  h1 {
     @media (min-width: 64em) {
-      font-size: 36px;
-      line-height: 44px;
+      font-size: 48px;
+      line-height: 72px;
     }
   }
   h3 {
     font-size: 24px/28px;
     @media (min-width: 64em) {
       font-size: 28px;
-      line-height: 40px;
+      line-height: 48px;
     }
   }
   h4 {
