@@ -2,7 +2,7 @@
   <div>
     <div class="display-1 pt-3">{{video.name}}</div>
     <VideoByline :video="video" />
-    
+
     <v-row>
       <v-col cols="12" sm="6" md="8">
         <MarkdownDisplay :markdown="video.description" />
@@ -16,9 +16,9 @@
         <VideoWatch :video="video" />
       </v-col>
     </v-row>
-   
+
     <v-btn :to="`/admin/videos/${video.id}/edit`">Edit</v-btn>
-    <v-btn :to="`/watch/${video.id}`">Watch</v-btn>
+    <v-btn :to="`/watch/${video.slug}`">Watch</v-btn>
     <v-btn v-if="courseAssignment" :to="`/admin/courses/${courseAssignment.id}`">Go To Course</v-btn>
 
     <hr class="mt-4">

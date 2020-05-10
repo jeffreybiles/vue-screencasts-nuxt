@@ -23,11 +23,11 @@ let sitemapRoutes = async function(baseUrl) {
         course = courses.find(c => c.id == courseId);
       } catch {
         course = {attributes: {image_url: ''}}
-      }          
+      }
     }
-    
+
     return {
-      url: `/watch/${v.id}`,
+      url: `/watch/${v.slug}`,
       changefreq: 'weekly',
       priority: 0.8,
       lastmod: v.attributes.updated_at,
