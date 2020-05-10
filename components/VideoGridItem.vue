@@ -9,7 +9,7 @@
             v-html="getCourseNameHtml(video.courseName)"
           />
           <v-chip color="red" text-color="white">
-            Video {{ video.courseVideoNumber }}
+            Video {{ video.order }}
           </v-chip>
         </div>
         <div class="subtitle" v-html="highlightSearchTerm(video.description)" />

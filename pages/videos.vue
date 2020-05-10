@@ -52,7 +52,7 @@
             ...v,
             sortable_published_at: v.published_at && v.published_at.toISOString(),
             courseName,
-            courseVideoNumber: course.video_ids.findIndex( i => parseInt(i) === v.id) + 1
+            order: Number(v.order)
           }
         })
       },
