@@ -52,8 +52,7 @@
 
       <h2 class="mt-3">Previous Payments</h2>
       <p>Note: Stripe subscriptions are complex and I haven't covered all edge cases.  If there's been an error, contact me and I'll make it right.
-        Email me (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>),
-        text me (<a href="sms:501-256-3078">(501) 256-3078</a>),
+        Email me (<a href="mailto:jeffrey@vuescreencasts.com" target="_blank">jeffrey@vuescreencasts.com</a>)
         or twitter message me (<a href="https://twitter.com/vuescreencasts" target="_blank">@vuescreencasts</a>).</p>
       <v-simple-table>
         <thead>

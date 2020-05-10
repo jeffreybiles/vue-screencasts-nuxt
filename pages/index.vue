@@ -36,13 +36,11 @@
 
 <script>
 import TestimonialsRow from '@/components/TestimonialsRow.vue';
-import ProPackageCard from '@/components/ProPackageCard.vue';
 import HomePageSection from '@/components/HomePageSection.vue';
 
 export default {
   components: {
     TestimonialsRow,
-    ProPackageCard,
     HomePageSection,
   },
 }
