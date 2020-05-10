@@ -27,7 +27,7 @@
     </template>
     <template #item.actions="{item}">
       <td @click.stop class="non-clickable">
-        <v-btn small :to="`/watch/${item.id}`">Watch</v-btn>
+        <v-btn small :to="`/watch/${item.slug}`">Watch</v-btn>
         <v-btn small :to="`/admin/videos/${item.id}/edit`">Edit</v-btn>
         <v-btn small @click="deleteVideo(item)">Delete</v-btn>
       </td>
@@ -74,7 +74,7 @@ import ProMarker from '@/components/ProMarker.vue';
         if(this.customClickAction){
           this.customClickAction(item)
         } else {
-          this.$router.push(`/watch/${item.id}`)
+          this.$router.push(`/watch/${item.slug}`)
         }
       },
       deleteVideo(video) {

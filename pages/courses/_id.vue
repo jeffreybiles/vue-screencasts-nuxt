@@ -22,7 +22,7 @@
       DifficultyBars
     },
     created(){
-      this.$router.replace(`/watch/${ this.firstUnplayedVideo.id }`);
+      this.$router.replace(`/watch/${ this.firstUnplayedVideo.slug }`);
     },
     computed: {
       ...mapGetters({

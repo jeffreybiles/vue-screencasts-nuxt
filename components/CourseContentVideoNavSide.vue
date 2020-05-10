@@ -80,7 +80,7 @@
       },
       goToVideo(video){
         if(this.videoIsPublished(video)){
-          this.$router.push(`/watch/${video.id}`)
+          this.$router.push(`/watch/${video.slug}`)
         }
       },
       videoIsPublished(video){

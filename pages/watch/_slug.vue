@@ -120,7 +120,6 @@ import {CODE_SUMMARY_STATES} from "@/utils/consts";
 
 export default {
   middleware: 'load-videos-and-courses',
-
   data(){
     return {
       endingScreenOpen: false,
@@ -137,6 +136,13 @@ export default {
     VideoBlockModalUpcoming,
     VideoBlockModalPro,
   },
+  created() {
+    const onlyNumbers = /^\d+$/
+    if (onlyNumbers.test(this.$route.params.slug)) {
+      const video = this.videos.find(v => v.id == this.$route.params.slug)
+      this.$router.replace(`/watch/${video.slug}`)
+    }
+  },
   computed: {
     videoWillBeReleasedLater() {
       return this.video.published_at.getTime() > Date.now()
@@ -152,7 +158,7 @@ export default {
       videos: state => state.videos.videos,
     }),
     video(){
-      return this.videos.find(v => v.id == this.$route.params.id)
+      return this.videos.find(v => v.slug === this.$route.params.slug || v.id == this.$route.params.slug)
     },
     course(){
       let course = this.getCourse(this.video.course_id)
@@ -208,7 +214,7 @@ export default {
       this.$store.dispatch('user/markVideoPlayed', this.video.id)
     },
     goToVideo(video){
-      this.$router.push(`/watch/${video.id}`)
+      this.$router.push(`/watch/${video.slug}`)
     },
     goToChapter(chapter, firstOrLastVideo){
       let { sortedItems } = sortCourse(chapter, this.$store)
@@ -218,7 +224,7 @@ export default {
       } else {
         video = sortedItems[sortedItems.length - 1]
       }
-      this.$router.push(`/watch/${video.id}`)
+      this.$router.push(`/watch/${video.slug}`)
     },
     openAuthModal(){
 
@@ -258,7 +264,7 @@ export default {
         {hid: 'og-title', property: 'og:title', content: title},
         {hid: 'twitter-title', property: 'twitter:title', content: title},
         {hid: 'og-type', property: 'og:type', content: 'video.other'},
-        {hid: 'og-url', property: 'og:url', content: `https://www.vuescreencasts.com/watch/${this.video.id}`},
+        {hid: 'og-url', property: 'og:url', content: `https://www.vuescreencasts.com/watch/${this.video.slug}`},
         {hid: 'og-site-name', property: 'og:site_name', content: "VueScreencasts.com"},
         {property: 'og:video:url', content: video},
         {property: 'og:video:secure_url', content: video},

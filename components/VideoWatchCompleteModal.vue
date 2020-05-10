@@ -78,11 +78,11 @@
         }
       },
       goToNextVideo(){
-        this.$router.push(`/watch/${this.nextVideo.id}`);
+        this.$router.push(`/watch/${this.nextVideo.slug}`);
         this.close()
       },
       skip(){
-        // Maybe add feature where after clicking skip it doesn't 
+        // Maybe add feature where after clicking skip it doesn't
         this.goToNextVideo();
       },
       postAuthAction(){
