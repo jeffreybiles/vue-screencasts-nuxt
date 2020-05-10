@@ -9,6 +9,7 @@
 <script>
   import {mapGetters, mapState} from 'vuex'
   import VideoGrid from "~/components/VideoGrid";
+  import {DAY} from "~/utils/consts";
 
   export default {
     middleware: 'load-videos-and-courses',
@@ -52,7 +53,8 @@
             ...v,
             sortable_published_at: v.published_at && v.published_at.toISOString(),
             courseName,
-            order: Number(v.order)
+            order: Number(v.order),
+            isNew: v.published_at && (v.published_at.getTime() / DAY) < 8
           }
         })
       },

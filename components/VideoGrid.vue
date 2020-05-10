@@ -65,16 +65,16 @@
       },
       sortedFilteredVideos() {
         return this.filteredVideos.sort((a, b) => {
-          let weightA = 0
-          let weightB = 0
-          if (isInName(a, this.search)) weightA += 2
-          if (isInName(b, this.search)) weightB += 2
-          if (isInCourseName(a, this.search)) weightA += 1.5
-          if (isInCourseName(b, this.search)) weightB += 1.5
-          if (isInDescription(a, this.search)) weightA += 1
-          if (isInDescription(b, this.search)) weightB += 1
-          if (isInCodeSummary(a, this.search)) weightA += 0.5
-          if (isInCodeSummary(b, this.search)) weightB += 0.5
+          let weightA = b.isNew ? 4.9 : 0
+          let weightB = b.isNew <= 7 ? 4.9 : 0
+          if (isInName(a, this.search)) weightA += 20
+          if (isInName(b, this.search)) weightB += 20
+          if (isInCourseName(a, this.search)) weightA += 15
+          if (isInCourseName(b, this.search)) weightB += 15
+          if (isInDescription(a, this.search)) weightA += 10
+          if (isInDescription(b, this.search)) weightB += 10
+          if (isInCodeSummary(a, this.search)) weightA += 5
+          if (isInCodeSummary(b, this.search)) weightB += 5
           return weightA < weightB ? 1 : -1
         })
       },

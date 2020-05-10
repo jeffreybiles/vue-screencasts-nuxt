@@ -11,6 +11,10 @@
           <v-chip color="red" text-color="white">
             Video {{ video.order }}
           </v-chip>
+          <v-chip v-if="video.isNew" color="green" text-color="white">
+            <v-icon left>mdi-alert-decagram</v-icon>
+            New video
+          </v-chip>
         </div>
         <div class="subtitle" v-html="highlightSearchTerm(video.description)" />
       </div>
