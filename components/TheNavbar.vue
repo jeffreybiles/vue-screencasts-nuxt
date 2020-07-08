@@ -16,6 +16,14 @@
           class="hidden-sm-and-down">
       {{link.text}}
     </v-btn>
+    <a href="https://www.vuetraining.net/"  style="text-decoration: none;">
+      <v-btn class="hidden-sm-and-down">
+        VueTraining - Learn Vue in 8 weeks
+      </v-btn>
+      <v-btn class="hidden-md-and-up ml-2">
+        VueTraining
+      </v-btn>
+    </a>
     <v-spacer />
     <v-btn v-for="link in authLinks"
           :key="link.name"
