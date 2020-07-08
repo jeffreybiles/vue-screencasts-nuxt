@@ -16,7 +16,6 @@
           {{video.order}}
         </div>
         <div v-else>
-          <ProMarker :isFree="!video.pro" :video="video" />
           <span class="green--text" v-if="isPlayed(video.id)">
             <font-awesome-icon icon="check" />
           </span>
@@ -36,7 +35,6 @@
 <script>
   import DurationDisplay from '@/components/DurationDisplay.vue';
   import DateDisplay from '@/components/DateDisplay.vue';
-  import ProMarker from '@/components/ProMarker.vue';
   import { mapGetters } from 'vuex';
   import _ from 'lodash';
 
@@ -44,7 +42,6 @@
     components: {
       DurationDisplay,
       DateDisplay,
-      ProMarker,
     },
     computed: {
       ...mapGetters({

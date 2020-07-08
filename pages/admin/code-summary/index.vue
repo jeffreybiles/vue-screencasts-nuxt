@@ -49,7 +49,6 @@
       headers(){
         return [
           {text: 'Name', value: 'name'},
-          {text: 'Pro', value: 'pro', width: '70px'},
           {text: 'Date', value: 'sortable_published_at'},
           {text: 'Duration', value: 'duration'},
           {text: 'Course', value: 'courseName'}

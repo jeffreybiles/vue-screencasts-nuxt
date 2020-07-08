@@ -1,7 +1,6 @@
 <template>
   <div>
     <VideoBlockModalUpcoming v-if="videoWillBeReleasedLater" :releaseDate="video.published_at" :goToPrevious="goToPrevious" />
-    <VideoBlockModalPro v-else-if="video.pro && !canAccess" />
 
     <VideoWatch :video="video" :ended="ended" :autoplay="true" :sortedVideos="sortedVideos" :showSidebar="true" />
 
@@ -109,7 +108,6 @@ import VideoWatchCompleteModal from '@/components/VideoWatchCompleteModal.vue';
 import TestimonialsRow from '@/components/TestimonialsRow.vue';
 import ShortcutsDialog from "~/components/ShortcutsDialog";
 import VideoBlockModalUpcoming from "~/components/VideoBlockModalUpcoming";
-import VideoBlockModalPro from '@/components/VideoBlockModalPro.vue';
 
 import {courseDecorator, sortCourse, percentVideosComplete } from '../../utils/course-decorator';
 import socialProofJson from '@/utils/social-proof-data.json';
@@ -135,7 +133,6 @@ export default {
     VideoWatchCompleteModal,
     TestimonialsRow,
     VideoBlockModalUpcoming,
-    VideoBlockModalPro,
   },
   computed: {
     videoWillBeReleasedLater() {
@@ -180,10 +177,6 @@ export default {
 
     percentVideosComplete(){ return percentVideosComplete(this.course.videos, this.$store) },
 
-    canAccess(){
-      let user = this.$auth.user
-      return (this.video.in_free_period || user && user.pro) && !this.videoWillBeReleasedLater
-    },
     randomTestimonialIds(){
       let allTestimonials = socialProofJson.testimonials;
 

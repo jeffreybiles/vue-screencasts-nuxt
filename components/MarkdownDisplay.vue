@@ -1,5 +1,5 @@
 <template>
-    <div class="hljs-container" v-html="processedMarkdown"></div>
+  <div class="hljs-container" v-html="processedMarkdown"></div>
 </template>
 
 <script>

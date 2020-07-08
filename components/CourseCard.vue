@@ -26,23 +26,6 @@
               <div class="stripe grey darken-2">
                 <DifficultyBars :difficulty="course.difficulty" verbosity="medium" color="lightgreen" />
               </div>
-
-              <div class="stripe grey darken-1">
-                <span v-if="showFreeStatus">
-                  <span v-if="decoratedCourse.numProVideos == 0">
-                    100% Free!
-                  </span>
-                  <span v-else-if="isFreePeriod">
-                    Free Period (watch now)
-                  </span>
-                  <span v-else-if="decoratedCourse.numProVideos < decoratedCourse.numVideos">
-                    One free video!
-                  </span>
-                  <span v-else>
-                    Pro Course
-                  </span>
-                </span>
-              </div>
             </v-col>
           </v-row>
         </div>

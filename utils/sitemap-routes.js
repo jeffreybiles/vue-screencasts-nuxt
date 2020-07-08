@@ -36,7 +36,7 @@ let sitemapRoutes = async function(baseUrl) {
         thumbnail_loc: v.attributes.thumbnail || course.attributes.image_url || '',
         description: v.attributes.description || '',
         family_friendly: 'YES',
-        requires_subscription: v.attributes.pro ? 'YES' : 'NO',
+        requires_subscription: 'NO',
         duration: v.attributes.duration.toString()
       }]
     }

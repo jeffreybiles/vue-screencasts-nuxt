@@ -20,7 +20,6 @@
       return {
         headers: [
           {text: 'Played', value: 'played', sortable: false, width: "65px"},
-          {text: 'Status', value: 'pro', sortable: false, width: "75px"},
           {text: 'Name', value: 'name'},
           {text: 'Date', value: 'sortable_published_at'},
           {text: 'Duration', value: 'duration'},

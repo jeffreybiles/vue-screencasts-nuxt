@@ -6,13 +6,11 @@
          :class="['pa-3', 'video-row', 'white-text', video.id == selectedVideo.id ? 'active' : '', videoIsPublished(video) ? 'published' : 'upcoming']"
          @click="goToVideo(video)">
       <v-row class="pa-0 ma-0">
-        <v-col cols="12" md="8" class="py-0">
+        <v-col cols="12" md="9" class="py-0">
           <div class="subheader video-title">{{video.name}}</div>
-          <ProVideoFreePeriodCountdown :video="video" :selectedVideo="selectedVideo" />
         </v-col>
-        <v-col cols="12" md="4" class="py-0">
+        <v-col cols="12" md="3" class="py-0">
           <div v-if="videoIsPublished(video)">
-            <span class="icon-column"><ProMarker :isFree="!video.pro" :video="video" /></span>
             <span class="icon-column"><font-awesome-icon icon="check" v-if="isPlayed(video.id)" /></span>
             <DurationDisplay :duration="video.duration" />
           </div>
@@ -27,9 +25,7 @@
 
 <script>
   import { mapGetters } from 'vuex';
-  import ProMarker from '@/components/ProMarker.vue';
   import DurationDisplay from '@/components/DurationDisplay.vue';
-  import ProVideoFreePeriodCountdown from "~/components/ProVideoFreePeriodCountdown";
   import DateDisplay from "~/components/DateDisplay";
   export default {
     data(){
@@ -40,8 +36,6 @@
     },
     components: {
       DateDisplay,
-      ProVideoFreePeriodCountdown,
-      ProMarker,
       DurationDisplay
     },
     props: {
@@ -96,14 +90,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .pro-time-left {
-    font-size: 0.8em;
-  }
-  .video-row:hover, .video-row.active {
-    .pro-time-left {
-      color: #fff !important;
-    }
-  }
   .scroll-box {
     overflow-y: auto;
     background-color: #111;
