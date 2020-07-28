@@ -71,10 +71,6 @@
       CourseContentVideoRow
     },
     computed: {
-      ...mapGetters({
-        getCourse: 'courses/get',
-        getVideo: 'videos/get'
-      }),
       ...mapState({
         videos: state => state.videos.videos,
         courses: state => state.courses.courses

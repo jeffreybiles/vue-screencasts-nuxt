@@ -45,6 +45,8 @@
     computed: {
       ...mapState({
         videos: state => state.videos.videos,
+      }),
+      ...mapState({
         courses: state => state.courses.courses
       }),
       ...mapGetters({
