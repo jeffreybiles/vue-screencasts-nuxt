@@ -9,23 +9,16 @@
     <v-btn to="/" text>VueScreencasts</v-btn>
 
     <!-- Desktop menu -->
-    <v-btn v-for="link in navLinks"
+    <a v-for="link in navLinks"
           :key="link.name"
-          text 
-          :to="link.to"
-          class="hidden-sm-and-down">
-      {{link.text}}
-    </v-btn>
-    <v-spacer />
-    <v-btn v-for="link in authLinks"
-          :key="link.name"
+          :href="link.to" target="_blank">
+        <v-btn 
           text
-          right
-          :to="link.to"
-          class="hidden-sm-and-down"
-          @click="link.click ? link.click() : null">
-      {{link.text}}
-    </v-btn>
+          class="hidden-sm-and-down">
+        {{link.text}}
+      </v-btn>
+    </a>
+    <v-spacer />
 
     <!-- Mobile menu -->
     <v-menu>
@@ -41,10 +34,10 @@
       <v-list>
         <v-list-item v-for="link in mobileLinks" 
                      :key="link.text"
-                     :to="link.to"
-                     text
-                     @click="link.click ? link.click() : null">
-          <v-list-item-title>{{ link.text }}</v-list-item-title>
+                     text>
+          <a :href="link.to" target="_blank">
+            <v-list-item-title>{{ link.text }}</v-list-item-title>
+          </a>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -55,32 +48,32 @@
   export default {
     computed: {
       navLinks(){
-        let user = this.$auth.user
+        // let user = this.$auth.user
         let links = [
-          {text: "Courses", to: "/courses"},
-          {text: "Archive", to: "/videos"},
+          {text: "View on YouTube", to: "https://www.youtube.com/playlist?list=PLPwpWyfm6JADRf8x1Jc0Da8R71WJyt-Jn"},
+          {text: "Hire Jeffrey", to: "https://www.jeffreybiles.com/consulting"},
         ]
-        if(user && user.admin) {
-          links.push({text: "Admin", to: "/admin/videos"})
-        }
+        // if(user && user.admin) {
+        //   links.push({text: "Admin", to: "/admin/videos"})
+        // }
         return links;
       },
 
-      authLinks(){
-        if(this.$auth.loggedIn){
-          return [
-            {text: this.$auth.user.email, to: "/account"},
-            {text: "Logout", click: () => {this.$auth.logout()}}
-          ]
-        } else {
-          return [
-            {text: "Login/Register", to: "/auth"},
-          ]
-        }
-      },
+      // authLinks(){
+      //   if(this.$auth.loggedIn){
+      //     return [
+      //       {text: this.$auth.user.email, to: "/account"},
+      //       {text: "Logout", click: () => {this.$auth.logout()}}
+      //     ]
+      //   } else {
+      //     return [
+      //       {text: "Login/Register", to: "/auth"},
+      //     ]
+      //   }
+      // },
 
       mobileLinks(){
-        return this.navLinks.concat(this.authLinks)
+        return this.navLinks //.concat(this.authLinks)
       }
     }
   }
@@ -93,5 +86,9 @@
     margin-right: 5px;
     margin-top: 5px;
     display: inline-block;
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>

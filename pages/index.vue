@@ -6,7 +6,9 @@
         <h1>VueScreencasts.com</h1>
         <h3>Concise Screencasts for Working Developers</h3>
 
-        <v-btn to="/courses" x-large color="green accent-2">Watch 200+ Videos</v-btn>
+        <a href="https://www.youtube.com/playlist?list=PLPwpWyfm6JADRf8x1Jc0Da8R71WJyt-Jn">
+          <v-btn x-large color="green accent-2">Watch on YouTube</v-btn>
+        </a>
       </div>
       <div class="col-sm-4 d-sm-block d-none center-md">
         <img src="~assets/vuescreencasts-student-learning-3.png" class="img-responsive bottom-image" alt="Happy Vue Programmer">
@@ -194,6 +196,10 @@ $primary: $blue;
   }
     
   
+}
+
+a {
+  text-decoration: none;
 }
 
 </style>
