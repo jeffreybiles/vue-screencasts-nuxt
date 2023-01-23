@@ -11,30 +11,13 @@
         <v-spacer />
         
         <div class="icons">
-          <a href="https://twitter.com/VueScreencasts" target="_blank">
+          <a href="https://twitter.com/jeffreybiles" target="_blank">
             <font-awesome-icon :icon="['fab', 'twitter']" />
           </a>
           &nbsp;
           <a href="https://www.youtube.com/channel/UCJasK7cAgRz1RGMJCoRLXXQ/" target="_blank">
             <font-awesome-icon :icon="['fab', 'youtube']" />
           </a>
-          &nbsp;
-          <a href="https://www.instagram.com/vue_training/" target="_blank">
-            <font-awesome-icon :icon="['fab', 'instagram']" />
-          </a>
-          &nbsp;
-          <a href="https://www.facebook.com/VueTrainingnet-115924840200999" target="_blank">
-            <font-awesome-icon :icon="['fab', 'facebook']" />
-          </a>
-          &nbsp;
-          <a href="https://www.linkedin.com/company/vuetraining/" target="_blank">
-            <font-awesome-icon :icon="['fab', 'linkedin']" />
-          </a>
-          &nbsp;
-          <a href="https://dev.to/vuetraining" target="_blank">
-            <font-awesome-icon :icon="['fab', 'dev']" />
-          </a>
-
         </div>
         
         <v-spacer />
