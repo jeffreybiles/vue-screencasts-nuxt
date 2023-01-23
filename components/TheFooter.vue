@@ -22,7 +22,7 @@
         
         <v-spacer />
         
-        <nuxt-link to="/policies/terms-and-conditions">Terms and Conditions</nuxt-link>
+        <nuxt-link to="/policies/terms-and-conditions">Terms & Conditions</nuxt-link>
         <nuxt-link to="/policies/privacy-policy">Privacy Policy</nuxt-link>
         <a href="mailto:jeffrey@vuescreencasts.com" target="_blank">Contact Me</a>
         <!-- <nuxt-link to="policies">View All Policies</nuxt-link> -->
