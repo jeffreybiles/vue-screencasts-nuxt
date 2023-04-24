@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nuxt-link :to="`/courses/${course.id}`">      
-      <v-card hover>
+    <nuxt-link :to="`/courses/${course.id}`" data-cy="course-link">
+      <v-card hover data-cy="course-card">
         <div class="pl-0 course-card grey darken-2">
           <v-row>
             <v-col cols="8" class="pb-0 pt-0 pr-0">

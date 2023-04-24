@@ -19,4 +19,14 @@ $ yarn start
 $ yarn generate
 ```
 
+## Cypress
+
+Tests are found in `~/cypress/integration`
+
+- Install dependencies and cypress: `yarn` and `cypress install`
+- Start local server: `yarn dev` or `yarn build && yarn start`
+- Start cypress: `yarn cypress open`
+- Run tests
+
+
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
